@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.jobofferbtn1 {
+	width: 33%;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	float: left;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.row:last-child {
+	margin: 0 7% 0 7%;
+}
+
+#team {
+	background-color: white;
+}
+
+.jobofferlist {
+	float: left;
+	margin: 0 13% 0 13%;
+}
+
+
+.bodymargin {
+	margin: 0 10% 0 10%;
+}
+
+hr{
+	border: solid 1px gray;
+	width:700pt;
+}
+
+.selectlist{
+	float:right;
+}

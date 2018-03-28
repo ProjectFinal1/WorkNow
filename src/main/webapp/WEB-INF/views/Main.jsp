@@ -46,7 +46,7 @@
 							<a class="page-scroll" href="">로그인</a>
 						</li>
 						<li>
-							<a class="page-scroll" href="">구인</a>
+							<a class="page-scroll" href="joboffer.of">구인</a>
 						</li>
 						<li>
 							<a class="page-scroll" href="">구직</a>
@@ -174,7 +174,7 @@
 						      			</select>
 						      			
 						      			<br><br>
-						      			<a href="#" class="search_adress" id="search_adress">
+						      			<a href="#" class="testt" id="search_adress">
 						      			<img src="resources/images/search.png" width="10%"></a>	      			
 						      			</td>
 						      			
@@ -416,7 +416,7 @@
 		
 		
 		<section id="team" class="light-bg">
-			<div class="container">
+			<div class="container">		
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div class="section-title">
@@ -498,6 +498,7 @@
 					<!-- end team member item -->
 				</div>
 			</div>
+	
 		</section>
 		
 		<p id="back-top">

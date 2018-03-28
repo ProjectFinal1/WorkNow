@@ -38,5 +38,14 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "joboffer.of", method = RequestMethod.GET)
+	public String joboffer(Locale locale, Model model) {
+	
+		System.out.println("오리지널");
+		
+		
+		return "/joboffer/jobofferView";
+	}
+	
 	
 }
