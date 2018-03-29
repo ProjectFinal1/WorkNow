@@ -46,7 +46,7 @@
 							<a class="page-scroll" href="">로그인</a>
 						</li>
 						<li>
-							<a class="page-scroll" href="">구인</a>
+							<a class="page-scroll" href="jobofferView.jo">구인</a>
 						</li>
 						<li>
 							<a class="page-scroll" href="">구직</a>
@@ -93,80 +93,80 @@
 						      				<option value="seoul">서울</option><option value="gyeonggi">경기</option>
 						      				<option value="incheon">인천</option><option value="gangwon">강원</option> 
 						      				<option value="daejeon">대전</option><option value="sejong">세종</option>
-						      				<option value="chungcheongnam">충남</option> <option value="">충북</option><option value="">부산</option>
-						      				<option value="">울산</option> <option value="">경남</option>	<option value="">경북</option>
-						      				<option value="">대구</option> <option value="">광주</option>	<option value="">전남</option>
-						      				<option value="">전북</option> <option value="">제주</option>	<option value="">전국</option>
+						      				<option value="chungcheongnam">충남</option> <option value="chungbug">충북</option><option value="busan">부산</option>
+						      				<option value="ulsan">울산</option> <option value="gyeongnam">경남</option>	<option value="gyeongbug">경북</option>
+						      				<option value="daegu">대구</option> <option value="gwangju">광주</option>	<option value="jeonnam">전남</option>
+						      				<option value="jeonbug">전북</option> <option value="jeju">제주</option>	<option value="jeongug">전국</option>
 						      			</select>
 						      			
 						      			<select id="seoul" class="sel_adress2">
-						      				<option value="">서울전체</option> <option value="">강남구</option> <option value="">강동구</option>
-						      				<option value="">강북구</option> <option value="">강서구</option> <option value="">관악구</option>
-						      				<option value="">광진구</option> <option value="">구로구</option> <option value="">금천구</option>
-						      				<option value="">노원구</option> <option value="">도봉구</option> <option value="">동대문구</option>
-						      				<option value="">동작구</option> <option value="">마포구</option> <option value="">서대문구</option>
-						      				<option value="">서초구</option> <option value="">성동구</option> <option value="">성북구</option>
+						      				<option value="seoul_all">서울전체</option> <option value="">강남구</option> <option value="">강동구</option>
+						      				<option value="gangbug">강북구</option> <option value="">강서구</option> <option value="">관악구</option>
+						      				<option value="gwangjin">광진구</option> <option value="">구로구</option> <option value="">금천구</option>
+						      				<option value="nowon">노원구</option> <option value="">도봉구</option> <option value="">동대문구</option>
+						      				<option value="dongjag">동작구</option> <option value="">마포구</option> <option value="">서대문구</option>
+						      				<option value="seocho">서초구</option> <option value="">성동구</option> <option value="">성북구</option>
 						      				<option value="">송파구</option> <option value="">양천구</option> <option value="">영등포구</option>
 						      				<option value="">용산구</option> <option value="">은평구</option> <option value="">종로구</option>
 						      				<option value="">중구</option> <option value="">중랑구</option>
 						      			</select>
 						      			
 						      			<select id="gyeonggi" style="display:none;" class="sel_adress2">
-						      				<option value="">경기전체</option> <option value="">가평군</option> <option value="">고양시 덕양구</option>
-						      				<option value="">고양시 일산동구</option> <option value="">고양시 일산서구</option> <option value="">과천시</option>
-						      				<option value="">광명시</option> <option value="">광주시</option> <option value="">구리시</option>
-						      				<option value="">군포시</option> <option value="">김포시</option> <option value="">남양주시</option>
-						      				<option value="">동두천시</option> <option value="">부천시</option> <option value="">성남시 분당구</option>
-						      				<option value="">성남시 수정구</option> <option value="">성남시 중원구</option> <option value="">수원시 권선구</option>
-						      				<option value="">수원시 영통구</option> <option value="">수원시 장안구</option> <option value="">수원시 팔달구</option>
-						      				<option value="">시흥시</option> <option value="">안산시 단원구</option> <option value="">안산시 상록구</option>
-						      				<option value="">안성시</option> <option value="">안양시 동안구</option>	<option value="">안양시 만안구</option> 
-						      				<option value="">양주시</option> <option value="">양평군</option> <option value="">여주시</option>
-						      				<option value="">연천군</option> <option value="">오산시</option> <option value="">용인시 기흥구</option> 
-						      				<option value="">용인시 수지구</option> <option value="">용인시 처인구</option>
-						      				<option value="">의왕시</option> <option value="">의정부시</option> <option value="">이천시</option>
-						      				<option value="">파주시</option> <option value="">평택시</option> <option value="">포천시</option>
-						      				<option value="">하남시</option> <option value="">화성시</option>						      				
+						      				<option value="gyeonggi_all">경기전체</option> <option value="gapyeong">가평군</option> <option value="deogyang">고양시 덕양구</option>
+						      				<option value="ilsandong">고양시 일산동구</option> <option value="ilsanseo">고양시 일산서구</option> <option value="gwacheon">과천시</option>
+						      				<option value="guang">광명시</option> <option value="gwang">광주시</option> <option value="guri">구리시</option>
+						      				<option value="gunpo">군포시</option> <option value="kimpo">김포시</option> <option value="namyangjuju">남양주시</option>
+						      				<option value="dongducheon">동두천시</option> <option value="bucheon">부천시</option> <option value="bundang">성남시 분당구</option>
+						      				<option value="sujeong">성남시 수정구</option> <option value="jungwon">성남시 중원구</option> <option value="gwonseong">수원시 권선구</option>
+						      				<option value="youngtong">수원시 영통구</option> <option value="changan">수원시 장안구</option> <option value="paldal">수원시 팔달구</option>
+						      				<option value="siheung">시흥시</option> <option value="danwon">안산시 단원구</option> <option value="sanglog">안산시 상록구</option>
+						      				<option value="anseong">안성시</option> <option value="dongan">안양시 동안구</option>	<option value="manan">안양시 만안구</option> 
+						      				<option value="yangju">양주시</option> <option value="yangpyeong">양평군</option> <option value="yeoju">여주시</option>
+						      				<option value="yeoncheon">연천군</option> <option value="osan">오산시</option> <option value="giheung">용인시 기흥구</option> 
+						      				<option value="suji">용인시 수지구</option> <option value="cheoin">용인시 처인구</option>
+						      				<option value="uiwang">의왕시</option> <option value="uijeongbu">의정부시</option> <option value="icheon">이천시</option>
+						      				<option value="paju">파주시</option> <option value="pyeongtaeg">평택시</option> <option value="pocheon">포천시</option>
+						      				<option value="hanam">하남시</option> <option value="hwaseong">화성시</option>						      				
 						      			</select>
 						      			
 						      			
 						      			<select id="incheon" style="display:none;" class="sel_adress2">	
-						      				<option>인천전체</option>					      				
-								      		<option value="">계양구</option><option value="">남구 </option><option value="">남동구</option>  
-											<option value="">동구 </option><option value="">부평구</option><option value="">서구 </option>  
-											<option value="">연수구</option><option value="">중구 </option><option value="">강화군</option>  
-											<option value="">옹진군</option>  
+						      				<option value="incheon_all">인천전체</option>					      				
+								      		<option value="gyeyang">계양구</option><option value="incheon_namgu">남구 </option><option value="incheon_namdong">남동구</option>  
+											<option value="incheon_dong">동구 </option><option value="bupyeong">부평구</option><option value="incheon_seo">서구 </option>  
+											<option value="yeonsu">연수구</option><option value="incheon_jung">중구 </option><option value="ganghwa">강화군</option>  
+											<option value="ongjin">옹진군</option>  
 						      			</select>
 						      			
 						      			
 						      			<select id="gangwon" style="display:none;" class="sel_adress2">		
-						      				<option>강원전체</option>				      				
-								      		<option value="">원주시</option><option value="">동해시</option><option value="">삼척시</option>
-											<option value="">속초시</option><option value="">강릉시</option><option value="">춘천시</option>
-											<option value="">태백시</option><option value="">양양군</option><option value="">철원군</option>
-											<option value="">횡성군</option><option value="">화천군</option><option value="">홍천군</option>
-											<option value="">인제군</option><option value="">정선군</option><option value="">양구군</option>
-											<option value="">영월군</option><option value="">평창군</option><option value="">고성군</option>
+						      				<option value="gangwon_all">강원전체</option>				      				
+								      		<option value="wonju">원주시</option><option value="donghae">동해시</option><option value="samcheog">삼척시</option>
+											<option value="sogcho">속초시</option><option value="gangleung">강릉시</option><option value="chuncheon">춘천시</option>
+											<option value="taebaeg">태백시</option><option value="yangyang">양양군</option><option value="cheolwon">철원군</option>
+											<option value="hoengseong">횡성군</option><option value="hwacheon">화천군</option><option value="hongcheon">홍천군</option>
+											<option value="inje">인제군</option><option value="jeongseon">정선군</option><option value="yanggu">양구군</option>
+											<option value="yeongwol">영월군</option><option value="pyeongchang">평창군</option><option value="goseong">고성군</option>
 						      			</select>
 						      			
 						      			
 						      			<select id="daejeon" style="display:none;" class="sel_adress2">		
-						      				<option>대전전체</option>				      				
-								      		<option value="">대덕구</option>
-											<option value="">동구 </option>
-											<option value="">서구 </option>
-											<option value="">유성구</option>
-											<option value="">중구 </option>
+						      				<option value="daejeon_all">대전전체</option>				      				
+								      		<option value="daedeog">대덕구</option>
+											<option value="daejeon_dong">동구 </option>
+											<option value="daejeon_seo">서구 </option>
+											<option value="yuseong">유성구</option>
+											<option value="daejeon_jung">중구 </option>
 						      			</select>
 						      			
 						      			<select id="sejong" style="display:none;" class="sel_adress2">	
-						      				<option>세종전체</option>					      				
+						      				<option value="sejong_all">세종전체</option>					      				
 								      		<option>세종시</option>
 						      			</select>
 						      			
 						      			
 						      			<select id="chungcheongnam" style="display:none;" class="sel_adress2">
-											<option>충남전체</option>
+											<option value="chungcheongnam_all">충남전체</option>
 						      				<option>아산시</option><option>서산시</option><option>천안시</option><option>공주시</option>	
 											<option>보령시</option><option>논산시</option><option>계룡시</option><option>당진군</option>	
 											<option>부여군</option><option>예산군</option><option>태안군</option	><option>연기군</option>	

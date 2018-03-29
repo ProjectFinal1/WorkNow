@@ -50,32 +50,49 @@ $(document).ready(function(){
 	
 	// 주소로 알바찾기 돋보기 클릭
 	$(".search_adress").click(function(){
+			
+		
 			$(".search_all").hide();
 			$(".search_result").css("visibility", "visible"); 
 			
-			//데이터를 서버에 전송하여 결과를 문자열로 받는 방식
-			//$.get()				
-			$.get("test2.do",{
-				userid : "user01",
-				passwd : "pass01"					
-			}, function(data){
-				$('#p2').text(data);
-			});	
-		
-			//$.ajax()		
-			$.ajax({
-				url : "test2.do",
-				data : {
-					userid : "user01",
-					passwd : "pass01",
-				},
-				type : "GET",
-				success : function(data){
-					var str = $('#p2').text();
-					$('#p2').text(str + ", " + data);
-				}
-			});		
+			var adress1 = $('#sel_adress1').val();
+			var adrees2 = "";
 			
+			if(adress1 == "gyeonggi")
+				adress2 = $('#gyeonggi').val();
+			
+			if(adress1 == "seoul")
+				adress2 = $('#seoul').val();
+			
+			if(adress1 == "incheon")
+				adress2 = $('#incheon').val();
+			
+			if(adress1 == "gangwon")
+				adress2 = $('#gangwon').val();
+			
+			if(adress1 == "daejeon")
+				adress2 = $('#daejeon').val();
+			
+			if(adress1 == "sejong")
+				adress2 = $('#sejong').val();
+			
+			if(adress1 == "chungcheongnam")
+				adress2 = $('#chungcheongnam').val();
+			
+			
+			
+			$.ajax({
+			    url : "search_adress.ma",
+			    type : "GET",
+			    data : {adress1 : adress1,
+			    		adress2 : adress2},
+			    success : function() {
+			        alert("성공!!!!");
+			    },
+			    error : function(jqXHR, textStatus, errorThrown) {
+			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+			    }
+			});
 			
 	});
 	
