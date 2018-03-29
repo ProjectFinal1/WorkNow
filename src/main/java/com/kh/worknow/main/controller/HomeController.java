@@ -13,7 +13,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 	
-		System.out.println("메인 접속");
+		System.out.println("메인 마스터");
 		
 		
 		return "Main";
