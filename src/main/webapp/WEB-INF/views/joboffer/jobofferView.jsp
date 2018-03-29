@@ -62,6 +62,7 @@
 			<!-- /.container-fluid -->
 		</nav>
 
+
 		<br> <br> <br> <br> <br>
 
 		<section id="team" class="light-bg">
@@ -113,13 +114,17 @@
 
 		<div>
 
+
 			<table align="center" width="71%" border="1">
+
+			
 
 				<tr height="40px" class="kategorie1">
 					<th class="main_th main_tab2">거주지</th>
 					<th class="main_th main_tab2">근무 요일</th>
 					<th class="main_th main_tab2">근무 시간</th>
 				</tr>
+
 
 				<tr height="100px" class="kategorie2">
 					<td>
@@ -289,11 +294,13 @@
 
 					<td>
 					<a href="#" data-toggle="modal"
+
 						data-target="#show_kategorie" class="main_tab2">월~금</a> <a
 						href="#" data-toggle="modal" data-target="#show_kategorie"
 						class="main_tab2">토일</a> <a href="#" data-toggle="modal"
 						data-target="#show_kategorie" class="main_tab2">오전</a> <a href="#"
 						data-toggle="modal" data-target="#show_kategorie"
+
 						class="main_tab2">오후</a>
 					</td>
 					<td>
@@ -302,6 +309,8 @@
 						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">12시 ~ 18시</a><br>
 						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">18시 ~ 24시</a>				
 					</td>
+
+
 				</tr>
 			</table>
 		</div>
@@ -315,6 +324,7 @@
 				<option>정렬선택</option>
 			</select>
 		</div>
+
 		
 		<br>
 		<br>

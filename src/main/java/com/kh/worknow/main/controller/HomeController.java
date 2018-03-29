@@ -25,9 +25,9 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 	
-		System.out.println("메인 접속");
-		
-		
+
+		System.out.println("메인들어가기");
+
 		return "Main";
 	}
 	
@@ -48,6 +48,15 @@ public class HomeController {
 		System.out.println("주소 검색 실행");
 		
 		
+	}
+	
+	@RequestMapping(value = "joboffer.of", method = RequestMethod.GET)
+	public String joboffer(Locale locale, Model model) {
+	
+		System.out.println("오리지널");
+		
+		
+		return "/joboffer/jobofferView";
 	}
 	
 	
