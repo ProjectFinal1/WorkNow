@@ -49,8 +49,8 @@ $(document).ready(function(){
 	});
 	
 	// 주소로 알바찾기 돋보기 클릭
-	$(".search_adress").click(function(){
-			
+	$("#search_adress").click(function(){
+			alert("ㅇㅋ");
 		
 			$(".search_all").hide();
 			$(".search_result").css("visibility", "visible"); 
