@@ -120,7 +120,7 @@
 			
 
 				<tr height="40px" class="kategorie1">
-					<th class="main_th main_tab2">근무 기간</th>
+					<th class="main_th main_tab2">거주지</th>
 					<th class="main_th main_tab2">근무 요일</th>
 					<th class="main_th main_tab2">근무 시간</th>
 				</tr>
@@ -135,18 +135,18 @@
 							<option value="gangwon">강원</option>
 							<option value="daejeon">대전</option>
 							<option value="sejong">세종</option>
-							<option value="chungcheongnam">충남</option>
-							<option value="">충북</option>
-							<option value="">부산</option>
-							<option value="">울산</option>
-							<option value="">경남</option>
-							<option value="">경북</option>
-							<option value="">대구</option>
-							<option value="">광주</option>
-							<option value="">전남</option>
-							<option value="">전북</option>
-							<option value="">제주</option>
-							<option value="">전국</option>
+							<option value="chungnam">충남</option>
+							<option value="chungbook">충북</option>
+							<option value="pusan">부산</option>
+							<option value="ulsan">울산</option>
+							<option value="gyeongnam">경남</option>
+							<option value="gyeongbook">경북</option>
+							<option value="daegu">대구</option>
+							<option value="gwangju">광주</option>
+							<option value="geonnam">전남</option>
+							<option value="geonbook">전북</option>
+							<option value="jeju">제주</option>
+							<option value="all">전국</option>
 					</select> 
 					<select id="seoul" class="sel_adress2">
 							<option value="">서울전체</option>
