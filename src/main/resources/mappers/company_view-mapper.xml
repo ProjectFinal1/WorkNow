@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Company_View">
+	
+	<resultMap id="resultCompany" type="Company_View">
+		<id property="MEMBER_ID" column="MEMBER_ID" />
+  		<result property="MEMBER_TYPE" column="MEMBER_TYPE"/>
+  		<result property="MEMBER_NAME" column="MEMBER_NAME"/>
+  		<result property="MEMBER_PHONE" column="MEMBER_PHONE"/>
+  		<result property="MEMBER_EMAIL" column="MEMBER_EMAIL"/>
+  		<result property="COM_NUMBER" column="COM_NUMBER"/>
+  		<result property="COM_NAME" column="COM_NAME"/>
+  		<result property="COM_ADDRESS" column="COM_ADDRESS"/>
+  		<result property="COM_CEO" column="COM_CEO"/>
+  		<result property="COM_PHONE" column="COM_PHONE"/>
+  		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
+	</resultMap>
+
+	<select id="getCompanyId" resultType="_int"> 
+		SELECT COUNT(*) FROM MEMBER_INFO
+	</select>
+	
+	
+</mapper>

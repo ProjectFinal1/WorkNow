@@ -59,7 +59,6 @@ public class BoardController {
 			System.out.println(json.toJSONString());
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
-
 			out.print(json.toJSONString());
 			out.flush();
 			out.close();
