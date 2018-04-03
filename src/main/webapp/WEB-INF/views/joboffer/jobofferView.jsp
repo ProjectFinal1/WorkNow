@@ -13,8 +13,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Sanza - Onepage Multipurpose Bootstrap HTML by
-	MOOZThemes.com</title>
+<title>WorkNow - 구인하기</title>
 <!-- Bootstrap core CSS -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -25,50 +24,14 @@
 <link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/main.css" rel="stylesheet">
 <link href="resources/css/joboffer.css" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="resources/js/joboffer.js"></script>
 </head>
-<body id="page-top">
-	<div class="bodymargin">
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<!-- Navigation -->
-		<nav class="navbar navbar-default header_main sujung">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand page-scroll" href="#page-top"><img
-						src="resources/images/logo.png" alt="Sanza theme logo"></a>
-				</div>
+<body id="page-top" style="background-color:#EEEEEE;">
+<jsp:include page="/WEB-INF/views/header/header.jsp" />
+<div style="margin:10% 19% 0 19%;text-align:center;">
 
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="hidden"><a href="#page-top"></a></li>
-						<li><a class="page-scroll" href="#about">소개</a></li>
-						<li><a class="page-scroll" href="">로그인</a></li>
-						<li><a class="page-scroll" href="joboffer.of">구인</a></li>
-						<li><a class="page-scroll" href="">구직</a></li>
-						<li><a class="page-scroll" href="blist.do">커뮤니티</a></li>
-						<li><a class="page-scroll" href="">고객센터</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-
-		<section id="team" class="light-bg">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
@@ -82,8 +45,8 @@
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-2.jpg"
-									class="img-responsive" alt="author">
+								<a href="jobofferView.jo"> <img src="resources/images/demo/job-offer.png"
+									class="img-responsive" alt="jobs" style="background-color:lightblue;width:100%;">
 								</a>
 							</div>
 						</div>
@@ -93,8 +56,9 @@
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-6.jpg"
-									class="img-responsive" alt="author">
+							
+								<a href="#"> <img src="resources/images/demo/orderlist.png"
+									class="img-responsive" alt="author" style="background-color:lightblue;width:100%;">
 								</a>
 							</div>
 
@@ -113,59 +77,11 @@
 					</div>
 				</div>
 			</div>
-		</section>
-
-		<div>
-			
-			<table align="center" width="71%" border="1">
-			
-				<tr height="40px" class="kategorie1">
-					<th class="main_th main_tab2">근무 기간</th>
-					<th class="main_th main_tab2">근무 요일</th>
-					<th class="main_th main_tab2">근무 시간</th>
-				</tr>
-				
-					
-				
-				<tr height="200px" class="kategorie2">
-					<td><a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">강원도</a> <a
-						href="#" data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">서울시</a> <a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">수원시</a> <a
-						href="#" data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">평택시</a></td>
-
-					<td><a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">편의점 해봄</a> <a
-						href="#" data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">카페</a> <a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">술집</a> <a href="#"
-						data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">노래방ㅋ</a></td>
-
-					<td><a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">월~금</a> <a
-						href="#" data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">토일</a> <a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">오전</a> <a href="#"
-						data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">오후</a></td>
-				</tr>
-			</table>
-		</div>
-
-		<div class="jobofferlist">
-			<h2>구직자 리스트</h2>
-			<hr>
-			<select class="selectlist">
-				<option>정렬선택</option>
-				<option>이름</option>
-				<option>정렬선택</option>
-			</select>
-		</div>
 
 
-	</div>
+
+
+
+</div>
 </body>
 </html>

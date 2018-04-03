@@ -18,7 +18,7 @@
   		<result property="boardReplySeq" column="BOARD_REPLY_SEQ"/>
   		<result property="boardReadCount" column="BOARD_READCOUNT"/>
 	</resultMap>
-	
+
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM BOARD
 	</select>
