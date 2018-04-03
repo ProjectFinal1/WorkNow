@@ -7,9 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+
+
 </head>
 <body>
+<div style="margin-top:5%">
 		<nav class="navbar navbar-default header_main sujung"> 
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -34,7 +37,7 @@
 						
 						<!-- 메인에서만 소개버튼이 뜨도록 조절하는 JSTL문 - 2018 04 02 작성 -->
 						<c:set var="currentURL" value="${pageContext.request.requestURL}"/>								
-						<c:if test="${currentURL eq 'http://localhost:8080/worknow/WEB-INF/views/Main.jsp'}">					
+						<c:if test="${currentURL eq 'http://localhost:8088/worknow/WEB-INF/views/Main.jsp'}">					
 						<li>
 							<a class="page-scroll" href="#about">소개</a>
 						</li>
@@ -62,5 +65,6 @@
 			</div>
 			<!-- /.container-fluid -->
 		</nav>
+		</div>
 </body>
 </html>
