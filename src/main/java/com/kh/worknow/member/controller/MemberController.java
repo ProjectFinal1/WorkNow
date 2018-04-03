@@ -26,7 +26,7 @@ public class MemberController {
 	public String home1(Locale locale, Model model) {
 	
 		System.out.println("회원가입 접속");
-		
+		//테스트
 		
 		return "/member/signupView";
 	}
