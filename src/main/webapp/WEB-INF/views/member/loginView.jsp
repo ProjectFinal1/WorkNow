@@ -73,56 +73,67 @@
             <a href="http://www.jquery2dotnet.com">
             <i class="glyphicon glyphicon-globe"></i>
             </a> 개인회원가입</legend>
-            <form action="#" method="post" class="form" role="form">
-            <div class="row">
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="firstname" placeholder="First Name" type="text"
-                        required autofocus />
-                </div>
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />                </div>
-            </div>
-            <input class="form-control" name="youremail" placeholder="Your Email" type="email" />
-            <input class="form-control" name="reenteremail" placeholder="Re-enter Email" type="email" />
-			<div class="row">	
-				<div class='col-xs-12' id='thepwddiv'></div>
-				
-				<script  type="text/javascript" >
-				var pwdwidget = new PasswordWidget('thepwddiv','regpwd');
-				pwdwidget.MakePWDWidget();
-				</script>				
-				
-				<noscript>
-				<div><input class="form-control" type='password'  name='regpwd' /></div>		
-				</noscript>
-			</div>
+            <form action="#" method="post" class="form" role="form">            
+            <input class="form-control" name="member_id" placeholder="아이디" />
+            <input class="form-control" name="member_pass" placeholder="패스워드"/>
+            <input class="form-control" name="member_name" placeholder="이름" type="email" />
+            <input class="form-control" name="member_phone" placeholder="연락처" type="tel" />
+            <input class="form-control" name="member_email" placeholder="이메일" type="email" />
+            <input class="form-control" name="per_talk" placeholder="소개(100자 이내)"/>
             <label for="">
                 Birth Date</label>
             <div class="row">
+            <div class="col-xs-4 col-md-4">
+                    <select class="form-control">
+                        <option value="Year">Year</option>                        
+                        <!-- 수정필요 -->                        
+                        <% for (int i=1999; i<=2018; i++ ) {%>
+                        <option value="<%=i%>"><%=i %></option>                        
+                        <%} %>
+                    </select>
+                </div>
                 <div class="col-xs-4 col-md-4">
                     <select class="form-control">
                         <option value="Month">Month</option>
+                        <!-- 수정필요 -->                     
+                        <% for (int j=1; j<=12; j++ ) {%>
+                        <option value="<%=j%>"><%=j %></option>                                                
+                        <%} %>
                     </select>
                 </div>
                 <div class="col-xs-4 col-md-4">
                     <select class="form-control">
                         <option value="Day">Day</option>
+                        <% for (int k=1; k<=31; k++ ) {%>
+                        <option value="<%=k%>"><%=k %></option>                                                
+                        <%} %> 
                     </select>
                 </div>
-                <div class="col-xs-4 col-md-4">
-                    <select class="form-control">
-                        <option value="Year">Year</option>
-                    </select>
-                </div>
+                
             </div>
-            <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
-                Male
+            <input class="form-control" name="per_address" placeholder="주소" type="search" />
+                        <label class="radio-inline">
+                <input type="radio" name="sex" id="1" value="male" />
+                			남자
             </label>
             <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
-                Female
+                <input type="radio" name="sex" id="2" value="female" />
+            					여자
             </label>
+            <input class="form-control" name="per_photo" placeholder="프로필 사진" type="file" />
+            <input class="form-control" name="reenteremail" placeholder="Re-enter Email" type="email" />
+            
+            
+			<div class="row">	
+				<div class='col-xs-12' id='thepwddiv'></div>		
+				
+				
+				<noscript>
+				<div><input class="form-control" type='password'  name='regpwd' /></div>		
+				</noscript>
+			</div>
+            
+
             <br />
             <br />
             <button class="btn btn-lg btn-primary btn-block" type="submit">
@@ -158,12 +169,6 @@
 				<div class='col-xs-12' id='thepwddiv'></div>
 				
 				
-				<script  type="text/javascript" >
-				var pwdwidget = new PasswordWidget('thepwddiv','regpwd');
-				pwdwidget.MakePWDWidget();
-				</script>
-				
-				
 				<noscript>
 				<div><input class="form-control" type='password'  name='regpwd' /></div>		
 				</noscript>
@@ -188,11 +193,11 @@
                 </div>
             </div>
             <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
+                <input type="radio" name="sex" id="3" value="male" />
                 Male
             </label>
             <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
+                <input type="radio" name="sex" id="4" value="female" />
                 Female
             </label>
             <br />
