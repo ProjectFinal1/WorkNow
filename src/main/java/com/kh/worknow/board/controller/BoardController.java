@@ -307,7 +307,8 @@ public class BoardController {
 			return mv;
 		}
 		
-		
+	
+	
 		
 		@RequestMapping("btest.do")
 		public ModelAndView btest(ModelAndView mv) {
