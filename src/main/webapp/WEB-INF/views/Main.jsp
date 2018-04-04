@@ -17,7 +17,7 @@
 		<link href="resources/css/style.css" rel="stylesheet">
 		<link href="resources/css/main.css" rel="stylesheet">
 		
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 	</head>
 	<body id="page-top">

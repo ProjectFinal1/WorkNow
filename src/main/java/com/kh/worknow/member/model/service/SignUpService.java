@@ -1,20 +1,12 @@
 package com.kh.worknow.member.model.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.kh.worknow.member.model.vo.Member;
+import com.kh.worknow.member.model.vo.Personal_Info;
 
-import com.kh.worknow.member.model.dao.SignUpDao;
+public interface SignUpService {	
 
-@Service("signupservice")
-public class SignUpService {
+	public int insertMember(Member member);
 	
-	@Autowired
-	SignUpDao signupdao;	
-	
-	public int signUp() {		
-		
-		
-		return signupdao.signUp();
-	}
+	public int insertPerInfo(Personal_Info pInfo);
 	
 }

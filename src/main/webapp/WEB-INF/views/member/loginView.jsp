@@ -35,7 +35,7 @@ margin:1% 0 2% 0;
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 
 <script>
 	function makeModal() {
@@ -112,7 +112,9 @@ margin:1% 0 2% 0;
 				</legend>
 				<form action="signup.si" method="post" class="form" role="form">
 					<label>프로필 사진</label>
-					<input class="form-control" name="per_photo" type="file" style="text-align:center;"/>
+					
+					<!-- 수정필요 -->
+					<input class="form-control" name="perPhoto" type="text" style="text-align:center;"/>
 
 					<script>
 						function idCheck() {
@@ -147,22 +149,27 @@ margin:1% 0 2% 0;
 						};
 					</script>
      				
-					<input id="id" onKeyUp="idCheck();" class="form-control" name="member_id" placeholder="아이디" style="width:60%;display:inline" required/>			
+					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>			
+					
+					<!-- 수정필요 -->
+					<input name="perId" value="iamtest" style="display:none"/>
+					
+								
 					<span id="result" style="display:block;"></span>
 					
-					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="member_pass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
+					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
 					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:22%;display:inline" required/>
 					<span id="passResult"></span>
-					<input class="form-control" name="member_name" placeholder="이름" required/> 
+					<input class="form-control" name="memberName" placeholder="이름" required/> 
 					<div style="text-align:center;">
 						<label>생년월일</label>						
-						<input class="form-control"	name="member_date" type="date" style="width: 40%; display: inline" required/>
+						<input class="form-control"	name="perAge" type="text" style="width: 40%; display: inline" required/>
 					<label> 성 별</label>
 					<label class="radio-inline"> 
-						<input type="radio" name="sex" id="1" value="male" required/> 남자
+						<input type="radio" name="perSex" id="1" value="남" required/> 남자
 					</label>
 					<label class="radio-inline">
-						<input type="radio"	name="sex" id="2" value="female" required/> 여자
+						<input type="radio"	name="perSex" id="2" value="여" required/> 여자
 					</label>
 					</div>
 					
@@ -171,7 +178,7 @@ margin:1% 0 2% 0;
 					<input class="form-control" type="text" id="sample2_postcode" placeholder="우편번호" style="width:60%;display:inline;" required />
 					<input type="button" value="우편번호 찾기"/><br>
 					</span>
-					<input class="form-control" type="text" id="sample2_address" placeholder="한글주소" required/>					
+					<input class="form-control" name="perAddress" type="text" id="sample2_address" placeholder="한글주소" required/>					
 
 					<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
 					<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
@@ -250,12 +257,12 @@ margin:1% 0 2% 0;
 					    }
 					</script>
 					
-					<input class="form-control" name="member_phone"	placeholder="연락처" type="tel" required/>
+					<input class="form-control" name="memberPhone"	placeholder="연락처" type="tel" required/>
 					
-					<input class="form-control" name="member_email" placeholder="이메일" type="email" required/>
+					<input class="form-control" name="memberEmail" placeholder="이메일" type="email" required/>
 					
 					
-					<textarea class="form-control" name="per_talk" placeholder="소개(100자 이내)" rows='4' style="resize: none;"></textarea>
+					<textarea class="form-control" name="perTalk" placeholder="소개(100자 이내)" rows='4' style="resize: none;"></textarea>
 
 					<div class="row">
 						<div class='col-xs-12' id='thepwddiv'></div>

@@ -1,18 +1,11 @@
 package com.kh.worknow.member.model.dao;
 
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import com.kh.worknow.member.model.vo.Member;
+import com.kh.worknow.member.model.vo.Personal_Info;
 
-@Repository("signupdao")
-public class SignUpDao {
+public interface SignUpDao {
 	
-	@Autowired
-	private SqlSessionTemplate sqlSession;
-	
-	public int signUp() {
-				
-		return sqlSession.selectOne("Member.signup");
-	}
-	
+	public int insertMember(Member member);
+
+	public int insertPerInfo(Personal_Info pInfo);
 }
