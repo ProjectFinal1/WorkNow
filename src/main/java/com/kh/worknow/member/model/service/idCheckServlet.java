@@ -13,6 +13,7 @@ public class idCheckServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
+		
 		PrintWriter out = response.getWriter();
 
 		if (id.length() < 4) {

@@ -110,7 +110,7 @@ margin:1% 0 2% 0;
 						class="glyphicon glyphicon-globe"></i>
 					</a> 개인회원가입
 				</legend>
-				<form action="#" method="post" class="form" role="form">
+				<form action="signup.si" method="post" class="form" role="form">
 					<label>프로필 사진</label>
 					<input class="form-control" name="per_photo" type="file" style="text-align:center;"/>
 

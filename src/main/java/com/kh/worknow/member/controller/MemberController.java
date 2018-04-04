@@ -1,30 +1,32 @@
 package com.kh.worknow.member.controller;
  
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.worknow.main.model.service.SearchService;
+import com.kh.worknow.member.model.service.SignUpService;
 
 @Controller
 public class MemberController {
 	
 	@Autowired
-	private SearchService sService;
+	private SignUpService signupservice;
 	
-	@RequestMapping(value = "signup.si", method = RequestMethod.GET)
-	public String home1(Locale locale, Model model) {
+	@RequestMapping(value = "signup.si", method = RequestMethod.POST)
+	public String signup(HttpServletRequest request, HttpServletResponse response) {
 	
+		 String id =request.getParameter("member_id");
+		 
+		 System.out.println("testDB = " + signupservice.signUp());
+		 
+		 
+		 
+//		 String pass = request.getParameter(arg0)
+		 System.out.println(id);
 		System.out.println("회원가입 접속");
 		//테스트
 		
