@@ -35,6 +35,6 @@ public interface Job_BoardDao {
 		public Job_Board jboard_addrserach();
 		
 		//구직 검색했을 시 아이디 가져오기
-		public int getCompanyId();
+		public Company_View getCompanyId();
 		
 }

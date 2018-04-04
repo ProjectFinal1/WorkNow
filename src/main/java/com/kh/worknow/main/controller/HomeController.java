@@ -26,8 +26,7 @@ public class HomeController {
 	private Job_BoardServiceImpl jbService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-	
+	public String home(Locale locale, Model model) {	
 
 		System.out.println("메인들어가기");
 
@@ -71,10 +70,12 @@ public class HomeController {
 		String address2 = request.getParameter("address2");
 		
 		
-		
+		//주소로 검색했을 때 결과 가져오기
 		Job_Board db = jbService.jboard_addrserach();
-		int cv = jbService.getCompanyId();
-		System.out.println("CV = " + cv);
+		
+		//주소로 검색했을 때 그 회사 정보 가져오기
+		Company_View cv = jbService.getCompanyId();
+		System.out.println("CV = " + cv.getCOM_ADDRESS());
 		
 		System.out.println("address1 = " + address1 + ", address2 = " + address2);
 	    System.out.println(db.getJOB_CONTENT());
