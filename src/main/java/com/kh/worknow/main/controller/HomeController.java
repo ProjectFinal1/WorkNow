@@ -1,6 +1,6 @@
 package com.kh.worknow.main.controller;
  
-import java.util.HashMap;
+import java.util.HashMap; 
 import java.util.Locale;
 import java.util.Map;
 
@@ -23,23 +23,12 @@ public class HomeController {
 	private SearchService sService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home1(Locale locale, Model model) {
 	
-		System.out.println("메인 접속");
+		System.out.println("메인에 접속");
 		
 		
 		return "Main";
-	}
-	
-
-	
-	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
-	public String jobofferView(Locale locale, Model model) {
-	
-		System.out.println("구인 페이지");
-		
-		
-		return "/joboffer/jobofferView";
 	}
 	
 	@RequestMapping(value = "search_adress.ma2", method = RequestMethod.GET)
@@ -54,7 +43,6 @@ public class HomeController {
 	@RequestMapping(value = "search_adress.ma")
 	public void outputJsonList(HttpServletRequest request, HttpServletResponse response) {
 	   
-		
 		String adress1 = request.getParameter("adress1");
 		String adress2 = request.getParameter("adress2");
 		

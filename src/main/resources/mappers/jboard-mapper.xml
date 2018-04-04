@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jboard">
+
+	<resultMap id="resultJBoard" type="Job_Board">
+		<id property="JOB_ID" column="BOARD_NUM" />
+  		<result property="JOB_LEVEL" column="JOB_LEVEL"/>
+  		<result property="JOB_TYPE" column="JOB_TYPE"/>
+  		<result property="JOB_PHOTO" column="JOB_PHOTO"/>
+  		<result property="JOB_VALUE" column="JOB_VALUE"/>
+  		<result property="JOB_VALUETYPE" column="JOB_VALUETYPE"/>
+  		<result property="JOB_STARTTIME" column="JOB_STARTTIME"/>
+  		<result property="JOB_ENDTIME" column="JOB_ENDTIME"/>
+  		<result property="JOB_STARTDAY" column="JOB_STARTDAY"/>
+  		<result property="JOB_ENDDAY" column="JOB_ENDDAY"/>
+  		<result property="JOB_CONTENT" column="JOB_CONTENT"/>
+  		<result property="JOB_KEY" column="JOB_KEY"/>
+  		<result property="JOB_ENDDATE" column="JOB_ENDDATE"/>
+  		<result property="JOB_MAX_NUM" column="JOB_MAX_NUM"/>
+  		<result property="JOB_CURRENT_NUM" column="JOB_CURRENT_NUM"/>
+  		<result property="JOB_PUBLIC" column="JOB_PUBLIC"/>
+  		<result property="JOB_DATE" column="JOB_DATE"/>
+	</resultMap>
+	
+	
+	<select id="addserach" resultMap="resultJBoard">
+		SELECT * FROM JOB_BOARD
+	</select>
+	
+	
+</mapper>

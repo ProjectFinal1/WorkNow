@@ -16,53 +16,15 @@
 		<link href="resources/css/owl.theme.default.min.css"  rel="stylesheet">
 		<link href="resources/css/style.css" rel="stylesheet">
 		<link href="resources/css/main.css" rel="stylesheet">
+		
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
 	</head>
 	<body id="page-top">
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<jsp:include page="/WEB-INF/views/header/header.jsp" />
+	
 		<!-- Navigation -->
-		<nav class="navbar navbar-default header_main sujung"> 
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand page-scroll" href="#page-top"><img src="resources/images/logo.png" alt="Sanza theme logo"></a>
-				</div>
-				
-				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="hidden">
-							<a href="#page-top"></a>
-						</li>
-						<li>
-							<a class="page-scroll" href="#about">소개</a>
-						</li>
-						<li>
-							<a class="page-scroll" href="">로그인</a>
-						</li>
-						<li>
-							<a class="page-scroll" href="jobofferView.jo">구인</a>
-						</li>
-						<li>
-							<a class="page-scroll" href="">구직</a>
-						</li>
-						<li>
-							<a class="page-scroll" href="blist.do">커뮤니티</a>
-						</li>
-						<li>
-							<a class="page-scroll" href="">고객센터</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
+	
 		<!-- Header -->
 		<header> 
 			<div class="container">
@@ -71,9 +33,6 @@
 						<div class="intro-lead-in">Welcome To WorkNow</div>
 						<div class="intro-heading">원하는 알바 선택해</div>
 						<hr>
-						
-							
-					
 
 						<br><br> 
 						
@@ -93,7 +52,7 @@
 						      				<option value="seoul">서울</option><option value="gyeonggi">경기</option>
 						      				<option value="incheon">인천</option><option value="gangwon">강원</option> 
 						      				<option value="daejeon">대전</option><option value="sejong">세종</option>
-						      				<option value="chungcheongnam">충남</option> <option value="chungbug">충북</option><option value="busan">부산</option>
+						      				<option value="chungnam">충남</option> <option value="chungbug">충북</option><option value="busan">부산</option>
 						      				<option value="ulsan">울산</option> <option value="gyeongnam">경남</option>	<option value="gyeongbug">경북</option>
 						      				<option value="daegu">대구</option> <option value="gwangju">광주</option>	<option value="jeonnam">전남</option>
 						      				<option value="jeonbug">전북</option> <option value="jeju">제주</option>	<option value="jeongug">전국</option>
@@ -500,6 +459,10 @@
 			</div>
 		</section>
 		
+		
+		
+		
+		
 		<p id="back-top">
 			<a href="#top"><i class="fa fa-angle-up"></i></a>
 		</p>
@@ -648,5 +611,7 @@
 		<script src="resources/js/SmoothScroll.min.js"></script>
 		<script src="resources/js/mooz.themes.scripts.js"></script>
 		<script src="resources/js/main.js"></script>
+		
+		
 	</body>
 </html>

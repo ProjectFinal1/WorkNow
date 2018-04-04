@@ -13,8 +13,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Sanza - Onepage Multipurpose Bootstrap HTML by
-	MOOZThemes.com</title>
+<title>WorkNow - 구인하기</title>
 <!-- Bootstrap core CSS -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -25,44 +24,15 @@
 <link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/main.css" rel="stylesheet">
 <link href="resources/css/joboffer.css" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="resources/js/joboffer.js"></script>
 </head>
 <body id="page-top">
 	<div class="bodymargin">
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<!-- Navigation -->
-		<nav class="navbar navbar-default header_main sujung">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand page-scroll" href="#page-top"><img
-						src="resources/images/logo.png" alt="Sanza theme logo"></a>
-				</div>
+<jsp:include page="/WEB-INF/views/header/header.jsp" />
 
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="hidden"><a href="#page-top"></a></li>
-						<li><a class="page-scroll" href="#about">소개</a></li>
-						<li><a class="page-scroll" href="">로그인</a></li>
-						<li><a class="page-scroll" href="joboffer.of">구인</a></li>
-						<li><a class="page-scroll" href="">구직</a></li>
-						<li><a class="page-scroll" href="blist.do">커뮤니티</a></li>
-						<li><a class="page-scroll" href="">고객센터</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
-		<br> <br> <br> <br> <br>
 
 		<section id="team" class="light-bg">
 			<div class="container">
@@ -74,35 +44,38 @@
 					</div>
 				</div>
 				<div class="row">
+				<!-- 1 -->
 					<!-- team member item -->
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-2.jpg"
-									class="img-responsive" alt="author">
+								<a href="jobofferView.jo" > <img src="resources/images/demo/job-offer.png" 
+									class="img-responsive" alt="author" width="75%">
 								</a>
 							</div>
 						</div>
 					</div>
+					<!-- 2 -->
 					<!-- end team member item -->
 					<!-- team member item -->
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-6.jpg"
-									class="img-responsive" alt="author">
+								<a href="receive.re"> <img src="resources/images/demo/orderlist.png" 
+									class="img-responsive" alt="author" width="75%">
 								</a>
 							</div>
 
 						</div>
 					</div>
+					<!-- 3 -->
 					<!-- end team member item -->
 					<!-- team member item -->
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-4.jpg"
-									class="img-responsive" alt="author">
+								<a href="announcement.an"> <img src="resources/images/demo/notepad.png"
+									class="img-responsive" alt="author" width="75%">
 								</a>
 							</div>
 						</div>
@@ -113,10 +86,10 @@
 
 		<div>
 
-			<table align="center" width="71%" border="1">
+			<table align="center" width="71%" border="1" cellspacing="0">
 
 				<tr height="40px" class="kategorie1">
-					<th class="main_th main_tab2">거주지</th>
+					<th class="main_th main_tab2">근무 기간</th>
 					<th class="main_th main_tab2">근무 요일</th>
 					<th class="main_th main_tab2">근무 시간</th>
 				</tr>
@@ -130,18 +103,18 @@
 							<option value="gangwon">강원</option>
 							<option value="daejeon">대전</option>
 							<option value="sejong">세종</option>
-							<option value="chungnam">충남</option>
-							<option value="chungbook">충북</option>
-							<option value="pusan">부산</option>
-							<option value="ulsan">울산</option>
-							<option value="gyeongnam">경남</option>
-							<option value="gyeongbook">경북</option>
-							<option value="daegu">대구</option>
-							<option value="gwangju">광주</option>
-							<option value="geonnam">전남</option>
-							<option value="geonbook">전북</option>
-							<option value="jeju">제주</option>
-							<option value="all">전국</option>
+							<option value="chungcheongnam">충남</option>
+							<option value="">충북</option>
+							<option value="">부산</option>
+							<option value="">울산</option>
+							<option value="">경남</option>
+							<option value="">경북</option>
+							<option value="">대구</option>
+							<option value="">광주</option>
+							<option value="">전남</option>
+							<option value="">전북</option>
+							<option value="">제주</option>
+							<option value="">전국</option>
 					</select> 
 					<select id="seoul" class="sel_adress2">
 							<option value="">서울전체</option>
@@ -288,19 +261,28 @@
 
 
 					<td>
-					<a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">월~금</a> <a
-						href="#" data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">토일</a> <a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">오전</a> <a href="#"
-						data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">오후</a>
+					<div class="day">
+						<input type="checkbox" name="day1" value="day1">월~금
+						<input type="checkbox" name="day2" value="day2">월~토
+						<input type="checkbox" name="day3" value="day3">월~일<br>
+						<input type="checkbox" name="day4" value="day4">월~토(격주)
+						<input type="checkbox" name="day5" value="day5">주말<br>
+						<input type="checkbox" name="day6" value="day6">요일협의
+					</div>
 					</td>
 					<td>
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">00시 ~ 06시</a><br>
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">6시 ~ 12시</a><br>	
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">12시 ~ 18시</a><br>
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">18시 ~ 24시</a>				
+					<div class="time">
+						<input type="checkbox" name="time1" value="time1">오전
+						<input type="checkbox" name="time2" value="time2">오전~오후
+						<input type="checkbox" name="time3" value="time3">종일 <br>
+						<input type="checkbox" name="time4" value="time4">오후
+						<input type="checkbox" name="time5" value="time5">오후~저녁
+						<input type="checkbox" name="time6" value="time6">시간협의 <br>
+						<input type="checkbox" name="time7" value="time7">저녁
+						<input type="checkbox" name="time8" value="time8">저녁~새벽 <br>
+						<input type="checkbox" name="time9" value="time9">새벽
+						<input type="checkbox" name="time10" value="time10">새벽~오전	
+					</div>	                                            
 					</td>
 				</tr>
 			</table>
@@ -312,30 +294,13 @@
 			<select class="selectlist">
 				<option>정렬선택</option>
 				<option>이름</option>
-				<option>정렬선택</option>
+				<option>나이</option>
 			</select>
 		</div>
 		
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<div class="img1">
+			<img src="resources/images/demo/다운로드.jpg">
+		</div>	
 	</div>
 </body>
 </html>
