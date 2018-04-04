@@ -69,7 +69,7 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 		return sqlSession.selectOne("jboard.addserach");
 	}
 	
-	public int getCompanyId() {
+	public Company_View getCompanyId() {
 		return sqlSession.selectOne("jboard.getCompanyId");
 	}
 }

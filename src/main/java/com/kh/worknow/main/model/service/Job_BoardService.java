@@ -35,6 +35,6 @@ public interface Job_BoardService {
 	public String jboard_addrserach();
 	
 	//주소로 검색시 회사 아이디로 정보 가져오기
-	public int getCompanyId();
+	public Company_View getCompanyId();
 	
 }

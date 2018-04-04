@@ -68,7 +68,7 @@ public class Job_BoardServiceImpl implements Job_BoardDao {
 		return job_boardDao.jboard_addrserach();
 	}
 	
-	public int getCompanyId() {
+	public Company_View getCompanyId() {
 		return job_boardDao.getCompanyId();
 	}
 
