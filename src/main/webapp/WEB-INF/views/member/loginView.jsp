@@ -150,8 +150,8 @@ margin:1% 0 2% 0;
 					<input id="id" onKeyUp="idCheck();" class="form-control" name="member_id" placeholder="아이디" style="width:60%;display:inline" required/>			
 					<span id="result" style="display:block;"></span>
 					
-					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="member_pass" placeholder="패스워드" type="password" style="width:17%;display:inline;" required/>
-					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:17%;display:inline" required/>
+					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="member_pass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
+					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:22%;display:inline" required/>
 					<span id="passResult"></span>
 					<input class="form-control" name="member_name" placeholder="이름" required/> 
 					<div style="text-align:center;">
