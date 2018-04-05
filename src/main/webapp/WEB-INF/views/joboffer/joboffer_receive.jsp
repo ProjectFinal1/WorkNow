@@ -3,6 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="listCount" value="${requestScope.listCount}"/>
+<c:set var="currentPage" value="${requestScope.currentPage}"/>
+<c:set var="startPage" value="${requestScope.startPage}"/>
+<c:set var="endPage" value="${requestScope.endPage}"/>
+<c:set var="maxPage" value="${requestScope.maxPage}"/>
+<c:set var="list" value="${requestScope.list}"/>
+<c:set var="member" value="${sessionScope.member}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -86,26 +95,85 @@
 		<div class="jobofferlist">
 			<h2>받은 신청 목록</h2>
 			<hr>
-			<select class="selectlist">
-				<option>정렬선택</option>
-				<option>이름</option>
-				<option>나이</option>
-			</select>
+
+	<c:forEach var="resume" items="${list}"><!-- 반복문 시작 -->
+				
+				<div style="margin: 0 20% 0 0">
+
+					<table style="width: 100%; table-layout:fixed" >
+						<tr>
+							<td rowspan="2">
+								<%--회원사진 --%>
+								<p>
+									<img src="resources/images/demo/다운로드.jpg" style="width: 80px;">
+								</p>
+							</td>
+							
+							<td style="width: 70%; display: inline; float: left;">
+								<%-- 제목 --%>
+								<h5>제목 쓰는곳</h5>
+							</td>
+						</tr>
+
+						<tr>
+							<td style="width: 70%; display: inline; float: left;">
+						<%--
+								-내용-
+								나이 성별 이름 폰번호
+						--%> 		 
+					 ${resume.resumeContent}
+
+							</td>
+							<td>
+							<input type="button" value="수락"> 
+							<input type="button" value="거절">
+							</td>
+							
+						</tr>
+
+					</table>
+				</div>
+			</c:forEach><!-- 반복문 종료 -->
+			
+			
 		</div>
-		<% for(int i=0; i< 3; i++){
-			%>
-		<div style="margin:0 20% 0 20%">
-			<table style="width:100%">
-			<tr>
-			<td rowspan="2"><img src="resources/images/demo/다운로드.jpg"	style="width: 80px;"> </td>
-			<td> 		<input type="text" placeholder="제목들어감" style="width: 100%; display: inline;"></td>			
-			</tr>
-			<tr>
-			<td><input type="text" placeholder="내용들 들어감" style="width: 100%;">	</td>
-			</tr>
-			</table>
-		</div>
-		<% } %>
-	</div>
+		
+	
+
+<table>
+<tr align="center" height="20">
+<td colspan="6">
+	<c:if test="${currentPage <= 1}">
+		[이전] &nbsp;
+	</c:if><c:if test="${currentPage > 1}">
+	<c:url var="receivelist_ST" value="/receive.re">
+		<c:param name="page" value="${currentPage-1}"/>
+	</c:url>
+		<a href="${receivelist_ST}">[이전]</a> &nbsp;
+	</c:if>
+	<!-- 페이지 숫자 보여주기 -->
+	<c:forEach var="p" begin="${startPage}" end="${endPage}">
+	<c:if test="${p eq currentPage}">
+	<font color="red" size="4"><b>[${p}]</b></font>
+	</c:if><c:if test="${p ne currentPage}">
+	<c:url var="receivelist_chk" value="/receive.re">
+		<c:param name="page" value="${p}"/>
+	</c:url>
+		<a href="${receivelist_chk}">${p}</a>
+	</c:if>
+	</c:forEach>
+	<c:if test="${currentPage >= maxPage}">
+		[다음]
+	</c:if><c:if test="${currentPage < maxPage}">
+	<c:url var="receivelist_END" value="/receive.re">
+		<c:param name="page" value="${currentPage+1}"/>
+	</c:url>
+		<a href="${receivelist_END}">[다음]</a>
+	</c:if>
+</td>
+</tr>
+</table>
+
+
 </body>
 </html>

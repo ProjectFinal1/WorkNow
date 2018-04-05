@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Resume">
+	<resultMap id="resultResume" type="Resume">
+		<id property="resumeId" 	   column="RESUME_ID" />
+  		<result property="resumeLevel"  column="RESUME_LEVEL"/>
+  		<result property="resumeType"  column="RESUME_TYPE"/>
+  		<result property="resumeStarttime" column="RESUME_STARTTIME"/>
+  		<result property="resumeEndtime" column="RESUME_ENDTIME"/>
+  		<result property="resumeStartDay"  column="RESUME_STARTDAY"/>
+  		<result property="resumeEndday"  column="RESUME_ENDDAY"/>
+  		<result property="resumeContent" column="RESUME_CONTENT"/> 
+  		<result property="resumeEnddate" column="RESUME_ENDDATE"/> 
+  		<result property="resumePublic" column="RESUME_PUBLIC"/>  		
+	</resultMap>
+	
+	<select id="getListCount" resultType="_int">
+ 		SELECT COUNT(*) FROM RESUME_BOARD
+  	</select>
+  	
+  	<select id="selectList" resultMap="resultResume">		
+		SELECT * FROM RESUME_BOARD
+	</select>
+</mapper>

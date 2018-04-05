@@ -25,8 +25,7 @@ import com.kh.worknow.board.model.vo.Board;
 
 
 @Controller
-public class BoardController {
-	
+public class BoardController {	
 
 		@Autowired
 		private BoardService bService;

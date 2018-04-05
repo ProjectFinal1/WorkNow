@@ -3,8 +3,7 @@ package com.kh.worknow.board.model.vo;
 import java.sql.Date;
 
 public class Board {
-private static final long serialVersionUID = 3000000L;
-	
+private static final long serialVersionUID = 3000000L;	
 	private int boardNum;
 	private String boardTitle;
 	private String boardWriter;
@@ -17,6 +16,7 @@ private static final long serialVersionUID = 3000000L;
 	private int boardReplyRef;
 	private int boardReplySeq;
 	private int boardReadCount;
+	
 	
 	public Board(){}		
 
