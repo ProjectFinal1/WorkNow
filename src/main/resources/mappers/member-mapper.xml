@@ -11,7 +11,7 @@
   		<result property="memberEmail" column="MEMBER_EMAIL"/>
   		<result property="memberType"  column="MEMBER_TYPE"/>
   		<result property="memberDate"  column="MEMBER_DATE"/>
-  		<result property="memberBlack" column="MEMBER_BLACK"/>  	
+  		<result property="memberBlack" column="MEMBER_BLACK"/> 
 	</resultMap>
 	
 	<insert id="insertMember" parameterType="Member">

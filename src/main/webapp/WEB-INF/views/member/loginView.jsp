@@ -113,8 +113,8 @@ margin:1% 0 2% 0;
 				<form action="signup.si" method="post" class="form" role="form">
 					<label>프로필 사진</label>
 					
-					<!-- 수정필요 -->
-					<input class="form-control" name="perPhoto" type="text" style="text-align:center;"/>
+					
+					<input class="form-control" name="file" type="file" style="text-align:center;"/>
 
 					<script>
 						function idCheck() {
@@ -149,7 +149,19 @@ margin:1% 0 2% 0;
 						};
 					</script>
      				
-					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>			
+					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
+					<script>
+						// 하나 입력 시 동시에 입력되게 한다.
+						$("#id").keydown(function() {
+							$('#PersonalId').val($(this).val());
+						});
+						// 마지막에 입력 시 입력되게 한다.
+						$("#id").change(function() {
+							$('#PersonalId').val($(this).val());
+						});
+					</script>
+					
+					<input id="PersonalId" type="text" name="perId" style="display:none;">
 												
 					<span id="result" style="display:block;"></span>
 					
@@ -158,9 +170,9 @@ margin:1% 0 2% 0;
 					<span id="passResult"></span>
 					<input class="form-control" name="memberName" placeholder="이름" required/> 
 					<div style="text-align:center;">
-						<label>생년월일</label>						
+						<label>나이 : </label>						
 						<input class="form-control"	name="perAge" type="text" style="width: 40%; display: inline" required/>
-					<label> 성 별</label>
+					<label> 성 별 : </label>
 					<label class="radio-inline"> 
 						<input type="radio" name="perSex" id="1" value="남" required/> 남자
 					</label>

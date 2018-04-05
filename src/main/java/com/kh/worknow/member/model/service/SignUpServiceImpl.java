@@ -27,5 +27,7 @@ public class SignUpServiceImpl implements SignUpService {
 
 		return signupDao.insertPerInfo(pInfo);
 	}
+	
+		
 
 }

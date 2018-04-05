@@ -14,17 +14,16 @@ public class SignUpDaoImpl implements SignUpDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	@Override	
-	public int insertMember(Member member) {	
-		// 1과 2로 나눠 수행하고
-		// 둘 중 하나라도 실행 안되면 return 0
+	
+	@Override
+	public int insertMember(Member member) {
 		
 		return sqlSession.insert("Member.insertMember", member);
 	}
 
 	@Override
 	public int insertPerInfo(Personal_Info pInfo) {
-
+		
 		return sqlSession.insert("Personal.insertPerInfo", pInfo);
 	}
 
