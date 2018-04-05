@@ -1,6 +1,7 @@
 package com.kh.worknow.main.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.simple.JSONObject;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -69,7 +70,7 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 		return sqlSession.selectOne("jboard.addserach");
 	}
 	
-	public Company_View getCompanyId() {
-		return sqlSession.selectOne("jboard.getCompanyId");
+	public Company_View getCompanyId(HashMap address) {
+		return sqlSession.selectOne("jboard.getCompanyId", address);
 	}
 }

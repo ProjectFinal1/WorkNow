@@ -2,7 +2,11 @@ package com.kh.worknow.main.controller;
  
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -65,19 +69,24 @@ public class HomeController {
 	@RequestMapping(value = "search_address.ma")
 	public void outputJsonList(HttpServletRequest request, HttpServletResponse response) throws IOException{
 	   
+						
+		String address1 = request.getParameter("address1");	// 주소선택 첫번째 select 값을 가져옴
+		String address2 = request.getParameter("address2"); // 주소선택 두번째 select 값을 가져옴
 		
-		String address1 = request.getParameter("address1");
-		String address2 = request.getParameter("address2");
+		
+		HashMap addressMap = new HashMap();
+		addressMap.put("address1", "address1");
+		addressMap.put("address2", "address2");
 		
 		
-		//주소로 검색했을 때 결과 가져오기
+		//주소로 검색했을 때 그 주소에 해당하는 회사 정보 가져오기
+		Company_View cv = jbService.getCompanyId(addressMap);
+		String comId = cv.getMEMBER_ID(); // view 데이터를 가져오기 위해 검색한 회사의 member_id를 가져옴
+		
+		//member_id로 구직정보 가져오기
 		Job_Board db = jbService.jboard_addrserach();
-		
-		//주소로 검색했을 때 그 회사 정보 가져오기
-		Company_View cv = jbService.getCompanyId();
-		System.out.println("CV = " + cv.getCOM_ADDRESS());
-		
-		System.out.println("address1 = " + address1 + ", address2 = " + address2);
+
+
 	    System.out.println(db.getJOB_CONTENT());
 	    System.out.println(db.getJOB_CURRENT_NUM());
 	    System.out.println(db.getJOB_SUBJECT());
@@ -89,6 +98,14 @@ public class HomeController {
 		obj.put("JOB_VALUE", db.getJOB_VALUE());
 		obj.put("JOB_CONTENT", db.getJOB_CONTENT());
 		obj.put("CURRENT_NUM", db.getJOB_CURRENT_NUM());
+		
+
+		String startday = new SimpleDateFormat("yyyy-MM-dd").format(db.getJOB_STARTDAY());
+		String endday = new SimpleDateFormat("yyyy-MM-dd").format(db.getJOB_ENDDAY());
+		
+		obj.put("COM_ADDRESS", cv.getCOM_ADDRESS());	//회사 주소
+		obj.put("startday", startday);	//알바 시작 날
+		obj.put("endday", endday);		//알바 끝나는 날
 		
 		// contentType : text/html ; char = UTF-8
 		// --> application/json; charset=UTF-8

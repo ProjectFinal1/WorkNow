@@ -12,37 +12,37 @@ $(document).ready(function(){
 	
 	// 주소 선택 했을 시 두번째 주소 선택칸 내용 변경 메소드
 	$('#sel_address1').change(function(){
-		if($(this).val() == "gyeonggi"){
+		if($(this).val() == "경기"){
 			$(".sel_address2").hide();
 			$("#gyeonggi").show();
 		}
 		
-		if($(this).val() == "seoul"){
+		if($(this).val() == "서울"){
 			$(".sel_address2").hide();
 			$("#seoul").show();
 		}
 		
-		if($(this).val() == "incheon"){
+		if($(this).val() == "인천"){
 			$(".sel_address2").hide();
 			$("#incheon").show();
 		}
 		
-		if($(this).val() == "gangwon"){
+		if($(this).val() == "강원"){
 			$(".sel_address2").hide();
 			$("#gangwon").show();
 		}
 		
-		if($(this).val() == "daejeon"){
+		if($(this).val() == "대전"){
 			$(".sel_address2").hide();
 			$("#daejeon").show();
 		}
 		
-		if($(this).val() == "sejong"){
+		if($(this).val() == "세종"){
 			$(".sel_address2").hide();
 			$("#sejong").show();
 		}
 		
-		if($(this).val() == "chungcheongnam"){
+		if($(this).val() == "충남"){
 			$(".sel_address2").hide();
 			$("#chungcheongnam").show();
 		}		
@@ -57,25 +57,25 @@ $(document).ready(function(){
 			var address1 = $('#sel_address1').val();
 			var adrees2 = "";
 			
-			if(address1 == "gyeonggi")
+			if(address1 == "경기")
 				address2 = $('#gyeonggi').val();
 			
-			if(address1 == "seoul")
+			if(address1 == "서울")
 				address2 = $('#seoul').val();
 			
-			if(address1 == "incheon")
+			if(address1 == "인천")
 				address2 = $('#incheon').val();
 			
-			if(address1 == "gangwon")
+			if(address1 == "강원")
 				address2 = $('#gangwon').val();
 			
-			if(address1 == "daejeon")
+			if(address1 == "대전")
 				address2 = $('#daejeon').val();
 			
-			if(address1 == "sejong")
+			if(address1 == "세종")
 				address2 = $('#sejong').val();
 			
-			if(address1 == "chungcheongnam")
+			if(address1 == "충남")
 				address2 = $('#chungcheongnam').val();
 			
 			
@@ -89,7 +89,8 @@ $(document).ready(function(){
 			    success : function(jboard) {
 			    	$('.addr_result1').html(jboard.JOB_SUBJECT + "<br><br>");
 			    	$('.addr_result1').css("color","white").css("font-size","15px");
-			    	$('.addr_result2').html("근무시간 : 협의<br>" + "시급: " + jboard.JOB_VALUE+"원<br>" + "위치 : 다른DB");
+			    	$('.addr_result2').html(jboard.startday + " ~ " + jboard.endday 
+			    			+ "<br>시급: " + jboard.JOB_VALUE+"원<br>" + "위치 : " + jboard.COM_ADDRESS);
 			        $('.addr_result2').css("color","white").css("font-size","12px");
 			        
 			        $('#detail_sub1').html(jboard.JOB_SUBJECT);
