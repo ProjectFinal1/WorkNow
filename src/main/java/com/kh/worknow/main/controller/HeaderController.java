@@ -1,26 +1,17 @@
 package com.kh.worknow.main.controller;
  
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.kh.worknow.main.model.service.SearchService;
 
 @Controller
 public class HeaderController {
 	
-	@Autowired
-	private SearchService sService;
+
 	
 	@RequestMapping(value = "home.ma", method = RequestMethod.GET)
 	public String home2(Locale locale, Model model) {

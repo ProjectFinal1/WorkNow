@@ -42,15 +42,6 @@ public class HomeController {
 	
 
 	
-	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
-	public String jobofferView(Locale locale, Model model) {
-	
-		System.out.println("구인 페이지");
-		
-		
-		return "/joboffer/jobofferView";
-	}
-	
 	@RequestMapping(value = "search_address.ma2", method = RequestMethod.GET)
 	public void search_address(Locale locale, Model model) {
 
