@@ -8,4 +8,5 @@ public interface SignUpDao {
 	public int insertMember(Member member);
 
 	public int insertPerInfo(Personal_Info pInfo);
+	
 }

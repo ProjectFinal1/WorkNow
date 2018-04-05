@@ -150,11 +150,7 @@ margin:1% 0 2% 0;
 					</script>
      				
 					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>			
-					
-					<!-- 수정필요 -->
-					<input name="perId" value="iamtest" style="display:none"/>
-					
-								
+												
 					<span id="result" style="display:block;"></span>
 					
 					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>

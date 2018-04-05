@@ -14,7 +14,7 @@
 	
 	<insert id="insertPerInfo" parameterType="Personal">
  		INSERT INTO PERSONAL_INFO VALUES
- 		((SELECT MEMBER_ID FROM MEMBER_INFO WHERE MEMBER_ID = #{perId}), #{perTalk}, #{perAge}, #{perAddress},
-			#{perSex}, #{perPhoto})		
+ 		(#{perId}, #{perTalk}, #{perAge}, #{perAddress},
+			#{perSex}, #{perPhoto})	
   	</insert>
 </mapper>
