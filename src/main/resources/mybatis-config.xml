@@ -8,16 +8,16 @@
 	</settings>
 
 	<typeAliases>		
-<!-- 		<typeAlias type="org.kh.firstSpring.member.model.vo.Member" alias="Member"/> -->
+
 		<typeAlias type="com.kh.worknow.main.model.vo.Job_Board" alias="Job_Board"/>
+		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>
+
 		<typeAlias type="com.kh.worknow.board.model.vo.Board" alias="Board"/>
 	</typeAliases>
 	
 	<!-- 마이바티스 DataSource 설정은 root-context.xml을 참조한다. -->
 	
 	<mappers>
-<!-- 		<mapper resource="mappers/member-mapper.xml"/> -->
-<!-- 		<mapper resource="mappers/notice-mapper.xml"/> -->
 		<mapper resource="mappers/jboard-mapper.xml"/>
 	</mappers>
 </configuration>

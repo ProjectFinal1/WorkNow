@@ -33,8 +33,7 @@
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <jsp:include page="/WEB-INF/views/header/header.jsp" />
 
-
-		<section id="team" class="light-bg">
+    <section id="team" class="light-bg">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
@@ -86,13 +85,18 @@
 
 		<div>
 
+
 			<table align="center" width="71%" border="1" cellspacing="0">
+
+
+			
 
 				<tr height="40px" class="kategorie1">
 					<th class="main_th main_tab2">근무 기간</th>
 					<th class="main_th main_tab2">근무 요일</th>
 					<th class="main_th main_tab2">근무 시간</th>
 				</tr>
+
 
 				<tr height="100px" class="kategorie2">
 					<td>
@@ -261,6 +265,7 @@
 
 
 					<td>
+
 					<div class="day">
 						<input type="checkbox" name="day1" value="day1">월~금
 						<input type="checkbox" name="day2" value="day2">월~토
@@ -269,6 +274,7 @@
 						<input type="checkbox" name="day5" value="day5">주말<br>
 						<input type="checkbox" name="day6" value="day6">요일협의
 					</div>
+
 					</td>
 					<td>
 					<div class="time">
@@ -284,6 +290,8 @@
 						<input type="checkbox" name="time10" value="time10">새벽~오전	
 					</div>	                                            
 					</td>
+
+
 				</tr>
 			</table>
 		</div>
@@ -297,6 +305,7 @@
 				<option>나이</option>
 			</select>
 		</div>
+
 		
 		<div class="img1">
 			<img src="resources/images/demo/다운로드.jpg">

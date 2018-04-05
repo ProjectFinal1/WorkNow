@@ -7,7 +7,7 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Sanza - Onepage Multipurpose Bootstrap HTML by MOOZThemes.com</title>
+		<title>WorkNow - 지금 당장 일하자!</title>
 		<!-- Bootstrap core CSS -->
 		<link href="resources/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -22,9 +22,7 @@
 	</head>
 	<body id="page-top">
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
-	
-		<!-- Navigation -->
-	
+
 		<!-- Header -->
 		<header> 
 			<div class="container">
@@ -48,6 +46,7 @@
 						      		</tr>
 						      		<tr height="200px"  class="kategorie2 ">
 						      			<td>
+
 						      			<select id="sel_adress1">
 						      				<option value="seoul">서울</option><option value="gyeonggi">경기</option>
 						      				<option value="incheon">인천</option><option value="gangwon">강원</option> 
@@ -56,76 +55,77 @@
 						      				<option value="ulsan">울산</option> <option value="gyeongnam">경남</option>	<option value="gyeongbug">경북</option>
 						      				<option value="daegu">대구</option> <option value="gwangju">광주</option>	<option value="jeonnam">전남</option>
 						      				<option value="jeonbug">전북</option> <option value="jeju">제주</option>	<option value="jeongug">전국</option>
+
 						      			</select>
 						      			
-						      			<select id="seoul" class="sel_adress2">
-						      				<option value="seoul_all">서울전체</option> <option value="">강남구</option> <option value="">강동구</option>
-						      				<option value="gangbug">강북구</option> <option value="">강서구</option> <option value="">관악구</option>
-						      				<option value="gwangjin">광진구</option> <option value="">구로구</option> <option value="">금천구</option>
-						      				<option value="nowon">노원구</option> <option value="">도봉구</option> <option value="">동대문구</option>
-						      				<option value="dongjag">동작구</option> <option value="">마포구</option> <option value="">서대문구</option>
-						      				<option value="seocho">서초구</option> <option value="">성동구</option> <option value="">성북구</option>
-						      				<option value="">송파구</option> <option value="">양천구</option> <option value="">영등포구</option>
-						      				<option value="">용산구</option> <option value="">은평구</option> <option value="">종로구</option>
-						      				<option value="">중구</option> <option value="">중랑구</option>
+						      			<select id="seoul" class="sel_address2">
+						      				<option>서울전체</option> <option>강남구</option> <option>강동구</option>
+						      				<option>강북구</option> <option>강서구</option> <option>관악구</option>
+						      				<option>광진구</option> <option>구로구</option> <option>금천구</option>
+						      				<option>노원구</option> <option>도봉구</option> <option>동대문구</option>
+						      				<option>동작구</option> <option>마포구</option> <option>서대문구</option>
+						      				<option>서초구</option> <option>성동구</option> <option>성북구</option>
+						      				<option>송파구</option> <option>양천구</option> <option>영등포구</option>
+						      				<option>용산구</option> <option>은평구</option> <option>종로구</option>
+						      				<option>중구</option> <option>중랑구</option>
 						      			</select>
 						      			
-						      			<select id="gyeonggi" style="display:none;" class="sel_adress2">
-						      				<option value="gyeonggi_all">경기전체</option> <option value="gapyeong">가평군</option> <option value="deogyang">고양시 덕양구</option>
-						      				<option value="ilsandong">고양시 일산동구</option> <option value="ilsanseo">고양시 일산서구</option> <option value="gwacheon">과천시</option>
-						      				<option value="guang">광명시</option> <option value="gwang">광주시</option> <option value="guri">구리시</option>
-						      				<option value="gunpo">군포시</option> <option value="kimpo">김포시</option> <option value="namyangjuju">남양주시</option>
-						      				<option value="dongducheon">동두천시</option> <option value="bucheon">부천시</option> <option value="bundang">성남시 분당구</option>
-						      				<option value="sujeong">성남시 수정구</option> <option value="jungwon">성남시 중원구</option> <option value="gwonseong">수원시 권선구</option>
-						      				<option value="youngtong">수원시 영통구</option> <option value="changan">수원시 장안구</option> <option value="paldal">수원시 팔달구</option>
-						      				<option value="siheung">시흥시</option> <option value="danwon">안산시 단원구</option> <option value="sanglog">안산시 상록구</option>
-						      				<option value="anseong">안성시</option> <option value="dongan">안양시 동안구</option>	<option value="manan">안양시 만안구</option> 
-						      				<option value="yangju">양주시</option> <option value="yangpyeong">양평군</option> <option value="yeoju">여주시</option>
-						      				<option value="yeoncheon">연천군</option> <option value="osan">오산시</option> <option value="giheung">용인시 기흥구</option> 
-						      				<option value="suji">용인시 수지구</option> <option value="cheoin">용인시 처인구</option>
-						      				<option value="uiwang">의왕시</option> <option value="uijeongbu">의정부시</option> <option value="icheon">이천시</option>
-						      				<option value="paju">파주시</option> <option value="pyeongtaeg">평택시</option> <option value="pocheon">포천시</option>
-						      				<option value="hanam">하남시</option> <option value="hwaseong">화성시</option>						      				
-						      			</select>
-						      			
-						      			
-						      			<select id="incheon" style="display:none;" class="sel_adress2">	
-						      				<option value="incheon_all">인천전체</option>					      				
-								      		<option value="gyeyang">계양구</option><option value="incheon_namgu">남구 </option><option value="incheon_namdong">남동구</option>  
-											<option value="incheon_dong">동구 </option><option value="bupyeong">부평구</option><option value="incheon_seo">서구 </option>  
-											<option value="yeonsu">연수구</option><option value="incheon_jung">중구 </option><option value="ganghwa">강화군</option>  
-											<option value="ongjin">옹진군</option>  
+						      			<select id="gyeonggi" style="display:none;" class="sel_address2">
+						      				<option>경기전체</option> <option>가평군</option> <option>고양시 덕양구</option>
+						      				<option>고양시 일산동구</option> <option>고양시 일산서구</option> <option>과천시</option>
+						      				<option>광명시</option> <option>광주시</option> <option>구리시</option>
+						      				<option>군포시</option> <option>김포시</option> <option>남양주시</option>
+						      				<option>동두천시</option> <option>부천시</option> <option>성남시 분당구</option>
+						      				<option>성남시 수정구</option> <option>성남시 중원구</option> <option>수원시 권선구</option>
+						      				<option>수원시 영통구</option> <option>수원시 장안구</option> <option>수원시 팔달구</option>
+						      				<option>시흥시</option> <option>안산시 단원구</option> <option>안산시 상록구</option>
+						      				<option>안성시</option> <option>안양시 동안구</option>	<option>안양시 만안구</option> 
+						      				<option>양주시</option> <option>양평군</option> <option>여주시</option>
+						      				<option>연천군</option> <option>오산시</option> <option>용인시 기흥구</option> 
+						      				<option>용인시 수지구</option> <option>용인시 처인구</option>
+						      				<option>의왕시</option> <option>의정부시</option> <option>이천시</option>
+						      				<option>파주시</option> <option>평택시</option> <option>포천시</option>
+						      				<option>하남시</option> <option>화성시</option>						      				
 						      			</select>
 						      			
 						      			
-						      			<select id="gangwon" style="display:none;" class="sel_adress2">		
-						      				<option value="gangwon_all">강원전체</option>				      				
-								      		<option value="wonju">원주시</option><option value="donghae">동해시</option><option value="samcheog">삼척시</option>
-											<option value="sogcho">속초시</option><option value="gangleung">강릉시</option><option value="chuncheon">춘천시</option>
-											<option value="taebaeg">태백시</option><option value="yangyang">양양군</option><option value="cheolwon">철원군</option>
-											<option value="hoengseong">횡성군</option><option value="hwacheon">화천군</option><option value="hongcheon">홍천군</option>
-											<option value="inje">인제군</option><option value="jeongseon">정선군</option><option value="yanggu">양구군</option>
-											<option value="yeongwol">영월군</option><option value="pyeongchang">평창군</option><option value="goseong">고성군</option>
+						      			<select id="incheon" style="display:none;" class="sel_address2">	
+						      				<option>인천전체</option>					      				
+								      		<option>계양구</option><option>남구 </option><option>남동구</option>  
+											<option>동구 </option><option>부평구</option><option>서구 </option>  
+											<option>연수구</option><option>중구 </option><option>강화군</option>  
+											<option>옹진군</option>  
 						      			</select>
 						      			
 						      			
-						      			<select id="daejeon" style="display:none;" class="sel_adress2">		
-						      				<option value="daejeon_all">대전전체</option>				      				
-								      		<option value="daedeog">대덕구</option>
-											<option value="daejeon_dong">동구 </option>
-											<option value="daejeon_seo">서구 </option>
-											<option value="yuseong">유성구</option>
-											<option value="daejeon_jung">중구 </option>
+						      			<select id="gangwon" style="display:none;" class="sel_address2">		
+						      				<option>강원전체</option>				      				
+								      		<option>원주시</option><option>동해시</option><option>삼척시</option>
+											<option>속초시</option><option>강릉시</option><option>춘천시</option>
+											<option>태백시</option><option>양양군</option><option>철원군</option>
+											<option>횡성군</option><option>화천군</option><option>홍천군</option>
+											<option>인제군</option><option>정선군</option><option>양구군</option>
+											<option>영월군</option><option>평창군</option><option>고성군</option>
 						      			</select>
 						      			
-						      			<select id="sejong" style="display:none;" class="sel_adress2">	
-						      				<option value="sejong_all">세종전체</option>					      				
+						      			
+						      			<select id="daejeon" style="display:none;" class="sel_address2">		
+						      				<option>대전전체</option>				      				
+								      		<option>대덕구</option>
+											<option>동구 </option>
+											<option>서구 </option>
+											<option>유성구</option>
+											<option>중구 </option>
+						      			</select>
+						      			
+						      			<select id="sejong" style="display:none;" class="sel_address2">	
+						      				<option>세종전체</option>					      				
 								      		<option>세종시</option>
 						      			</select>
 						      			
 						      			
-						      			<select id="chungcheongnam" style="display:none;" class="sel_adress2">
-											<option value="chungcheongnam_all">충남전체</option>
+						      			<select id="chungcheongnam" style="display:none;" class="sel_address2">
+											<option>충남전체</option>
 						      				<option>아산시</option><option>서산시</option><option>천안시</option><option>공주시</option>	
 											<option>보령시</option><option>논산시</option><option>계룡시</option><option>당진군</option>	
 											<option>부여군</option><option>예산군</option><option>태안군</option	><option>연기군</option>	
@@ -133,7 +133,7 @@
 						      			</select>
 						      			
 						      			<br><br>
-						      			<a href="#" class="search_adress" id="search_adress">
+						      			<a href="#" class="testt" id="search_address">
 						      			<img src="resources/images/search.png" width="10%"></a>	      			
 						      			</td>
 						      			
@@ -141,14 +141,14 @@
 						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">아이콘</a>
 						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">아이콘</a>
 						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">아이콘</a>	
-						      			<a href="#" class="testt" id="search_adress"><br>
+						      			<a href="#" class="testt" id="search_address"><br>
 						      			<img src="resources/images/search.png" width="10%"></a>	 					      			
 						      			</td>
 						      									      			
 						      			<td>
 						      			시작일 &nbsp;<input type="date" id="userdate" name="userdate" value="2018-04-15"><br>
 						      			종료일 &nbsp;<input type="date"><br>
-						      			<a href="#" class="testt" id="search_adress"><br>
+						      			<a href="#" class="testt" id="search_address"><br>
 						      			<img src="resources/images/search.png" width="10%"></a>	 							      			
 						      			</td>
 						      		</tr>
@@ -201,7 +201,6 @@
 								<div class="ot-portfolio-item" >
 									<figure class="effect-bubba" id="result_1">
 										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="content1">CU 수원역점<br></a>
 										<a class="content2">
 										근무시간 : 협의<br>
 										시급 : 9000원 <br>
@@ -220,12 +219,9 @@
 								<div class="ot-portfolio-item" >
 									<figure class="effect-bubba" id="result_1">
 										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="content1">CU 수원역점<br></a>
-										<a class="content2">
-										근무시간 : 협의<br>
-										시급 : 9000원 <br>
-										위치 : 수원시 영통구<br>
-										등록일 : 30분전<br>												
+										<a class="addr_result1" id="hihi">
+										</a>
+										<a class="addr_result2" id="hihi">																				
 										</a>
 										<figcaption>
 											<h2>가게 이름</h2>
@@ -375,7 +371,7 @@
 		
 		
 		<section id="team" class="light-bg">
-			<div class="container">
+			<div class="container">		
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div class="section-title">
@@ -457,6 +453,7 @@
 					<!-- end team member item -->
 				</div>
 			</div>
+	
 		</section>
 		
 		
@@ -505,12 +502,16 @@
 					</div>
 					<div class="modal-body">						
 						<div class="modal-works">
-						<img src="resources/images/demo/shop-icon.png" alt="매장 아이콘." class="img_content" />						
-						<span>매장명</span><span>내용</span>
+						<img src="resources/images/demo/shop-icon.png" alt="매장 아이콘." class="img_content" />
+						<pre>		
+						<span>매장명</span><b id="balckblack">view연결 해야함 <br></b><span>내용</span>
 						<span>근무조건</span><span>주소</span>
+						</pre>				
 						
 						</div>
-						<p>성실한 사람을 원합니다!!! 이성우 같이 성실한 사람만 지원하세요</p>
+						<p id="detail_sub1"></p>
+						<p id="detail_content1"></p>
+						<p id="detail_value1"></p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

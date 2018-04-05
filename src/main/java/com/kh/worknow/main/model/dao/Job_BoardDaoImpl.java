@@ -2,10 +2,15 @@ package com.kh.worknow.main.model.dao;
 
 import java.util.ArrayList;
 
+import java.util.HashMap;
+
 import org.json.simple.JSONObject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+
+import com.kh.worknow.main.model.vo.Company_View;
 
 import com.kh.worknow.main.model.vo.Job_Board;
 
@@ -64,7 +69,13 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 		return 0;
 	}
 
-	public Job_Board jboard_addserach() {
+
+	public Job_Board jboard_addrserach() {
 		return sqlSession.selectOne("jboard.addserach");
 	}
+	
+	public Company_View getCompanyId(HashMap address) {
+		return sqlSession.selectOne("jboard.getCompanyId", address);
+	}
+
 }

@@ -2,6 +2,9 @@ package com.kh.worknow.main.model.service;
 
 import java.util.ArrayList;
 
+import java.util.HashMap;
+
+import com.kh.worknow.main.model.vo.Company_View;
 import com.kh.worknow.main.model.vo.Job_Board;
 
 public interface Job_BoardService {
@@ -31,5 +34,10 @@ public interface Job_BoardService {
 	public int deleteBoard(int boardNum);
 	
 	//주소로 구직 검색
-	public String jboard_addserach();
+
+	public String jboard_addrserach();
+	
+	//주소로 검색시 회사 아이디로 정보 가져오기
+	public Company_View getCompanyId(HashMap address);
+
 }
