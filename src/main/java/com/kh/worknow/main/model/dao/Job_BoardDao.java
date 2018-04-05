@@ -1,6 +1,7 @@
 package com.kh.worknow.main.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.kh.worknow.main.model.vo.Company_View;
 import com.kh.worknow.main.model.vo.Job_Board;
@@ -35,6 +36,6 @@ public interface Job_BoardDao {
 		public Job_Board jboard_addrserach();
 		
 		//구직 검색했을 시 아이디 가져오기
-		public Company_View getCompanyId();
+		public Company_View getCompanyId(HashMap address);
 		
 }

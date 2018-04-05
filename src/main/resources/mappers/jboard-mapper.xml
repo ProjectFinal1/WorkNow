@@ -42,8 +42,8 @@
 		SELECT * FROM JOB_BOARD
 	</select>
 	
-	<select id="getCompanyId" resultMap="resultCompany"> 
-		SELECT * FROM COMPANY_VIEW
+	<select id="getCompanyId" parameterType="hashmap" resultMap="resultCompany"> 
+		SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE COM_ADDRESS LIKE '%' || #{ADDRESS1} || '%') 
+		WHERE COM_ADDRESS LIKE '%' || #{ADDRESS2} || '%'
 	</select>
-	
 </mapper>

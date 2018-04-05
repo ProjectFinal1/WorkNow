@@ -1,8 +1,8 @@
 package com.kh.worknow.main.model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,8 +68,8 @@ public class Job_BoardServiceImpl implements Job_BoardDao {
 		return job_boardDao.jboard_addrserach();
 	}
 	
-	public Company_View getCompanyId() {
-		return job_boardDao.getCompanyId();
+	public Company_View getCompanyId(HashMap address) {
+		return job_boardDao.getCompanyId(address);
 	}
 
 }
