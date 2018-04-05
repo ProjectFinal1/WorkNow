@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.kh.worknow.main.model.vo.Company_View;
+
 import com.kh.worknow.main.model.vo.Job_Board;
 
 public interface Job_BoardDao {
@@ -32,10 +33,12 @@ public interface Job_BoardDao {
 		//구직게시판 삭제
 		public int deleteBoard(int boardNum);
 		
+
 		//주소로 구직 검색
 		public Job_Board jboard_addrserach();
 		
 		//구직 검색했을 시 아이디 가져오기
 		public Company_View getCompanyId(HashMap address);
+
 		
 }

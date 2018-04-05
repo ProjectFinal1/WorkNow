@@ -1,10 +1,12 @@
 package com.kh.worknow.main.controller;
  
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+
 import java.util.Locale;
 import java.util.Map;
 
@@ -30,6 +32,7 @@ public class HomeController {
 	private Job_BoardServiceImpl jbService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+
 	public String home(Locale locale, Model model) {	
 
 		System.out.println("메인들어가기");
@@ -50,6 +53,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "search_address.ma2", method = RequestMethod.GET)
 	public void search_address(Locale locale, Model model) {
+
 	
 		System.out.println("주소 검색 실행");
 		
@@ -69,11 +73,12 @@ public class HomeController {
 	@RequestMapping(value = "search_address.ma")
 	public void outputJsonList(HttpServletRequest request, HttpServletResponse response) throws IOException{
 	   
+
 						
 		String address1 = request.getParameter("address1");	// 주소선택 첫번째 select 값을 가져옴
 		String address2 = request.getParameter("address2"); // 주소선택 두번째 select 값을 가져옴
 		
-		
+	
 		HashMap addressMap = new HashMap();
 		addressMap.put("address1", "address1");
 		addressMap.put("address2", "address2");
