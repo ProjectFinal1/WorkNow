@@ -24,7 +24,7 @@ public class SignUpDaoImpl implements SignUpDao {
 	@Override
 	public int insertPerInfo(Personal_Info pInfo) {
 		
-		return sqlSession.insert("Personal.insertPerInfo", pInfo);
+		return sqlSession.insert("Member.insertPerInfo", pInfo);
 	}
 
 }

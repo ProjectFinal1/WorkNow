@@ -8,6 +8,8 @@ public class Personal_Info {
 	private String perSex; 
 	private String perPhoto;
 	
+
+	
 	public Personal_Info() {}
 
 	public String getPerId() {
