@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MemberController {
-	
-;
-	
 	@RequestMapping(value = "signup.si", method = RequestMethod.GET)
 	public String home1(Locale locale, Model model) {
 	
@@ -22,7 +19,5 @@ public class MemberController {
 		
 		
 		return "/member/signupView";
-	}
-	
-	
+	}	
 }
