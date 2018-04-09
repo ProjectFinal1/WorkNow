@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- 주석노트 ( Ctrl + F 로 검색해서 찾아가세요 )-->
+<!--   인회원가입 -->
+<!-- 2기업회원가입 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +13,7 @@
 <title>WorkNow - 로그인</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
@@ -18,6 +22,7 @@
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	
 <!-- Custom styles for this template -->
 <link href="resources/css/owl.carousel.css" rel="stylesheet">
 <link href="resources/css/owl.theme.default.min.css" rel="stylesheet">
@@ -75,20 +80,61 @@ margin:1% 0 2% 0;
 		$("#com").fadeIn(500);
 
 	};
+	
+	function idCheck() {
+		//jQuery에서 선택자역할
+		var idStr = $("#id").val();
+		$.ajax({
+			url : "idCheckServlet?id=" + idStr,
+			success : function(data) { 														
+				if (data == "success") {
+					$("#result").text("사용가능한 아이디입니다.").css({'color':'blue'});
+				} else if (data == "fail") {
+					$("#result").text("중복된 아이디입니다.").css({'color':'red'});
+				} else if (data == "tooShort"){
+					$("#result").text("아이디가 너무 짧습니다.").css({'color':'red'});										
+				} else if (data == "tooLong"){
+					$("#result").text("아이디가 너무 깁니다.").css({'color':'red'});
+				}
+			}
+		});	
+	};
+	
+	function passCheck(){
+		if ($('#pass1').val() != $('#pass2').val()) {
+			$("#passResult").text("비밀번호가 서로 다릅니다.").css({'color':'red'});								
+		} else if ($('#pass1').val() == $('#pass2').val()) {
+			if ($('#pass1').val().length < 8){
+				$("#passResult").text("비밀번호는 8자 이상으로 해주세요.").css({'color':'red'});
+			}
+			else 
+				$("#passResult").text("비밀번호가 일치합니다.").css({'color':'blue'});
+		
+	};
+		
+	// 하나 입력 시 동시에 입력되게 한다.
+	$("#id").keydown(function() {
+		$('#PersonalId').val($(this).val());
+		$('#name').val($(this).val());
+	});
+	// 마지막에 입력 시 입력되게 한다.
+	$("#id").change(function() {
+		$('#PersonalId').val($(this).val());
+	});
+	
 </script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header/header.jsp" />
-	<div id="modal"
-		style="display: none; background-color: #888888; display: none; left: 0; top: 0; opacity: 0.8;">
-	</div>
-	<!--  <div class="container" style="width:100%" > -->
-	<div id="signupContent" class="card card-container"
-		style="max-width: 100%; height: auto; margin: 5% 25% 0 27%; display: none; padding: 15;">
-
+	<jsp:include page="/WEB-INF/views/header/header.jsp" />	
 	
+	<div id="modal"
+		style="display: none; background-color: #888888; left: 0; top: 0; opacity: 0.8;">	
+	</div>
+	
+	<div id="signupContent" class="card card-container"	
+	style="max-width: 100%; height: auto; margin: 5% 25% 0 27%; display: none; padding: 15;">			
 			<button id="btbt1" value="1" onclick="signupSelect1();"
-				style="width: 50%; float: left; border: 0; outline: 0; background-color: white">
+			style="width: 50%; float: left; border: 0; outline: 0; background-color: white">
 				<img class="profile-img-card"
 					src="resources/images/demo/personal.png"
 					style="display: inline; margin: auto; width: 100%; height: 25%; border-radius: 0;" />
@@ -98,69 +144,22 @@ margin:1% 0 2% 0;
 				<img class="profile-img-card"
 					src="resources/images/demo/company.png"
 					style="display: inline; margin: auto; width: 100%; height: 25%; border-radius: 0;" />
-			</button>
+			</button>			
 	
-		<div id="per" style="display: none; margin: auto;">
-			<!--             	 <div class="container"> -->
-			<!-- 	<div class="row" style="width:100%"> -->
+	<!-- 1개인회원가입 -->	
+		<div id="per" style="display: none; margin: auto;">	
 			<div class="col-xs-12 col-sm-12 col-md-4 well well-sm"
 				style="width: 100%; margin-top:3%; ">
 				<legend>
-					<a href="http://www.jquery2dotnet.com"> <i
-						class="glyphicon glyphicon-globe"></i>
+					<i class="glyphicon glyphicon-globe"></i>
 					</a> 개인회원가입
 				</legend>
 				<form action="signup.si" method="post" class="form" role="form">
-					<label>프로필 사진</label>
-					
-					
+					<label>프로필 사진</label>										
 					<input class="form-control" name="file" type="file" style="text-align:center;"/>
-
-					<script>
-						function idCheck() {
-							//jQuery에서 선택자역할
-							var idStr = $("#id").val();
-							$.ajax({
-								url : "idCheckServlet?id=" + idStr,
-								success : function(data) { 														
-									if (data == "success") {
-										$("#result").text("사용가능한 아이디입니다.").css({'color':'blue'});
-									} else if (data == "fail") {
-										$("#result").text("중복된 아이디입니다.").css({'color':'red'});
-									} else if (data == "tooShort"){
-										$("#result").text("아이디가 너무 짧습니다.").css({'color':'red'});										
-									} else if (data == "tooLong"){
-										$("#result").text("아이디가 너무 깁니다.").css({'color':'red'});
-									}
-								}
-							});	
-						};
-						
-						function passCheck(){
-							if ($('#pass1').val() != $('#pass2').val()) {
-								$("#passResult").text("비밀번호가 서로 다릅니다.").css({'color':'red'});								
-							} else if ($('#pass1').val() == $('#pass2').val()) {
-								if ($('#pass1').val().length < 8){
-									$("#passResult").text("비밀번호는 8자 이상으로 해주세요.").css({'color':'red'});
-								}
-								else 
-									$("#passResult").text("비밀번호가 일치합니다.").css({'color':'blue'});
-							}
-						};
-					</script>
-     				
-					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
-					<script>
-						// 하나 입력 시 동시에 입력되게 한다.
-						$("#id").keydown(function() {
-							$('#PersonalId').val($(this).val());
-						});
-						// 마지막에 입력 시 입력되게 한다.
-						$("#id").change(function() {
-							$('#PersonalId').val($(this).val());
-						});
-					</script>
 					
+					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
+				
 					<input id="PersonalId" type="text" name="perId" style="display:none;">
 												
 					<span id="result" style="display:block;"></span>
@@ -168,7 +167,7 @@ margin:1% 0 2% 0;
 					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
 					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:22%;display:inline" required/>
 					<span id="passResult"></span>
-					<input class="form-control" name="memberName" placeholder="이름" required/> 
+					<input id="name" class="form-control" name="memberName" placeholder="이름" required/> 
 					<div style="text-align:center;">
 						<label>나이 : </label>						
 						<input class="form-control"	name="perAge" type="text" style="width: 40%; display: inline" required/>
@@ -286,7 +285,7 @@ margin:1% 0 2% 0;
 
 					<br /> <br />
 					<button class="btn btn-lg btn-primary btn-block" type="submit">
-						Sign up</button>
+						회원가입</button>
 				</form>
 			</div>
 
@@ -295,70 +294,9 @@ margin:1% 0 2% 0;
 
 
 
+<!-- 2기업회원가입 -->
 		<div id="com" style="display: none; margin: auto;">
-
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-4 well well-sm"
-					style="width: 57%; margin-top: 3%">
-					<legend>
-						<a href="http://www.jquery2dotnet.com"> <i
-							class="glyphicon glyphicon-globe"></i>
-						</a> 기업회원가입
-					</legend>
-
-					<form action="#" method="post" class="form" role="form">
-						<div class="row">
-							<div class="col-xs-6 col-md-6">
-								<input class="form-control" name="firstname"
-									placeholder="First Name" type="text" required autofocus />
-							</div>
-							<div class="col-xs-6 col-md-6">
-								<input class="form-control" name="lastname"
-									placeholder="Last Name" type="text" required />
-							</div>
-						</div>
-						<input class="form-control" name="youremail"
-							placeholder="Your Email" type="email" /> <input
-							class="form-control" name="reenteremail"
-							placeholder="Re-enter Email" type="email" />
-						<div class="row">
-							<div class='col-xs-12' id='thepwddiv'></div>
-
-
-							<noscript>
-								<div>
-									<input class="form-control" type='password' name='regpwd' />
-								</div>
-							</noscript>
-						</div>
-						<label for=""> Birth Date</label>
-						<div class="row">
-							<div class="col-xs-4 col-md-4">
-								<select class="form-control">
-									<option value="Month">Month</option>
-								</select>
-							</div>
-							<div class="col-xs-4 col-md-4">
-								<select class="form-control">
-									<option value="Day">Day</option>
-								</select>
-							</div>
-							<div class="col-xs-4 col-md-4">
-								<select class="form-control">
-									<option value="Year">Year</option>
-								</select>
-							</div>
-						</div>
-						<label class="radio-inline"> <input type="radio"
-							name="sex" id="3" value="male" /> Male
-						</label> <label class="radio-inline"> <input type="radio"
-							name="sex" id="4" value="female" /> Female
-						</label> <br /> <br />
-						<button class="btn btn-lg btn-primary btn-block" type="submit">
-							Sign up</button>
-					</form>
-				</div>
-			</div>
+			
 		</div>
 		<div style="width:100%;text-align:center;">			
 			<button id="modalclose" onclick="closeModal();"
@@ -367,18 +305,8 @@ margin:1% 0 2% 0;
 		</div>
 	</div>
 
-
-	<!-- /card-container -->
-	<!--     </div>/container -->
-
-
-	<!-- </div> -->
-
-	<!-- </div> -->
-
 	<div class="container">
-		<div class="card card-container">
-			<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+		<div class="card card-container">			
 			<img id="profile-img" class="profile-img-card"
 				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 			<p id="profile-name" class="profile-name-card"></p>
@@ -386,35 +314,14 @@ margin:1% 0 2% 0;
 				<span id="reauth-email" class="reauth-email"></span> <input
 					type="email" id="inputEmail" class="form-control" placeholder="ID">
 				<input type="password" id="inputPassword" class="form-control"
-					placeholder="Password">
-				<!--                 <div id="remember" class="checkbox"> -->
-				<!--                     <label> -->
-				<!--                         <input type="checkbox" value="remember-me"> Remember me -->
-				<!--                     </label> -->
-				<!--                 </div> -->
+					placeholder="Password">		
 				<button class="btn btn-lg btn-primary btn-block btn-signin"
-					type="submit">로그인</button>
-				<!--                 <a href="signup.si"> -->
+					type="submit">로그인</button>				
 				<button id="signup"
 					class="btn btn-lg btn-primary btn-block btn-signin"
-					onclick="makeModal();">회원가입</button>
-				<!--                 </a> -->
-			</div>
-			<!-- /form -->
-			<!--             <a href="#" class="forgot-password"> -->
-			<!--                 Forgot the password? -->
-			<!--             </a> -->
-		</div>
-		<!-- /card-container -->
-		
-	 
-     
-     		
+					onclick="makeModal();">회원가입</button>			
+			</div>		
+		</div>    		
 	</div>
-	<!-- /container -->
-
-
-
-
 </body>
 </html>
