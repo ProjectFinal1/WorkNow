@@ -20,8 +20,8 @@
 	
 	
 	<!-- 회원가입시 COM_INFO에 추가되는 정보 -->
-	<insert id="insertCominfo" parameterType="resultCominfo">
-		insert into com_info
+	<insert id="insertCominfo" parameterType="Cominfo">
+		insert into com_info 
 		values('#{comId}',#{comNumber},#{comName},#{comAddress},#{comCeo},#{comPhone})	
 	</insert>		
 </mapper>

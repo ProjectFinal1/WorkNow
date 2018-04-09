@@ -14,7 +14,16 @@
   		<result property="memberBlack" column="MEMBER_BLACK"/> 
 	</resultMap>	
 	
-	<select id="selectMember" parameterType="Member">
+	<resultMap id="resultPeronal" type="Personal">
+		<id property="perId" 	   column="PER_ID" />
+  		<result property="perTalk"  column="PER_TALK"/>
+  		<result property="perAge"  column="PER_AGE"/>
+  		<result property="perAddress" column="PER_ADDRESS"/>
+  		<result property="perSex" column="PER_SEX"/>
+  		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
+	</resultMap>
+	
+	<select id="selectMember" resultType="Member">
 		select * from MEMBER_INFO where MEMBER_ID = '#{memberId}'
 	</select>
 	
@@ -25,10 +34,9 @@
 			#{memberEmail}, 0, SYSDATE, 0)		
   	</insert>
   	
-<!--   	<insert id="insertPersonalinfo" parameterType="Member"> -->
-<!--   		insert into personal_info -->
-<!--  		values(#{memberId}, #{perTalk}, #{perAge}, #{perAddress}, #{perSex}, #{perPhoto})  -->
-  	
-<!--   	</insert> -->
+  	<insert id="insertPerinfo" parameterType="Member">
+  		insert into personal_info
+ 		values(#{memberId}, #{perTalk}, #{perAge}, #{perAddress}, #{perSex}, #{perPhoto})  	
+  	</insert>
 </mapper>
 
