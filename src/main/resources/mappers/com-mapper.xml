@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Cominfo">
+	<resultMap id="resultCominfo" type="Cominfo">
+			<id property="comId" 	   	column="COM_ID" />
+  		<result property="comNumber"  	column="COM_NUMBER"/>
+  		<result property="comName"  	column="COM_NAME"/>
+  		<result property="comAddress" 	column="COM_ADDRESS"/>
+  		<result property="comCeo" 		column="COM_CEO"/>
+  		<result property="comPhone"  	column="COM_PHONE"/>  		  	
+	</resultMap>
+	
+	<!-- MEMBER_INFO 테이블과 COM_INFO 테이블 JOIN -->
+	<select id="selectCominfo" resultMap="resultCominfo">
+		Select * from Member_info m join Com_Info c
+		on m.member_id = c.com_id		 
+	</select>
+	
+	
+	<!-- 회원가입시 COM_INFO에 추가되는 정보 -->
+	<insert id="insertCominfo" parameterType="resultCominfo">
+		insert into com_info
+		values('#{comId}',#{comNumber},#{comName},#{comAddress},#{comCeo},#{comPhone})	
+	</insert>		
+</mapper>
