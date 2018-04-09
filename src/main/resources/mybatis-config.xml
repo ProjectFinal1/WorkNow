@@ -7,15 +7,8 @@
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 
-	<typeAliases>		
-<<<<<<< HEAD
-
+	<typeAliases>
 		<typeAlias type="com.kh.worknow.main.model.vo.Job_Board" alias="Job_Board"/>
-		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>
-
-=======
-		<typeAlias type="com.kh.worknow.main.model.vo.Job_Board" alias="Job_Board"/>
->>>>>>> refs/heads/yh_final
 		<typeAlias type="com.kh.worknow.board.model.vo.Board" alias="Board"/>
 		<typeAlias type="com.kh.worknow.member.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.kh.worknow.member.model.vo.Personal_Info" alias="Personal"/>
@@ -25,10 +18,7 @@
 	
 	<mappers>
 		<mapper resource="mappers/jboard-mapper.xml"/>
-<<<<<<< HEAD
-=======
 		<mapper resource="mappers/member-mapper.xml"/>		
-		<mapper resource="mappers/personal-mapper.xml"/>		
->>>>>>> refs/heads/yh_final
+		<mapper resource="mappers/personal-mapper.xml"/>
 	</mappers>
 </configuration>

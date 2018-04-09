@@ -49,24 +49,19 @@ $(document).ready(function(){
 	});
 	
 	// 주소로 알바찾기 돋보기 클릭
-<<<<<<< HEAD
+
 	$("#search_address").click(function(){
-=======
-	$(".search_adress").click(function(){
-			
->>>>>>> refs/heads/yh_final
+
 		
 			$(".search_all").hide();
 			$(".search_result").css("visibility", "visible"); 
 			
-<<<<<<< HEAD
+
 			var address1 = $('#sel_address1').val();
-=======
-			var adress1 = $('#sel_adress1').val();
->>>>>>> refs/heads/yh_final
+
 			var adrees2 = "";
 			
-<<<<<<< HEAD
+
 			if(address1 == "경기")
 				address2 = $('#gyeonggi').val();
 			
@@ -106,38 +101,7 @@ $(document).ready(function(){
 			        $('#detail_sub1').html(jboard.JOB_SUBJECT);
 			        $('#detail_content1').html(jboard.JOB_CONTENT);
 			        $('#detail_value1').html(jboard.JOB_VALUE + "원");
-=======
-			if(adress1 == "gyeonggi")
-				adress2 = $('#gyeonggi').val();
-			
-			if(adress1 == "seoul")
-				adress2 = $('#seoul').val();
-			
-			if(adress1 == "incheon")
-				adress2 = $('#incheon').val();
-			
-			if(adress1 == "gangwon")
-				adress2 = $('#gangwon').val();
-			
-			if(adress1 == "daejeon")
-				adress2 = $('#daejeon').val();
-			
-			if(adress1 == "sejong")
-				adress2 = $('#sejong').val();
-			
-			if(adress1 == "chungcheongnam")
-				adress2 = $('#chungcheongnam').val();
-			
-			
-			
-			$.ajax({
-			    url : "search_adress.ma",
-			    type : "GET",
-			    data : {adress1 : adress1,
-			    		adress2 : adress2},
-			    success : function() {
-			        alert("성공!!!!");
->>>>>>> refs/heads/yh_final
+
 			    },
 			    error : function(jqXHR, textStatus, errorThrown) {
 			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
