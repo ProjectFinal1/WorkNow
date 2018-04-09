@@ -9,4 +9,5 @@ public interface SignUpService {
 	
 	public int insertPerInfo(Personal_Info pInfo);
 	
+	
 }

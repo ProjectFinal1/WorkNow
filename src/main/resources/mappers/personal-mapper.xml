@@ -13,9 +13,10 @@
 	</resultMap>
 	
 	
+	
+	
 	<insert id="insertPerInfo" parameterType="Personal">
- 		INSERT INTO PERSONAL_INFO VALUES
- 		(#{perId}, #{perTalk}, #{perAge}, #{perAddress},
-			#{perSex}, #{perPhoto})	
+ 		insert into personal_info
+ 		values(#{perId}, #{perTalk}, #{perAge}, #{perAddress}, #{perSex}, #{perPhoto}) 
   	</insert>
 </mapper>
