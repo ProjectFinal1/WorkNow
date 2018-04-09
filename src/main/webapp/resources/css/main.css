@@ -77,6 +77,12 @@ dd.hidden {display: none;}
 .content1{ color: #fff; font-size:17px; }
 .content2{ color: #fff; font-size:12px; }
 
+<<<<<<< HEAD
+=======
+.img_content{width:50%}
+
+
+>>>>>>> refs/heads/yh_final
 
 /*  상세보기 화면 기업 아이콘 크기 */
 .img_content{width:30%; vertical-align:top;}

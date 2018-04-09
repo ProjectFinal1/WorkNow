@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Personal">
+	<resultMap id="resultMember" type="Personal">
+		<id property="perId" 	   column="PER_ID" />
+  		<result property="perTalk"  column="PER_TALK"/>
+  		<result property="perAge"  column="PER_AGE"/>
+  		<result property="perAddress" column="PER_ADDRESS"/>
+  		<result property="perSex" column="PER_SEX"/>
+  		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
+	</resultMap>
+	
+	
+	<insert id="insertPerInfo" parameterType="Personal">
+ 		INSERT INTO PERSONAL_INFO VALUES
+ 		(#{perId}, #{perTalk}, #{perAge}, #{perAddress},
+			#{perSex}, #{perPhoto})	
+  	</insert>
+</mapper>

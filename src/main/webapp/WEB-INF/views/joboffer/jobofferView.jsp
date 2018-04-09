@@ -28,12 +28,21 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="resources/js/joboffer.js"></script>
 </head>
+<<<<<<< HEAD
 <body id="page-top">
 	<div class="bodymargin">
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <jsp:include page="/WEB-INF/views/header/header.jsp" />
+=======
+<body id="page-top" style="background-color:#EEEEEE;">
+<jsp:include page="/WEB-INF/views/header/header.jsp" />
+<div style="margin:10% 19% 0 19%;text-align:center;">
+>>>>>>> refs/heads/yh_final
 
+<<<<<<< HEAD
     <section id="team" class="light-bg">
+=======
+>>>>>>> refs/heads/yh_final
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
@@ -48,8 +57,13 @@
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
+<<<<<<< HEAD
 								<a href="jobofferView.jo" > <img src="resources/images/demo/job-offer.png" 
 									class="img-responsive" alt="author" width="75%">
+=======
+								<a href="jobofferView.jo"> <img src="resources/images/demo/job-offer.png"
+									class="img-responsive" alt="jobs" style="background-color:lightblue;width:100%;">
+>>>>>>> refs/heads/yh_final
 								</a>
 							</div>
 						</div>
@@ -60,8 +74,14 @@
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
+<<<<<<< HEAD
 								<a href="receive.re"> <img src="resources/images/demo/orderlist.png" 
 									class="img-responsive" alt="author" width="75%">
+=======
+							
+								<a href="#"> <img src="resources/images/demo/orderlist.png"
+									class="img-responsive" alt="author" style="background-color:lightblue;width:100%;">
+>>>>>>> refs/heads/yh_final
 								</a>
 							</div>
 
@@ -81,6 +101,7 @@
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 		</section>
 
 		<div>
@@ -305,11 +326,21 @@
 				<option>나이</option>
 			</select>
 		</div>
+=======
+>>>>>>> refs/heads/yh_final
 
+<<<<<<< HEAD
 		
 		<div class="img1">
 			<img src="resources/images/demo/다운로드.jpg">
 		</div>	
 	</div>
+=======
+
+
+
+
+</div>
+>>>>>>> refs/heads/yh_final
 </body>
 </html>

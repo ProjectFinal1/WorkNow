@@ -35,7 +35,7 @@ public class HomeController {
 
 	public String home(Locale locale, Model model) {	
 
-		System.out.println("메인들어가기");
+		System.out.println("메인 접속");
 
 		return "Main";
 	}
