@@ -3,10 +3,10 @@
 .jobofferbtn1 {
 	width: 33%;
 	position: relative;
+	float: left;
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
-	float: left;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -50,9 +50,19 @@ hr{
 	width:18%;	
 }
 
+<<<<<<< HEAD
+td{
+	text-align:center;
+}
+
+.pattern{
+	align:center;
+}
+=======
 
 
 
 
 
+>>>>>>> refs/heads/yh_final
 
