@@ -111,15 +111,10 @@
 									<div class="filebox">
 									<input class="upload-name" value="파일선택" disabled="disabled">
 
-									<label for="ex_file" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-picture"></span>업로드</label> 
+									<label for="ex_file" class="btn btn-default btn-sm upload-button"><span class="glyphicon glyphicon-picture"></span>업로드</label> 
 									<input type="file" id="ex_file"> 
 									</div> 
 									<br>
-									<button type="button" class="btn btn-default btn-sm"
-										onclick="">
-
-										<span class="glyphicon glyphicon-picture"></span>등록완료
-									</button>
 									
 									</td>
 									</tr>
@@ -133,23 +128,23 @@
 							<br><br>
 							<span >직종</span>
 							<select name="job_select">
-								 <option value="서비스">서비스</option>
-								  <option value="단순노무">단순노무</option>
-								  <option value="IT관련">IT관련</option>
-								  <option value="음식점,카페">음식점,카페</option>
-								  <option value="배달">배달</option>
-								  <option value="행사대행">행사대행</option>
-								  <option value="기타부업">기타부업</option>
+								 <option value="service">서비스</option>
+								  <option value="work">단순노무</option>
+								  <option value="it">IT관련</option>
+								  <option value="food">음식점,카페</option>
+								  <option value="delivery">배달</option>
+								  <option value="agency">행사대행</option>
+								  <option value="etc">기타부업</option>
 								</select>
 							<br>                                 
-							<span >이메일</span> <input class="text_12" type=email value="yunhwan@sm.com" max="50" size=50>
+							<span >이메일</span> <input name=email class="text_12" type=email value="yunhwan@sm.com" max="50" size=50>
 							<br>                                 
-							<span >대표자명</span><input class="text_12" type=text value="유놔니" max="50" size=50>
+							<span >대표자명</span><input name="ceo" class="text_12" type=text value="유놔니" max="50" size=50>
 							<br>                                 
 							<span >전화번호</span> 
 							<input name="telnumber" class="text_12" type="tel"  pattern=" [0-9]{3,4}-[0-9]{4}-[0-9]{4}" placeholder="010-0000-0000" size=50>
 							<br>                                 
-							<span >회사/점포명</span>  <input class="text_12" type=text value="유놔니" max="50" size=50>
+							<span >회사/점포명</span>  <input class="company_name text_12" type=text value="유놔니25시" max="50" size=50>
 							<br>
 							<span>회사 우편번호</span><input type="text" name="post" class="postcodify_postcode5" value="" size="6"/>
 							<br>
@@ -166,7 +161,8 @@
 							<div class="job_info_sec">
 							<h3>근무조건</h3>
 							<hr>
-							<span >근무시작일</span> <input name="start_day" class ="text_12" type="date" size=50> <span >근무종료일</span> <input name="end_day" class="text_12"type="date" size=50>
+							<div class="work_start"><span >근무시작일</span> <input name="start_day" class ="text_12 start_day" type="date" size=50 > <span >근무종료일</span> <input name="end_day" class="text_12 end_day"type="date" size=50 >
+							</div>
 							<br>
 							<span >근무시작시간</span> 
 							<select name="start_hour">
@@ -260,12 +256,12 @@
 								<span>성별 : </span> 
 								<select name="sex_select">
 								 <option value="male">남</option>
-								  <option value="famale">녀</option>
+								  <option value="female">녀</option>
 								  <option value="all">남녀무관</option>
 								</select>
 								&nbsp;
 								<span>나이 : </span> 
-								<input type=number min=15 max=100 value=20>살
+								<input type=number min=15 max=100 value=20 class="age_num">살
 								&nbsp;
 								<select name="age_select">
 								 <option value="up">이상</option>
@@ -301,7 +297,7 @@
 								</div>
 								<hr>
 								<div class="text-center">
-								<input type="button" value="미리보기" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Modal-2">
+								<input type="button" value="미리보기" id="preview_btn" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Modal-2">
 								<input type="submit" value="결제하기"  class="btn btn-default btn-sm">
 								
 								</div>
@@ -352,19 +348,19 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title title_preview" id="Modal-label-1">[미리보기제목]</h4>
+						<h4 class="modal-title preview_title" id="Modal-label-1">[미리보기제목]</h4>
 					</div>
 					<!-- 여기서 부터 미리보기 본체 -->
 					<div class="modal-body">						
 						<div class="modal-works2">
 						<div class="images">
 						<hr>
-						<h3><span class="companyname">회사/점포명  </span><span> 지원자격</span></h3>
+						<h3><span class="preview_name">회사/점포명  </span><span> 지원자격</span></h3>
 						<table>
-						<tr><td style="width:300px"><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preiview_img" /></td>				
-						<td><div class="preiview_icon text-center service"><i class="fas fa-people-carry"><br><span class="text_10 ser_text">단순노무</span></i></div></td>
-						<td><div class="preiview_icon text-center sex"><i class="fas fa-male"><br><span class="text_10 sex_text">여자</span></i></div></td>	
-						<td><div class="preiview_icon text-center age"><span class="sex_text">20</span><i class="fas fa-angle-double-up" ></i></div></td></tr>	
+						<tr><td style="width:300px"><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_img" /></td>				
+						<td><div class="preview_icon text-center service"></div></td>
+						<td><div class="preview_icon text-center sex"></div></td>	
+						<td><div class="preview_icon text-center age"></div></td></tr>	
 						</table>
 						<hr>
 						<br>
@@ -373,27 +369,27 @@
 						<div class="preview_payment">
 						<h3>근무조건</h3>
 						<hr>
-						근무날짜  : <input type="date" value="2018-04-04" disabled="disabled">&nbsp; ~ &nbsp;<input type="date" value="2018-04-06" disabled="disabled"><br>
-						근무시간 : <input type="text" value="09" size=4 disabled="disabled">&nbsp; : &nbsp;<input type="text" value="30" size=4 disabled="disabled">&nbsp; ~ &nbsp;
-						<input type="text" value="20" size=4 disabled="disabled">&nbsp; : &nbsp;<input type="text" value="00" size=4 disabled="disabled"><br>
-						급여분류 : <input type="text" value="일급" size=4 disabled="disabled"> &nbsp;&nbsp; <input type="text" value="7500" size=4 disabled="disabled">원
-						성별 : 
+						근무날짜  : <div class="preview_day"></div><br>
+						근무시간 : <div class="preview_hour"></div><br>
+						급여분류 : <div class="preview_pay"></div>
 						</div>
 						
 						<div class="preview_content">
 						<h3>소개글</h3>
 						<hr>
-						<textarea class="preview_content_text"rows=10 cols=80>유화니의 24시간 노예가 되실분을 구합니다. 가ㅈ처럼 대해드립니다.</textarea>
+						<textarea class="preview_content_text"rows=10 cols=80>미리보기 본문입니다.</textarea>
 						</div>
 						<div class="preview_maps">
 						<h3>찾아오시는길</h3>
 						<hr>
 						<table class="preview_maptable">
-						<tr><td rowspan=5><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preiview_img" /></td><td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
+						<tr><td rowspan=6><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_map" /></td>
+						<td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
+						<tr><td><span>이메일 : </span><span class="preview_email">010-000-0000</span></td></tr>
 						<tr><td><span>회사 우편번호 : </span><span class="preview_post">060-52</span></td></tr>
-						<tr><td><span>도로명주소 : </span><span class="preview_roadaddress">집으로</span></td></tr>
-						<tr><td><span>상세주소 : </span><span class="preview_address">가고싶다</span></tr>
-						<tr><td><span>세부사항 : </span><span class="preview_address">리얼리</span></td></tr>
+						<tr><td><span>도로명주소 : </span><span class="preview_road_address">집으로</span></td></tr>
+						<tr><td><span>상세주소 : </span><span class="preview_address1">가고싶다</span></tr>
+						<tr><td><span>세부사항 : </span><span class="preview_address2">리얼리</span></td></tr>
 						
 						
 						

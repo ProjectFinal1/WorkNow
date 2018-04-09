@@ -190,17 +190,22 @@ header{
 {
 	margin : 15px;
 }
-.preiview_img
+.preview_img
+{
+	width:250px;
+	height:250px;
+}
+.preview_map
 {
 	width:250px;
 	height:250px;
 }
 
-.companyname{
+.preview_name{
 	display:inline-block;
 	padding-right:170px;
 }
-.preiview_icon
+.preview_icon
 {
 	margin: 5px;
 	line-height:90pt;
@@ -217,7 +222,7 @@ header{
 	line-height:70pt;
 }
 
-.preiview_icon span
+.preview_icon span
 {
 	
 	background-color:#009640;
