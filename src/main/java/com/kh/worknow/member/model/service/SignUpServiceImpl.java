@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.worknow.member.model.dao.SignUpDao;
 import com.kh.worknow.member.model.service.SignUpService;
+import com.kh.worknow.member.model.vo.Com_Info;
 import com.kh.worknow.member.model.vo.Member;
 import com.kh.worknow.member.model.vo.Personal_Info;
 
@@ -26,6 +27,12 @@ public class SignUpServiceImpl implements SignUpService {
 	public int insertPerInfo(Personal_Info pInfo) {
 
 		return signupDao.insertPerInfo(pInfo);
+	}
+
+	@Override
+	public int insertComInfo(Com_Info cInfo) {
+
+		return signupDao.insertComInfo(cInfo);
 	}
 	
 		

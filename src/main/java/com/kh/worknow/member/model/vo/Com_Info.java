@@ -7,13 +7,27 @@ public class Com_Info {
 	private String comAddress;
 	private String comCeo; 
 	private String comPhone;
+	
+	
+	private String memberId;
+	
+	// 기본 생성자
+		public Com_Info() {};
+		
+	
+		
+	
+	public String getMemberId() {
+			return memberId;
+		}
+
+	public void setMemberId(String memberId) {
+			this.memberId = memberId;
+		}
+
 	public String getComId() {
 		return comId;
 	}
-	
-	// 기본 생성자
-	public Com_Info() {};
-	
 	
 	public void setComId(String comId) {
 		this.comId = comId;
