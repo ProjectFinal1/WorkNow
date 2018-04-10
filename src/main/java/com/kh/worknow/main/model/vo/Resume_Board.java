@@ -3,8 +3,21 @@ package com.kh.worknow.main.model.vo;
 import java.util.Date;
 
 public class Resume_Board {
+
+	private int RESUME_LEVEL;//	게시레벨	NUMBER
+	private String RESUME_TYPE;//	직종분류	VARCHAR2(300)
+	private Date RESUME_STARTTIME;//	시작시간	DATE
+	private Date RESUME_ENDTIME;//	끝시간	DATE
+	private Date RESUME_STARTDAY;//	시작날	DATE
+	private Date RESUME_ENDDAY;//	끝날	DATE
+	private String RESUME_CONTENT;//	이력서본문	VARCHAR2(3000)
+	private String RESUME_ID;//	등록자ID	VARCHAR2(100)
+	private Date RESUME_ENDDATE;//	등록종료시간	DATE
+	private int RESUME_PUBLIC;//	공개여부	NUMBER
+	private Date RESUME_DATE;//	등록날짜	DATE	
+
 	
-	private Date RESUME_DATE;//	등록날짜	DATE
+
 	public Date getRESUME_DATE() {
 		return RESUME_DATE;
 	}
@@ -71,15 +84,5 @@ public class Resume_Board {
 	public void setRESUME_PUBLIC(int rESUME_PUBLIC) {
 		RESUME_PUBLIC = rESUME_PUBLIC;
 	}
-	private int RESUME_LEVEL;//	게시레벨	NUMBER
-	private String RESUME_TYPE;//	직종분류	VARCHAR2(300)
-	private Date RESUME_STARTTIME;//	시작시간	DATE
-	private Date RESUME_ENDTIME;//	끝시간	DATE
-	private Date RESUME_STARTDAY;//	시작날	DATE
-	private Date RESUME_ENDDAY;//	끝날	DATE
-	private String RESUME_CONTENT;//	이력서본문	VARCHAR2(3000)
-	private String RESUME_ID;//	등록자ID	VARCHAR2(100)
-	private Date RESUME_ENDDATE;//	등록종료시간	DATE
-	private int RESUME_PUBLIC;//	공개여부	NUMBER
 
 }

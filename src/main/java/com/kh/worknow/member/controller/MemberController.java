@@ -1,5 +1,5 @@
 package com.kh.worknow.member.controller;
- 
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -57,11 +57,7 @@ public class MemberController {
 		
 		File savedFileName = new File(savePath + "\\" + profileFileName);
 		file.transferTo(savedFileName);
-		
-		
-		
-		}			
-		 
+		}					 
 		 if (signupService.insertMember(member) > 0) {
 			 if(signupService.insertPerInfo(pInfo) > 0) {
 			 // 처리 결과가 있으면 매핑된 login.lo를 통해 로그인창으로 이동
@@ -74,7 +70,6 @@ public class MemberController {
 		 }
 		 
 		return mv;
-	}
-	
-	
+	}	
+
 }
