@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%> 
 <html lang="en">
 	<head>				
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,14 +75,13 @@
 						<div class="intro-heading">원하는 알바 선택해</div>
 						<hr>
 						
-							
-					
 
 						<br><br> 
 						
 						<dl class="search_all">
 						   <dt class="main_tab">알바 찾기</dt>
 						   <dd>
+						   	  <!-- 주소 선택 부분 -->
 						      <div>
 						      	<table align="center" border="1" cellspacing="0" width="900" id="kt" >
 						      		<tr height="40px"  class="kategorie1">
@@ -177,15 +177,31 @@
 						      			
 						      			<br><br>
 						      			<a href="#" class="testt" id="search_address">
-						      			<img src="resources/images/search.png" width="10%"></a>	      			
+						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      			
 						      			</td>
 						      			
 						      			<td>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">아이콘</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">아이콘</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">아이콘</a>	
-						      			<a href="#" class="testt" id="search_address"><br>
-						      			<img src="resources/images/search.png" width="10%"></a>	 					      			
+						      			<a href="#" class="testt" id="search_tob1">
+						      			<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_it" /></a>	 
+						      			
+						      			<a href="#" class="testt" id="search_tob2">
+						      			<img src="resources/images/main/grab.png" alt="img01" class="search_tob" id="search_work" /></a>
+						      			
+						      			<a href="#" class="testt" id="search_tob2">
+						      			<img src="resources/images/main/money.png" alt="img01" class="search_tob" id="search_etc" /></a>
+						      			
+						      			<a href="#" class="testt" id="search_tob3">
+						      			<img src="resources/images/main/person.png" alt="img01" class="search_tob" id="search_Acting" /></a>
+						      			
+						      			<a href="#" class="testt" id="search_tob4">
+						      			<img src="resources/images/main/restaurant.png" alt="img01" class="search_tob" id="search_restaurant" /></a>
+						      			
+						      			<a href="#" class="testt" id="search_tob5">
+						      			<img src="resources/images/main/truck.png" alt="img01" class="search_tob" id="search_delivery" /></a>
+						      			
+						      			<a href="#" class="testt" id="search_tob6">
+						      			<img src="resources/images/main/up.png" alt="img01" class="search_tob" id="search_service" /></a>
+						      						      			
 						      			</td>
 						      									      			
 						      			<td>
@@ -238,128 +254,38 @@
 					<!-- 목록 나오는 부분 -->
 					<div class="search_result_background search_result" style="visibility:hidden">
 					<div class="search_result" style="visibility:hidden">
-						<a href="#" class="search_back">검색하기</a>
-						<div class="owl-partners owl-carousel" style="">
-							<div class="col-md-4 col-0-gutter">
-								<div class="ot-portfolio-item" >
-									<figure class="effect-bubba" id="result_1">
-										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="content2">
-										근무시간 : 협의<br>
-										시급 : 9000원 <br>
-										위치 : 수원시 영통구<br>
-										등록일 : 30분전<br>												
-										</a>
-										<figcaption>
-											<h2>가게 이름</h2>
-											<p>상세히 보기</p>
-											<a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-										</figcaption>
-									</figure>
+						<a href="#" class="search_back">검색하기</a>						
+						<div class="owl-partners owl-carousel">
+							<c:forEach var="i" begin="0" end="9" step="1">
+								<div class="col-md-4 col-0-gutter">
+									<div class="ot-portfolio-item" >
+										<figure class="effect-bubba" id="result_1">
+											<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
+											<a class="subject_result${i}">검색결과없음
+											</a>
+											<a class="contents_result${i}">																			
+											</a>
+											<figcaption>
+												<h2>가게 이름</h2>
+												<p>상세히 보기</p>
+												<a href="#" data-toggle="modal" data-target="#Modal${i}">View more</a>
+											</figcaption>
+										</figure>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-4 col-0-gutter">
-								<div class="ot-portfolio-item" >
-									<figure class="effect-bubba" id="result_1">
-										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="addr_result1" id="hihi">
-										</a>
-										<a class="addr_result2" id="hihi">																				
-										</a>
-										<figcaption>
-											<h2>가게 이름</h2>
-											<p>상세히 보기</p>
-											<a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-							<div class="col-md-4 col-0-gutter">
-								<div class="ot-portfolio-item">
-									<figure class="effect-bubba" id="result_1">
-										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="content1">CU 수원역점<br></a>
-										<a class="content2">
-										근무시간 : 협의<br>
-										시급 : 9000원 <br>
-										위치 : 수원시 영통구<br>
-										등록일 : 30분전<br>												
-										</a>
-										<figcaption>
-											<h2>가게 이름</h2>
-											<p>상세히 보기</p>
-											<a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-							<div class="col-md-4 col-0-gutter">
-								<div class="ot-portfolio-item">
-									<figure class="effect-bubba" id="result_1">
-										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="content1">CU 수원역점<br></a>
-										<a class="content2">
-										근무시간 : 협의<br>
-										시급 : 9000원 <br>
-										위치 : 수원시 영통구<br>
-										등록일 : 30분전<br>												
-										</a>
-										
-										<figcaption>
-											<h2>가게 이름</h2>
-											<p>상세히 보기</p>											
-											<a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-							<div class="col-md-4 col-0-gutter">
-								<div class="ot-portfolio-item">
-									<figure class="effect-bubba" id="result_1">
-										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="content1">CU 수원역점<br></a>
-										<a class="content2">
-										근무시간 : 협의<br>
-										시급 : 9000원 <br>
-										위치 : 수원시 영통구<br>
-										등록일 : 30분전<br>												
-										</a>
-										<figcaption>
-											<h2>가게 이름</h2>
-											<p>상세히 보기</p>
-											<a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-										</figcaption>
-									</figure>
-								</div> 
-							</div>
-							<div class="col-md-4 col-0-gutter">
-								<div class="ot-portfolio-item">
-									<figure class="effect-bubba" id="result_1">
-										<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-										<a class="content1">CU 수원역점<br></a>
-										<a class="content2">
-										근무시간 : 협의<br>
-										시급 : 9000원 <br>
-										위치 : 수원시 영통구<br>
-										등록일 : 30분전<br>												
-										</a>
-										<figcaption>
-											<h2>가게 이름</h2>
-											<p>상세히 보기</p>
-											<a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-							
+							</c:forEach> 							
 						</div>
 				</div>
 				</div>
+				
+				
+				
 				</div>
 			</div>
 			</div>
 		</header>
 		
+		<!-- 사이트 소개  -->
 		<section id="about" class="dark-bg">
 			<div class="container">
 				<div class="row">
@@ -412,7 +338,7 @@
 			<!-- /.container -->
 		</section>
 		
-		
+		<!-- 팀원 소개 -->
 		<section id="team" class="light-bg">
 			<div class="container">		
 				<div class="row">
@@ -508,36 +434,14 @@
 			</div>
 		</footer>
 		
-		<!-- 카테고리 보기  -->
-		<div class="modal fade" id="show_kategorie" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+		<!-- 상세히 보기 -->
+		<c:forEach var="i" begin="0" end="9" step="1">
+			<div class="modal fade" id="Modal${i}" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="Modal-label-1">Dean & Letter</h4>
-					</div>
-					<div class="modal-body">
-						<p>카테고리 보는 페이지22</p>
-						<div class="col-lg-12 text-center">
-						
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div> 
-			</div>
-		</div>
-		</div>
-		
-		
-
-		<!-- Modal for portfolio item 1 -->
-		<div class="modal fade" id="Modal-1" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="Modal-label-1">CU 수원역점</h4>
+						<h4 class="modal-title" id="Modal-label-1 detail_sub${i}"></h4>
 					</div>
 					<div class="modal-body">						
 						<div class="modal-works">
@@ -548,96 +452,18 @@
 						</pre>				
 						
 						</div>
-						<p id="detail_sub1"></p>
-						<p id="detail_content1"></p>
-						<p id="detail_value1"></p>
+						<p id="detail_sub${i}"></p>
+						<p id="detail_content${i}"></p>
+						<p id="detail_value${i}"></p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>					
+		</c:forEach> 		
 
-		<!-- Modal for portfolio item 2 -->
-		<div class="modal fade" id="Modal-2" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="Modal-label-2">Startup Framework</h4>
-					</div>
-					<div class="modal-body">
-						<img src="resources/images/demo/portfolio-2.jpg" alt="img01" class="img-responsive" />
-						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal for portfolio item 3 -->
-		<div class="modal fade" id="Modal-3" tabindex="-1" role="dialog" aria-labelledby="Modal-label-3">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="Modal-label-3">Lamp & Velvet</h4>
-					</div>
-					<div class="modal-body">
-						<img src="resources/images/demo/portfolio-3.jpg" alt="img01" class="img-responsive" />
-						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal for portfolio item 4 -->
-		<div class="modal fade" id="Modal-4" tabindex="-1" role="dialog" aria-labelledby="Modal-label-4">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="Modal-label-4">Smart Name</h4>
-					</div>
-					<div class="modal-body">
-						<img src="resources/images/demo/portfolio-4.jpg" alt="img01" class="img-responsive" />
-						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal for portfolio item 5 -->
-		<div class="modal fade" id="Modal-5" tabindex="-1" role="dialog" aria-labelledby="Modal-label-5">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="Modal-label-5">Fast People</h4>
-					</div>
-					<div class="modal-body">
-						<img src="resources/images/demo/portfolio-5.jpg" alt="img01" class="img-responsive" />
-						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<!-- Bootstrap core JavaScript
 			================================================== -->
