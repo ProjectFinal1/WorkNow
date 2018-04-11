@@ -1,13 +1,16 @@
 package com.kh.worknow.main.model.dao;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import com.kh.worknow.main.model.vo.Company_View;
+
 import com.kh.worknow.main.model.vo.Job_Board;
 
 @Repository("Job_BoardDao")
@@ -41,16 +44,18 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 	public ArrayList<Company_View> getCompanyId(HashMap address) {
 		return new ArrayList<Company_View>(sqlSession.selectList("jboard.addr_getCompanyId", address));
 	}
-	
+
 	//업종별로 검색시 회사 아이디로 정보 가져오기
 	public ArrayList<Job_Board> jboard_tobsearch(String tob){
 		return new ArrayList<Job_Board>(sqlSession.selectList("jboard.tobsearch", tob));
+
 	}
 	
 	//업종별로 검색시 회사 아이디로 정보 가져오기
 	public Company_View getCompanyId(String comId){
 		return sqlSession.selectOne("jboard.tob_getCompanyId", comId);
 	}
+
 	
 	//시간으로 구직 검색하기
 	public ArrayList<Job_Board> jboard_timesearch(HashMap time) {
@@ -58,3 +63,4 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 	};
 	
 }
+

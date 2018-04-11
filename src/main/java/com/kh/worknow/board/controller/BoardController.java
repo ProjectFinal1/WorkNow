@@ -25,13 +25,13 @@ import com.kh.worknow.board.model.vo.Board;
 
 
 @Controller
-public class BoardController {
-	
+public class BoardController {	
 
 		@Autowired
 		private BoardService bService;
 
 		@SuppressWarnings("unchecked")
+		
 		@RequestMapping("toplist.do")
 		public void top5List(HttpServletResponse response) throws IOException {
 			ArrayList<Board> list = bService.selectTopList();

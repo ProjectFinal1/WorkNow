@@ -42,11 +42,14 @@ $(document).ready(function(){
 		}		
 	});
 	
+
 	// 주소로 구직찾기 클릭
 	$("#search_address").click(function(){		
 			var address1 = $('#sel_address1').val();
+
 			var adrees2 = "";
 			
+
 			if(address1 == "경기")
 				address2 = $('#gyeonggi').val();			
 			if(address1 == "서울")
@@ -68,7 +71,7 @@ $(document).ready(function(){
 			    dataType : "json",
 			    data : {address1 : address1,
 			    		address2 : address2},
-			    success : function(jboard) {
+			    success : function(jboard) {      
 			    		if(jboard[0] == null){
 				    		alert("결과값이 없습니다");
 				    		$(".search_result").css("visibility", "hidden"); 

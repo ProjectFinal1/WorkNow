@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 import com.kh.worknow.board.model.vo.Board;
 import com.kh.worknow.main.model.vo.Company_View;
-import com.kh.worknow.main.model.vo.Job_Board;
 
+import com.kh.worknow.main.model.vo.Job_Board;
 public interface Job_BoardDao {
 	
 		//최대 글수 가져오기
@@ -31,9 +31,6 @@ public interface Job_BoardDao {
 		public Company_View getCompanyId(String tob);
 		
 		//시간으로 검색시 사용될 메소드
-		public ArrayList<Job_Board> jboard_timesearch(HashMap time);
-		
-		
-		
-		
+		public ArrayList<Job_Board> jboard_timesearch(HashMap time);  
 }
+

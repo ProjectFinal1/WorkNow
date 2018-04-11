@@ -1,10 +1,12 @@
 package com.kh.worknow.main.controller;
  
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,15 +32,16 @@ public class HomeController {
 	private Job_BoardService jbService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+
 	public String home(Locale locale, Model model) {	
 
-		System.out.println("메인들어가기");
+		System.out.println("메인 접속");
 
 		return "Main";
 	}
 	
 
-	
+
 	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
 	public String jobofferView(Locale locale, Model model) {
 	
@@ -48,6 +51,15 @@ public class HomeController {
 		return "/joboffer/jobofferView";
 	}
 	
+
+	@RequestMapping(value = "search_address.ma2", method = RequestMethod.GET)
+	public void search_address(Locale locale, Model model) {
+
+	
+		System.out.println("주소 검색 실행");
+		
+		
+	}
 	
 	@RequestMapping(value = "joboffer.of", method = RequestMethod.GET)
 	public String joboffer(Locale locale, Model model) {
@@ -62,11 +74,12 @@ public class HomeController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_address.ma")
 	public void jboard_addrserach(HttpServletRequest request, HttpServletResponse response) throws IOException{
-	   
-						
+    
 		String address1 = request.getParameter("address1");	// 주소선택 첫번째 select 값을 가져옴
 		String address2 = request.getParameter("address2"); // 주소선택 두번째 select 값을 가져옴
-		System.out.println(address1 + "  " + address2);
+    
+  
+    System.out.println(address1 + "  " + address2);
 		
 		
 		HashMap<String, String> addressMap = new HashMap<String, String>();
@@ -105,8 +118,7 @@ public class HomeController {
 		
 		System.out.println(jarr.toJSONString());
 		
-	    
-		//보내는 값을 UTF-8로 지정
+
 		response.setContentType("application/json; charset=UTF-8");
 		
 		//생성한 객체를 PrintWriter에 담아 결과 전송

@@ -140,6 +140,7 @@ section ul li:before {
 	color: #fff;
 	font-family: "Montserrat",sans-serif;
 	padding: 0px;
+	margin-top: 10px;
 }
 .navbar-default .navbar-brand:hover,.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:active,.navbar-default .navbar-brand.active {
 	color: #fec503

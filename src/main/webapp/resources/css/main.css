@@ -84,6 +84,6 @@ dd.hidden {display: none;}
 
 .search_tob{width:7%;display:inline; margin: 0 0 5% 5%;}
 
-
-
-
+/*  상세보기 화면 기업 아이콘 크기 */
+.img_content{width:30%; vertical-align:top;}
+#balckblack{color:black}
