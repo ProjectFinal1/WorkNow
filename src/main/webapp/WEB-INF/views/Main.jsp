@@ -506,7 +506,7 @@
 					<div class="modal-body">						
 						<div class="modal-works">
 						<img src="resources/images/demo/shop-icon.png" alt="매장 아이콘." class="img_content" />						
-						<span>매장명</span><span>내용</span>
+						<span>테스트트트트틑</span><span>내용</span>
 						<span>근무조건</span><span>주소</span>
 						
 						</div>

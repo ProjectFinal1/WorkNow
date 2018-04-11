@@ -70,10 +70,5 @@ public class JobofferController {
 			System.out.println("공고 등록 페이지");
 					
 			return "/joboffer/joboffer_announcement";
-		}
-		
-		
-		
+		}	
 	}
-		
-
