@@ -60,6 +60,7 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 	public Company_View getCompanyId(String comId) {
 		return job_boardDao.getCompanyId(comId);
 	}
+
 	
 	//시간으로 구직 검색
 	public ArrayList<Job_Board> jboard_timesearch(HashMap time) {
@@ -75,6 +76,10 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 
 	}
 
+	public Company_View getCompanyId(HashMap address) {
+		return job_boardDao.getCompanyId(address);
+
+	}
 }
 
 

@@ -15,6 +15,7 @@ $(document).ready(function(){
 		if($(this).val() == "경기"){
 			$(".sel_address2").hide();
 			$("#gyeonggi").show();
+
 		}		
 		if($(this).val() == "서울"){
 			$(".sel_address2").hide();
@@ -36,13 +37,13 @@ $(document).ready(function(){
 			$(".sel_address2").hide();
 			$("#sejong").show();
 		}		
+
 		if($(this).val() == "충남"){
 			$(".sel_address2").hide();
 			$("#chungcheongnam").show();
 		}		
 	});
 	
-
 	// 주소로 구직찾기 클릭
 	$("#search_address").click(function(){		
 			var address1 = $('#sel_address1').val();
@@ -193,25 +194,8 @@ $(document).ready(function(){
 		        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
 		    }
 		});
-	                 
-		 
-		
-		
 		
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

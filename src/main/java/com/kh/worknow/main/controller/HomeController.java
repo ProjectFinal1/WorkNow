@@ -4,7 +4,9 @@ package com.kh.worknow.main.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
+import java.util.Date;
+
 import java.util.HashMap;
 
 import java.util.Locale;
@@ -12,7 +14,6 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.kh.worknow.main.model.service.Job_BoardService;
+
+import com.kh.worknow.main.model.service.Job_BoardServiceImpl;
 import com.kh.worknow.main.model.vo.Company_View;
 import com.kh.worknow.main.model.vo.Job_Board;
 
@@ -29,7 +31,8 @@ import com.kh.worknow.main.model.vo.Job_Board;
 public class HomeController {
 	
 	@Autowired
-	private Job_BoardService jbService;
+	private Job_BoardServiceImpl jbService;
+
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 
@@ -39,10 +42,8 @@ public class HomeController {
 
 		return "Main";
 	}
-	
-
-
-	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
+  
+  @RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
 	public String jobofferView(Locale locale, Model model) {
 	
 		System.out.println("구인 페이지");
@@ -54,11 +55,10 @@ public class HomeController {
 
 	@RequestMapping(value = "search_address.ma2", method = RequestMethod.GET)
 	public void search_address(Locale locale, Model model) {
-
 	
-		System.out.println("주소 검색 실행");
+		System.out.println("오리지널");
 		
-		
+		return "/joboffer/jobofferView";
 	}
 	
 	@RequestMapping(value = "joboffer.of", method = RequestMethod.GET)
@@ -177,7 +177,6 @@ public class HomeController {
 		out.close();		
 	}
 	
-	
 	//시간별로 알바찾기
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_time.ma")
@@ -230,7 +229,7 @@ public class HomeController {
 						
 		out.flush();
 		out.close();		
-		
+
 	}
 	
 		

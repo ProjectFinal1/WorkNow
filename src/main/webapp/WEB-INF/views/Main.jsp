@@ -17,14 +17,11 @@
 		<link href="resources/css/owl.theme.default.min.css"  rel="stylesheet">
 		<link href="resources/css/style.css" rel="stylesheet">
 		<link href="resources/css/main.css" rel="stylesheet">
-		
 
-		
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	</head>
 	<body id="page-top">
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
-
 
 		<!-- Header -->
 		<header> 
@@ -60,9 +57,7 @@
 						      				<option value="jeonbug">전북</option> <option value="jeju">제주</option>	<option value="jeongug">전국</option>
 
 						      			</select>
-
-
-						      			<select id="seoul" class="sel_adress2">
+ 			<select id="seoul" class="sel_adress2">
 						      				<option value="seoul_all">서울전체</option> <option value="">강남구</option> <option value="">강동구</option>
 						      				<option value="gangbug">강북구</option> <option value="">강서구</option> <option value="">관악구</option>
 						      				<option value="gwangjin">광진구</option> <option value="">구로구</option> <option value="">금천구</option>
@@ -94,10 +89,8 @@
 						      				<option value="hanam">하남시</option> <option value="hwaseong">화성시</option>						      				
 
 						      			</select>
-						      			
-
-
-						      			<select id="incheon" style="display:none;" class="sel_adress2">	
+					      			
+   			                <select id="incheon" style="display:none;" class="sel_adress2">	
 
 						      				<option value="incheon_all">인천전체</option>					      				
 								      		<option value="gyeyang">계양구</option><option value="incheon_namgu">남구 </option><option value="incheon_namdong">남동구</option>  
@@ -107,7 +100,6 @@
 
 						      			</select>
 
-
 						      			<select id="gangwon" style="display:none;" class="sel_adress2">		
 						      				<option value="gangwon_all">강원전체</option>				      				
 								      		<option value="wonju">원주시</option><option value="donghae">동해시</option><option value="samcheog">삼척시</option>
@@ -116,10 +108,9 @@
 											<option value="hoengseong">횡성군</option><option value="hwacheon">화천군</option><option value="hongcheon">홍천군</option>
 											<option value="inje">인제군</option><option value="jeongseon">정선군</option><option value="yanggu">양구군</option>
 											<option value="yeongwol">영월군</option><option value="pyeongchang">평창군</option><option value="goseong">고성군</option>
+                        </select>
 
-						      			</select>
-
-						      			<select id="daejeon" style="display:none;" class="sel_adress2">		
+                          <select id="daejeon" style="display:none;" class="sel_adress2">		
 						      				<option value="daejeon_all">대전전체</option>				      				
 								      		<option value="daedeog">대덕구</option>
 											<option value="daejeon_dong">동구 </option>
@@ -129,15 +120,13 @@
 
 						      			</select>
 
-
-						      			<select id="sejong" style="display:none;" class="sel_adress2">	
+                          <select id="sejong" style="display:none;" class="sel_adress2">	
 						      				<option value="sejong_all">세종전체</option>					      				
 
 								      		<option>세종시</option>
 						      			</select>
-						      			
-
-						      			<select id="chungcheongnam" style="display:none;" class="sel_adress2">
+	
+                          <select id="chungcheongnam" style="display:none;" class="sel_adress2">
 											<option value="chungcheongnam_all">충남전체</option>
 
 						      				<option>아산시</option><option>서산시</option><option>천안시</option><option>공주시</option>	
@@ -152,12 +141,12 @@
 
 						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      									      			     			
 
-
 						      			</td>
 						      			
 						      			<!-- 직종별 알바찾기 아이콘들 -->
 						      			<td>
-						      			<a href="#" class="testt" id="search_tob1">
+
+                          <a href="#" class="testt" id="search_tob1">
 						      			<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_it" /></a>	 
 						      			
 						      			<a href="#" class="testt" id="search_tob2">
@@ -184,6 +173,7 @@
 						      			시작일 &nbsp;<input type="date" id="job_start" name="userdate" value="2018-04-15"><br>
 						      			종료일 &nbsp;<input type="date" id="job_end" value="2018-08-15"><br>
 						      			<a href="#" class="testt" id="search_time"><br>
+
 						      			<img src="resources/images/search.png" width="10%"></a>	 							      			
 						      			</td>
 						      		</tr>
@@ -230,6 +220,7 @@
 					<!-- 목록 나오는 부분 -->
 					<div class="search_result_background search_result" style="visibility:hidden">
 					<div class="search_result" style="visibility:hidden">
+
 						<a href="#" class="search_back">검색하기</a>						
 						<div class="owl-partners owl-carousel">
 							<c:forEach var="i" begin="0" end="9" step="1">
@@ -250,6 +241,7 @@
 									</div>
 								</div>
 							</c:forEach> 							
+
 						</div>
 				</div>
 				</div>
@@ -431,9 +423,11 @@
 						</pre>				
 						
 						</div>
+
 						<p id="detail_sub${i}"></p>
 						<p id="detail_content${i}"></p>
 						<p id="detail_value${i}"></p>
+
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

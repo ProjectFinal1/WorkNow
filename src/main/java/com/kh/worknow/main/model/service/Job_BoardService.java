@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+
+import java.util.HashMap;
+
 import com.kh.worknow.main.model.vo.Company_View;
 import com.kh.worknow.main.model.vo.Job_Board;
 
@@ -23,8 +26,8 @@ public interface Job_BoardService {
 	
 	
 	//주소로 검색시 회사 아이디로 정보 가져오기
-	public ArrayList<Company_View> getCompanyId(HashMap address);
-	
+	public ArrayList<Company_View> getCompanyId(HashMap address);	
+
 	//업종별로 검색시 회사 아이디로 정보 가져오기
 	public Company_View getCompanyId(String tob);
 	
@@ -33,12 +36,11 @@ public interface Job_BoardService {
 	
 	//시간으로 검색시 사용될 메소드
 	public ArrayList<Job_Board> jboard_timesearch(HashMap time);
-
+  
   public String jboard_addrserach();
 	
 	//주소로 검색시 회사 아이디로 정보 가져오기
 	public Company_View getCompanyId(HashMap address);
 
 }
-
 

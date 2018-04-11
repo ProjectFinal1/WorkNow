@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -56,11 +58,10 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 		return sqlSession.selectOne("jboard.tob_getCompanyId", comId);
 	}
 
-	
+
 	//시간으로 구직 검색하기
 	public ArrayList<Job_Board> jboard_timesearch(HashMap time) {
 		return new ArrayList<Job_Board>(sqlSession.selectList("jboard.timesearch", time));
 	};
 	
 }
-

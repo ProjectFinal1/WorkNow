@@ -62,12 +62,7 @@ function closeModal() {
 	$("#modal").fadeOut(200);
 
 	$('#signupContent').hide();
-
-	// 		$("#signupContent").css({
-	// 			"height" : "300px"
-	// 		}).fadeIn(500);
 };
-
 
 function signupSelect1() {
 	$("#per").fadeIn(500);
@@ -80,6 +75,7 @@ function signupSelect2() {
 	$("#com").fadeIn(500);
 
 };
+
 
 function idCheck() {
 	//jQuery에서 선택자역할
@@ -387,6 +383,7 @@ function passCheck2(){
 					                	document.getElementById('com_postcode').value = data.zonecode; //5자리 새우편번호 사용
 						                document.getElementById('com_address').value = fullAddr;					                	
 					                }
+                        
 					
 					                // iframe을 넣은 element를 안보이게 한다.
 					                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
@@ -429,6 +426,8 @@ function passCheck2(){
 				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 			<p id="profile-name" class="profile-name-card"></p>
 			<div class="form-signin">
+					
+
 				<span id="reauth-email" class="reauth-email"></span>
 
 
