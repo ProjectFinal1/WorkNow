@@ -12,9 +12,6 @@
   		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
 	</resultMap>
 	
-	
-	
-	
 	<insert id="insertPerInfo" parameterType="Personal">
  		insert into personal_info
  		values(#{perId}, #{perTalk}, #{perAge}, #{perAddress}, #{perSex}, #{perPhoto}) 
