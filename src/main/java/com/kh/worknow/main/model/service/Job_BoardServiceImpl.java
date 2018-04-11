@@ -51,8 +51,8 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 	}
 	
 	//업종 검색으로 회사 아이디 가져오기
-	public Company_View getCompanyId(String tob) {
-		return job_boardDao.getCompanyId(tob);
+	public Company_View getCompanyId(String comId) {
+		return job_boardDao.getCompanyId(comId);
 	}
 	
 	public Job_Board jboard_timeserach() {

@@ -82,7 +82,7 @@ $(document).ready(function(){
 				    	}else{
 				    		$(".search_all").hide();
 							$(".search_result").css("visibility", "visible"); 
-				    		for(var n=0; n<10; n++){
+				    		for(var n=0; n<jboard.length; n++){
 					    		$('.subject_result' + n).html(jboard[n].JOB_SUBJECT + "<br><br>");
 						    	$('.subject_result' + n).css("color","white").css("font-size","15px");
 						    	$('.contents_result' + n).html(jboard[n].JOB_STARTDAY + " ~ " + jboard[n].JOB_ENDDAY
@@ -103,7 +103,7 @@ $(document).ready(function(){
 	});
 	
 	
-	// 업종별로 알바찾기 돋보기 클릭
+	// 업종별로 알바찾기 클릭
 	$(".search_tob").click(function(){	
 			var tob = $(this).attr('id');		
 			if(tob == "search_it")
@@ -121,7 +121,42 @@ $(document).ready(function(){
 			if(tob == "search_service")   
 				tob = "서비스";
 			
-			alert(tob);
+			$.ajax({
+			    url : "search_tob.ma",
+			    type : "GET",
+			    dataType : "json",
+			    data : {tob : tob },
+			    success : function(jboard) {
+			    	if(jboard[0] == null){
+			    		alert("결과값이 없습니다");
+			    		$(".search_result").css("visibility", "hidden"); 
+			    		$(".search_all").show();
+			    	}else{
+			    		$(".search_all").hide();
+						$(".search_result").css("visibility", "visible"); 
+			    		for(var n=0; n<jboard.length; n++){
+				    		$('.subject_result' + n).html(jboard[n].JOB_SUBJECT + "<br><br>");
+					    	$('.subject_result' + n).css("color","white").css("font-size","15px");
+					    	$('.contents_result' + n).html(jboard[n].JOB_STARTDAY + " ~ " + jboard[n].JOB_ENDDAY
+					    			+ "<br>시급: " + jboard[n].JOB_VALUE+"원<br>" + "위치 : " + jboard[n].COM_ADDRESS);
+					        $('.contents_result' + n).css("color","white").css("font-size","12px");
+					        
+					        $('#detail_sub'+ n).html(jboard[n].JOB_SUBJECT);
+					        $('#detail_content'+ n).html(jboard[n].JOB_CONTENT);
+					        $('#detail_value'+ n).html(jboard[n].JOB_VALUE + "원");
+				    	}	  
+			    	}		    	
+			    },
+			    error : function(jqXHR, textStatus, errorThrown) {
+			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+			    }
+			});
+	});
+	
+	
+	// 시간으로 알바찾기 돋보기 클릭
+	$(".search_tob").click(function(){	
+			
 			
 			$.ajax({
 			    url : "search_tob.ma",
@@ -129,7 +164,25 @@ $(document).ready(function(){
 			    dataType : "json",
 			    data : {tob : tob },
 			    success : function(jboard) {
-			    		alert(성공);		    	
+			    	if(jboard[0] == null){
+			    		alert("결과값이 없습니다");
+			    		$(".search_result").css("visibility", "hidden"); 
+			    		$(".search_all").show();
+			    	}else{
+			    		$(".search_all").hide();
+						$(".search_result").css("visibility", "visible"); 
+			    		for(var n=0; n<jboard.length; n++){
+				    		$('.subject_result' + n).html(jboard[n].JOB_SUBJECT + "<br><br>");
+					    	$('.subject_result' + n).css("color","white").css("font-size","15px");
+					    	$('.contents_result' + n).html(jboard[n].JOB_STARTDAY + " ~ " + jboard[n].JOB_ENDDAY
+					    			+ "<br>시급: " + jboard[n].JOB_VALUE+"원<br>" + "위치 : " + jboard[n].COM_ADDRESS);
+					        $('.contents_result' + n).css("color","white").css("font-size","12px");
+					        
+					        $('#detail_sub'+ n).html(jboard[n].JOB_SUBJECT);
+					        $('#detail_content'+ n).html(jboard[n].JOB_CONTENT);
+					        $('#detail_value'+ n).html(jboard[n].JOB_VALUE + "원");
+				    	}	  
+			    	}		    	
 			    },
 			    error : function(jqXHR, textStatus, errorThrown) {
 			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
@@ -141,10 +194,20 @@ $(document).ready(function(){
 	
 	
 	
+	
+	
 	// 다시 알바찾기로 돌아가기
 	$(".search_back").click(function(){
 		$(".search_result").css("visibility", "hidden"); 
 		$(".search_all").show();
+		for(var n=0; n<10; n++){
+    		$('.subject_result' + n).html("검색결과없음");
+	    	$('.contents_result' + n).html("");
+	        
+	        $('#detail_sub'+ n).html("");
+	        $('#detail_content'+ n).html("");
+	        $('#detail_value'+ n).html("");
+    	}			
 	});
 	
 });

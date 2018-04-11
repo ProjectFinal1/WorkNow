@@ -52,7 +52,7 @@
 	</select>
 	
 	<select id="tob_getCompanyId" parameterType="String" resultMap="resultCompany"> 
-		SELECT * FROM JOB_BOARD WHERE JOB_TYPE = #{tob}
+		SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comID}
 	</select>
 	
 	

@@ -48,8 +48,8 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 	}
 	
 	//업종별로 검색시 회사 아이디로 정보 가져오기
-	public Company_View getCompanyId(String tob){
-		return sqlSession.selectOne("jboard.tob_getCompanyId", tob);
+	public Company_View getCompanyId(String comId){
+		return sqlSession.selectOne("jboard.tob_getCompanyId", comId);
 	}
 	
 	public Job_Board jboard_timeserach() {

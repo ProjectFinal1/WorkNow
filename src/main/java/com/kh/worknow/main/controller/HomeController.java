@@ -58,7 +58,7 @@ public class HomeController {
 		return "/joboffer/jobofferView";
 	}
 	
-	
+	//주소별로 알바 찾기
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_address.ma")
 	public void jboard_addrserach(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -117,6 +117,7 @@ public class HomeController {
 		out.close();
 	}
 	
+	//직종별로 알바 찾기
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_tob.ma")
 	public void jboard_tobserach(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -126,17 +127,14 @@ public class HomeController {
 		//업종별로 검색했을 때 그 주소에 해당하는 회사 정보 Arraylist로 가져오기
 		ArrayList<Job_Board> tolist = jbService.jboard_tobserach(tob);
 		
-		System.out.println(tolist.get(0).getJOB_SUBJECT());
-		System.out.println("id = " + tolist.get(0).getJOB_ID());
-		
 		JSONArray jarr = new JSONArray();
 		String comId = ""; // job_board 데이터를 가져오기 위해 검색한 회사의 job_id 값을 담을 변수
 		for(Job_Board to : tolist) {
 			JSONObject list = new JSONObject();		
 			
-//			list.put("JOB_SUBJECT", to.getJOB_SUBJECT());
-//			list.put("JOB_CONTENT", to.getJOB_CONTENT());
-//			list.put("JOB_VALUE", to.getJOB_VALUE());
+			list.put("JOB_SUBJECT", to.getJOB_SUBJECT());
+			list.put("JOB_CONTENT", to.getJOB_CONTENT());
+			list.put("JOB_VALUE", to.getJOB_VALUE());
 			
 			String startday = new SimpleDateFormat("yyyy-MM-dd").format(to.getJOB_STARTDAY());
 			String endday = new SimpleDateFormat("yyyy-MM-dd").format(to.getJOB_ENDDAY());
@@ -144,22 +142,27 @@ public class HomeController {
 			list.put("JOB_STARTDAY", startday);	//알바 시작 날
 			list.put("JOB_ENDDAY", endday);		//알바 끝나는 날
 			
-			
-			System.out.println(to.getJOB_CONTENT());
-			System.out.println(to.getJOB_ID());
+			System.out.println(to.getJOB_SUBJECT());
 			
 			comId = to.getJOB_ID();
-			Company_View db = jbService.getCompanyId(tob);		
+			System.out.println("comID = " + comId);
+			Company_View db = jbService.getCompanyId(comId);	
 			
 			list.put("COM_ADDRESS", db.getCOM_ADDRESS());
 			list.put("COM_EMAIL", db.getMEMBER_EMAIL());
 			
-			
-			
-			
 			jarr.add(list);			
 		}
 		
+		//보내는 값을 UTF-8로 지정
+		response.setContentType("application/json; charset=UTF-8");
+				
+		//생성한 객체를 PrintWriter에 담아 결과 전송
+		PrintWriter out = response.getWriter();
+		out.print(jarr.toJSONString());
+				
+		out.flush();
+		out.close();		
 	}
 	
 		
