@@ -42,7 +42,7 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 
 	//지역 검색으로 회사 아이디 가져오기
 	public ArrayList<Company_View> getCompanyId(HashMap address) {
-		return  new ArrayList<Company_View>(job_boardDao.getCompanyId(address));
+		return new ArrayList<Company_View>(job_boardDao.getCompanyId(address));
 	}
 	
 	//지역검색으로 회사 정보 가져오기
@@ -50,8 +50,10 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 		return job_boardDao.jboard_addrserach(comId);
 	}
 
-		public ArrayList<Job_Board> jboard_tobserach(String tob) {
-		return new ArrayList<Job_Board>(job_boardDao.jboard_tobserach(tob));
+	//업종 검색으로 회사 아이디 가져오기
+	public ArrayList<Job_Board> jboard_tobsearch(String tob) {
+		return new ArrayList<Job_Board>(job_boardDao.jboard_tobsearch(tob));
+
 	}
 	
 	//업종 검색으로 회사 아이디 가져오기
@@ -59,8 +61,9 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 		return job_boardDao.getCompanyId(comId);
 	}
 	
-	public Job_Board jboard_timeserach() {
-		return null;
+	//시간으로 구직 검색
+	public ArrayList<Job_Board> jboard_timesearch(HashMap time) {
+		return new ArrayList<Job_Board>(job_boardDao.jboard_timesearch(time));
 	};
 
 	public Job_Board jboard_addrserach() {

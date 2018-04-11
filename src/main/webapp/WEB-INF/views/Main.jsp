@@ -24,8 +24,8 @@
 	
 	</head>
 	<body id="page-top">
-	<jsp:include page="/WEB-INF/views/header/header.jsp" />
 
+	<jsp:include page="/WEB-INF/views/header/header.jsp" />
 		<!-- Header -->
 		<header> 
 			<div class="container">
@@ -151,6 +151,7 @@
 
 						      			</td>
 						      			
+						      			<!-- 직종별 알바찾기 아이콘들 -->
 						      			<td>
 						      			<a href="#" class="testt" id="search_tob1">
 						      			<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_it" /></a>	 
@@ -176,9 +177,9 @@
 						      			</td>
 						      									      			
 						      			<td>
-						      			시작일 &nbsp;<input type="date" id="userdate" name="userdate" value="2018-04-15"><br>
-						      			종료일 &nbsp;<input type="date"><br>
-						      			<a href="#" class="testt" id="search_address"><br>
+						      			시작일 &nbsp;<input type="date" id="job_start" name="userdate" value="2018-04-15"><br>
+						      			종료일 &nbsp;<input type="date" id="job_end" value="2018-08-15"><br>
+						      			<a href="#" class="testt" id="search_time"><br>
 						      			<img src="resources/images/search.png" width="10%"></a>	 							      			
 						      			</td>
 						      		</tr>

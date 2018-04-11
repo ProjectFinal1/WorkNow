@@ -45,14 +45,10 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 		return new ArrayList<Company_View>(sqlSession.selectList("jboard.addr_getCompanyId", address));
 	}
 
-	
-	// 직종검색으로 회사 정보 가져오기
-	public ArrayList<Job_Board> jboard_tobserach(String tob){
-		return new ArrayList<Job_Board>(sqlSession.selectList("jboard.tobserach", tob));
-  }
+	//업종별로 검색시 회사 아이디로 정보 가져오기
+	public ArrayList<Job_Board> jboard_tobsearch(String tob){
+		return new ArrayList<Job_Board>(sqlSession.selectList("jboard.tobsearch", tob));
 
-	public Job_Board jboard_addrserach() {
-		return sqlSession.selectOne("jboard.addserach");
 	}
 	
 	//업종별로 검색시 회사 아이디로 정보 가져오기
@@ -61,8 +57,9 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 	}
 
 	
-	public Job_Board jboard_timeserach() {
-		return null;
+	//시간으로 구직 검색하기
+	public ArrayList<Job_Board> jboard_timesearch(HashMap time) {
+		return new ArrayList<Job_Board>(sqlSession.selectList("jboard.timesearch", time));
 	};
 	
 }

@@ -21,8 +21,6 @@ public interface Job_BoardService {
 	//주소로 구직 검색
 	public Job_Board jboard_addrserach(String comId);
 	
-	//시간으로 검색시 사용될 메소드
-	public Job_Board jboard_timeserach();
 	
 	//주소로 검색시 회사 아이디로 정보 가져오기
 	public ArrayList<Company_View> getCompanyId(HashMap address);
@@ -31,9 +29,12 @@ public interface Job_BoardService {
 	public Company_View getCompanyId(String tob);
 	
 	//type of business = tob 업종별 검색시 사용될 메소드
-	public ArrayList<Job_Board> jboard_tobserach(String tob);
+	public ArrayList<Job_Board> jboard_tobsearch(String tob);
+	
+	//시간으로 검색시 사용될 메소드
+	public ArrayList<Job_Board> jboard_timesearch(HashMap time);
 
-	public String jboard_addrserach();
+  public String jboard_addrserach();
 	
 	//주소로 검색시 회사 아이디로 정보 가져오기
 	public Company_View getCompanyId(HashMap address);

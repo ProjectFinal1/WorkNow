@@ -25,19 +25,12 @@ public interface Job_BoardDao {
 		public Job_Board jboard_addrserach(String comId);	
 				
 		//type of business = tob 업종별 검색시 사용될 메소드
-		public ArrayList<Job_Board> jboard_tobserach(String tob);
+		public ArrayList<Job_Board> jboard_tobsearch(String tob);
 		
 		//업종별로 검색시 회사 아이디로 정보 가져오기
 		public Company_View getCompanyId(String tob);
 		
 		//시간으로 검색시 사용될 메소드
-		public Job_Board jboard_timeserach();
-
-		//주소로 구직 검색
-		public Job_Board jboard_addrserach();
-		
-		//구직 검색했을 시 아이디 가져오기
-		public Company_View getCompanyId(HashMap address);
-
+		public ArrayList<Job_Board> jboard_timesearch(HashMap time);  
 }
 
