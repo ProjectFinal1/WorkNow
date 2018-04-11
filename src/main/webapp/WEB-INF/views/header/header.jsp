@@ -38,7 +38,8 @@
 						<li>
 							<a class="page-scroll" href="#about">소개</a>
 						</li>
-						</c:if>
+						</c:if> 
+						
 						
 						<c:set var="member" value="${sessionScope.member}" />						
 						<c:if test="${!empty sessionScope.member }">						
