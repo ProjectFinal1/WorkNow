@@ -14,9 +14,8 @@ public class idCheckServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
 		
-		
 		PrintWriter out = response.getWriter();
-
+		
 		if (id.length() < 4 ) {
 			out.print("tooShort");
 		} else if (id.length() > 14) {
@@ -25,6 +24,6 @@ public class idCheckServlet extends HttpServlet {
 			out.print("fail");
 		} else {
 			out.print("success");
-		}
+		}		
 	}
 }

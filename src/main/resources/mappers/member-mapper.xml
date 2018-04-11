@@ -14,8 +14,31 @@
   		<result property="memberBlack" column="MEMBER_BLACK"/> 
 	</resultMap>	
 	
-	<select id="selectMember" parameterType="Member">
-		select * from MEMBER_INFO where MEMBER_ID = '#{memberId}'
+	<resultMap id="resultPeronal" type="Personal">
+		<id property="perId" 	   column="PER_ID" />
+  		<result property="perTalk"  column="PER_TALK"/>
+  		<result property="perAge"  column="PER_AGE"/>
+  		<result property="perAddress" column="PER_ADDRESS"/>
+  		<result property="perSex" column="PER_SEX"/>
+  		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
+	</resultMap>
+	
+	<resultMap id="resultCom" type="Com_Info">
+		<id property="comId" 	   column="COM_ID" />   
+		<result property="comNumber"  column="COM_NUMBER"/>  
+		<result property="comName"  column="COM_NAME"/>  
+		<result property="comAddress" column="COM_ADDRESS"/> 
+		<result property="comCeo" column="COM_CEO"/> 
+		<result property="comPhone"  column="COM_PHONE"/>  
+ 	</resultMap>
+	
+	
+	<select id="checkMember" parameterType="string" resultType="_int">
+		Select count(*) from MEMBER_INFO where MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
+	</select>
+
+	<select id="selectMember" parameterType="Member" resultMap="resultMember">
+		SELECT * FROM MEMBER_INFO WHERE MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
 	</select>
 	
 	
@@ -25,10 +48,14 @@
 			#{memberEmail}, 0, SYSDATE, 0)		
   	</insert>
   	
-<!--   	<insert id="insertPersonalinfo" parameterType="Member"> -->
-<!--   		insert into personal_info -->
-<!--  		values(#{memberId}, #{perTalk}, #{perAge}, #{perAddress}, #{perSex}, #{perPhoto})  -->
+  	<insert id="insertPerInfo" parameterType="Member">
+  		insert into personal_info
+ 		values(#{memberId}, #{perTalk}, #{perAge}, #{perAddress}, #{perSex}, #{perPhoto})  	
+  	</insert>
   	
-<!--   	</insert> -->
+  	<insert id="insertComInfo" parameterType="Member">
+  		insert into COM_INFO
+  		values(#{memberId},#{comNumber},#{comName},#{comAddress},#{comCeo},#{comPhone})
+  	</insert>
 </mapper>
 

@@ -19,13 +19,13 @@
 		<link href="resources/css/main.css" rel="stylesheet">
 		
 
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-	
+		
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	</head>
 	<body id="page-top">
-
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
+
+
 		<!-- Header -->
 		<header> 
 			<div class="container">
@@ -61,6 +61,7 @@
 
 						      			</select>
 
+
 						      			<select id="seoul" class="sel_adress2">
 						      				<option value="seoul_all">서울전체</option> <option value="">강남구</option> <option value="">강동구</option>
 						      				<option value="gangbug">강북구</option> <option value="">강서구</option> <option value="">관악구</option>
@@ -71,8 +72,10 @@
 						      				<option value="">송파구</option> <option value="">양천구</option> <option value="">영등포구</option>
 						      				<option value="">용산구</option> <option value="">은평구</option> <option value="">종로구</option>
 						      				<option value="">중구</option> <option value="">중랑구</option>
+
 						      			</select>
 						      			
+
 						      			<select id="gyeonggi" style="display:none;" class="sel_adress2">
 						      				<option value="gyeonggi_all">경기전체</option> <option value="gapyeong">가평군</option> <option value="deogyang">고양시 덕양구</option>
 						      				<option value="ilsandong">고양시 일산동구</option> <option value="ilsanseo">고양시 일산서구</option> <option value="gwacheon">과천시</option>
@@ -92,9 +95,10 @@
 
 						      			</select>
 						      			
-						      			
+
 
 						      			<select id="incheon" style="display:none;" class="sel_adress2">	
+
 						      				<option value="incheon_all">인천전체</option>					      				
 								      		<option value="gyeyang">계양구</option><option value="incheon_namgu">남구 </option><option value="incheon_namdong">남동구</option>  
 											<option value="incheon_dong">동구 </option><option value="bupyeong">부평구</option><option value="incheon_seo">서구 </option>  
@@ -102,7 +106,7 @@
 											<option value="ongjin">옹진군</option>  
 
 						      			</select>
-						      			
+
 
 						      			<select id="gangwon" style="display:none;" class="sel_adress2">		
 						      				<option value="gangwon_all">강원전체</option>				      				
@@ -114,7 +118,6 @@
 											<option value="yeongwol">영월군</option><option value="pyeongchang">평창군</option><option value="goseong">고성군</option>
 
 						      			</select>
-						      			
 
 						      			<select id="daejeon" style="display:none;" class="sel_adress2">		
 						      				<option value="daejeon_all">대전전체</option>				      				
@@ -125,7 +128,7 @@
 											<option value="daejeon_jung">중구 </option>
 
 						      			</select>
-						      			
+
 
 						      			<select id="sejong" style="display:none;" class="sel_adress2">	
 						      				<option value="sejong_all">세종전체</option>					      				
@@ -148,6 +151,7 @@
 						      			<a href="#" class="testt" id="search_address">
 
 						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      									      			     			
+
 
 						      			</td>
 						      			
@@ -439,7 +443,28 @@
 		</div>					
 		</c:forEach> 		
 
-
+<!-- 이부분도 뭔지 몰라 주석처리 함
+		<!-- Modal for portfolio item 5 -->
+		<div class="modal fade" id="Modal-5" tabindex="-1" role="dialog" aria-labelledby="Modal-label-5">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="Modal-label-5">Fast People</h4>
+					</div>
+					<div class="modal-body">
+						<img src="resources/images/demo/portfolio-5.jpg" alt="img01" class="img-responsive" />
+						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
+						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+-->
+<!-- 뭔지 몰라 주석처리하고 병합하였음
 		<!-- Bootstrap core JavaScript
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
@@ -452,7 +477,8 @@
 		<script src="resources/js/SmoothScroll.min.js"></script>
 		<script src="resources/js/mooz.themes.scripts.js"></script>
 		<script src="resources/js/main.js"></script>
+		-->
 		
-		
+
 	</body>
 </html>
