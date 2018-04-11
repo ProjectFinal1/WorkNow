@@ -1,7 +1,5 @@
 
 $(document).ready(function() {
-	
-	
 	// var fileTarget = $('.upload-hidden');
 	//파일 이름 처리
 	$('#ex_file').change(function() { // 값이변경되면
@@ -16,8 +14,7 @@ $(document).ready(function() {
 		// 추출한파일명 삽입
 		$('.upload-name').val(filename);
 
-		
-	});
+			});
 
 
 
@@ -92,11 +89,32 @@ $("#p3").change(function(){
 	$(".payvalue").text(payment);
 });
 
+//캐쉬 읽어와 새로고침 처리
 
+$("#cash_refresh").click(function(){
+	
+	var id=$("#userid").val(); 
+	
+	//에이젝스를 통한 캐쉬값을 받아와 처리하기
+$.ajax({
+    url : "cash_refresh.ma", // 호출할 페이지 or 서블릿 을 적어준다.
+    type : "GET", //보낼방식 겟or post
+    data : {id : id}, //데이타 타입 여러개 전송가능
+    success : function(data) {
+        //alert("성공!! cash = "+data);
+        $(".cashvalue").text(data);
+    },
+    error : function(jqXHR, textStatus, errorThrown) {
+        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+    }
+	});
+
+	return false;
+});
 
 //프리뷰 쿼리 처리
 $("#preview_btn").click(function(){
-	
+
 	//제목
 	$(".preview_title").text($(".main_top").val());
 	//회사/점포명
@@ -177,31 +195,43 @@ $("#preview_btn").click(function(){
 	$('.preview_address1').text($("input[name=address2]").val());
 	$('.preview_address2').text($("input[name=address3]").val());
 	
-	
-	//var date=$(".start_day").val().split("-");
-	//var year=date[0];
-	//var month=date[1];
-	//var day=date[2];
-	//$(".preview_day").html(datenum1+" "+datenum2);
-	//$(".preview_day").html("<input type='date' value='2018-04-11' disabled='disabled'>&nbsp; ~ &nbsp;<input type='date' value='2018-04-11' disabled='disabled'>");
-	//<input type='date' value='2018-04-11' disabled='disabled'>&nbsp; ~ &nbsp;<input type='date' value='2018-04-11' disabled='disabled'>
-	
-	
-	/*	
-	 * <input type="text" value="09" size=4 disabled="disabled">&nbsp; : &nbsp;<input type="text" value="30" size=4 disabled="disabled">&nbsp; ~ &nbsp;
-						<input type="text" value="20" size=4 disabled="disabled">&nbsp; : &nbsp;<input type="text" value="00" size=4 disabled="disabled">
-	 * <i class="fas fa-people-carry"><br><span class="text_10 ser_text">단순노무</span></i>
-	 <option value="service">서비스</option>
-	  <option value="work">단순노무</option>
-	  <option value="it">IT관련</option>
-	  <option value="food">음식점,카페</option>
-	  <option value="delivery">배달</option>
-	  <option value="agency">행사대행</option>
-	  <option value="etc">기타부업</option>*/
+	//네이버 지도 api입니다.
+	var map = new naver.maps.Map('map');
+    var myaddress = $(".postcodify_address").val();// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
+    if(myaddress==""||myaddress==null)
+    	myaddress="불정로 6";
+    naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+        if (status !== naver.maps.Service.Status.OK) {
+            return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
+        }
+        var result = response.result;
+        // 검색 결과 갯수: result.total
+        // 첫번째 결과 결과 주소: result.items[0].address
+        // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+        var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+        map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+        // 마커 표시
+        var marker = new naver.maps.Marker({
+          position: myaddr,
+          map: map
+        });
+        
+        // 마커 클릭 이벤트 처리
+        naver.maps.Event.addListener(marker, "click", function(e) {
+          if (infowindow.getMap()) {
+              infowindow.close();
+          } else {
+              infowindow.open(map, marker);
+          }
+        });
+        // 마크 클릭시 인포윈도우 오픈
+        var infowindow = new naver.maps.InfoWindow({
+            content: '<h4> ['+$(".company_name").val()+']</h4><img src="'+$(".img-responsive").attr("src")+'" style="width:150px;height:110px;">'
+        });
+    });
+    /////////////////////////////////////////////////////////////////////////////////////////
 	
 });
 //submit 유효성 검사 처리
-
-
 
 });

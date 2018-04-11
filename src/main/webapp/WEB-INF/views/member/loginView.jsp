@@ -62,12 +62,7 @@ function closeModal() {
 	$("#modal").fadeOut(200);
 
 	$('#signupContent').hide();
-
-	// 		$("#signupContent").css({
-	// 			"height" : "300px"
-	// 		}).fadeIn(500);
 };
-
 
 function signupSelect1() {
 	$("#per").fadeIn(500);
@@ -80,6 +75,7 @@ function signupSelect2() {
 	$("#com").fadeIn(500);
 
 };
+
 
 function idCheck() {
 	//jQuery에서 선택자역할
@@ -387,6 +383,7 @@ function passCheck2(){
 					                	document.getElementById('com_postcode').value = data.zonecode; //5자리 새우편번호 사용
 						                document.getElementById('com_address').value = fullAddr;					                	
 					                }
+                        
 					
 					                // iframe을 넣은 element를 안보이게 한다.
 					                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
@@ -429,13 +426,45 @@ function passCheck2(){
 				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 			<p id="profile-name" class="profile-name-card"></p>
 			<div class="form-signin">
-				<span id="reauth-email" class="reauth-email"></span> 
-				<form action="memberLogin.me" method="post" class="login">
-				
-				<input type="text" name="memberId" class="form-control" placeholder="ID">
-				<input type="password" name="memberPass" class="form-control" placeholder="Password">		
-				<button class="btn btn-lg btn-primary btn-block btn-signin"
-					type="submit">로그인</button>					
+					
+
+				<span id="reauth-email" class="reauth-email"></span>
+
+
+				<script>
+					$(function() {
+						$("#logincheck").click(function() {
+							var memloginid = $("#memberId").val();
+							var memloginpass = $("#memberPass").val();
+							$.ajax({
+								url : "loginCheck.lo",
+								data : {
+									id : $("#memberId").val(),
+									pass : $("#memberPass").val()
+								},
+								dataType : "text",
+								type : "post",
+								success : function(value) {
+									if (value == "loginsuccess") {										
+										window.location.href="memberLogin.me?id=" + memloginid + "&pass=" + memloginpass;
+										alert("로그인 되었습니다.");
+									} else {
+										alert("아이디와 비밀번호를 확인해주세요.");										
+									}
+								},
+								error : function(value) {
+									alert("잘못 입력하셨습니다." + value);
+								}
+							});
+							return false;
+						}); //click
+					}); //ready
+				</script>
+				<form action="memberLogin.me" method="POST" class="login">				
+				<input type="text" id="memberId" name="memberId" class="form-control" placeholder="ID">
+				<input type="password" id="memberPass" name="memberPass" class="form-control" placeholder="Password">		
+				<button class="btn btn-lg btn-primary btn-block btn-signin"									
+					id="logincheck" type="submit">로그인</button>					
 				</form>		
 				
 				<button id="signup"

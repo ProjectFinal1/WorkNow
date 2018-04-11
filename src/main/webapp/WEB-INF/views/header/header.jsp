@@ -7,6 +7,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!-- Custom styles for this template -->
+		<link href="resources/css/owl.carousel.css" rel="stylesheet">
+		<link href="resources/css/owl.theme.default.min.css"  rel="stylesheet">
+		<link href="resources/css/style.css" rel="stylesheet">
+		<link href="resources/css/main.css" rel="stylesheet">			
+
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 </head>
 <body>
 <div style="margin-top:5%">
@@ -30,8 +42,40 @@
 						<li class="hidden">
 							<a href="#page-top"></a>
 						</li>
-						
-						
+						<li>
+						<c:if test="${!empty sessionScope.member }">					
+						<li>
+						<ul class="nav navbar-top-links navbar-right" style="">							
+							<li class="dropdown" style="float:right;">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#"> 
+									<i class="fa fa-user fa-fw"></i> 
+									<i class="fa fa-caret-down"></i>
+								</a>
+							
+								<ul class="dropdown-menu dropdown-user">
+									<li>
+										<a href="mypage.my">
+											<i class="fa fa-user fa-fw"></i> 마이페이지</a>
+									</li>											
+									<li>
+									<a href="#">
+										<i class="fa fa-comment fa-fw"></i>	새로운 요청</a>
+									</li>											
+									<li class="divider"></li>											
+									<li>
+										<a href="logout.lo">
+										<i class="fa fa-sign-out fa-fw"></i>로그아웃</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						</li>
+						</c:if>
+						<c:if test="${empty sessionScope.member }">
+						<li>
+							<a class="page-scroll" href="login.lo">로그인</a>																				
+						</li>
+						</c:if>										
 						<!-- 메인에서만 소개버튼이 뜨도록 조절하는 JSTL문 - 2018 04 02 작성 -->
 						<c:set var="currentURL" value="${pageContext.request.requestURL}"/>								
 						<c:if test="${currentURL eq 'http://localhost:8088/worknow/WEB-INF/views/Main.jsp'}">					
@@ -40,6 +84,7 @@
 						</li>
 						</c:if> 
 						
+
 						
 						<c:set var="member" value="${sessionScope.member}" />						
 						<c:if test="${!empty sessionScope.member }">						
@@ -47,6 +92,7 @@
 							<a class="page-scroll" href="mypage.my">마이페이지</a>
 						</li>						
 						</c:if>
+
 						<li>
 							<a class="page-scroll" href="jobofferView.jo">구인</a>
 						</li>
@@ -62,6 +108,7 @@
 						</li>
 						<li>
 							<a class="page-scroll" href="servicecenter.se">고객센터</a>
+
 						</li>					
 						
 						<c:if test="${empty sessionScope.member }">
@@ -135,12 +182,23 @@
 								</ul>
 							</li>
 						</c:if>
-					</ul>
+          </ul>
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>
 			<!-- /.container-fluid -->
 		</nav>
 		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
+		<script src="resources/js/owl.carousel.min.js"></script>
+		<script src="resources/js/cbpAnimatedHeader.js"></script>
+		<script src="resources/js/jquery.appear.js"></script>
+		<script src="resources/js/SmoothScroll.min.js"></script>
+		<script src="resources/js/mooz.themes.scripts.js"></script>
+		<script src="resources/js/main.js"></script>
+
 </body>
 </html>

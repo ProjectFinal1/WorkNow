@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+
+import java.util.HashMap;
+
 import com.kh.worknow.main.model.vo.Company_View;
 import com.kh.worknow.main.model.vo.Job_Board;
 
@@ -15,29 +18,29 @@ public interface Job_BoardService {
 	// 갯수별로 출력하기
 	public ArrayList<Job_Board> selectList(int currentPage, int limit);
 	
-	//회사 정보 출력
-	public Job_Board selectBoard(int boardNum);
-	
-	//구직게시판 등록
-	public int insertBoard(Job_Board b);
-	
 	//신규매칭 (구직게시판 게시물의 키와 이력서의 id필요)
 	public int insert_matching(String Job_BoardKey ,String resume_id);
 	
-	//매칭 업데이트 (취소, 삭제, 완료) (구직게시판 게시물의 키와 이력서의 id필요)
-	public int update_matching(String Job_BoardKey,String resume_id);
-	
-	//구직게시판 수정
-	public int updateBoard(Job_Board b);
-	
-	//구직게시판 삭제
-	public int deleteBoard(int boardNum);
-	
 	//주소로 구직 검색
+	public Job_Board jboard_addrserach(String comId);
+	
+	
+	//주소로 검색시 회사 아이디로 정보 가져오기
+	public ArrayList<Company_View> getCompanyId(HashMap address);	
 
-	public String jboard_addrserach();
+	//업종별로 검색시 회사 아이디로 정보 가져오기
+	public Company_View getCompanyId(String tob);
+	
+	//type of business = tob 업종별 검색시 사용될 메소드
+	public ArrayList<Job_Board> jboard_tobsearch(String tob);
+	
+	//시간으로 검색시 사용될 메소드
+	public ArrayList<Job_Board> jboard_timesearch(HashMap time);
+  
+  public String jboard_addrserach();
 	
 	//주소로 검색시 회사 아이디로 정보 가져오기
 	public Company_View getCompanyId(HashMap address);
 
 }
+
