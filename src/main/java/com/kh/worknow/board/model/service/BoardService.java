@@ -1,33 +1,42 @@
 package com.kh.worknow.board.model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.kh.worknow.board.model.vo.Board;
+import com.kh.worknow.board.model.vo.Reply;
 
 
 public interface BoardService {
 	
-	public int getListCount();
+	public void addPhoto(String fileName);
 	
 	public ArrayList<Board> selectList(int currentPage, int limit);
 	
-	public ArrayList<Board> selectTopList();
+	public Board selectBoard(int boardNum);	
 	
-	public Board selectBoard(int boardNum);
+	public int insertBoard(Board board) throws Exception;
 	
-	public int insertBoard(Board b);
+	public int updateBoard(Board bboard) throws Exception;
+	
+	public int deleteBoard(int boardNum) throws Exception;
+	
+	public int updateBoardNum(int boardNum) throws Exception;
+	
+	public int getReplyCount(int boardNum) throws Exception;
+	
+	public void addReadCount(int boardNum) throws Exception;
+	
+	public int getListCount() throws Exception;
+	
+	public ArrayList<Reply> selectReList(int recurrentPage, int relimit) throws Exception;
 
-	public int insertReply(Board replyBoard);
-	
-	public void addReadCount(int boardNum);
-	
-	public int updateBoard(Board b);
+	public int insertReply(Reply reply) throws Exception;
 
-	public void updateReplySeq(Board replyBoard);
+	public int updateBoardReply(Board bboard) throws Exception;
 
-	public int updateBoardReply(Board b);
+	public int deleteReply(int boardNum) throws Exception;
 
-	public int deleteBoard(int boardNum);	
-	
-	public int testBoard();	
+	public void createReplyView(String createView) throws Exception;
+
 }

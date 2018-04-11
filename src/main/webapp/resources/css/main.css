@@ -70,20 +70,20 @@ dd.hidden {display: none;}
 
 
 
-#search_adress{width:100%; text-align:center}
+#search_address{width:20%; text-align:center}
 
-#result_1{width:200px;height:330px;}
+#result_1{width:210px;height:330px;}
 
 .content1{ color: #fff; font-size:17px; }
 .content2{ color: #fff; font-size:12px; }
+
 
 /*  상세보기 화면 기업 아이콘 크기 */
 .img_content{width:30%; vertical-align:top;}
 #balckblack{color:black}
 
+.search_tob{width:7%;display:inline; margin: 0 0 5% 5%;}
 
-
-
-
-
-
+/*  상세보기 화면 기업 아이콘 크기 */
+.img_content{width:30%; vertical-align:top;}
+#balckblack{color:black}
