@@ -8,56 +8,57 @@ $(document).ready(function(){
 	$('#rb_address1').change(function(){
 		if($(this).val() == "경기"){
 			$(".rb_address2").hide();
-			$("#gyeonggi").show();
+			$("#gyeonggi2").show();
 		}		
 		if($(this).val() == "서울"){
 			$(".rb_address2").hide();
-			$("#seoul").show();
+			$("#seoul2").show();
 		}		
 		if($(this).val() == "인천"){
 			$(".rb_address2").hide();
-			$("#incheon").show();
+			$("#incheon2").show();
 		}		
 		if($(this).val() == "강원"){
 			$(".rb_address2").hide();
-			$("#gangwon").show();
+			$("#gangwon2").show();
 		}		
 		if($(this).val() == "대전"){
 			$(".rb_address2").hide();
-			$("#daejeon").show();
+			$("#daejeon2").show();
 		}		
 		if($(this).val() == "세종"){
 			$(".rb_address2").hide();
-			$("#sejong").show();
+			$("#sejong2").show();
 		}		
 		if($(this).val() == "충남"){
 			$(".rb_address2").hide();
-			$("#chungcheongnam").show();
+			$("#chungcheongnam2").show();
 		}		
 	});
 	
 	// 주소로 구직찾기 클릭
-	$("#search_address").click(function(){		
+	$("#rb_address").click(function(){		
 			var address1 = $('#rb_address1').val();
-			var adrees2 = "";
+			var addrees2 = "";
 			
 			if(address1 == "경기")
-				address2 = $('#gyeonggi').val();			
+				address2 = $('#gyeonggi2').val();			
 			if(address1 == "서울")
-				address2 = $('#seoul').val();			
+				address2 = $('#seoul2').val();			
 			if(address1 == "인천")
-				address2 = $('#incheon').val();			
+				address2 = $('#incheon2').val();			
 			if(address1 == "강원")
-				address2 = $('#gangwon').val();			
+				address2 = $('#gangwon2').val();			
 			if(address1 == "대전")
-				address2 = $('#daejeon').val();			
+				address2 = $('#daejeon2').val();			
 			if(address1 == "세종")
-				address2 = $('#sejong').val();			
+				address2 = $('#sejong2').val();			
 			if(address1 == "충남")
-				address2 = $('#chungcheongnam').val();			
+				address2 = $('#chungcheongnam2').val();		
+			
 			
 			$.ajax({
-			    url : "search_address.ma",
+			    url : "search_address.rb",
 			    type : "GET",
 			    dataType : "json",
 			    data : {address1 : address1,

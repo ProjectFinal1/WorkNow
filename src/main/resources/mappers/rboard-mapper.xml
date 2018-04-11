@@ -18,26 +18,24 @@
   		<result property="RESUME_PUBLIC" column="RESUME_PUBLIC"/>
 	</resultMap>
 	
-	<select id="addserach" parameterType="String" resultMap="resultJBoard">
-		SELECT * FROM JOB_BOARD WHERE JOB_ID = #{comId}
-	</select>
+	<resultMap id="resultPer_View" type="Personal_View">
+		<id property="MEMBER_ID" column="MEMBER_ID" />
+  		<result property="MEMBER_TYPE" column="MEMBER_TYPE"/>
+  		<result property="MEMBER_NAME" column="MEMBER_NAME"/>
+  		<result property="MEMBER_PHONE" column="MEMBER_PHONE"/>
+  		<result property="MEMBER_EMAIL" column="MEMBER_EMAIL"/>
+  		<result property="PER_TALK" column="PER_TALK"/>
+  		<result property="PER_AGE" column="PER_AGE"/>
+  		<result property="PER_ADDRESS" column="PER_ADDRESS"/>
+  		<result property="PER_SEX" column="PER_SEX"/>
+  		<result property="PER_PHOTO" column="PER_PHOTO"/>
+  		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
+	</resultMap>
 	
-	<select id="addr_getCompanyId" parameterType="hashmap" resultMap="resultCompany"> 
-		SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE COM_ADDRESS LIKE '%' || #{address1} || '%') 
-		WHERE COM_ADDRESS LIKE '%' || #{address2} || '%'
-	</select>
 	
-	<select id="tobsearch" parameterType="String" resultMap="resultJBoard"> 
-		SELECT * FROM JOB_BOARD WHERE JOB_TYPE = #{tob}
-	</select>
-	
-	<select id="tob_getCompanyId" parameterType="String" resultMap="resultCompany"> 
-		SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comID}
-	</select>
-	
-	<select id="timesearch" parameterType="hashmap" resultMap="resultJBoard"> 
-		SELECT * FROM JOB_BOARD WHERE JOB_STARTDAY <![CDATA[>=]]>  TO_DATE( #{startDate} ,'YYYYMMDD') 
-		AND JOB_ENDDAY <![CDATA[<=]]> TO_DATE( #{endDate} ,'YYYYMMDD')
+	<select id="addserach" parameterType="hashmap" resultMap="resultPer_View"> 
+		SELECT * FROM (SELECT * FROM PERSONAL_VIEW WHERE PER_ADDRESS LIKE '%' || #{address1} || '%') 
+		WHERE PER_ADDRESS LIKE '%' || #{address2} || '%'
 	</select>
 	
 	
