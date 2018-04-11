@@ -8,7 +8,21 @@ public class Personal_Info {
 	private String perSex; 
 	private String perPhoto;
 	
+	private String memberId;
+
+	
+	
+
 	public Personal_Info() {}
+	
+	
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
 
 	public String getPerId() {
 		return perId;

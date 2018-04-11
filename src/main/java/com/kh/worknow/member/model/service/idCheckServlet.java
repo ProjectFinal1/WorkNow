@@ -16,7 +16,7 @@ public class idCheckServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 
-		if (id.length() < 4) {
+		if (id.length() < 4 ) {
 			out.print("tooShort");
 		} else if (id.length() > 14) {
 			out.print("tooLong");
@@ -24,6 +24,6 @@ public class idCheckServlet extends HttpServlet {
 			out.print("fail");
 		} else {
 			out.print("success");
-		}
+		}		
 	}
 }

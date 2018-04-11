@@ -2,6 +2,9 @@ package com.kh.worknow.member.model.vo;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Member {
 	private String memberId;
 	private String memberPass;
@@ -13,6 +16,11 @@ public class Member {
 	private int memberBlack;
 	
 	public Member() {}
+	
+	public Member(String id, String passwd) {
+		this.memberId = id;
+		this.memberPass = passwd;		
+	}
 
 	public String getMemberId() {
 		return memberId;
