@@ -36,6 +36,9 @@
 		SELECT * FROM BOARD WHERE BOARD_NUM = #{boardNum}
 	</select>
 	
+	
+	
+	
 	<insert id="insertBoard" parameterType="Board">
  		INSERT INTO BOARD VALUES 
 		((SELECT MAX(BOARD_NUM) + 1 FROM BOARD),
@@ -43,6 +46,8 @@
 			#{boardRenameFileName}, SYSDATE, 0, (SELECT MAX(BOARD_NUM) + 1 FROM BOARD),
 		NULL, default, default)
   	</insert>
+  	
+  	
 
    	<insert id="insertReplyLevel">
  		INSERT INTO BOARD VALUES 

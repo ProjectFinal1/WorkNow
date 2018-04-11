@@ -1,13 +1,18 @@
 package com.kh.worknow.main.model.service;
 
 import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.worknow.main.model.dao.Job_BoardDao;
+
 import com.kh.worknow.main.model.vo.Company_View;
+
 import com.kh.worknow.main.model.vo.Job_Board;
 
 @Service("Job_BoardService")
@@ -15,7 +20,7 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 
 	@Autowired
 	Job_BoardDao job_boardDao;
-	
+
 	@Override
 	public int getListCount() {
 		// TODO Auto-generated method stub
@@ -44,9 +49,8 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 	public Job_Board jboard_addrserach(String comId) {
 		return job_boardDao.jboard_addrserach(comId);
 	}
-	
-	//업종 검색으로 회사 아이디 가져오기
-	public ArrayList<Job_Board> jboard_tobserach(String tob) {
+
+		public ArrayList<Job_Board> jboard_tobserach(String tob) {
 		return new ArrayList<Job_Board>(job_boardDao.jboard_tobserach(tob));
 	}
 	
@@ -58,8 +62,16 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 	public Job_Board jboard_timeserach() {
 		return null;
 	};
-	
-	
+
+	public Job_Board jboard_addrserach() {
+		return job_boardDao.jboard_addrserach();
+	}
+
+	public Company_View getCompanyId(HashMap address) {
+		return job_boardDao.getCompanyId(address);
+
+	}
+
 }
 
 

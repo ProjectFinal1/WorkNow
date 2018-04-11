@@ -23,7 +23,7 @@
   		<result property="JOB_PUBLIC" column="JOB_PUBLIC"/>
   		<result property="JOB_DATE" column="JOB_DATE"/>
 	</resultMap>
-	
+
 	<resultMap id="resultCompany" type="Company_View">
 		<id property="MEMBER_ID" column="MEMBER_ID" />
   		<result property="MEMBER_TYPE" column="MEMBER_TYPE"/>
@@ -37,6 +37,7 @@
   		<result property="COM_PHONE" column="COM_PHONE"/>
   		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
 	</resultMap>
+
 	
 	<select id="addserach" parameterType="String" resultMap="resultJBoard">
 		SELECT * FROM JOB_BOARD WHERE JOB_ID = #{comId}
@@ -55,6 +56,9 @@
 		SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comID}
 	</select>
 	
-	
-	
+  <select id="getCompanyId" parameterType="hashmap" resultMap="resultCompany"> 
+		SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE COM_ADDRESS LIKE '%' || #{ADDRESS1} || '%') 
+		WHERE COM_ADDRESS LIKE '%' || #{ADDRESS2} || '%'
+	</select>
+
 </mapper>

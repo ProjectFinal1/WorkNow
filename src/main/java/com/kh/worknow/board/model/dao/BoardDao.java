@@ -16,7 +16,14 @@ public interface BoardDao {
 	
 	public Board selectBoard(int boardNum);
 	
+	
+	
+	
 	public int insertBoard(Board b);
+	
+	
+	
+	
 
 	public int insertReply(Board replyBoard);
 	

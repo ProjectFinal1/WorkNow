@@ -1,6 +1,7 @@
 package com.kh.worknow.main.model.service;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 
 import com.kh.worknow.main.model.vo.Company_View;
@@ -31,16 +32,12 @@ public interface Job_BoardService {
 	
 	//type of business = tob 업종별 검색시 사용될 메소드
 	public ArrayList<Job_Board> jboard_tobserach(String tob);
+
+	public String jboard_addrserach();
+	
+	//주소로 검색시 회사 아이디로 정보 가져오기
+	public Company_View getCompanyId(HashMap address);
+
 }
-
-
-
-
-
-
-
-
-
-
 
 

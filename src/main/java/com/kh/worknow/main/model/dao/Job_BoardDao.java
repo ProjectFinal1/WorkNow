@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 import com.kh.worknow.board.model.vo.Board;
 import com.kh.worknow.main.model.vo.Company_View;
-import com.kh.worknow.main.model.vo.Job_Board;
 
+import com.kh.worknow.main.model.vo.Job_Board;
 public interface Job_BoardDao {
 	
 		//최대 글수 가져오기
@@ -32,9 +32,12 @@ public interface Job_BoardDao {
 		
 		//시간으로 검색시 사용될 메소드
 		public Job_Board jboard_timeserach();
+
+		//주소로 구직 검색
+		public Job_Board jboard_addrserach();
 		
-		
-		
-		
-		
+		//구직 검색했을 시 아이디 가져오기
+		public Company_View getCompanyId(HashMap address);
+
 }
+
