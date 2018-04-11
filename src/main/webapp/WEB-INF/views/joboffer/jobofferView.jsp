@@ -343,7 +343,9 @@
 							<%--
 								-내용-
 								나이 성별 이름 폰번호
-						--%> ${resume.resumeContent}
+						--%> 
+						${resume.}
+						${resume.resumeContent}
 						</td>
 
 			
