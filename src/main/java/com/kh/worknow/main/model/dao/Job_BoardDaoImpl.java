@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
-import org.json.simple.JSONObject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -38,44 +37,33 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 		return 0;
 	}
 
-	@Override
-	public int update_matching(String Job_BoardKey, String resume_id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Job_Board jboard_addrserach(String comId) {
+		return sqlSession.selectOne("jboard.addserach", comId);
+	}
+	
+	public ArrayList<Company_View> getCompanyId(HashMap address) {
+		return new ArrayList<Company_View>(sqlSession.selectList("jboard.addr_getCompanyId", address));
 	}
 
-	@Override
-	public int deleteBoard(int boardNum) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public Job_Board selectBoard(int boardNum) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int insertBoard(Job_Board b) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int updateBoard(Job_Board b) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	
+	// 직종검색으로 회사 정보 가져오기
+	public ArrayList<Job_Board> jboard_tobserach(String tob){
+		return new ArrayList<Job_Board>(sqlSession.selectList("jboard.tobserach", tob));
+  }
 
 	public Job_Board jboard_addrserach() {
 		return sqlSession.selectOne("jboard.addserach");
 	}
 	
-	public Company_View getCompanyId(HashMap address) {
-		return sqlSession.selectOne("jboard.getCompanyId", address);
+	//업종별로 검색시 회사 아이디로 정보 가져오기
+	public Company_View getCompanyId(String comId){
+		return sqlSession.selectOne("jboard.tob_getCompanyId", comId);
 	}
 
+	
+	public Job_Board jboard_timeserach() {
+		return null;
+	};
+	
 }
+
