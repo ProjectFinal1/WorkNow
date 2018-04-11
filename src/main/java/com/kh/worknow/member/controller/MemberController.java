@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import com.kh.worknow.member.model.service.MemberLoginImpl;
+import com.kh.worknow.member.model.service.MemberLogin;
 import com.kh.worknow.member.model.service.SignUpServiceImpl;
 import com.kh.worknow.member.model.vo.Com_Info;
 import com.kh.worknow.member.model.vo.Member;
@@ -28,9 +27,28 @@ public class MemberController {
 	@Autowired
 	private SignUpServiceImpl signupService;	
 	
-	@Autowired
-	private MemberLoginImpl memberlogin;
-
+	@RequestMapping(value="memberLogin.me", method=RequestMethod.POST)
+	public ModelAndView memberLogin(HttpSession session, ModelAndView mv,
+			Member member) {
+		
+		session.setAttribute("member", signupService.loginMember(member.getMemberId(), member.getMemberPass()));
+				
+		mv.setViewName("redirect:home.ma");
+		System.out.println("로그인 됐습니다.");
+		return mv;
+	}
+	
+	@RequestMapping(value="logout.lo", method=RequestMethod.GET)
+	public ModelAndView memberLogout(HttpSession session, ModelAndView mv) {
+		
+		if(session.getAttribute("member") != null){
+			session.invalidate();
+		}
+		mv.setViewName("redirect:home.ma");
+		
+		return mv;
+	}
+	
 	
 	@RequestMapping(value="persignup.pe", method = RequestMethod.POST)
 	public ModelAndView perSignUpMethod(HttpServletRequest request, 
@@ -103,15 +121,6 @@ public class MemberController {
 		return mv;
 	}	
 	
-	@RequestMapping(value="memberLogin.lo", method=RequestMethod.POST)
-	public ModelAndView memberLogin(HttpSession session, ModelAndView mv,
-			Member member) {
-		
-		session.setAttribute("member", memberlogin.loginMember(member.getMemberId(), member.getMemberPass()));
-		
-		mv.setViewName("redirect:home.ma");
-		
-		return mv;
-	}
+	
 
 }

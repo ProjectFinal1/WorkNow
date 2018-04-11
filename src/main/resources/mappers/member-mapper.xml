@@ -35,7 +35,7 @@
 	
 
 	<select id="selectMember" parameterType="Member" resultMap="resultMember">
-		SELECT * FROM MEMBER WHERE ID = #{memberId} and PASSWD = #{memberPass}
+		SELECT * FROM MEMBER_INFO WHERE MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
 	</select>
 	
 	

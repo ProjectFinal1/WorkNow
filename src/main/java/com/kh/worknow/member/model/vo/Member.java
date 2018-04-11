@@ -15,7 +15,12 @@ public class Member {
 	private Date memberDate;
 	private int memberBlack;
 	
-	public Member(String id, String passwd) {}
+	public Member() {}
+	
+	public Member(String id, String passwd) {
+		this.memberId = id;
+		this.memberPass = passwd;		
+	}
 
 	public String getMemberId() {
 		return memberId;

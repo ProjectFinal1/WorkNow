@@ -15,8 +15,7 @@ public class SignUpDaoImpl implements SignUpDao {
 	private SqlSessionTemplate sqlSession;	
 	
 	@Override
-	public Member selectMember(String id, String passwd) {
-	
+	public Member selectMember(String id, String passwd) {	
 		return (Member)sqlSession.selectOne("Member.selectMember", new Member(id, passwd));
 	}
 	

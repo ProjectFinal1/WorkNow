@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.kh.worknow.member.model.dao.SignUpDao;
 import com.kh.worknow.member.model.vo.Member;
 
-@Service("memberlogin")
+@Service("memLogin")
 public class MemberLoginImpl implements MemberLogin {
 
 	@Autowired

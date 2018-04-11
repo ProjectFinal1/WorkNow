@@ -11,7 +11,7 @@
 <body>
 <div style="margin-top:5%">
 		<nav class="navbar navbar-default header_main sujung"> 
-			<div class="container" style="margin:0 10% 0 10%">
+			<div class="container" >
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header page-scroll">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
