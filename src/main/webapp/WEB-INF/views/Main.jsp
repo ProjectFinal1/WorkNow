@@ -17,16 +17,11 @@
 		<link href="resources/css/style.css" rel="stylesheet">
 		<link href="resources/css/main.css" rel="stylesheet">
 		
-
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-	
+		
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	</head>
 	<body id="page-top">
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
-	
-		<!-- Navigation -->
-	
 
 		<!-- Header -->
 		<header> 
@@ -626,21 +621,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<!-- Bootstrap core JavaScript
-			================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-		<script src="resources/js/bootstrap.min.js"></script>
-		<script src="resources/js/owl.carousel.min.js"></script>
-		<script src="resources/js/cbpAnimatedHeader.js"></script>
-		<script src="resources/js/jquery.appear.js"></script>
-		<script src="resources/js/SmoothScroll.min.js"></script>
-		<script src="resources/js/mooz.themes.scripts.js"></script>
-		<script src="resources/js/main.js"></script>
-		
-		
+		</div>	
 	</body>
 </html>

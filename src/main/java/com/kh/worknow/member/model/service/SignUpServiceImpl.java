@@ -46,6 +46,12 @@ public class SignUpServiceImpl implements SignUpService {
 		return signupDao.insertComInfo(cInfo);
 	}
 
+
+	public int checkMember(String id, String pass) {
+		
+		return signupDao.checkMember(id, pass);
+	}
+
 	
 		
 

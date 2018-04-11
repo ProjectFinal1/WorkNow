@@ -37,6 +37,12 @@ public class SignUpDaoImpl implements SignUpDao {
 		return sqlSession.insert("Member.insertComInfo", cInfo);
 	}
 
+	@Override
+	public int checkMember(String id, String pass) {
+
+		return sqlSession.selectOne("Member.checkMember", new Member(id, pass));
+	}
+
 	
 
 }

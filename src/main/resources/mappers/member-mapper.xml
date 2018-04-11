@@ -33,6 +33,9 @@
  	</resultMap>
 	
 	
+	<select id="checkMember" parameterType="string" resultType="_int">
+		Select count(*) from MEMBER_INFO where MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
+	</select>
 
 	<select id="selectMember" parameterType="Member" resultMap="resultMember">
 		SELECT * FROM MEMBER_INFO WHERE MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
