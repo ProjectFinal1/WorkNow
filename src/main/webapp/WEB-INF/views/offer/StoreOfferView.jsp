@@ -90,11 +90,12 @@
 						<form name="photoprint" action="FileUpload.jsp" method="post"
 							enctype="multipart/form-data">
 
-							<div>
-							<input id="userid" type="hidden" value="<%=userid%>">
-							</div>
-
-							<div class="joboffer text-left">
+							
+							
+<!-- 							<div class="joboffer text-left"> -->
+							
+							
+							
 							<br>
 							&nbsp;&nbsp;<h3>제목, 사진</h3>
 							<hr>

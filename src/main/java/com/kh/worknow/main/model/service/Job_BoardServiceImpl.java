@@ -65,21 +65,8 @@ public class Job_BoardServiceImpl implements Job_BoardService {
 	//시간으로 구직 검색
 	public ArrayList<Job_Board> jboard_timesearch(HashMap time) {
 		return new ArrayList<Job_Board>(job_boardDao.jboard_timesearch(time));
-	};
-
-	public Job_Board jboard_addrserach() {
-		return job_boardDao.jboard_addrserach();
 	}
 
-	public Company_View getCompanyId(HashMap address) {
-		return job_boardDao.getCompanyId(address);
-
-	}
-
-	public Company_View getCompanyId(HashMap address) {
-		return job_boardDao.getCompanyId(address);
-
-	}
 }
 
 
