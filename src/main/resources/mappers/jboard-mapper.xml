@@ -47,12 +47,17 @@
 		WHERE COM_ADDRESS LIKE '%' || #{address2} || '%'
 	</select>
 	
-	<select id="tobserach" parameterType="String" resultMap="resultJBoard"> 
+	<select id="tobsearch" parameterType="String" resultMap="resultJBoard"> 
 		SELECT * FROM JOB_BOARD WHERE JOB_TYPE = #{tob}
 	</select>
 	
 	<select id="tob_getCompanyId" parameterType="String" resultMap="resultCompany"> 
 		SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comID}
+	</select>
+	
+	<select id="timesearch" parameterType="hashmap" resultMap="resultJBoard"> 
+		SELECT * FROM JOB_BOARD WHERE JOB_STARTDAY <![CDATA[>=]]>  TO_DATE( #{startDate} ,'YYYYMMDD') 
+		AND JOB_ENDDAY <![CDATA[<=]]> TO_DATE( #{endDate} ,'YYYYMMDD')
 	</select>
 	
 	

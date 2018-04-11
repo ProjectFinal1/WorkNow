@@ -42,14 +42,9 @@
 						</li>
 						<li>
 							<a class="page-scroll" href="#about">소개</a>
-						</li>
+						</li>						
 						<li>
-							<a class="page-scroll" href="">로그인</a>
-						</li>
-						<li>
-
 							<a class="page-scroll" href="jobofferView.jo">구인</a>
-
 						</li>
 						<li>
 							<a class="page-scroll" href="">구직</a>
@@ -59,6 +54,9 @@
 						</li>
 						<li>
 							<a class="page-scroll" href="">고객센터</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="">로그인</a>
 						</li>
 					</ul>
 				</div>
@@ -180,6 +178,7 @@
 						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      			
 						      			</td>
 						      			
+						      			<!-- 직종별 알바찾기 아이콘들 -->
 						      			<td>
 						      			<a href="#" class="testt" id="search_tob1">
 						      			<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_it" /></a>	 
@@ -205,9 +204,9 @@
 						      			</td>
 						      									      			
 						      			<td>
-						      			시작일 &nbsp;<input type="date" id="userdate" name="userdate" value="2018-04-15"><br>
-						      			종료일 &nbsp;<input type="date"><br>
-						      			<a href="#" class="testt" id="search_address"><br>
+						      			시작일 &nbsp;<input type="date" id="job_start" name="userdate" value="2018-04-15"><br>
+						      			종료일 &nbsp;<input type="date" id="job_end" value="2018-08-15"><br>
+						      			<a href="#" class="testt" id="search_time"><br>
 						      			<img src="resources/images/search.png" width="10%"></a>	 							      			
 						      			</td>
 						      		</tr>

@@ -15,40 +15,34 @@ $(document).ready(function(){
 		if($(this).val() == "경기"){
 			$(".sel_address2").hide();
 			$("#gyeonggi").show();
-		}
-		
+		}		
 		if($(this).val() == "서울"){
 			$(".sel_address2").hide();
 			$("#seoul").show();
-		}
-		
+		}		
 		if($(this).val() == "인천"){
 			$(".sel_address2").hide();
 			$("#incheon").show();
-		}
-		
+		}		
 		if($(this).val() == "강원"){
 			$(".sel_address2").hide();
 			$("#gangwon").show();
-		}
-		
+		}		
 		if($(this).val() == "대전"){
 			$(".sel_address2").hide();
 			$("#daejeon").show();
-		}
-		
+		}		
 		if($(this).val() == "세종"){
 			$(".sel_address2").hide();
 			$("#sejong").show();
-		}
-		
+		}		
 		if($(this).val() == "충남"){
 			$(".sel_address2").hide();
 			$("#chungcheongnam").show();
 		}		
 	});
 	
-	// 주소로 알바찾기 돋보기 클릭
+	// 주소로 구직찾기 클릭
 	$("#search_address").click(function(){		
 			var address1 = $('#sel_address1').val();
 			var adrees2 = "";
@@ -103,11 +97,11 @@ $(document).ready(function(){
 	});
 	
 	
-	// 업종별로 알바찾기 클릭
+	// 업종별로 구직찾기 클릭
 	$(".search_tob").click(function(){	
 			var tob = $(this).attr('id');		
 			if(tob == "search_it")
-				tob = "it관련";
+				tob = "IT관련";
 			if(tob == "search_work")
 				tob = "단순노무";
 			if(tob == "search_etc")        
@@ -154,41 +148,65 @@ $(document).ready(function(){
 	});
 	
 	
-	// 시간으로 알바찾기 돋보기 클릭
-	$(".search_tob").click(function(){	
-			
-			
-			$.ajax({
-			    url : "search_tob.ma",
-			    type : "GET",
-			    dataType : "json",
-			    data : {tob : tob },
-			    success : function(jboard) {
-			    	if(jboard[0] == null){
-			    		alert("결과값이 없습니다");
-			    		$(".search_result").css("visibility", "hidden"); 
-			    		$(".search_all").show();
-			    	}else{
-			    		$(".search_all").hide();
-						$(".search_result").css("visibility", "visible"); 
-			    		for(var n=0; n<jboard.length; n++){
-				    		$('.subject_result' + n).html(jboard[n].JOB_SUBJECT + "<br><br>");
-					    	$('.subject_result' + n).css("color","white").css("font-size","15px");
-					    	$('.contents_result' + n).html(jboard[n].JOB_STARTDAY + " ~ " + jboard[n].JOB_ENDDAY
-					    			+ "<br>시급: " + jboard[n].JOB_VALUE+"원<br>" + "위치 : " + jboard[n].COM_ADDRESS);
-					        $('.contents_result' + n).css("color","white").css("font-size","12px");
-					        
-					        $('#detail_sub'+ n).html(jboard[n].JOB_SUBJECT);
-					        $('#detail_content'+ n).html(jboard[n].JOB_CONTENT);
-					        $('#detail_value'+ n).html(jboard[n].JOB_VALUE + "원");
-				    	}	  
-			    	}		    	
-			    },
-			    error : function(jqXHR, textStatus, errorThrown) {
-			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
-			    }
-			});
+	//시간검색으로 구직 찾기	
+	$('#search_time').click(function(){
+		
+		//시작시간
+		var startDate = $("#job_start").val();
+		startDate = startDate.replace(/-/g, "");
+		
+		//끝 시간
+		var endDate = $("#job_end").val();
+		endDate = endDate.replace(/-/g, "");
+		
+		$.ajax({
+		    url : "search_time.ma",
+		    type : "GET",
+		    dataType : "json",
+		    data : {startDate : startDate,
+		    		endDate : endDate},
+		    success : function(jboard) {
+		    	if(jboard[0] == null){
+		    		alert("결과값이 없습니다");
+		    		$(".search_result").css("visibility", "hidden"); 
+		    		$(".search_all").show();
+		    	}else{
+		    		$(".search_all").hide();
+					$(".search_result").css("visibility", "visible"); 
+		    		for(var n=0; n<jboard.length; n++){
+			    		$('.subject_result' + n).html(jboard[n].JOB_SUBJECT + "<br><br>");
+				    	$('.subject_result' + n).css("color","white").css("font-size","15px");
+				    	$('.contents_result' + n).html(jboard[n].JOB_STARTDAY + " ~ " + jboard[n].JOB_ENDDAY
+				    			+ "<br>시급: " + jboard[n].JOB_VALUE+"원<br>" + "위치 : " + jboard[n].COM_ADDRESS);
+				        $('.contents_result' + n).css("color","white").css("font-size","12px");
+				        
+				        $('#detail_sub'+ n).html(jboard[n].JOB_SUBJECT);
+				        $('#detail_content'+ n).html(jboard[n].JOB_CONTENT);
+				        $('#detail_value'+ n).html(jboard[n].JOB_VALUE + "원");
+			    	}	  
+		    	}	
+		    },
+		    error : function(jqXHR, textStatus, errorThrown) {
+		        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+		    }
+		});
+	                 
+		 
+		
+		
+		
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
