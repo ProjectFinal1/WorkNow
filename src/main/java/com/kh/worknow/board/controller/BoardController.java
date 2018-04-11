@@ -25,13 +25,13 @@ import com.kh.worknow.board.model.vo.Board;
 
 
 @Controller
-public class BoardController {
-	
+public class BoardController {	
 
 		@Autowired
 		private BoardService bService;
 
 		@SuppressWarnings("unchecked")
+		
 		@RequestMapping("toplist.do")
 		public void top5List(HttpServletResponse response) throws IOException {
 			ArrayList<Board> list = bService.selectTopList();
@@ -59,7 +59,6 @@ public class BoardController {
 			System.out.println(json.toJSONString());
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
-
 			out.print(json.toJSONString());
 			out.flush();
 			out.close();
@@ -308,7 +307,8 @@ public class BoardController {
 			return mv;
 		}
 		
-		
+	
+	
 		
 		@RequestMapping("btest.do")
 		public ModelAndView btest(ModelAndView mv) {

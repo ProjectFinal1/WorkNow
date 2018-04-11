@@ -105,7 +105,6 @@ buildNumber.properties
 
 /target/
 /.classpath
-/.project
 /.settings/
 /.springBeans
 pom.xml
