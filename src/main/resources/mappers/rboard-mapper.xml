@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rboard">
+
+	<resultMap id="resultRBoard" type="Resume_Board">
+		<id property="RESUME_ID" column="RESUME_ID" />
+  		<result property="RESUME_DATE" column="RESUME_DATE"/>
+  		<result property="RESUME_LEVEL" column="RESUME_LEVEL"/>
+  		<result property="RESUME_TYPE" column="RESUME_TYPE"/>
+  		<result property="RESUME_STARTTIME" column="RESUME_STARTTIME"/>
+  		<result property="RESUME_ENDTIME" column="RESUME_ENDTIME"/>
+  		<result property="RESUME_STARTDAY" column="RESUME_STARTDAY"/>
+  		<result property="RESUME_ENDDAY" column="RESUME_ENDDAY"/>
+  		<result property="RESUME_CONTENT" column="RESUME_CONTENT"/>
+  		<result property="RESUME_ENDDATE" column="RESUME_ENDDATE"/>
+  		<result property="RESUME_PUBLIC" column="RESUME_PUBLIC"/>
+	</resultMap>
+	
+	<select id="addserach" parameterType="String" resultMap="resultJBoard">
+		SELECT * FROM JOB_BOARD WHERE JOB_ID = #{comId}
+	</select>
+	
+	<select id="addr_getCompanyId" parameterType="hashmap" resultMap="resultCompany"> 
+		SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE COM_ADDRESS LIKE '%' || #{address1} || '%') 
+		WHERE COM_ADDRESS LIKE '%' || #{address2} || '%'
+	</select>
+	
+	<select id="tobsearch" parameterType="String" resultMap="resultJBoard"> 
+		SELECT * FROM JOB_BOARD WHERE JOB_TYPE = #{tob}
+	</select>
+	
+	<select id="tob_getCompanyId" parameterType="String" resultMap="resultCompany"> 
+		SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comID}
+	</select>
+	
+	<select id="timesearch" parameterType="hashmap" resultMap="resultJBoard"> 
+		SELECT * FROM JOB_BOARD WHERE JOB_STARTDAY <![CDATA[>=]]>  TO_DATE( #{startDate} ,'YYYYMMDD') 
+		AND JOB_ENDDAY <![CDATA[<=]]> TO_DATE( #{endDate} ,'YYYYMMDD')
+	</select>
+	
+	
+	
+</mapper>

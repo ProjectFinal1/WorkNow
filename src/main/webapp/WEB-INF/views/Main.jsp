@@ -88,6 +88,7 @@
 						      			<th class="main_th main_tab2">시간별 알바</th>
 						      		</tr>
 						      		<tr height="200px"  class="kategorie2 ">
+						      			<!-- 주소로 구직찾기 -->
 						      			<td>
 						      			<select id="sel_address1">
 						      				<option >서울</option> <option >경기</option>
@@ -202,7 +203,8 @@
 						      			<img src="resources/images/main/up.png" alt="img01" class="search_tob" id="search_service" /></a>
 						      						      			
 						      			</td>
-						      									      			
+						      				
+						      			<!-- 시간별로 구직찾기 -->					      			
 						      			<td>
 						      			시작일 &nbsp;<input type="date" id="job_start" name="userdate" value="2018-04-15"><br>
 						      			종료일 &nbsp;<input type="date" id="job_end" value="2018-08-15"><br>
@@ -214,35 +216,120 @@
 						      </div>	
 						   </dd>
 						
-						   <dt class="main_tab">사람 찾기</dt>
+						   <dt class="main_tab">구인</dt>
 						   <dd class="hidden">
 						      	<div>
 						      	<table align="center" border="1" cellspacing="0" width="900" id="kt" >
 						      		<tr height="40px"  class="kategorie1">
-						      			<th class="main_th main_tab2">여기에서 사는 사람</th>
-						      			<th class="main_th main_tab2">이거 잘하는 사람</th>
-						      			<th class="main_th main_tab2">이런 시간대</th>
+						      			<th class="main_th main_tab2">근무가능 지역</th>
+						      			<th class="main_th main_tab2">근무 요일</th>
+						      			<th class="main_th main_tab2">근무 시간</th>
 						      		</tr>
 						      		<tr height="200px"  class="kategorie2 ">
+						      			<!-- 주소로 구인찾기 -->
 						      			<td>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">강원도</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">서울시</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">수원시</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">평택시</a>						      			
+						      			<select id="rb_address1">
+						      				<option>서울</option> <option >경기</option>
+						      				<option>인천</option> <option >강원</option> 
+						      				<option>대전</option> <option >세종</option>
+						      				<option>충남</option> <option >충북</option><option>부산</option>
+						      				<option>울산</option> <option >경남</option><option>경북</option>
+						      				<option>대구</option> <option >광주</option><option>전남</option>
+						      				<option>전북</option> <option >제주</option><option>전국</option>
+						      			</select>
+						      			
+						      			<select id="seoul" class="rb_address2">
+						      				<option>서울전체</option> <option>강남구</option> <option>강동구</option>
+						      				<option>강북구</option> <option>강서구</option> <option>관악구</option>
+						      				<option>광진구</option> <option>구로구</option> <option>금천구</option>
+						      				<option>노원구</option> <option>도봉구</option> <option>동대문구</option>
+						      				<option>동작구</option> <option>마포구</option> <option>서대문구</option>
+						      				<option>서초구</option> <option>성동구</option> <option>성북구</option>
+						      				<option>송파구</option> <option>양천구</option> <option>영등포구</option>
+						      				<option>용산구</option> <option>은평구</option> <option>종로구</option>
+						      				<option>중구</option> <option>중랑구</option>
+						      			</select>
+						      			
+						      			<select id="gyeonggi" style="display:none;" class="rb_address2">
+						      				<option>경기전체</option> <option>가평군</option> <option>고양시 덕양구</option>
+						      				<option>고양시 일산동구</option> <option>고양시 일산서구</option> <option>과천시</option>
+						      				<option>광명시</option> <option>광주시</option> <option>구리시</option>
+						      				<option>군포시</option> <option>김포시</option> <option>남양주시</option>
+						      				<option>동두천시</option> <option>부천시</option> <option>성남시 분당구</option>
+						      				<option>성남시 수정구</option> <option>성남시 중원구</option> <option>수원시 권선구</option>
+						      				<option>수원시 영통구</option> <option>수원시 장안구</option> <option>수원시 팔달구</option>
+						      				<option>시흥시</option> <option>안산시 단원구</option> <option>안산시 상록구</option>
+						      				<option>안성시</option> <option>안양시 동안구</option>	<option>안양시 만안구</option> 
+						      				<option>양주시</option> <option>양평군</option> <option>여주시</option>
+						      				<option>연천군</option> <option>오산시</option> <option>용인시 기흥구</option> 
+						      				<option>용인시 수지구</option> <option>용인시 처인구</option>
+						      				<option>의왕시</option> <option>의정부시</option> <option>이천시</option>
+						      				<option>파주시</option> <option>평택시</option> <option>포천시</option>
+						      				<option>하남시</option> <option>화성시</option>						      				
+						      			</select>
+						      			
+						      			
+						      			<select id="incheon" style="display:none;" class="rb_address2">	
+						      				<option>인천전체</option>					      				
+								      		<option>계양구</option><option>남구 </option><option>남동구</option>  
+											<option>동구 </option><option>부평구</option><option>서구 </option>  
+											<option>연수구</option><option>중구 </option><option>강화군</option>  
+											<option>옹진군</option>  
+						      			</select>
+						      			
+						      			
+						      			<select id="gangwon" style="display:none;" class="rb_address2">		
+						      				<option>강원전체</option>				      				
+								      		<option>원주시</option><option>동해시</option><option>삼척시</option>
+											<option>속초시</option><option>강릉시</option><option>춘천시</option>
+											<option>태백시</option><option>양양군</option><option>철원군</option>
+											<option>횡성군</option><option>화천군</option><option>홍천군</option>
+											<option>인제군</option><option>정선군</option><option>양구군</option>
+											<option>영월군</option><option>평창군</option><option>고성군</option>
+						      			</select>
+						      			
+						      			
+						      			<select id="daejeon" style="display:none;" class="rb_address2">		
+						      				<option>대전전체</option>				      				
+								      		<option>대덕구</option>
+											<option>동구 </option>
+											<option>서구 </option>
+											<option>유성구</option>
+											<option>중구 </option>
+						      			</select>
+						      			
+						      			<select id="sejong" style="display:none;" class="rb_address2">	
+						      				<option>세종전체</option>					      				
+								      		<option>세종시</option>
+						      			</select>
+						      			
+						      			
+						      			<select id="chungcheongnam" style="display:none;" class="rb_address2">
+											<option>충남전체</option>
+						      				<option>아산시</option><option>서산시</option><option>천안시</option><option>공주시</option>	
+											<option>보령시</option><option>논산시</option><option>계룡시</option><option>당진군</option>	
+											<option>부여군</option><option>예산군</option><option>태안군</option><option>연기군</option>	
+											<option>홍성군</option><option>금산군</option><option>서천군</option><option>청양군</option>	
+						      			</select>
+						      			
+						      			<br><br>
+						      			<a href="#" class="testt" id="search_address">
+						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      			
 						      			</td>
 						      			
 						      			<td>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">편의점 해봄</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">카페</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">술집</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">노래방ㅋ</a>						      			
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">월~금</a>
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">토~일</a><br>
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주1일</a>
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주2일</a>	<br>					      			
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주3일</a>						      			
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주4일</a>						      			
 						      			</td>
 						      									      			
 						      			<td>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">월~금</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">토일</a>	
 						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">오전</a>	
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">오후</a>							      			
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">오후</a><br>							      			
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">하루종일</a>							      			
 						      			</td>
 						      		</tr>
 						      	</table>							
@@ -476,5 +563,6 @@
 		<script src="resources/js/SmoothScroll.min.js"></script>
 		<script src="resources/js/mooz.themes.scripts.js"></script>
 		<script src="resources/js/main.js"></script>
+		<script src="resources/js/rboard.js"></script>
 	</body>
 </html>

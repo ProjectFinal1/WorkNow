@@ -10,6 +10,7 @@
 	<typeAliases>		
 		<typeAlias type="com.kh.worknow.main.model.vo.Job_Board" alias="Job_Board"/>
 		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>
+		<typeAlias type="com.kh.worknow.Rboard.model.vo.Resume_Board" alias="Resume_Board"/>
 		<typeAlias type="com.kh.worknow.board.model.vo.Board" alias="Board"/>
 	</typeAliases>
 	
