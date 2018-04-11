@@ -238,7 +238,7 @@
 						      				<option>전북</option> <option >제주</option><option>전국</option>
 						      			</select>
 						      			
-						      			<select id="seoul" class="rb_address2">
+						      			<select id="seoul2" class="rb_address2">
 						      				<option>서울전체</option> <option>강남구</option> <option>강동구</option>
 						      				<option>강북구</option> <option>강서구</option> <option>관악구</option>
 						      				<option>광진구</option> <option>구로구</option> <option>금천구</option>
@@ -250,7 +250,7 @@
 						      				<option>중구</option> <option>중랑구</option>
 						      			</select>
 						      			
-						      			<select id="gyeonggi" style="display:none;" class="rb_address2">
+						      			<select id="gyeonggi2" style="display:none;" class="rb_address2">
 						      				<option>경기전체</option> <option>가평군</option> <option>고양시 덕양구</option>
 						      				<option>고양시 일산동구</option> <option>고양시 일산서구</option> <option>과천시</option>
 						      				<option>광명시</option> <option>광주시</option> <option>구리시</option>
@@ -269,7 +269,7 @@
 						      			</select>
 						      			
 						      			
-						      			<select id="incheon" style="display:none;" class="rb_address2">	
+						      			<select id="incheon2" style="display:none;" class="rb_address2">	
 						      				<option>인천전체</option>					      				
 								      		<option>계양구</option><option>남구 </option><option>남동구</option>  
 											<option>동구 </option><option>부평구</option><option>서구 </option>  
@@ -278,7 +278,7 @@
 						      			</select>
 						      			
 						      			
-						      			<select id="gangwon" style="display:none;" class="rb_address2">		
+						      			<select id="gangwon2" style="display:none;" class="rb_address2">		
 						      				<option>강원전체</option>				      				
 								      		<option>원주시</option><option>동해시</option><option>삼척시</option>
 											<option>속초시</option><option>강릉시</option><option>춘천시</option>
@@ -289,7 +289,7 @@
 						      			</select>
 						      			
 						      			
-						      			<select id="daejeon" style="display:none;" class="rb_address2">		
+						      			<select id="daejeon2" style="display:none;" class="rb_address2">		
 						      				<option>대전전체</option>				      				
 								      		<option>대덕구</option>
 											<option>동구 </option>
@@ -298,13 +298,13 @@
 											<option>중구 </option>
 						      			</select>
 						      			
-						      			<select id="sejong" style="display:none;" class="rb_address2">	
+						      			<select id="sejong2" style="display:none;" class="rb_address2">	
 						      				<option>세종전체</option>					      				
 								      		<option>세종시</option>
 						      			</select>
 						      			
 						      			
-						      			<select id="chungcheongnam" style="display:none;" class="rb_address2">
+						      			<select id="chungcheongnam2" style="display:none;" class="rb_address2">
 											<option>충남전체</option>
 						      				<option>아산시</option><option>서산시</option><option>천안시</option><option>공주시</option>	
 											<option>보령시</option><option>논산시</option><option>계룡시</option><option>당진군</option>	
@@ -313,7 +313,7 @@
 						      			</select>
 						      			
 						      			<br><br>
-						      			<a href="#" class="testt" id="search_address">
+						      			<a href="#" class="testt" id="rb_address">
 						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      			
 						      			</td>
 						      			
@@ -323,7 +323,8 @@
 						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주1일</a>
 						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주2일</a>	<br>					      			
 						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주3일</a>						      			
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주4일</a>						      			
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주4일</a>	<br>				      			
+						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">요일협의</a>						      			
 						      			</td>
 						      									      			
 						      			<td>

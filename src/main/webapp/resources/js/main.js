@@ -45,7 +45,7 @@ $(document).ready(function(){
 	// 주소로 구직찾기 클릭
 	$("#search_address").click(function(){		
 			var address1 = $('#sel_address1').val();
-			var adrees2 = "";
+			var addrees2 = "";
 			
 			if(address1 == "경기")
 				address2 = $('#gyeonggi').val();			
