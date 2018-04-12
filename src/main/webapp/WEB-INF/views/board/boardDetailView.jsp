@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,107 +25,174 @@
 
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                 
+                $("#list").click(function(){
+                    location.href = "/worknow/fboard.bo";
+                });
+                 
+                //댓글 저장
+                $("#reply_save").click(function(){
+                     
+                    //널 검사
+                    if($("#replyContent").val().trim() == ""){
+                        alert("내용을 입력하세요.");
+                        $("#replyContent").focus();
+                        return false;
+                    }
+                    
+                  //값 셋팅
+                    var reply = {
+                    		replyNum          : $("#bnum").val(),
+                    		replyLevel     : $("#replyLevel").val(),
+                    		replyName          : $("#id").val(),
+                    		replyContent     : $("#replyContent").val(),
+                    		replyDate    : $("#replyDate").val(),
+                            
+                    };
+                     
+                    //ajax 호출
+                    $.ajax({
+                        url         :   "/worknow/breply.do",
+                        dataType    :   "json",
+                        contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                        type        :   "post",
+                        data        :   reply,
+                        success     :   function(){
+                            location.href = "/worknow/bdetail.do?bnum=" + $("#bnum").val() + "&page=" + $("#page").val();
+                        },
+                        error       :   function(){
+                        	alert("댓글이 등록되었습니다.");
+                            location.href = "/worknow/bdetail.do?bnum=" + $("#bnum").val() + "&page=" + $("#page").val();
+                        }
+                    });
+                     
+                });
+                 
+                //댓글 삭제
+                $("button[name='reply_del']").click(function(){
+                	//값 셋팅
+                    var replydel = {
+                    		replyNum          : $("#bnum").val(),
+                    		replyName          : $("#id").val(),
+                    		replyContent     : $("#replyContent").val(),
+                    		replyDate    : $("#replyDate").val(),
+                            
+                    };
+                     
+                    //ajax 호출
+                    $.ajax({
+                        url         :   "/worknow/brdelete.do",
+                        dataType    :   "json",
+                        contentType :   "application/x-www-form-urlencoded; charset=UTF-8",
+                        type        :   "post",
+                        data        :   replydel,
+                        success     :   function(){
+                            location.href = "/worknow/bdetail.do?bnum=" + $("#bnum").val() + "&page=" + $("#page").val();
+                        },
+                        error       :   function(){
+                        	alert("댓글이 삭제되었습니다.");
+                            location.href = "/worknow/bdetail.do?bnum=" + $("#bnum").val() + "&page=" + $("#page").val();
+                        }
+                    });
+                });
+                 
+            });
+        </script>
+    </head>
+    <style>
+        textarea{
+              width:100%;
+            }
+             
+        .reply_reply {
+                border: 2px solid #FF50CF;
+            }
+    </style>
+    <body>
+    	<jsp:include page="/WEB-INF/views/header/header.jsp" />
 
-</head>
-<body id="page-top">
-
-	<jsp:include page="/WEB-INF/views/header/header.jsp" />
-
-	<c:set var="board" value="${requestScope.board}" />
-	<c:set var="currentPage" value="${requestScope.currentPage}" />
-	
-	<c:set var="relistCount" value="${requestScope.relistCount}" />
-	<c:set var="recurrentPage" value="${requestScope.recurrentPage}" />
-	<c:set var="restartPage" value="${requestScope.restartPage}" />
-	<c:set var="reendPage" value="${requestScope.reendPage}" />
-	<c:set var="remaxPage" value="${requestScope.remaxPage}" />
-	<c:set var="relist" value="${requestScope.relist}" />
-	<c:set var="member" value="${sessionScope.member}" />
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<h1 align="center">게시글 상세보기</h1>
-	<table align="center" cellpadding="10" cellspacing="0" border="1"
-		width="500" id="tb">
-		<tr align="center" valign="middle">
-			<th colspan="3">${board.boardNum}번글상세보기</th>
-		</tr>
-		<tr>
-			<td height="15" width="100">제 목</td>
-			<td colspan="2">${board.boardSubject}</td>			
-		</tr>
-		<tr>
-			<td>내 용</td>
-			<td colspan="2">${board.boardContent}</td>
-		</tr>
-		<tr>
-		<td colspan="3">
-		<c:forEach var="rl" items="${relist}">
-			${rl.replyNum} ${rl.replyLevel} ${rl.replyName} ${rl.replyContent} ${rl.replyDate}
-		</c:forEach>
-		</td>
-		</tr>		
-		<tr align="center" valign="middle">
-			<%-- <td colspan="2"><c:if test="${!empty member}">
-					<c:url var="brf" value="boardReplyForm.do">
-						<c:param name="bnum" value="${board.boardNum}" />
-						<c:param name="page" value="${currentPage}" />
-					</c:url>
-					<a href="${brf}"> [댓글달기] </a> &nbsp;&nbsp; 
-         <c:if test="${member.id eq board.boardWriter}">
-						<c:url var="bupview" value="bupview.do">
+		<c:set var="board" value="${requestScope.board}" />
+		<c:set var="reply" value="${requestScope.reply}" />
+		<c:set var="currentPage" value="${requestScope.currentPage}" />
+		<c:set var="member" value="${sessionScope.member}" />
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h1 align="center">${board.boardNum}번 게시글 상세보기</h1>
+		<input type="hidden" id="bnum" name="bnum" value="${board.boardNum}"/>
+		<input type="hidden" id="page" name="page" value="${currentPage}" />
+		<input type="hidden" id="id" name="id" value="${member.memberId}" />
+        <div align="center">
+            <br>
+            <br>
+            <table border="1" width="1200px" >
+                <tr>
+                    <td colspan="2" align="right">                    
+	                    <c:url var="bupview" value="bupview.do">
 							<c:param name="bnum" value="${board.boardNum}" />
 							<c:param name="page" value="${currentPage}" />
 						</c:url>
-						<c:url var="bdelete" value="bdelete.do">
+	                    <button type="button" onclick="location.href='${bupview}'">글 수정</button>
+                        <c:url var="bdelete" value="bdelete.do">
 							<c:param name="bnum" value="${board.boardNum}" />
 						</c:url>
-						<a href="${bupview}"> [수정페이지로 이동] </a> &nbsp;&nbsp; 
-            <a href="${bdelete}"> [글삭제] </a> &nbsp;&nbsp; 
-         </c:if>
-				</c:if> <c:url var="blist" value="/fboard.bo">
-					<c:param name="page" value="${currentPage}" />
-				</c:url> <a href="${blist}">[목록]</a></td> --%>
-				
-			<td colspan="2">				
-				<c:url var="brf" value="boardReplyForm.do">
-					<c:param name="bnum" value="${board.boardNum}" />
-					<c:param name="page" value="${currentPage}" />
-				</c:url> <a href="${brf}"> [댓글달기] </a> &nbsp;&nbsp; 
-				
-				<c:url var="bupview" value="bupview.do">
-					<c:param name="bnum" value="${board.boardNum}" />
-					<c:param name="page" value="${currentPage}" />
-				</c:url> <a href="${bupview}"> [수정페이지로 이동] </a> &nbsp;&nbsp;
-				
-				<c:url var="bdelete" value="bdelete.do">
-					<c:param name="bnum" value="${board.boardNum}" />
-				</c:url> <a href="${bdelete}"> [글삭제] </a> &nbsp;&nbsp; 
-				
-				<c:url var="blist" value="/fboard.bo">
-					<c:param name="page" value="${currentPage}" />
-				</c:url> <a href="${blist}">[목록]</a></td>
-		</tr>
-	</table>
-	<br>
-
-</body>
+                    	<button type="button" onclick="location.href='${bdelete}'">글 삭제</button>
+                        <button id="list" name="list">목록</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="900px">
+                        제목: ${board.boardSubject}
+                    </td>
+                    <td>
+                        작성자: ${board.boardName}
+                    </td>
+                </tr>
+                <tr height="500px">
+                    <td colspan="2" valign="top">
+                        ${board.boardContent}
+                    </td>
+                </tr>
+            </table>
+            <table border="1" width="1200px" id="reply_area">
+                <!-- 댓글이 들어갈 공간 -->
+                <c:forEach var="replyList" items="${reply}" varStatus="status">
+                    <tr>
+                        <td width="100px">
+                            ${replyList.replyName}
+                        </td>
+                        <td width="870px">
+                            ${replyList.replyContent}
+                        </td>
+                        <td width="200px">
+                            ${replyList.replyDate}
+                        </td>
+                        <td width="100px">
+                        	<button name="reply_del" id="${replyList.replyLevel}">삭제</button>
+                            <button name="reply_rep" id = "${replyList.replyLevel}">신고</button>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <table border="1" width="1200px" bordercolor="#46AA46">
+                <tr>
+                    <td align="right" width="500px">
+                        이름: <input type="text" id="replyName" name="replyName" style="width:170px;" maxlength="10" readonly value="${member.memberId}"/>
+                        <button id="reply_save" name="reply_save">댓글 등록</button>
+                        <button type="button" onclick="location.href='/worknow/fboard.bo'">목록</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="replyContent" name="replyContent" rows="4" cols="50" placeholder="댓글을 입력하세요."></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

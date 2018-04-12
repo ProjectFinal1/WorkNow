@@ -86,6 +86,7 @@
 						
 
 						
+						
 						<c:set var="member" value="${sessionScope.member}" />						
 						<c:if test="${!empty sessionScope.member }">						
 						<li>
@@ -98,8 +99,8 @@
 						</li>
 						<li>
 							<a class="page-scroll" href="jobsearchView.jo">구직</a>
-						</li>
-						<li><a class="page-scroll" href="fboard.bo">커뮤니티<i class='fa fa-angle-down'></i></a>
+						</li>						
+						<li><a href="fboard.bo">커뮤니티<i class='fa fa-angle-down'></i></a>
 							<ul style="display: none;">
 								<li><a href="fboard.bo">자유게시판</a></li>
 								<li><a href="sboard.bo">후기게시판</a></li>
@@ -113,7 +114,12 @@
 						
 						<c:if test="${empty sessionScope.member }">
 						<li>
-							<a class="page-scroll" href="login.lo">로그인</a>																				
+							<c:if test="${!empty member}">
+								<b>${member.memberId}님 환영합니다</b>
+							</c:if>
+							<c:if test="${empty member}">
+								<a class="page-scroll" href="login.lo">로그인</a>	
+							</c:if>																										
 						</li>
 						</c:if>
 						
@@ -188,6 +194,16 @@
 			</div>
 			<!-- /.container-fluid -->
 		</nav>
+		<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
+		<script>
+			$('nav li').hover(
+  				function() {
+	  				$('ul', this).stop().slideDown(200);
+  				},
+				function() {
+    				$('ul', this).stop().slideUp(200);
+			 });
+</script>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

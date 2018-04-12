@@ -136,8 +136,13 @@
                 <table width="1200px">
                     <tr>
                         <td align="right">
-                            <!-- <button type="button" id="write" name="write">글 작성</button> -->
-                            <b>총 게시글 갯수 : ${listCount}</b>&nbsp;<button onclick="showInsertForm();">글 작성</button>
+                            <b>(총 게시글 갯수 : ${listCount})</b>
+                            <c:if test="${!empty member}">
+								&nbsp;&nbsp;&nbsp;<button onclick="showInsertForm();">글 작성</button>
+							</c:if>
+							<c:if test="${empty member}">
+								&nbsp;&nbsp;&nbsp;<b>로그인시 글 등록이 가능합니다.</b>
+							</c:if>
                         </td>
                     </tr>
                 </table>
@@ -172,12 +177,19 @@
                                 <tr>
                                     <td align="center">${list.boardNum}</td>
                                     <td>
-                                        <%-- <a name="subject" class="mouseOverHighlight" content_id="${list.boardNum}">${list.boardSubject}</a> --%>
-                                        <c:url var="bdetail" value="/bdetail.do">
-											<c:param name="bnum" value="${list.boardNum}" />
-											<c:param name="page" value="${currentPage}" />
-										</c:url> <a href="${bdetail}">${list.boardSubject}<font color="red" size="2"><b>(${list.replyCount})</b></font></a>
-                                    </td>  
+                                    <!-- 로그인한 사용자만 상세보기할 수 있게 처리함 --> 
+                                    <c:if test="${!empty member}">
+										<c:url var="bdetail" value="/bdetail.do">
+											<c:param name="bnum" value="${list.boardNum}"/>
+											<c:param name="page" value="${currentPage}"/>
+										</c:url>
+										<a class="mouseOverHighlight" href="${bdetail}">${list.boardSubject}<font color="red" size="2"><b>(${list.replyCount})</b></font></a>
+									</c:if>
+									<c:if test="${empty member}">
+										${list.boardSubject}
+									</c:if>
+									<%-- <a name="subject" class="mouseOverHighlight" content_id="${list.boardNum}">${list.boardSubject}</a> --%>
+									</td>  
                                     <td align="center">${list.boardName}</td>
                                     <td align="center">${list.boardDate}</td>
                                     <td align="center">${list.boardCount}</td>

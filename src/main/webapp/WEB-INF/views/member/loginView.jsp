@@ -426,12 +426,9 @@ function passCheck2(){
 				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 			<p id="profile-name" class="profile-name-card"></p>
 			<div class="form-signin">
-					
-
 				<span id="reauth-email" class="reauth-email"></span>
 
-
-				<script>
+        <script>
 					$(function() {
 						$("#logincheck").click(function() {
 							var memloginid = $("#memberId").val();

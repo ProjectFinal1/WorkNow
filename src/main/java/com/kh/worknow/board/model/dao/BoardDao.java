@@ -29,14 +29,14 @@ public interface BoardDao {
 	
 	public int getListCount() throws Exception;
 	
-	public ArrayList<Reply> selectReList(int recurrentPage, int relimit) throws Exception;
+	public ArrayList<Reply> selectReList(int boardNum) throws Exception;
 	
 	public int insertReply(Reply reply) throws Exception;
 
-	public int updateBoardReply(Board board) throws Exception;
+	public int deleteOneReply(Reply reply) throws Exception;
 	
 	public int deleteReply(int boardNum) throws Exception;
-	
-	public void createReplyView(String createView) throws Exception;
+
+	public int updateReplyLevel(int replyLevel) throws Exception;
 	
 }

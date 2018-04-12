@@ -13,7 +13,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>WorkNow - boardReUpForm</title>
+<title>WorkNow - boardUpdateForm</title>
 <!-- Bootstrap core CSS -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -40,7 +40,7 @@
 	<br>
 <c:set var="b" value="${requestScope.board}"/>
 <c:set var="currentPage" value="${requestScope.currentPage}"/>
-<h1 align="center">${b.boardNum}번 댓글 수정 페이지</h1>
+<h1 align="center">${b.boardNum}번 글 수정 페이지</h1>
 <br>
 <form action="bupdate.do" method="post" enctype="multipart/form-data">
 <input type="hidden" name="page" value="${currentPage}">
@@ -62,18 +62,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

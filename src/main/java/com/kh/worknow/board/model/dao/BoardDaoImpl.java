@@ -80,10 +80,8 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public ArrayList<Reply> selectReList(int recurrentPage, int relimit) throws Exception {
-		int offset = (recurrentPage - 1) * relimit;
-		RowBounds rerows = new RowBounds(offset, relimit);
-		return new ArrayList<Reply>(sqlSession.selectList("Board.selectReList", null, rerows));
+	public ArrayList<Reply> selectReList(int boardNum) throws Exception {
+		return new ArrayList(sqlSession.selectList("Board.selectReList", boardNum));
 	}
 
 	@Override
@@ -92,8 +90,8 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public int updateBoardReply(Board b) {
-		return sqlSession.update("Board.updateBoardReply", b);
+	public int deleteOneReply(Reply reply) {
+		return sqlSession.update("Board.deleteOneReply", reply);
 	}
 
 	@Override
@@ -102,8 +100,7 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public void createReplyView(String createView) throws Exception {
-		//create view REPLY_VIEW as select REPLY_NUM, RELPY_LEVEL, RELPY_NAME, RELPY_CONTENT, REPLY_DATE FROM FREE_BOARD_REPLY where REPLY_NUM = ?
-		sqlSession.selectOne("Board.createReplyView", createView);
+	public int updateReplyLevel(int replyLevel) throws Exception {
+		return sqlSession.update("Board.updateReplyLevel", replyLevel);
 	}	
 }

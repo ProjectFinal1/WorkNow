@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -66,6 +67,7 @@ public class BoardController {
 			mv.addObject("error", "게시글 전체 조회 실패");
 			mv.setViewName("board/boardError");
 		}
+		System.out.println("자유게시판 접속");
 		return mv; // board/boardListView.jsp로 이동
 	}
 
@@ -77,11 +79,16 @@ public class BoardController {
 		
 
 		if (page != null)
-			currentPage = page;bService.addReadCount(bnum); // 해당 게시글의 조회수 1 증가 처리
+			currentPage = page;
+		
+		//해당 게시글의 댓글리스트 불러오기
+		ArrayList<Reply> reply = bService.selectReList(bnum);
+		
+		bService.addReadCount(bnum); // 해당 게시글의 조회수 1 증가 처리
 		Board board = bService.selectBoard(bnum);
 
 		if (board != null) {
-			mv.addObject("board", board).addObject("currentPage", currentPage).setViewName("board/boardDetailView2");
+			mv.addObject("reply", reply).addObject("board", board).addObject("currentPage", currentPage).setViewName("board/boardDetailView");
 		} else {
 			mv.addObject("error", "게시글 상세조회 실패!");
 			mv.setViewName("board/boardError");
@@ -91,7 +98,7 @@ public class BoardController {
 
 	@RequestMapping("binsertView.do")
 	public String boardInsertView(Model model) {
-		return "board/boardEdit";
+		return "board/boardInsertForm";
 	}
 
 	@RequestMapping("binsert.do")
@@ -101,7 +108,7 @@ public class BoardController {
 			mv.setViewName("redirect:fboard.bo");
 
 		} else {
-			mv.addObject("error", "게시 원글 등록 서비스 실패!");
+			mv.addObject("error", "게시글 등록 실패!");
 			mv.setViewName("board/boardError");
 		}
 		return mv;
@@ -117,18 +124,15 @@ public class BoardController {
 	}
 
 	@RequestMapping("bupdate.do")
-	public ModelAndView boardUpdateMethod(ModelAndView mv, @RequestParam("boardNum") int boardNum, @RequestParam("page") Integer page, 
-	HttpServletRequest request, Board board) throws Exception {
+	public ModelAndView boardUpdateMethod(ModelAndView mv, HttpServletRequest request, Board board) throws Exception {
 
 		if (bService.updateBoard(board) > 0) {
-			mv.setViewName("redirect:bdetail.do?bnum=" + boardNum + "&page=" + page);
 
 		} else {
 			mv.addObject("error", "게시 원글 수정 서비스 실패!");
 			mv.setViewName("board/boardError");
 		}
 		return mv;
-
 	}
 
 	@RequestMapping("bdelete.do")
@@ -164,28 +168,14 @@ public class BoardController {
 		return mv;
 	}
 
-	@RequestMapping("boardReplyForm.do")
-	public String boardReplyForm(ModelAndView mv, @RequestParam("bnum") int bnum,
-			@RequestParam(value = "page", required = false) Integer page) {
-		mv.addObject("bnum", bnum).addObject("page", page);
-
-		return "board/boardReplyForm";
-	}
-
 	@RequestMapping("breply.do")
-	public ModelAndView boardReplyWrite(ModelAndView mv, @RequestParam("bnum") int bnum, @RequestParam("replyName") String replyName, 
-			@RequestParam("replyContent") String replyContent, @RequestParam(value = "page", required = false) Integer page, Reply reply) throws Exception {
-
-		reply.setReplyNum(bnum);
-		reply.setReplyLevel(bService.getReplyCount(bnum) + 1);
-		reply.setReplyName(replyName);
-		reply.setReplyContent(replyContent);
+	public ModelAndView insertReply(ModelAndView mv, Reply reply) throws Exception {
 
 		int result = bService.insertReply(reply);
 
 
 		if (result > 0) {
-			mv.setViewName("redirect:bdetail.do?bnum=" + bnum + "&page=" + page);
+			//mv.setViewName("redirect:bdetail.do?bnum=" + bnum + "&page=" + page);
 		} else {
 			mv.addObject("error", "댓글 달기 실패!");
 			mv.setViewName("board/boardError");
@@ -194,49 +184,11 @@ public class BoardController {
 		return mv;
 	}
 
-	/*
-	 * @RequestMapping("bupdate.do") public ModelAndView
-	 * boardUpdateMethod(ModelAndView mv,
-	 * 
-	 * @RequestParam(value = "upfile", required = false) MultipartFile upfile,
-	 * HttpServletRequest request, Board board) throws Exception {
-	 * 
-	 * if (upfile != null && !upfile.isEmpty()) { // 해당 컨테이너의 구동중인 웹 애플리케이션의 루트 경로
-	 * 알아냄 String root =
-	 * request.getSession().getServletContext().getRealPath("resources"); // 업로드되는
-	 * 파일이 저장될 폴더명과 경로 연결 처리 String savePath = root + "\\buploadFiles";
-	 * 
-	 * if (!new File(savePath).exists()) { new File(savePath).mkdir(); }
-	 * 
-	 * // 업로도된 파일명을 "년월일시분초.확장자" 로 변경함 SimpleDateFormat sdf = new
-	 * SimpleDateFormat("yyyyMMddHHmmss"); String originFileName =
-	 * upfile.getOriginalFilename(); String renameFileName = sdf.format(new
-	 * java.sql.Date(System.currentTimeMillis())) + "." +
-	 * originFileName.substring(originFileName.lastIndexOf(".") + 1);
-	 * 
-	 * File renameFile = new File(savePath + "\\" + renameFileName);
-	 * upfile.transferTo(renameFile);
-	 * 
-	 * 
-	 * new File(savePath + "\\" +board.getBoardRenameFileName()).delete();
-	 * 
-	 * board.setBoardOriginalFileName(originFileName);
-	 * board.setBoardRenameFileName(renameFileName);
-	 * 
-	 * }
-	 * 
-	 * if (bService.updateBoard(board) > 0) { mv.setViewName("redirect:blist.do");
-	 * 
-	 * } else { mv.addObject("error", "게시 원글 수정 서비스 실패!");
-	 * mv.setViewName("board/boardError"); } return mv;
-	 * 
-	 * }
-	 */
-
-	@RequestMapping("brupdate.do")
-	public ModelAndView boardReplyUpdateMethod(ModelAndView mv, Board board) throws Exception {
-
-		if (bService.updateBoardReply(board) > 0) {
+	@RequestMapping("brdelete.do")
+	public ModelAndView deleteOneReplyMethod(ModelAndView mv, Reply replydel) throws Exception {
+		int replyLevel = replydel.getReplyLevel();
+		if (bService.deleteOneReply(replydel) > 0) {
+			bService.updateReplyLevel(replyLevel);
 			mv.setViewName("redirect:fboard.bo");
 
 		} else {
@@ -246,38 +198,6 @@ public class BoardController {
 
 		return mv;
 	}
-
-	/*
-	 * @RequestMapping("binsert.do") public ModelAndView
-	 * boardInsertMethod(HttpServletRequest request,
-	 * 
-	 * @RequestParam(value = "file", required = false) MultipartFile file,
-	 * ModelAndView mv, Board board) throws Exception {
-	 * 
-	 * // 해당 컨테이너의 구동중인 웹 애플리케이션의 루트 경로 알아냄 String root =
-	 * request.getSession().getServletContext().getRealPath("resources"); // 업로드되는
-	 * 파일이 저장될 폴더명과 경로 연결 처리 String savePath = root + "\\buploadFiles";
-	 * 
-	 * if (file != null && !file.isEmpty()) { if (!new File(savePath).exists()) {
-	 * new File(savePath).mkdir(); }
-	 * 
-	 * // 업로도된 파일명을 "년월일시분초.확장자" 로 변경함 SimpleDateFormat sdf = new
-	 * SimpleDateFormat("yyyyMMddHHmmss"); String originFileName =
-	 * file.getOriginalFilename(); String renameFileName = sdf.format(new
-	 * java.sql.Date(System.currentTimeMillis())) + "." +
-	 * originFileName.substring(originFileName.lastIndexOf(".") + 1);
-	 * 
-	 * File renameFile = new File(savePath + "\\" + renameFileName);
-	 * file.transferTo(renameFile);
-	 * 
-	 * board.setBoardOriginalFileName(originFileName);
-	 * board.setBoardRenameFileName(renameFileName); }
-	 * 
-	 * if (bService.insertBoard(board) > 0) { mv.setViewName("redirect:blist.do");
-	 * 
-	 * } else { mv.addObject("error", "게시 원글 등록 서비스 실패!");
-	 * mv.setViewName("board/boardError"); } return mv; }
-	 */
 
 	@RequestMapping("iamport.do")
 	public String btest() {

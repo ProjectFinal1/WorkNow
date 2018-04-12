@@ -82,22 +82,26 @@
 		SELECT COUNT(*) FROM FREE_BOARD_REPLY WHERE REPLY_NUM = #{boardNum}
 	</select>
 	
-	<select id="selectReList" resultMap="resultReply1">
-		SELECT REPLY_NUM, RELPY_LEVEL, RELPY_NAME, RELPY_CONTENT, REPLY_DATE FROM REPLY_VIEW ORDER BY RELPY_LEVEL ASC
+	<select id="selectReList" resultMap="resultReply1" parameterType="java.util.HashMap">
+		SELECT REPLY_NUM, RELPY_LEVEL, RELPY_NAME, RELPY_CONTENT, REPLY_DATE FROM FREE_BOARD_REPLY WHERE REPLY_NUM = #{boardNum} ORDER BY RELPY_LEVEL ASC
 	</select>	
    	
    	<insert id="insertReply">
  		INSERT INTO FREE_BOARD_REPLY VALUES 
-		(#{replyNum}, #{replyLevel}, #{replyName}, #{replyContent}, SYSDATE)
+		(#{replyNum}, (select nvl(max(RELPY_LEVEL) + 1, 1) from FREE_BOARD_REPLY WHERE REPLY_NUM = #{replyNum}), #{replyName}, #{replyContent}, SYSDATE)
   	</insert>
  	
- 	<update id="updateReply">
-		UPDATE FREE_BOARD_REPLY SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}
-		WHERE BOARD_NUM = #{boardNum}
+ 	<update id="deleteOneReply">
+		DELETE FROM FREE_BOARD_REPLY WHERE REPLY_NUM = #{replyNum} AND RELPY_LEVEL = #{replyLevel}
  	</update>
  	
  	<delete id="deleteReply">
 		DELETE FROM FREE_BOARD_REPLY WHERE REPLY_NUM = #{boardNum}
-  	</delete>
+  	</delete>  	
+  	
+  	<update id="updateReplyLevel">
+		UPDATE FREE_BOARD SET RELPY_LEVEL = RELPY_LEVEL - 1 
+		WHERE BOARD_NUM BETWEEN (#{replyLevel} + 1) AND (select max(RELPY_LEVEL) from FREE_BOARD_REPLY)
+ 	</update>
  	
 </mapper>
