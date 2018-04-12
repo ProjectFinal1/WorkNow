@@ -34,7 +34,6 @@
 </head>
 
 <% String userid="ADMIN"; %>
-
 <body id="page-top">
 	<header>
 		<div class="bodymargin">
@@ -88,17 +87,15 @@
 						</div>
 					</div>
 					<div class="row alpha-bg">
-						
-							<div>
-							
+							<div>							
 							</div>
-							<div class="joboffer text-left">
+							<div class="joboffer text-left">                         
+                
 							<br>
 							&nbsp;&nbsp;<h3>제목, 사진</h3>
 							<hr>
-							<input class="main_top" type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>
-							
-														
+							<input class="main_top" type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>																				
+
 									<table>
 									
 									<tr>
@@ -124,18 +121,19 @@
 									<button type="button" id="fileupload" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-picture">등록완료</span></button>
 									</form> 
 									</div> 
-									<br>
-									
+									<br>									
 									</td>
-									</tr>
-									
+									</tr>									
 							</table>
+
 							<form name="job_board" method=get action="jboardinsert.of">
 							<div class="midsec">
-							<!-- 히든데이타 -->
+                
+							<!-- 히든데이타 -->                
 							<input type="hidden" id="userid" name="userid" value="<%=userid%>">
 							<input type="hidden" id="photoname" value="none">
 							<input type="hidden" id="top_subject" value="none">
+                
 							<!-- 개인회원일경우 표시 X -->
 							<h3>구인정보</h3>
 							<hr>
@@ -326,8 +324,10 @@
 								<h3>결제금액 </h3>
 								<hr>
 								<div class="text-right">
+
 								<button type="button" class="btn btn-default" id="cash_refresh" ><span class="glyphicon glyphicon-refresh"></span></button>&nbsp; 현재 캐쉬 :  <span class="text_15 cashvalue" >0</span>원
 								
+
 								<br> 
 								최종 결제금액 : <span class="text_15 payvalue" >1000</span>원
 								</div>
@@ -344,7 +344,9 @@
 							<br>
 							</form>
 						</div>
-						
+
+						</form>
+
 					</div>
 
 				</div>
@@ -421,7 +423,11 @@
 						<hr>
 						<table class="preview_maptable">
 						<!-- 네이버 지도 api 공간  id=map 으로 줄것-->
+              
+						<tr><td rowspan=6><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_map" /></td>
+              
 						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
+
 						<td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
 						<tr><td><span>이메일 : </span><span class="preview_email">010-000-0000</span></td></tr>
 						<tr><td><span>회사 우편번호 : </span><span class="preview_post">060-52</span></td></tr>
@@ -464,12 +470,14 @@
 	    <script src="resources/js/main.js"></script>
 	    <!-- jQuery와 Postcodify를 로딩한다 -->
 		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
 		<!-- 네이버지도 api -->
 		<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=zlXwIca6xGMLNnnR5Qcd&submodules=geocoder"></script>
 		
 		<script>
       
       </script>
+
 		<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 		<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 		

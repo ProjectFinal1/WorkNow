@@ -1,22 +1,25 @@
 package com.kh.worknow.board.model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.worknow.board.model.dao.BoardDao;
 import com.kh.worknow.board.model.vo.Board;
+import com.kh.worknow.board.model.vo.Reply;
 
 @Service("bService")
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
 	BoardDao bDao;
-	
+
 	@Override
-	public int getListCount() {
-		return bDao.getListCount();
+	public void addPhoto(String fileName) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -25,52 +28,67 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public ArrayList<Board> selectTopList() {
-		return bDao.selectTopList();
-	}
-
-	@Override
 	public Board selectBoard(int boardNum) {
 		return bDao.selectBoard(boardNum);
-	}
+	}	
 
 	@Override
-	public int insertBoard(Board b) {
-		return bDao.insertBoard(b);
+	public int insertBoard(Board board) throws Exception {
+		return bDao.insertBoard(board);
 	}
-
+	
 	@Override
-	public int insertReply(Board replyBoard) {
-		return bDao.insertReply(replyBoard);
+	public int updateBoard(Board board) throws Exception {
+		return bDao.updateBoard(board);
 	}
-
+	
 	@Override
-	public void addReadCount(int boardNum) {
-		bDao.addReadCount(boardNum);
-	}
-
-	@Override
-	public int updateBoard(Board b) {
-		return bDao.updateBoard(b);
-	}
-
-	@Override
-	public void updateReplySeq(Board replyBoard) {
-		bDao.updateReplySeq(replyBoard);
-	}
-
-	@Override
-	public int updateBoardReply(Board b) {
-		return bDao.updateBoardReply(b);
-	}
-
-	@Override
-	public int deleteBoard(int boardNum) {
+	public int deleteBoard(int boardNum) throws Exception {
 		return bDao.deleteBoard(boardNum);
 	}
 
 	@Override
-	public int testBoard() {
-		return bDao.testBoard();
+	public int updateBoardNum(int boardNum) throws Exception {
+		return bDao.updateBoardNum(boardNum);
+	}
+
+	@Override
+	public int getReplyCount(int boardNum) throws Exception {
+		return bDao.getReplyCount(boardNum);
+	}
+	
+	@Override
+	public void addReadCount(int boardNum) throws Exception {
+		bDao.addReadCount(boardNum);
+	}
+	
+	@Override
+	public int getListCount() throws Exception {
+		return bDao.getListCount();
+	}
+
+	@Override
+	public ArrayList<Reply> selectReList(int boardNum) throws Exception {
+		return bDao.selectReList(boardNum);
+	}	
+
+	@Override
+	public int insertReply(Reply reply) throws Exception {
+		return bDao.insertReply(reply);
+	}
+
+	@Override
+	public int deleteOneReply(Reply reply) throws Exception {
+		return bDao.deleteOneReply(reply);
+	}
+
+	@Override
+	public int deleteReply(int boardNum) throws Exception {
+		return bDao.deleteReply(boardNum);
+	}
+
+	@Override
+	public int updateReplyLevel(int replyLevel) throws Exception {
+		return bDao.updateReplyLevel(replyLevel);
 	}
 }
