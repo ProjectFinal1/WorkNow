@@ -17,7 +17,7 @@ public interface BoardService {
 	
 	public int insertBoard(Board board) throws Exception;
 	
-	public int updateBoard(Board bboard) throws Exception;
+	public int updateBoard(Board board) throws Exception;
 	
 	public int deleteBoard(int boardNum) throws Exception;
 	
@@ -29,14 +29,14 @@ public interface BoardService {
 	
 	public int getListCount() throws Exception;
 	
-	public ArrayList<Reply> selectReList(int recurrentPage, int relimit) throws Exception;
+	public ArrayList<Reply> selectReList(int boardNum) throws Exception;
 
 	public int insertReply(Reply reply) throws Exception;
 
-	public int updateBoardReply(Board bboard) throws Exception;
+	public int deleteOneReply(Reply reply) throws Exception;
 
 	public int deleteReply(int boardNum) throws Exception;
-
-	public void createReplyView(String createView) throws Exception;
+	
+	public int updateReplyLevel(int replyLevel) throws Exception;
 
 }

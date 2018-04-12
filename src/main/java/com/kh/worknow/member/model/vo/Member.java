@@ -22,6 +22,10 @@ public class Member {
 		this.memberPass = passwd;		
 	}
 
+	public Member(String id) {
+		this.memberId = id;
+	}
+
 	public String getMemberId() {
 		return memberId;
 	}

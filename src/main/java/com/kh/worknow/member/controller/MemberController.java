@@ -2,9 +2,11 @@ package com.kh.worknow.member.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.worknow.member.model.service.MemberLogin;
 import com.kh.worknow.member.model.service.SignUpServiceImpl;
 import com.kh.worknow.member.model.vo.Com_Info;
 import com.kh.worknow.member.model.vo.Member;
@@ -27,15 +28,38 @@ public class MemberController {
 	@Autowired
 	private SignUpServiceImpl signupService;	
 	
-	@RequestMapping(value="memberLogin.me", method=RequestMethod.POST)
-	public ModelAndView memberLogin(HttpSession session, ModelAndView mv,
-			Member member) {
+	// 로그인 체크
+	@RequestMapping(value="loginCheck.lo", method=RequestMethod.POST)
+	public void loginCheck(Member member, @RequestParam("id") String id, @RequestParam("pass") String pass, HttpServletResponse response) throws IOException {	        
+        PrintWriter out = response.getWriter();		
+		System.out.println("id : " + id + ", pass :" + pass);      
+        
+        int checkmem = signupService.checkMember(id, pass);
+        System.out.println("checkmem : " + checkmem);
+        
+        if(checkmem > 0) {        	
+        	out.print("loginsuccess");
+        } else {
+        	System.out.println("로그인 실패 : 아이디 혹은 비번 불일치");
+        	out.print("loginfail");
+        }
+        out.flush();
+        out.close();
+	}
+	
+	// 로그인 구현	
+	@RequestMapping(value="memberLogin.me")
+	public ModelAndView memberLogin(HttpSession session, ModelAndView mv, HttpServletRequest request) {
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
 		
-		session.setAttribute("member", signupService.loginMember(member.getMemberId(), member.getMemberPass()));
-				
+		System.out.println("id = " + id + ", pass = " + pass);
+		
+		session.setAttribute("member", signupService.loginMember(id,pass));
+        
+		System.out.println("로그인 성공");        
 		mv.setViewName("redirect:home.ma");
-		System.out.println("로그인 됐습니다.");
-		return mv;
+		return mv;        
 	}
 	
 	@RequestMapping(value="logout.lo", method=RequestMethod.GET)

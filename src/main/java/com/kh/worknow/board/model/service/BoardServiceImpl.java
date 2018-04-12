@@ -68,8 +68,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public ArrayList<Reply> selectReList(int recurrentPage, int relimit) throws Exception {
-		return bDao.selectReList(recurrentPage, relimit);
+	public ArrayList<Reply> selectReList(int boardNum) throws Exception {
+		return bDao.selectReList(boardNum);
 	}	
 
 	@Override
@@ -78,8 +78,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int updateBoardReply(Board board) throws Exception {
-		return bDao.updateBoardReply(board);
+	public int deleteOneReply(Reply reply) throws Exception {
+		return bDao.deleteOneReply(reply);
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public void createReplyView(String createView) throws Exception {
-		bDao.createReplyView(createView);		
-	}	
+	public int updateReplyLevel(int replyLevel) throws Exception {
+		return bDao.updateReplyLevel(replyLevel);
+	}
 }

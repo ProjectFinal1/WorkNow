@@ -13,5 +13,7 @@ public interface SignUpDao {
 	public int insertComInfo(Com_Info cInfo);
 
 	public Member selectMember(String id, String passwd);
+
+	public int checkMember(String id, String pass);
 	
 }
