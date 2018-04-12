@@ -20,7 +20,7 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!-- 폰트어썸 아이콘 사용위한 css -->
 <link href="resources/css/fa-brands.min.css" rel="stylesheet">
-<link href="resources/css/fa-regulars.min.css" rel="stylesheet">
+<link href="resources/css/fa-regular.min.css" rel="stylesheet">
 <link href="resources/css/fa-solid.min.css" rel="stylesheet">
 <link href="resources/css/fontawesome.min.css" rel="stylesheet">	
 <!-- Custom styles for this template -->
@@ -33,7 +33,7 @@
 <script src="resources/js/storeoffer.js"></script>
 </head>
 
-<% String userid=(String)session.getAttribute("id"); %>
+<% String userid="ADMIN"; %>
 
 <body id="page-top">
 	<header>
@@ -88,16 +88,16 @@
 						</div>
 					</div>
 					<div class="row alpha-bg">
+						
 							<div>
-							<input id="userid" type="hidden" value="<%=userid%>">
+							
 							</div>
 							<div class="joboffer text-left">
 							<br>
 							&nbsp;&nbsp;<h3>제목, 사진</h3>
 							<hr>
-							<input class="main_top"type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>
-							<form name="photoprint" action="" method="post"
-							enctype="multipart/form-data">
+							<input class="main_top" type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>
+							
 														
 									<table>
 									
@@ -111,11 +111,18 @@
 						
 									</div></td>
 									<td>
+									<!-- 파일 업로드 폼 -->
 									<div class="filebox">
+									<form name="photoprint" id="photoprint" action="/fileupload" method="post"
+									enctype="multipart/form-data">
+									<input type="hidden" name="userid" value="<%=userid%>">
+									<input type="hidden" class="isPhoto" value="false">
 									<input class="upload-name" value="파일선택" disabled="disabled">
-
+									
 									<label for="ex_file" class="btn btn-default btn-sm upload-button"><span class="glyphicon glyphicon-picture"></span>업로드</label> 
-									<input type="file" id="ex_file"> 
+									<input type="file" id="ex_file" name="file">
+									<button type="button" id="fileupload" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-picture">등록완료</span></button>
+									</form> 
 									</div> 
 									<br>
 									
@@ -123,8 +130,12 @@
 									</tr>
 									
 							</table>
-							</form>
+							<form name="job_board" method=get action="jboardinsert.of">
 							<div class="midsec">
+							<!-- 히든데이타 -->
+							<input type="hidden" id="userid" name="userid" value="<%=userid%>">
+							<input type="hidden" id="photoname" value="none">
+							<input type="hidden" id="top_subject" value="none">
 							<!-- 개인회원일경우 표시 X -->
 							<h3>구인정보</h3>
 							<hr>
@@ -141,21 +152,21 @@
 								  <option value="etc">기타부업</option>
 								</select>
 							<br>                                 
-							<span >이메일</span> <input name=email class="text_12" type=email value="yunhwan@sm.com" max="50" size=50>
+							<span >이메일</span> <input name=email class="text_12" type=email value="yunhwan@sm.com" max="50" size=50 required>
 							<br>                                 
-							<span >대표자명</span><input name="ceo" class="text_12" type=text value="유놔니" max="50" size=50>
+							<span >대표자명</span><input name="ceo" class="text_12" type=text value="유놔니" max="50" size=50 required>
 							<br>                                 
 							<span >전화번호</span> 
-							<input name="telnumber" class="text_12" type="tel"  pattern=" [0-9]{3,4}-[0-9]{4}-[0-9]{4}" placeholder="010-0000-0000" size=50>
+							<input name="telnumber" class="text_12" type="tel"  pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-0000-0000" size=50 required>
 							<br>                                 
-							<span >회사/점포명</span>  <input class="company_name text_12" type=text value="유놔니25시" max="50" size=50>
+							<span >회사/점포명</span>  <input class="company_name text_12" type=text value="유놔니25시" max="50" size=50 required>
 							<br>
-							<span>회사 우편번호</span><input type="text" name="post" class="postcodify_postcode5" value="" size="6"/>
+							<span>회사 우편번호</span><input type="text" name="post" class="postcodify_postcode5" value="" size="6" required/>
 							<br>
 							<span></span><input type="button" id="postcodify_search_button" class= "btn btn-default btn-sm" value="상세 주소검색">
 							<br>
-							<span>도로명주소</span><input type="text" name="address1" class="postcodify_address" value="" />
-							<span>상세주소</span><input type="text" name="address2" class="postcodify_extra_info" value="" />
+							<span>도로명주소</span><input type="text" name="address1" class="postcodify_address" value="" required/>
+							<span>상세주소</span><input type="text" name="address2" class="postcodify_extra_info" value="" required/>
 							<span>세부사항</span><input type="text" name="address3" class="postcodify_details" value="" />
 
 							
@@ -165,7 +176,24 @@
 							<div class="job_info_sec">
 							<h3>근무조건</h3>
 							<hr>
-							<div class="work_start"><span >근무시작일</span> <input name="start_day" class ="text_12 start_day" type="date" size=50 > <span >근무종료일</span> <input name="end_day" class="text_12 end_day"type="date" size=50 >
+							<!-- 날짜 최소수치를 읽어오기위한  칼렌다-->
+							<%int year= java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);  
+							int month= java.util.Calendar.getInstance().get(java.util.Calendar.MONTH)+1;
+							int day=java.util.Calendar.getInstance().get(java.util.Calendar.DATE);
+							String zero1="-";
+							String zero2="-";
+							if(month<10)
+							{
+								zero1="-0";
+							}
+							if(day<10)
+							{
+								zero2="-0";
+							}
+							String date=year+zero1+month+zero2+day;
+							%>
+							
+							<div class="work_start"><span >근무시작일</span> <input name="start_day" class ="text_12 start_day" type="date" size=50 min="<%=date%>" required  > <span >근무종료일</span> <input name="end_day" class="text_12 end_day"type="date" size=50 min="<%=date%>" required>
 							</div>
 							<br>
 							<span >근무시작시간</span> 
@@ -254,7 +282,7 @@
 								  <option value="건당">건당</option>
 								</select>
 								&nbsp;
-								<input name="pay_value" type=text value=0 size=10>
+								<input name="pay_value" type=number value=0 size=10 required min="0" step=100>
 								<span>원</span> 
 								<br>
 								<span>성별 : </span> 
@@ -271,6 +299,9 @@
 								 <option value="up">이상</option>
 								  <option value="down">이하</option>
 								</select>
+								<br>
+								모집인원수 : <input type=number min=1 max=50 value=0 class="max_num">명
+								
 								<br>                           					
 								</div>
 								<br>
@@ -295,7 +326,7 @@
 								<h3>결제금액 </h3>
 								<hr>
 								<div class="text-right">
-								<button class="btn btn-default" id="cash_refresh" ><span class="glyphicon glyphicon-refresh"></span></button>&nbsp; 현재 캐쉬 :  <span class="text_15 cashvalue" >0</span>원
+								<button type="button" class="btn btn-default" id="cash_refresh" ><span class="glyphicon glyphicon-refresh"></span></button>&nbsp; 현재 캐쉬 :  <span class="text_15 cashvalue" >0</span>원
 								
 								<br> 
 								최종 결제금액 : <span class="text_15 payvalue" >1000</span>원
@@ -311,6 +342,7 @@
 								</div>
 								
 							<br>
+							</form>
 						</div>
 						
 					</div>
@@ -388,6 +420,7 @@
 						<h3>찾아오시는길</h3>
 						<hr>
 						<table class="preview_maptable">
+						<!-- 네이버 지도 api 공간  id=map 으로 줄것-->
 						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
 						<td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
 						<tr><td><span>이메일 : </span><span class="preview_email">010-000-0000</span></td></tr>
