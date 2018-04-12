@@ -47,25 +47,6 @@ public class MemberController {
         out.close();
 	}
   
-	// 로그인 체크
-	@RequestMapping(value="loginCheck.lo", method=RequestMethod.POST)
-	public void loginCheck(Member member, @RequestParam("id") String id, @RequestParam("pass") String pass, HttpServletResponse response) throws IOException {	        
-        PrintWriter out = response.getWriter();		
-		System.out.println("id : " + id + ", pass :" + pass);      
-        
-        int checkmem = signupService.checkMember(id, pass);
-        System.out.println("checkmem : " + checkmem);
-        
-        if(checkmem > 0) {        	
-        	out.print("loginsuccess");
-        } else {
-        	System.out.println("로그인 실패 : 아이디 혹은 비번 불일치");
-        	out.print("loginfail");
-        }
-        out.flush();
-        out.close();
-	}
-	
 	// 로그인 구현	
 	@RequestMapping(value="memberLogin.me")
 	public ModelAndView memberLogin(HttpSession session, ModelAndView mv, HttpServletRequest request) {
