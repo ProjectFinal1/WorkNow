@@ -41,6 +41,10 @@
 		SELECT * FROM MEMBER_INFO WHERE MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
 	</select>
 	
+	<select id="dupId" parameterType="string" resultType="_int">
+		Select NVL(COUNT(*),0) from Member_Info where member_id = #{memberId}
+	</select>
+	
 	
 	<insert id="insertMember" parameterType="Member">
  		INSERT INTO MEMBER_INFO VALUES

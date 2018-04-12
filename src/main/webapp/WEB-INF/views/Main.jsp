@@ -25,16 +25,23 @@
 	</head>
 	<body id="page-top">
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
+	
+		<video autoplay loop poster="resources/movies/mainback2.mp4" muted="muted" style="opacity:0.7;">
+			<source src = "resources/movies/mainback2.mp4" type = "video/mp4">
+		</video>
+		
+<!-- 		<video src="resources/movies/mainback2.mp4">		</video> -->
+	
 
 		<c:set var="member" value="${sessionScope.member}" />
 
     <!-- Header -->
-		<header> 
+		<header style="height:850px"> 
 			<div class="container">
 				<div class="slider-container">
 					<div class="intro-text">
 						<div class="intro-lead-in">Welcome To WorkNow</div>
-						<div class="intro-heading">원하는 알바 선택해
+						<div class="intro-heading">원하는 알바 선택해				
 						
 						</div>
 						

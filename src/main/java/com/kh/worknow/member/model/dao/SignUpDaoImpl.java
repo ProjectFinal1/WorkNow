@@ -43,6 +43,14 @@ public class SignUpDaoImpl implements SignUpDao {
 		return sqlSession.selectOne("Member.checkMember", new Member(id, pass));
 	}
 
+	@Override
+	public int dupId(String id) {
+		System.out.println("아이디 중복체크 Dao에서 받은 매개변수 id : " +id);
+		return sqlSession.selectOne("Member.dupId", new Member(id));
+	}
+	
+	
+
 	
 
 }

@@ -56,6 +56,8 @@ function makeModal() {
 	$("#per, #com").css({
 		"display" : "none"
 	});
+	
+	$('body').css({'height' : '192%'});
 };
 
 function closeModal() {
@@ -79,18 +81,22 @@ function signupSelect2() {
 
 function idCheck() {
 	//jQuery에서 선택자역할
-	var idStr = $("#id").val();
+	var peridStr = $("#id_per").val();
 	
 	$.ajax({
-		url : "idCheckServlet?id=" + idStr,
+		url : "dupid.du?id=" + peridStr,
 		success : function(data) { 														
 			if (data == "success") {
-				$("#result").text("사용가능한 아이디입니다.").css({'color':'blue'});
+				$("#id_per").css({'background-color':'lightblue'});
+				$("#result").text("");
 			} else if (data == "fail") {
+				$("#id_per").css({'background-color':'#FFCC66'});
 				$("#result").text("중복된 아이디입니다.").css({'color':'red'});
 			} else if (data == "tooShort"){
+				$("#id_per").css({'background-color':'#FFCC66'});
 				$("#result").text("아이디가 너무 짧습니다.").css({'color':'red'});										
 			} else if (data == "tooLong"){
+				$("#id_per").css({'background-color':'#FFCC66'});
 				$("#result").text("아이디가 너무 깁니다.").css({'color':'red'});
 			}
 		}
@@ -176,13 +182,24 @@ function passCheck2(){
 					</a> 개인회원가입
 				</legend>
 				<form action="persignup.pe" method="post" class="form" enctype="multipart/form-data">
-					<label>프로필 사진</label>										
-					<input class="form-control" name="perPhoto" type="file" style="text-align:center;"/>
+					<label>프로필 사진</label>
 
+					<article>
+					<div id="holder" style="margin:auto;text-align:center;"></div>
+						<p id="status"></p>
+						<p>
+							<button class="btn btn-lg btn-primary btn-block" onclick="document.getElementById('profilePhoto').click();">
+							사진등록</button>						
+							<input id="profilePhoto" type="file" name="perPhoto" accept='image/jpeg,image/gif,image/png' style="opacity:0;height:1px" required/>
+						</p>						
+					</article>
+					
+					<!-- <input class="form-control" name="perPhoto" type="file" style="text-align:center;"/> -->
+					
 					<script>
 						// 하나 입력 시 동시에 입력되게 한다.
 						$('#id').keydown(function() {
-							$('PersonalId').val($(this).val());							
+							$('PersonalId').val($(this).val());
 						});
 
 						// 마지막에 입력 시 입력되게 한다.
@@ -191,15 +208,53 @@ function passCheck2(){
 						});
 					</script>
 					
-					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
-				
+					<script>
+						var upload = document.getElementsByTagName('input')[0], 
+						holder = document.getElementById('holder'),
+						state = document.getElementById('status');
+						var basic = new Image();
+						
+						basic.src = 'http://i65.tinypic.com/noj51z.png';
+						basic.width = 180;
+						
+						holder.appendChild(basic);
+
+						if (typeof window.FileReader === 'undefined') {
+							state.className = 'fail';
+						} else {
+							state.className = 'success';							
+						}
+
+						upload.onchange = function(e) {
+							e.preventDefault();
+
+							var file = upload.files[0], reader = new FileReader();
+							reader.onload = function(event) {
+								var img = new Image();
+								img.src = event.target.result;
+								
+								img.width = 180;
+									
+								holder.innerHTML='';
+								holder.appendChild(img);
+							};
+							reader.readAsDataURL(file);
+							return false;
+						};
+					</script>
+					
+					<input id="id_per" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:50%;display:inline" required/>
+					<span id="result" style="display:inline;margin-left:5px"></span><p/>
+					
 					<input id="PersonalId" type="text" name="perId" style="display:none;">
+							
 					
-					<span id="result" style="display:block;"></span>
 					
-					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
-					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:22%;display:inline" required/>
-					<span id="passResult" style="display:block;"></span>
+					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:50%;display:inline;" required/>
+					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:49%;display:inline" required/>
+
+					<span id="passResult" style="display:inline;margin-top:10px"></span>
+					
 					<input id="name" class="form-control" name="memberName" placeholder="이름" required/> 
 					<div style="text-align:center;">
 						<label>나이 : </label>						

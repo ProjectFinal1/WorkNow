@@ -16,4 +16,5 @@ public interface SignUpDao {
 
 	public int checkMember(String id, String pass);
 	
+	public int dupId(String id);
 }

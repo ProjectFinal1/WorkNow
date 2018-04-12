@@ -1,29 +1,22 @@
 package com.kh.worknow.member.model.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.kh.worknow.member.model.dao.SignUpDao;
 
-@WebServlet("/idCheckServlet")
-public class idCheckServlet extends HttpServlet {
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String id = request.getParameter("id");
+
+
+@Service("idcheck")
+public class idCheckServlet {
+	
+	@Autowired
+	private SignUpDao signupDao;
+
+	public int dupId(String id) {
 		
-		PrintWriter out = response.getWriter();
-		
-		if (id.length() < 4 ) {
-			out.print("tooShort");
-		} else if (id.length() > 14) {
-			out.print("tooLong");
-		} else if (id.equals("check")) {
-			out.print("fail");
-		} else {
-			out.print("success");
-		}		
+		System.out.println("idcheck 서비스단에서 받아온 id : " + id);
+
+		return signupDao.dupId(id);
 	}
+	
 }
