@@ -10,16 +10,19 @@
 	<typeAliases>
 		<typeAlias type="com.kh.worknow.main.model.vo.Job_Board" alias="Job_Board"/>
 		<typeAlias type="com.kh.worknow.board.model.vo.Board" alias="Board"/>
+		<typeAlias type="com.kh.worknow.board.model.vo.Reply" alias="Reply"/>
 		<typeAlias type="com.kh.worknow.member.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.kh.worknow.member.model.vo.Personal_Info" alias="Personal"/>
 		<typeAlias type="com.kh.worknow.member.model.vo.Com_Info" alias="Com_Info"/>
-		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>
-	</typeAliases>
+		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>		
+		<typeAlias type="com.kh.worknow.offer.model.vo.Cash_Info" alias="Cash"/>
+  </typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/jboard-mapper.xml"/>
 		<mapper resource="mappers/member-mapper.xml"/>		
 		<mapper resource="mappers/personal-mapper.xml"/>		
-		<mapper resource="mappers/com-mapper.xml"/>		
+		<mapper resource="mappers/com-mapper.xml"/>
+		<mapper resource="mappers/board-mapper.xml"/>		
 	</mappers>
 </configuration>
