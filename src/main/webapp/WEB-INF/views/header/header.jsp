@@ -116,10 +116,7 @@
 						<li>
 							<c:if test="${!empty member}">
 								<b>${member.memberId}님 환영합니다</b>
-							</c:if>
-							<c:if test="${empty member}">
-								<a class="page-scroll" href="login.lo">로그인</a>	
-							</c:if>																										
+							</c:if>															
 						</li>
 						</c:if>
 						
@@ -195,7 +192,8 @@
 			<!-- /.container-fluid -->
 		</nav>
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
-		<script>
+		
+			<script>
 			$('nav li').hover(
   				function() {
 	  				$('ul', this).stop().slideDown(200);
@@ -203,7 +201,8 @@
 				function() {
     				$('ul', this).stop().slideUp(200);
 			 });
-</script>
+	
+			</script>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -218,3 +217,4 @@
 
 </body>
 </html>
+

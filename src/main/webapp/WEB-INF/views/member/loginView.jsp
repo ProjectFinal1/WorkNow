@@ -195,12 +195,6 @@ function passCheck2(){
 				
 					<input id="PersonalId" type="text" name="perId" style="display:none;">
 					
-					
-					
-					
-					
-					
-					
 					<span id="result" style="display:block;"></span>
 					
 					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
@@ -436,8 +430,8 @@ function passCheck2(){
 							$.ajax({
 								url : "loginCheck.lo",
 								data : {
-									id : $("#memberId").val(),
-									pass : $("#memberPass").val()
+									id : memloginid,
+									pass : memloginpass
 								},
 								dataType : "text",
 								type : "post",
@@ -457,16 +451,18 @@ function passCheck2(){
 						}); //click
 					}); //ready
 				</script>
-				<form action="memberLogin.me" method="POST" class="login">				
+				<form action="memberLogin.me" method="POST" class="login">
+								
 				<input type="text" id="memberId" name="memberId" class="form-control" placeholder="ID">
-				<input type="password" id="memberPass" name="memberPass" class="form-control" placeholder="Password">		
+				<input type="password" id="memberPass" name="memberPass" class="form-control" placeholder="Password">
+						
 				<button class="btn btn-lg btn-primary btn-block btn-signin"									
 					id="logincheck" type="submit">로그인</button>					
 				</form>		
 				
 				<button id="signup"
 					class="btn btn-lg btn-primary btn-block btn-signin"
-					onclick="makeModal();">회원가입</button>			
+					onclick="makeModal();">회원가입</button>
 			</div>		
 		</div>    		
 	</div>
