@@ -1,5 +1,39 @@
 
 $(document).ready(function() {
+	//파일업로드 ajax처리	
+	$("#fileupload").click(function(){
+		
+		if($(".isPhoto").val()=="true")
+			{
+		  var form = $('form')[0];
+	         var formData = new FormData(form);
+	             $.ajax({
+	                url: 'fileupload',
+	                processData: false,
+	                contentType: false,
+	                data: formData,
+	                type: 'POST',
+	                success: function(result){
+	                    alert("업로드 성공!!");
+	                    //성공하면 이벤트 전부 사용불가 처리 한다.
+	                    $(".upload-button").attr("disabled","disabled");
+	                    $("#fileupload").attr("disabled","disabled");
+	                    $("#ex_file").attr("disabled","disabled");
+	                    $(".upload-button").off();
+	                    $("#fileupload").off();
+	                    $('#ex_file').off();
+	                    $("#photoname").val(result);
+	                }
+	            });		
+			}
+		else{
+			alert("이미지파일만 업로드가능합니다.");
+		}
+		
+	});
+  /*
+  일단 주석 해둠
+  
 	// var fileTarget = $('.upload-hidden');
 	//파일 이름 처리
 	$('#ex_file').change(function() { // 값이변경되면
@@ -15,25 +49,39 @@ $(document).ready(function() {
 		$('.upload-name').val(filename);
 
 			});
-
-
-
-// //왼쪽 박스 이미지 체인지
-
+  */
+  
+  //왼쪽 박스 이미지 체인지
 	$('#ex_file').change(function() {
 					var parent = $(this).parent();
 					parent.children('.upload-display').remove();
-					if (window.FileReader) { // image 파일만
+					if (window.FileReader) { 
+						// image 파일만
 						if (!$(this)[0].files[0].type.match(/image\//))
 							{
 								//이미지 파일이 아닐경우 에러 이미지 표현
 								$(".img-responsive").attr("src","resources/images/demo/error-img.png");
+								$(".isPhoto").val("false");
 								return;
 							}
+						//파일명 추출
+						if (window.FileReader) {// modern browser
+							var filename = $(this)[0].files[0].name;
+
+						} else { // old IE
+							var filename = $(this).val().split('/').pop().split('\\').pop();
+							// 파일명만 추출
+						}
+						// 추출한파일명 삽입
+						$('.upload-name').val(filename);
+						
+						//경로변경
 						var reader = new FileReader();
 						reader.onload = function(e) {
 							var src = e.target.result;
+							//이미지 파일이 맞을경우 src변경및 사진이 맞다 체크
 							$(".img-responsive").attr("src",src);
+							$(".isPhoto").val("true");
 						}
 						reader.readAsDataURL($(this)[0].files[0]);
 					}
