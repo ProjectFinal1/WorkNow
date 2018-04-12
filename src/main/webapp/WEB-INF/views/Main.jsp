@@ -34,7 +34,10 @@
 				<div class="slider-container">
 					<div class="intro-text">
 						<div class="intro-lead-in">Welcome To WorkNow</div>
-						<div class="intro-heading">원하는 알바 선택해</div>
+						<div class="intro-heading">원하는 알바 선택해
+						
+						</div>
+						
 						<hr>
 						<br><br> 
 						
