@@ -6,10 +6,13 @@ public class Resume_Board {
 	private Date resumeDate;		//	등록날짜	DATE
 	private int resumeLevel;		//	게시레벨	NUMBER
 	private String resumeType;		//	직종분류	VARCHAR2(300)
+	
 	private Date resumeStarttime;	//	시작시간	DATE
 	private Date resumeEndtime;	//	끝시간	DATE
-	private Date resumeStartDay;	//	시작날	DATE
+	
+	private Date resumeStartDay;	//	시작날	DATE	
 	private Date resumeEndday;		//	끝날	DATE
+	
 	private String resumeContent;	//	이력서본문	VARCHAR2(3000)
 	private String resumeId;		//	등록자ID	VARCHAR2(100)
 	private Date resumeEnddate;	//	등록종료시간	DATE

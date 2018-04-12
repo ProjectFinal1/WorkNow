@@ -128,7 +128,7 @@
 
 				<table style="width: 100%; table-layout: fixed">
 					<tr>
-						<td rowspan="2">
+						<td rowspan="2"  class="member_Id">
 							<%--회원사진 --%>
 							<p>
 								<a href="#" data-toggle="modal" data-target="#receive-1"><img
@@ -136,25 +136,24 @@
 							</p>
 						</td>
 
-						<td style="width: 70%; display: inline; float: left;">
+						<td style="width: 70%; display: inline; float: left;"  class="title">
 							<%-- 제목 --%>
 							<h5>제목 쓰는곳</h5>
 						</td>
 					</tr>
 
 					<tr>
-						<td style="width: 70%; display: inline; float: left;">
+						<td style="width: 70%; display: inline; float: left;" class="content">
 							<%--
 								-내용-
 								나이 성별 이름 폰번호
 						--%> ${resume.resumeContent}
 
 						</td>
-						<td><input type="button" value="수락"> <input
-							type="button" value="거절"></td>
-
+						<td><input type="button" class="btn-action" value="수락"> <input
+							type="button" class="btn-action" value="거절"></td>
+							
 					</tr>
-
 				</table>
 			</div>
 		</c:forEach>
@@ -234,6 +233,19 @@
 	<script src="resources/js/jquery.appear.js"></script>
 	<script src="resources/js/SmoothScroll.min.js"></script>
 	<script src="resources/js/mooz.themes.scripts.js"></script>
-
+	<script>
+		$(function(){
+			$('.btn-action').on('click',function(){
+				var table_obj = $(this).parent().parent().parent();
+				console.log("선택한 제목 : "+$(table_obj).find('.title').text());
+				console.log("선택한 내용 : "+$(table_obj).find('.content').text());
+				
+				/*
+					데이터 베이스에 전달할 내용(로직)을 작성하시면 됩니다.
+				*/
+				$(table_obj).remove();
+			});
+		});
+	</script>
 </body>
 </html>

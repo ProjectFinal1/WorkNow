@@ -284,9 +284,11 @@
 							<option>금산군</option>
 							<option>서천군</option>
 							<option>청양군</option>
-					</select> <br> <br> <a href="#" class="testt" id="search_adress">
-							<img src="resources/images/search.png" width="10%">
-					</a></td>
+					</select> <br> <br> 
+					<a href="searchjobseeker.se" class="testt" id="search_adress">
+						<img src="resources/images/search.png" width="10%">
+					</a>
+							</td>
 
 
 					<td>
@@ -330,7 +332,7 @@
 		<c:forEach var="resume" items="${list}">
 			<!-- 반복문 시작 -->
 
-			<div style="margin: 0 20% 0 0 " >
+			<div style="margin: 0 20% 0 0">
 
 				<table style="width: 100%; table-layout: fixed">
 					<tr>
@@ -344,7 +346,7 @@
 								-내용-
 								나이 성별 이름 폰번호
 						--%> 
-						${resume.}
+						
 						${resume.resumeContent}
 						</td>
 

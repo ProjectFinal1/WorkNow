@@ -9,6 +9,6 @@ public interface Resume_BoardService {
 	public int getListCount();
 
 	public ArrayList<Resume_Board> selectList(int currentPage, int limit);
-
+	
 	
 }
