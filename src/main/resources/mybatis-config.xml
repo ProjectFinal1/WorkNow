@@ -19,5 +19,6 @@
 	
 	<mappers>
 		<mapper resource="mappers/jboard-mapper.xml"/>
+		<mapper resource="mappers/rboard-mapper.xml"/>
 	</mappers>
 </configuration>

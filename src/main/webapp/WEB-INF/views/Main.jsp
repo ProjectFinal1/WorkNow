@@ -181,25 +181,25 @@
 						      			
 						      			<!-- 직종별 알바찾기 아이콘들 -->
 						      			<td>
-						      			<a href="#" class="testt" id="search_tob1">
+						      			<a href="#" class="testt">
 						      			<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_it" /></a>	 
 						      			
-						      			<a href="#" class="testt" id="search_tob2">
+						      			<a href="#" class="testt">
 						      			<img src="resources/images/main/grab.png" alt="img01" class="search_tob" id="search_work" /></a>
 						      			
-						      			<a href="#" class="testt" id="search_tob2">
+						      			<a href="#" class="testt">
 						      			<img src="resources/images/main/money.png" alt="img01" class="search_tob" id="search_etc" /></a>
 						      			
-						      			<a href="#" class="testt" id="search_tob3">
+						      			<a href="#" class="testt">
 						      			<img src="resources/images/main/person.png" alt="img01" class="search_tob" id="search_Acting" /></a>
 						      			
-						      			<a href="#" class="testt" id="search_tob4">
+						      			<a href="#" class="testt">
 						      			<img src="resources/images/main/restaurant.png" alt="img01" class="search_tob" id="search_restaurant" /></a>
 						      			
-						      			<a href="#" class="testt" id="search_tob5">
+						      			<a href="#" class="testt">
 						      			<img src="resources/images/main/truck.png" alt="img01" class="search_tob" id="search_delivery" /></a>
 						      			
-						      			<a href="#" class="testt" id="search_tob6">
+						      			<a href="#" class="testt">
 						      			<img src="resources/images/main/up.png" alt="img01" class="search_tob" id="search_service" /></a>
 						      						      			
 						      			</td>
@@ -222,12 +222,11 @@
 						      	<table align="center" border="1" cellspacing="0" width="900" id="kt" >
 						      		<tr height="40px"  class="kategorie1">
 						      			<th class="main_th main_tab2">근무가능 지역</th>
-						      			<th class="main_th main_tab2">근무 요일</th>
-						      			<th class="main_th main_tab2">근무 시간</th>
 						      		</tr>
 						      		<tr height="200px"  class="kategorie2 ">
 						      			<!-- 주소로 구인찾기 -->
 						      			<td>
+						      			지역
 						      			<select id="rb_address1">
 						      				<option>서울</option> <option >경기</option>
 						      				<option>인천</option> <option >강원</option> 
@@ -311,29 +310,39 @@
 											<option>부여군</option><option>예산군</option><option>태안군</option><option>연기군</option>	
 											<option>홍성군</option><option>금산군</option><option>서천군</option><option>청양군</option>	
 						      			</select>
-						      			
+						      			&nbsp; &nbsp; &nbsp;
+						      			성별 &nbsp;
+							      			<input type="radio" name="sex" value="무관" checked="checked">무관&nbsp;
+											<input type="radio" name="sex" value="남">남자 &nbsp;
+											<input type="radio" name="sex" value="여">여자 &nbsp;
 						      			<br><br>
-						      			<a href="#" class="testt" id="rb_address">
-						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      			
-						      			</td>
+						      			연령
+						      			<select id="search_age" class="search_age">
+						      			<option>무관</option>
+						      			<c:forEach var="i" begin="15" end="70" step="1">
+						      				<option>${i} 세</option>
+						      			</c:forEach>
+						      			</select>
+						      			- <select id="search_age2" class="search_age2">
+						      				<option>선택</option>
+						      			</select>
+						      			<br>
+						      			업ㆍ직종
+						      			<select id="search_tob2" class="search_tob2">
+						      				<option>무관</option><option>서비스</option><option>단순노무</option><option>배달</option>	
+											<option>대행</option><option>IT관련</option><option>음식점/카페</option><option>기타부업</option>	
+						      			</select>
+						      			<br>
+						      			근무일<br>
+						      			시작일 &nbsp;<input type="date" id="job_start2"value="2018-04-15"><br>
+						      			종료일 &nbsp;<input type="date" id="job_end2" value="2018-08-15"><br>
+						      			<br>
 						      			
-						      			<td>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">월~금</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">토~일</a><br>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주1일</a>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주2일</a>	<br>					      			
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주3일</a>						      			
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">주4일</a>	<br>				      			
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">요일협의</a>						      			
-						      			</td>
-						      									      			
-						      			<td>
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">오전</a>	
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">오후</a><br>							      			
-						      			<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">하루종일</a>							      			
+						      			<a href="#" class="testt" id="rb_search">
+						      			<img src="resources/images/search.png" width="10%" id="search_address2"></a><br>
 						      			</td>
 						      		</tr>
-						      	</table>							
+						      	</table>				
 						      </div>
 						   </dd>
 						</dl>						

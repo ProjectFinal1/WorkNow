@@ -33,9 +33,14 @@
 	</resultMap>
 	
 	
-	<select id="addserach" parameterType="hashmap" resultMap="resultPer_View"> 
-		SELECT * FROM (SELECT * FROM PERSONAL_VIEW WHERE PER_ADDRESS LIKE '%' || #{address1} || '%') 
-		WHERE PER_ADDRESS LIKE '%' || #{address2} || '%'
+	<select id="pv_serach" parameterType="hashmap" resultMap="resultPer_View">		
+		SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM PERSONAL_VIEW WHERE PER_ADDRESS LIKE '%' || #{address1} || '%') 
+		WHERE PER_ADDRESS LIKE '%' || #{address2} || '%') 
+		WHERE PER_SEX = #{sex} OR PER_SEX = #{sex2}) WHERE PER_AGE BETWEEN #{age1} AND #{age2}
+	</select>
+	
+	<select id="selID_rboard" parameterType="String" resultMap="resultRBoard"> 
+		SELECT * FROM RESUME_BOARD WHERE RESUME_ID = #{comID}
 	</select>
 	
 	

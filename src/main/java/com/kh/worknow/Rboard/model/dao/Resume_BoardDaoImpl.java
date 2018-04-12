@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.worknow.Rboard.model.vo.Personal_View;
+import com.kh.worknow.Rboard.model.vo.Resume_Board;
 
 @Repository("Resume_BoardDao")
 public class Resume_BoardDaoImpl implements Resume_BoardDao {
@@ -17,9 +18,13 @@ public class Resume_BoardDaoImpl implements Resume_BoardDao {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public ArrayList<Personal_View> rboard_addrserach(HashMap addressMap) {
-		System.out.println("해쉬 확인 = " + addressMap.get("address1"));
-		return new ArrayList<Personal_View>(sqlSession.selectList("rboard.addserach", addressMap));
+	public ArrayList<Personal_View> pv_serach(HashMap pvMap) {
+		return new ArrayList<Personal_View>(sqlSession.selectList("rboard.pv_serach", pvMap));
+		
 	}
 
+	@Override
+	public Resume_Board Id_GetResume(String comId) {
+		return sqlSession.selectOne("rboard.selID_rboard", comId);
+	}
 }
