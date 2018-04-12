@@ -77,6 +77,7 @@ public class BoardController {
 		// 페이지 값 처리용
 		int currentPage = 1;
 		
+
 		if (page != null)
 			currentPage = page;
 		
@@ -171,6 +172,7 @@ public class BoardController {
 	public ModelAndView insertReply(ModelAndView mv, Reply reply) throws Exception {
 
 		int result = bService.insertReply(reply);
+
 
 		if (result > 0) {
 			//mv.setViewName("redirect:bdetail.do?bnum=" + bnum + "&page=" + page);

@@ -33,9 +33,7 @@
 <script src="resources/js/storeoffer.js"></script>
 </head>
 
-
-
-<body id="page-top">
+  <body id="page-top">
 	<header>
 		<div class="bodymargin">
 			<script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -88,14 +86,23 @@
 						</div>
 					</div>
 					<div class="row alpha-bg">
-					
+		
 						<form name="photoprint" action="FileUpload.jsp" method="post"
 							enctype="multipart/form-data">
-							<div class="joboffer text-left">
+
+							
+							
+<!-- 							<div class="joboffer text-left"> -->
+							
+							
+							
 							<br>
 							&nbsp;&nbsp;<h3>제목, 사진</h3>
 							<hr>
+
 							<input class="main_top"type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>							
+
+
 									<table>
 									
 									<tr>
@@ -114,12 +121,12 @@
 									<label for="ex_file" class="btn btn-default btn-sm upload-button"><span class="glyphicon glyphicon-picture"></span>업로드</label> 
 									<input type="file" id="ex_file"> 
 									</div> 
-									<br>
-									
+									<br>									
 									</td>
-									</tr>
-									
+									</tr>									
 							</table>
+							</form>
+                
 							<div class="midsec">
 							<!-- 개인회원일경우 표시 X -->
 							<h3>구인정보</h3>
@@ -291,7 +298,9 @@
 								<h3>결제금액 </h3>
 								<hr>
 								<div class="text-right">
-								<button class="btn btn-default btn-sm" onclick=""><span class="glyphicon glyphicon-refresh"></span></button>&nbsp; 현재 캐쉬 :  <span class="text_15 cashvalue" >0</span>원
+
+								<button class="btn btn-default" id="cash_refresh" ><span class="glyphicon glyphicon-refresh"></span></button>&nbsp; 현재 캐쉬 :  <span class="text_15 cashvalue" >0</span>원
+
 								<br> 
 								최종 결제금액 : <span class="text_15 payvalue" >1000</span>원
 								</div>
@@ -307,7 +316,9 @@
 								
 							<br>
 						</div>
+
 						</form>
+
 					</div>
 
 				</div>
@@ -383,7 +394,11 @@
 						<h3>찾아오시는길</h3>
 						<hr>
 						<table class="preview_maptable">
+
 						<tr><td rowspan=6><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_map" /></td>
+
+						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
+
 						<td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
 						<tr><td><span>이메일 : </span><span class="preview_email">010-000-0000</span></td></tr>
 						<tr><td><span>회사 우편번호 : </span><span class="preview_post">060-52</span></td></tr>
@@ -426,6 +441,13 @@
 	    <script src="resources/js/main.js"></script>
 	    <!-- jQuery와 Postcodify를 로딩한다 -->
 		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
+		<!-- 네이버지도 api -->
+		<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=zlXwIca6xGMLNnnR5Qcd&submodules=geocoder"></script>
+		
+		<script>
+      
+      </script>
 
 		<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 		<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
