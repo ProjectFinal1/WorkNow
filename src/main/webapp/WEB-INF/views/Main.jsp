@@ -26,7 +26,7 @@
 	<body id="page-top">
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
 	
-		<video autoplay loop poster="resources/movies/mainback2.mp4" muted="muted" style="opacity:0.7;">
+		<video autoplay loop poster="resources/movies/mainback2.mp4" muted="muted" style="opacity:0.7;width:10%">
 			<source src = "resources/movies/mainback2.mp4" type = "video/mp4">
 		</video>
 		

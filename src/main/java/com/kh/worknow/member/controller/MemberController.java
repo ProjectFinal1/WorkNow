@@ -147,7 +147,7 @@ public class MemberController {
 		
 		pInfo.setPerPhoto(profileFileName);
 		}					 
-		 if (signupService.insertMember(member) > 0) {
+		 if (signupService.insertMember0(member) > 0) {
 			 if(signupService.insertPerInfo(pInfo) > 0) {
 			 // 처리 결과가 있으면 매핑된 login.lo를 통해 로그인창으로 이동		
 				 System.out.println("개인회원가입 성공");
@@ -225,7 +225,7 @@ public class MemberController {
 	public ModelAndView signUpMethod(HttpServletRequest request,			 
 			ModelAndView mv, Member member, Com_Info cInfo) throws IOException {		
 	
-		 if (signupService.insertMember(member) > 0) {
+		 if (signupService.insertMember1(member) > 0) {
 			 if (signupService.insertComInfo(cInfo)>0) {
 				 System.out.println("기업회원가입 성공");
 			 mv.setViewName("redirect:login.lo");

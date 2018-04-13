@@ -80,7 +80,17 @@ function signupSelect2() {
 
 
 function idCheck() {
-	//jQuery에서 선택자역할
+	//하나 입력 시 동시에 입력되게 한다.
+	$('#id_per').keydown(function() {
+		$('#PersonalId').val($(this).val());
+	});
+
+	// 마지막에 입력 시 입력되게 한다.
+	$('#id_per').change(function() {
+		$('#PersonalId').val($(this).val());
+	});
+	
+	//jQuery에서 선택자역할	
 	var peridStr = $("#id_per").val();
 	
 	$.ajax({
@@ -106,21 +116,36 @@ function idCheck() {
 
 
 function idCheck2() {
+	
+	// 하나 입력 시 동시에 입력되게 한다.
+	$('#id_com').keydown(function() {
+		$('#ComId').val($(this).val());							
+	});
+
+	// 마지막에 입력 시 입력되게 한다.
+	$('#id_com').change(function() {
+		$('#ComId').val($(this).val());
+	});
+	
 var comidStr = $("#id_com").val();
-	$.ajax({
-		url : "idCheckServlet?id=" + comidStr,
-		success : function(data) { 														
-			if (data == "success") {
-				$("#resultComid").text("사용가능한 아이디입니다.").css({'color':'blue'});
-			} else if (data == "fail") {
-				$("#resultComid").text("중복된 아이디입니다.").css({'color':'red'});
-			} else if (data == "tooShort"){
-				$("#resultComid").text("아이디가 너무 짧습니다.").css({'color':'red'});										
-			} else if (data == "tooLong"){
-				$("#resultComid").text("아이디가 너무 깁니다.").css({'color':'red'});
-			}
+$.ajax({
+	url : "dupid.du?id=" + comidStr,
+	success : function(data) { 														
+		if (data == "success") {
+			$("#id_com").css({'background-color':'lightblue'});
+			$("#resultComid").text("");
+		} else if (data == "fail") {
+			$("#id_com").css({'background-color':'#FFCC66'});
+			$("#resultComid").text("중복된 아이디입니다.").css({'color':'red'});
+		} else if (data == "tooShort"){
+			$("#id_com").css({'background-color':'#FFCC66'});
+			$("#resultComid").text("아이디가 너무 짧습니다.").css({'color':'red'});										
+		} else if (data == "tooLong"){
+			$("#id_com").css({'background-color':'#FFCC66'});
+			$("#resultComid").text("아이디가 너무 깁니다.").css({'color':'red'});
 		}
-	});		
+	}
+});
 };
 
 function passCheck(){
@@ -184,6 +209,7 @@ function passCheck2(){
 				<form action="persignup.pe" method="post" class="form" enctype="multipart/form-data">
 					<label>프로필 사진</label>
 
+					
 					<article>
 					<div id="holder" style="margin:auto;text-align:center;"></div>
 						<p id="status"></p>
@@ -196,17 +222,6 @@ function passCheck2(){
 					
 					<!-- <input class="form-control" name="perPhoto" type="file" style="text-align:center;"/> -->
 					
-					<script>
-						// 하나 입력 시 동시에 입력되게 한다.
-						$('#id').keydown(function() {
-							$('PersonalId').val($(this).val());
-						});
-
-						// 마지막에 입력 시 입력되게 한다.
-						$('#id').change(function() {
-							$('#PersonalId').val($(this).val());
-						});
-					</script>
 					
 					<script>
 						var upload = document.getElementsByTagName('input')[0], 
@@ -313,19 +328,9 @@ function passCheck2(){
 					</a> 기업회원가입
 				</legend>
 				<form action="comsignup.co" method="post" class="form">
-					<script>
-						// 하나 입력 시 동시에 입력되게 한다.
-						$('#id_com').keydown(function() {
-							$('#ComId').val($(this).val());							
-						});
 
-						// 마지막에 입력 시 입력되게 한다.
-						$('#id_com').change(function() {
-							$('#ComId').val($(this).val());
-						});
-					</script>
 					
-					<input id="id_com" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
+					<input id="id_com" onKeyUp="idCheck2();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
 				
 					<input id="ComId" type="text" name="comId" style="display:none;">
 												
@@ -334,7 +339,11 @@ function passCheck2(){
 					<input id="pass3" onKeyUp="passCheck2();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
 					<input id="pass4" onKeyUp="passCheck2();" class="form-control" placeholder="패스워드 확인" type="password" style="width:22%;display:inline" required/>
 					<span id="passResult2"></span>
-					<input class="form-control" name="memberName" placeholder="이름" required/> 
+					<input class="form-control" name="comCeo" placeholder="대표자명" type="text" required/>
+					<input class="form-control" name="memberName" placeholder="이름" type="text" required/>
+					<input class="form-control" name="comName" placeholder="기업명" type="text" required/> 
+					<input class="form-control" name="comNumber"	placeholder="사업자등록번호" type="tel" required/>
+					
 					<div style="text-align:center;">
 					
 					

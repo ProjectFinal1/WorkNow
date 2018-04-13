@@ -20,9 +20,15 @@ public class SignUpDaoImpl implements SignUpDao {
 	}
 	
 	@Override
-	public int insertMember(Member member) {
+	public int insertMember0(Member member) {
 		
-		return sqlSession.insert("Member.insertMember", member);
+		return sqlSession.insert("Member.insertMember0", member);
+	}
+	
+	@Override
+	public int insertMember1(Member member) {
+		
+		return sqlSession.insert("Member.insertMember1", member);
 	}
 
 	@Override

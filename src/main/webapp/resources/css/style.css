@@ -37,7 +37,7 @@ Import Google Fonts
 	
 body {
 	margin: 0px;
-	font-family: "Open Sans", Sans-serif;
+	font-family: "Open Sans", Sans-serif;	
 	background : url (img.jpg) center center fixed no-repeat;
 }
 
@@ -49,8 +49,7 @@ video {
 	min-height : 100 %;
 	width : auto;
 	height : auto;
-	z-index : -1;
-	margin:0 5% 0 5%;
+	z-index : -1;	
 }
 
 h1,

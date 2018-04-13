@@ -28,9 +28,15 @@ public class SignUpServiceImpl implements SignUpService {
 	
 	// Member_Info 테이블에  데이터를 넣는 작업 (공통회원가입 정보)
 	@Override
-	public int insertMember(Member member) {
+	public int insertMember0(Member member) {
 
-		return signupDao.insertMember(member);
+		return signupDao.insertMember0(member);
+	}
+	
+	@Override
+	public int insertMember1(Member member) {
+		
+		return signupDao.insertMember1(member);
 	}
 
 	// Personal_Info 테이블에 데이터 insert 작업 (개인회원가입 정보)
