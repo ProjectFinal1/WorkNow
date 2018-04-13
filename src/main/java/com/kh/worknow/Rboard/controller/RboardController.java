@@ -89,62 +89,63 @@ public class RboardController {
 		//주소를 통해 personal_view 정보를 얻어온다.
 		ArrayList<Personal_View> pvlist = rbService.pv_search(pvMap);
 		
-		System.out.println("size = " + pvlist.size());
-		System.out.println("pvlist == " + pvlist.get(0).getMEMBER_NAME());
-		
-		
 		JSONArray jarr = new JSONArray();
-				
-		for(Personal_View pv : pvlist) {
-			JSONObject list = new JSONObject();		
-			
-			//주소를 통해 가져온 personal_view 정보를 json에 삽입한다
-			list.put("MEMBER_NAME", pv.getMEMBER_NAME());
-			list.put("MEMBER_PHONE", pv.getMEMBER_PHONE());
-			list.put("MEMBER_EMAIL", pv.getMEMBER_EMAIL());
-			list.put("PER_TALK", pv.getPER_TALK());
-			list.put("PER_AGE", pv.getPER_AGE());
-			list.put("PER_ADDRESS", pv.getPER_ADDRESS());
-			list.put("PER_SEX", pv.getPER_SEX());
-			list.put("MEMBER_ID", pv.getMEMBER_ID());
-			
-			pvMap2.put("comId", pv.getMEMBER_ID());
-			
-			//아이디와 나머지 조건을 통해 Resume_board를 가져온다
-			Resume_Board rb = rbService.rb_search(pvMap2);
-			
-			
-			if(rb == null) {
-				System.out.println("직종에서 탈락");
-			}else {
-				System.out.println("content = " + rb.getRESUME_CONTENT());
-				
-				String startday = new SimpleDateFormat("yyyy-MM-dd").format(rb.getRESUME_STARTDAY());
-				String endday = new SimpleDateFormat("yyyy-MM-dd").format(rb.getRESUME_ENDDAY());
-				System.out.println("time = " + new SimpleDateFormat("HHmm").format(rb.getRESUME_STARTTIME()));
-				System.out.println("time = " + new SimpleDateFormat("HHmm").format(rb.getRESUME_ENDTIME()));
-				System.out.println(startday + "   " + endday);
-				
-				list.put("RESUME_STARTDAY", startday);	//시작 날
-				list.put("RESUME_ENDDAY", endday);		//끝나는 날
-				list.put("RESUME_CONTENT", rb.getRESUME_CONTENT());
-				
-				jarr.add(list);	
-			}
-				
-			
-			
-			
-//			
-					
-		}
 		
+		if(pvlist.isEmpty()) {
+			System.out.println("결과값이 없음");
+			
+		}else {
+			System.out.println("size = " + pvlist.size());
+			System.out.println("pvlist == " + pvlist.get(0).getMEMBER_NAME());
+			
+			
+			
+			for(Personal_View pv : pvlist) {
+				JSONObject list = new JSONObject();		
+				
+				//주소를 통해 가져온 personal_view 정보를 json에 삽입한다
+				list.put("MEMBER_NAME", pv.getMEMBER_NAME());
+				list.put("MEMBER_PHONE", pv.getMEMBER_PHONE());
+				list.put("MEMBER_EMAIL", pv.getMEMBER_EMAIL());
+				list.put("PER_TALK", pv.getPER_TALK());
+				list.put("PER_AGE", pv.getPER_AGE());
+				list.put("PER_ADDRESS", pv.getPER_ADDRESS());
+				list.put("PER_SEX", pv.getPER_SEX());
+				list.put("MEMBER_ID", pv.getMEMBER_ID());
+				
+				pvMap2.put("comId", pv.getMEMBER_ID());
+				System.out.println("업종 = " + search_tob2);
+				System.out.println("test = " + pv.getMEMBER_ID());
+				//아이디와 나머지 조건을 통해 Resume_board를 가져온다
+				Resume_Board rb = rbService.rb_search(pvMap2);
+				
+				
+				if(rb == null) {
+					System.out.println("직종에서 탈락");
+				}else {
+					System.out.println("content = " + rb.getRESUME_CONTENT());
+					
+					String startday = new SimpleDateFormat("yyyy-MM-dd").format(rb.getRESUME_STARTDAY());
+					String endday = new SimpleDateFormat("yyyy-MM-dd").format(rb.getRESUME_ENDDAY());
+					System.out.println("time = " + new SimpleDateFormat("HHmm").format(rb.getRESUME_STARTTIME()));
+					System.out.println("time = " + new SimpleDateFormat("HHmm").format(rb.getRESUME_ENDTIME()));
+					System.out.println(startday + "   " + endday);
+					
+					list.put("RESUME_STARTDAY", startday);	//시작 날
+					list.put("RESUME_ENDDAY", endday);		//끝나는 날
+					list.put("RESUME_CONTENT", rb.getRESUME_CONTENT());
+					
+					jarr.add(list);	
+				}
+			}//for(Personal_View pv : pvlist) 끝
+			
+			
+			
+		}//pvlist.isEmpty() 끝
 		
 		System.out.println("size = " + jarr.size());
 		System.out.println(jarr.toJSONString());
 		
-		
-	    
 		//보내는 값을 UTF-8로 지정
 		response.setContentType("application/json; charset=UTF-8");
 		
@@ -153,7 +154,8 @@ public class RboardController {
 		out.print(jarr.toJSONString());
 		
 		out.flush();
-		out.close();					
+		out.close();	
+						
 	}
 		
 	

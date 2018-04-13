@@ -38,26 +38,15 @@
   		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
 	</resultMap>
 	
-	<select id="addserach" parameterType="String" resultMap="resultJBoard">
-		SELECT * FROM JOB_BOARD WHERE JOB_ID = #{comId}
-	</select>
-	
-	<select id="addr_getCompanyId" parameterType="hashmap" resultMap="resultCompany"> 
-		SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE COM_ADDRESS LIKE '%' || #{address1} || '%') 
-		WHERE COM_ADDRESS LIKE '%' || #{address2} || '%'
-	</select>
-	
-	<select id="tobsearch" parameterType="String" resultMap="resultJBoard"> 
-		SELECT * FROM JOB_BOARD WHERE JOB_TYPE = #{tob}
-	</select>
-	
-	<select id="tob_getCompanyId" parameterType="String" resultMap="resultCompany"> 
-		SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comID}
-	</select>
-	
-	<select id="timesearch" parameterType="hashmap" resultMap="resultJBoard"> 
-		SELECT * FROM JOB_BOARD WHERE JOB_STARTDAY <![CDATA[>=]]>  TO_DATE( #{startDate} ,'YYYYMMDD') 
+	<select id="serach_job" parameterType="hashmap" resultMap="resultJBoard">
+		SELECT * FROM (SELECT * FROM JOB_BOARD WHERE JOB_TYPE LIKE '%' || #{tob} || '%') 
+		WHERE JOB_STARTDAY <![CDATA[>=]]>  TO_DATE( #{startDate} ,'YYYYMMDD') 
 		AND JOB_ENDDAY <![CDATA[<=]]> TO_DATE( #{endDate} ,'YYYYMMDD')
+	</select>
+	
+	<select id="serach_job2" parameterType="hashmap" resultMap="resultCompany"> 
+		SELECT * FROM (SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comId}) 
+		WHERE COM_ADDRESS LIKE '%' || #{result_address1} || '%') WHERE COM_ADDRESS LIKE '%' || #{result_address2} || '%'
 	</select>
 	
 	

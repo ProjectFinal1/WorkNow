@@ -15,6 +15,12 @@ public interface Job_BoardDao {
 		// 갯수별로 출력하기		
 		public ArrayList<Job_Board> selectList(int currentPage, int limit);
 		
+		//선택된 직종, 시간으로 구직 검색하기
+		public ArrayList<Job_Board> search_job(HashMap jobMap);
+		
+		//선택된 지역으로 구직 검색하기
+		public Company_View search_job2(HashMap jobMap2);
+		
 		//신규매칭 (구직게시판 게시물의 키와 이력서의 id필요)
 		public int insert_matching(String Job_BoardKey ,String resume_id);
 		

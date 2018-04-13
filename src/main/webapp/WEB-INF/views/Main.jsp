@@ -262,25 +262,29 @@
 						      			
 						      			<!-- 직종별 알바찾기 아이콘들 -->
 						      			<td>
-						      			<a href="#" class="testt">
+						      			
+						      			<a href="#" class="testt" onclick= "return false;">무관
+						      			<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_all" /></a>
+						      			
+						      			<a href="#" class="testt" onclick= "return false;">
 						      			<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_it" /></a>	 
 						      			
-						      			<a href="#" class="testt">
+						      			<a href="#" class="testt" onclick= "return false;">
 						      			<img src="resources/images/main/grab.png" alt="img01" class="search_tob" id="search_work" /></a>
 						      			
-						      			<a href="#" class="testt">
+						      			<a href="#" class="testt" onclick= "return false;">
 						      			<img src="resources/images/main/money.png" alt="img01" class="search_tob" id="search_etc" /></a>
 						      			
-						      			<a href="#" class="testt">
+						      			<a href="#" class="testt" onclick= "return false;">
 						      			<img src="resources/images/main/person.png" alt="img01" class="search_tob" id="search_Acting" /></a>
 						      			
-						      			<a href="#" class="testt">
+						      			<a href="#" class="testt" onclick= "return false;">
 						      			<img src="resources/images/main/restaurant.png" alt="img01" class="search_tob" id="search_restaurant" /></a>
 						      			
-						      			<a href="#" class="testt">
+						      			<a href="#" class="testt" onclick= "return false;">
 						      			<img src="resources/images/main/truck.png" alt="img01" class="search_tob" id="search_delivery" /></a>
 						      			
-						      			<a href="#" class="testt">
+						      			<a href="#" class="testt" onclick= "return false;">
 						      			<img src="resources/images/main/up.png" alt="img01" class="search_tob" id="search_service" /></a>
 						      						      			
 						      			</td>
@@ -294,7 +298,9 @@
 						      			</td>
 						      		</tr>
 						      	</table>	
-						      	<h2 id="sungtest">asdf</h2>					
+						      	<h2 id="result_select1"></h2>
+						      	<h2 id="result_select2"></h2>			
+						      	<h2 id="result_select3"></h2>			
 						      </div>	
 						   </dd>
 						
