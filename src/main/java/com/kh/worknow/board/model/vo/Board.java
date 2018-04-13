@@ -20,15 +20,6 @@ private static final long serialVersionUID = 3000000L;
 	
 	public Board(){}		
 
- 	public Board(String boardTitle, String boardWriter, String boardContent, String boardOriginalFileName,	String boardRenameFileName) {        
-		super();
-		this.boardTitle = boardTitle;
-		this.boardWriter = boardWriter;
-		this.boardContent = boardContent;
-		this.boardOriginalFileName = boardOriginalFileName;
-		this.boardRenameFileName = boardRenameFileName;
-	}
-
 	public Board(int boardNum, String boardName, String boardSubject, String boardContent, int boardCount,
 			String boardDate, int replyCount) {
 		super();
