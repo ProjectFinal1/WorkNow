@@ -22,10 +22,45 @@ import com.kh.worknow.board.model.vo.Board;
 import com.kh.worknow.board.model.vo.Reply;
 
 @Controller
-public class BoardController {
+public class BoardController {	
 
-	@Autowired
-	private BoardService bService;
+		@Autowired
+		private BoardService bService;
+
+		@SuppressWarnings("unchecked")
+		@RequestMapping("toplist.do")
+		public void top5List(HttpServletResponse response) throws IOException {
+			ArrayList<Board> list = bService.selectTopList();
+
+			// 전송할 최종 json 객체
+			JSONObject json = new JSONObject();
+			JSONArray jarr = new JSONArray();
+			SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+			for (Board b : list) {
+
+				// 게시글 하나 씩의 정보를 저장할 json 객체 설정
+				JSONObject board = new JSONObject();
+				board.put("bnum", b.getBoardNum());
+				board.put("title", URLEncoder.encode(b.getBoardTitle(), "UTF-8").replace("+", " "));
+				// json에서 한글 깨짐을 막으려면, java.net.URLEncoder 클래스의 encode() 메소드로 인코딩 처리
+				board.put("writer", b.getBoardWriter());
+				board.put("date", df.format(b.getBoardDate()));
+				board.put("cnt", b.getBoardReadCount());
+				board.put("file", b.getBoardOriginalFileName());
+
+				jarr.add(board);
+			}
+
+			json.put("list", jarr);
+			System.out.println(json.toJSONString());
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+
+			out.print(json.toJSONString());
+			out.flush();
+			out.close();
+		}
+
 
 	@RequestMapping("fboard.bo")
 	public ModelAndView boardList(ModelAndView mv, @RequestParam(value = "page", required = false) Integer page)

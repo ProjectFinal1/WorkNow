@@ -3,8 +3,7 @@ package com.kh.worknow.board.model.vo;
 import java.sql.Date;
 
 public class Board {
-private static final long serialVersionUID = 3000000L;
-	
+private static final long serialVersionUID = 3000000L;	
 	private int boardNum;
 	private String boardName;
 	private String boardSubject;
@@ -13,11 +12,22 @@ private static final long serialVersionUID = 3000000L;
 	private String boardDate;
 	private int replyCount;
 	
+
 	private String boardType;
 	private String boardPhoto;
 	private int replyCheck;	// 1 : O, 2 : X
 	
-	public Board(){}
+	
+	public Board(){}		
+
+ 	public Board(String boardTitle, String boardWriter, String boardContent, String boardOriginalFileName,	String boardRenameFileName) {        
+		super();
+		this.boardTitle = boardTitle;
+		this.boardWriter = boardWriter;
+		this.boardContent = boardContent;
+		this.boardOriginalFileName = boardOriginalFileName;
+		this.boardRenameFileName = boardRenameFileName;
+	}
 
 	public Board(int boardNum, String boardName, String boardSubject, String boardContent, int boardCount,
 			String boardDate, int replyCount) {

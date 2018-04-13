@@ -1,7 +1,12 @@
 package com.kh.worknow.main.controller;
  
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +19,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+
+import com.kh.worknow.joboffer.model.service.Resume_BoardService;
+import com.kh.worknow.joboffer.model.vo.Resume_Board;
 import com.kh.worknow.main.model.service.SearchService;
 
 @Controller
@@ -21,6 +32,14 @@ public class HeaderController {
 	
 	@Autowired
 	private SearchService sService;
+	
+	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
+	public String gotoJoboffer(Locale locale, Model model) {
+	
+		System.out.println("구인자 이용 페이지");
+		
+		return "/joboffer/jobofferView";
+	}
 	
 	@RequestMapping(value = "home.ma", method = RequestMethod.GET)
 	public String home2(Locale locale, Model model) {
@@ -51,13 +70,11 @@ public class HeaderController {
 		return "/member/loginView";
 	}
 	
-	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
-	public String jobofferView(Locale locale, Model model) {
 	
-		System.out.println("구인 페이지");
-		
-		return "/joboffer/jobofferView";
-	}
+	//구인페이지
+	@Autowired
+	private Resume_BoardService Resume_BoardService;	
+	
 	
 	@RequestMapping(value = "jobsearchView.jo", method = RequestMethod.GET)
 	public String jobsearchView(Locale locale, Model model) {

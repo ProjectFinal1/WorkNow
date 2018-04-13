@@ -431,12 +431,9 @@
 					</div>
 					<div class="modal-body">						
 						<div class="modal-works">
-						<img src="resources/images/demo/shop-icon.png" alt="매장 아이콘." class="img_content" />
-						<pre>		
-						<span>매장명</span><b id="balckblack">view연결 해야함 <br></b><span>내용</span>
-						<span>근무조건</span><span>주소</span>
-						</pre>				
-						
+
+            <img src="resources/images/demo/shop-icon.png" alt="매장 아이콘." class="img_content" />						
+						<span>테스트트트트틑</span><span>내용</span>				
 						</div>
 
 						<p id="detail_sub${i}"></p>

@@ -5,18 +5,12 @@
 	position: relative;
 	float: left;
 	min-height: 1px;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin: 0 auto;
+	padding-left: 20px;
 	text-align: center;
 }
 
 .row:last-child {
-	margin: 0 7% 0 7%;
-}
-
-#team {
-	background-color: white;
+	margin: 0 0 0 60px;
 }
 
 .jobofferlist {
@@ -24,45 +18,38 @@
 	margin: 0 13% 0 13%;
 }
 
+.receivelist{
+	float: left;
+	margin: 0 13% 0 13%;
+}
 
 .bodymargin {
 	margin: 0 10% 0 10%;
 }
 
-hr{
+hr {
 	border: solid 1px gray;
-	width:700pt;
+	width: 700pt;
 }
 
-.selectlist{
-	float:right;
-}
-.search_time{
-	padding-left:120px;
-}
-.img{
-	padding-left:150px;
-	padding-right:80px;
-}
-.img1{
-	float:left;
-	text-align:center;
-	width:18%;	
+.selectlist {
+	float: right;
 }
 
-<<<<<<< HEAD
-td{
-	text-align:center;
+.search_time {
+	padding-left: 120px;
 }
 
-.pattern{
-	align:center;
+.joboffer {
+	float: left;
+	text-align: center;
+	padding-left: 150px;
+	padding-right: 80px;
+  
+td {
+	text-align: center;
 }
-=======
 
-
-
-
-
->>>>>>> refs/heads/yh_final
-
+.pattern {
+	align: center;
+}
