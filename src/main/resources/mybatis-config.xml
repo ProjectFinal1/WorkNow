@@ -10,19 +10,23 @@
 	<typeAliases>
 		<typeAlias type="com.kh.worknow.main.model.vo.Job_Board" alias="Job_Board"/>
 		<typeAlias type="com.kh.worknow.board.model.vo.Board" alias="Board"/>
-		<typeAlias type="com.kh.worknow.joboffer.model.vo.Resume_Board" alias="Resume"/>
-		<typeAlias type="com.kh.worknow.joboffer.model.vo.Member_Info" alias="Member"/>
-		<typeAlias type="com.kh.worknow.joboffer.model.vo.Personal_Info" alias="Personal"/>
+    <typeAlias type="com.kh.worknow.joboffer.model.vo.Resume_Board" alias="Resume"/>
 		<typeAlias type="com.kh.worknow.joboffer.model.vo.Resume_Request" alias="Resume_Request"/>
 		<typeAlias type="com.kh.worknow.joboffer.model.vo.Personal_Resume" alias="Personal_Resume"/>
-	</typeAliases>
-	
-	<!-- 마이바티스 DataSource 설정은 root-context.xml을 참조한다. -->
+		<typeAlias type="com.kh.worknow.board.model.vo.Reply" alias="Reply"/>
+		<typeAlias type="com.kh.worknow.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.kh.worknow.member.model.vo.Personal_Info" alias="Personal"/>
+		<typeAlias type="com.kh.worknow.member.model.vo.Com_Info" alias="Com_Info"/>
+		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>		
+		<typeAlias type="com.kh.worknow.offer.model.vo.Cash_Info" alias="Cash"/>
+  </typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/jboard-mapper.xml"/>
-		<mapper resource="mappers/resume-mapper.xml"/>
-		<mapper resource="mappers/member-mapper.xml"/>
+		<mapper resource="mappers/member-mapper.xml"/>		
 		<mapper resource="mappers/personal-mapper.xml"/>		
-	</mappers>
+		<mapper resource="mappers/com-mapper.xml"/>
+		<mapper resource="mappers/board-mapper.xml"/>		
+ 		<mapper resource="mappers/resume-mapper.xml"/>
+</mappers>
 </configuration>

@@ -305,6 +305,7 @@
 							<option>서천군</option>
 							<option>청양군</option>
 					</select> <br> <br> 
+            
 					<a href="jobseekersearch.jo" class="testt" id="search_adress">
 						<img src="resources/images/search.png" width="10%">
 					</a>

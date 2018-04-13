@@ -1,20 +1,27 @@
 package com.kh.worknow.main.controller;
  
+
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import java.util.Locale;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import com.kh.worknow.joboffer.model.service.Resume_BoardService;
 import com.kh.worknow.joboffer.model.vo.Resume_Board;
@@ -42,8 +49,22 @@ public class HeaderController {
 	}
 	
 	@RequestMapping(value = "login.lo", method = RequestMethod.GET)
-	public String loginView(Locale locale, Model model) {
-	
+	public String loginView(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {		
+		
+		HttpSession session = request.getSession(); 
+		
+		if(session.getAttribute("member") != null){
+			PrintWriter out;
+			try {
+				response.setContentType("text/html; charset=UTF-8");			 
+				out = response.getWriter();
+				out.println("<script>alert('이미 로그인되어 있습니다.'); history.go(-1);</script>");
+		        out.flush();
+			} catch (IOException e) {					
+				e.printStackTrace();
+			}
+          
+		}		
 		System.out.println("로그인 페이지");
 		
 		return "/member/loginView";

@@ -148,16 +148,16 @@
 		<hr>
 
 		<c:forEach var="resume" items="${list}">
-		
+
 			<!-- 반복문 시작 -->
 
 			<div style="margin: 0 20% 0 0">
 			
 			<input id="${resume.resumeId}" type="text" value="${resume.resumeId}" style="display:none;">
-
 				<table style="width: 100%; table-layout: fixed">
 					<tr>
 						<td rowspan="2"  class="member_Id">
+
 							<%--회원사진 --%>
 							<p>
 								<a href="#" data-toggle="modal" data-target="#receive-1"><img
@@ -166,6 +166,7 @@
 						</td>
 
 						<td style="width: 70%; display: inline; float: left;"  class="title">
+
 							<%-- 제목 --%>
 							<h5>제목 쓰는곳</h5>
 						</td>
@@ -190,8 +191,7 @@
 			
 		</c:forEach>
 		<!-- 반복문 종료 -->
-
-	</div>
+  </div>
 
 
 
@@ -313,5 +313,6 @@
 		});
 	</script>
 	 -->
+
 </body>
 </html>

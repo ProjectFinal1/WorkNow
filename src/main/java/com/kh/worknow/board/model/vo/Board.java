@@ -5,23 +5,22 @@ import java.sql.Date;
 public class Board {
 private static final long serialVersionUID = 3000000L;	
 	private int boardNum;
-	private String boardTitle;
-	private String boardWriter;
+	private String boardName;
+	private String boardSubject;
 	private String boardContent;
-	private String boardOriginalFileName;
-	private String boardRenameFileName;
-	private Date boardDate;
-	private int boardLevel;
-	private int boardRef;
-	private int boardReplyRef;
-	private int boardReplySeq;
-	private int boardReadCount;
+	private int boardCount;
+	private String boardDate;
+	private int replyCount;
+	
+
+	private String boardType;
+	private String boardPhoto;
+	private int replyCheck;	// 1 : O, 2 : X
 	
 	
 	public Board(){}		
 
-	public Board(String boardTitle, String boardWriter, String boardContent, String boardOriginalFileName,
-			String boardRenameFileName) {
+ 	public Board(String boardTitle, String boardWriter, String boardContent, String boardOriginalFileName,	String boardRenameFileName) {        
 		super();
 		this.boardTitle = boardTitle;
 		this.boardWriter = boardWriter;
@@ -30,57 +29,32 @@ private static final long serialVersionUID = 3000000L;
 		this.boardRenameFileName = boardRenameFileName;
 	}
 
-	public Board(int boardNum, String boardTitle, String boardWriter, String boardContent, String boardOriginalFileName,
-			String boardRenameFileName) {
+	public Board(int boardNum, String boardName, String boardSubject, String boardContent, int boardCount,
+			String boardDate, int replyCount) {
 		super();
 		this.boardNum = boardNum;
-		this.boardTitle = boardTitle;
-		this.boardWriter = boardWriter;
+		this.boardName = boardName;
+		this.boardSubject = boardSubject;
 		this.boardContent = boardContent;
-		this.boardOriginalFileName = boardOriginalFileName;
-		this.boardRenameFileName = boardRenameFileName;
-	}
-
-	public Board(int boardNum, String boardTitle, String boardWriter, String boardContent, String boardOriginalFileName,
-			String boardRenameFileName, Date boardDate, int boardLevel, int boardRef, int boardReplyRef, int boardReplySeq,
-			int boardReadCount) {
-		super();
-		this.boardNum = boardNum;
-		this.boardTitle = boardTitle;
-		this.boardWriter = boardWriter;
-		this.boardContent = boardContent;
-		this.boardOriginalFileName = boardOriginalFileName;
-		this.boardRenameFileName = boardRenameFileName;
+		this.boardCount = boardCount;
 		this.boardDate = boardDate;
-		this.boardLevel = boardLevel;
-		this.boardRef = boardRef;
-		this.boardReplyRef = boardReplyRef;
-		this.boardReplySeq = boardReplySeq;
-		this.boardReadCount = boardReadCount;
+		this.replyCount = replyCount;
 	}
-	
-	public Board(int boardNum, String boardTitle, String boardWriter, String boardContent) {
+
+	public Board(int boardNum, String boardName, String boardSubject, String boardContent, int boardCount,
+			String boardDate, String boardType, String boardPhoto, int replyCheck) {
+		super();
 		this.boardNum = boardNum;
-		this.boardTitle = boardTitle;
-		this.boardWriter = boardWriter;
+		this.boardName = boardName;
+		this.boardSubject = boardSubject;
 		this.boardContent = boardContent;
+		this.boardCount = boardCount;
+		this.boardDate = boardDate;
+		this.boardType = boardType;
+		this.boardPhoto = boardPhoto;
+		this.replyCheck = replyCheck;
 	}
-	
-	@Override
-	public String toString(){
-		return this.boardNum + ", " + this.boardTitle
-				+ ", " + this.boardWriter + ", " +
-				this.boardContent + ", " + 
-				this.boardDate + ", " +
-				this.boardOriginalFileName + ", " +
-				this.boardRenameFileName + ", " +
-				this.boardLevel + ", " + 
-				this.boardRef + ", " + 
-				this.boardReplyRef + ", " +
-				this.boardReplySeq + ", " + 
-				this.boardReadCount;
-	}
-	
+
 	public int getBoardNum() {
 		return boardNum;
 	}
@@ -89,20 +63,20 @@ private static final long serialVersionUID = 3000000L;
 		this.boardNum = boardNum;
 	}
 
-	public String getBoardTitle() {
-		return boardTitle;
+	public String getBoardName() {
+		return boardName;
 	}
 
-	public void setBoardTitle(String boardTitle) {
-		this.boardTitle = boardTitle;
+	public void setBoardName(String boardName) {
+		this.boardName = boardName;
 	}
 
-	public String getBoardWriter() {
-		return boardWriter;
+	public String getBoardSubject() {
+		return boardSubject;
 	}
 
-	public void setBoardWriter(String boardWriter) {
-		this.boardWriter = boardWriter;
+	public void setBoardSubject(String boardSubject) {
+		this.boardSubject = boardSubject;
 	}
 
 	public String getBoardContent() {
@@ -113,67 +87,51 @@ private static final long serialVersionUID = 3000000L;
 		this.boardContent = boardContent;
 	}
 
-	public String getBoardOriginalFileName() {
-		return boardOriginalFileName;
+	public int getBoardCount() {
+		return boardCount;
 	}
 
-	public void setBoardOriginalFileName(String boardOriginalFileName) {
-		this.boardOriginalFileName = boardOriginalFileName;
+	public void setBoardCount(int boardCount) {
+		this.boardCount = boardCount;
 	}
 
-	public String getBoardRenameFileName() {
-		return boardRenameFileName;
-	}
-
-	public void setBoardRenameFileName(String boardRenameFileName) {
-		this.boardRenameFileName = boardRenameFileName;
-	}
-
-	public Date getBoardDate() {
+	public String getBoardDate() {
 		return boardDate;
 	}
 
-	public void setBoardDate(Date boardDate) {
+	public void setBoardDate(String boardDate) {
 		this.boardDate = boardDate;
 	}
 
-	public int getBoardLevel() {
-		return boardLevel;
+	public int getReplyCount() {
+		return replyCount;
 	}
 
-	public void setBoardLevel(int boardLevel) {
-		this.boardLevel = boardLevel;
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
+
+	public String getBoardType() {
+		return boardType;
+	}
+
+	public void setBoardType(String boardType) {
+		this.boardType = boardType;
+	}
+
+	public String getBoardPhoto() {
+		return boardPhoto;
+	}
+
+	public void setBoardPhoto(String boardPhoto) {
+		this.boardPhoto = boardPhoto;
+	}
+
+	public int getReplyCheck() {
+		return replyCheck;
+	}
+
+	public void setReplyCheck(int replyCheck) {
+		this.replyCheck = replyCheck;
 	}	
-	
-	public int getBoardRef() {
-		return boardRef;
-	}
-
-	public void setBoardRef(int boardRef) {
-		this.boardRef = boardRef;
-	}
-
-	public int getBoardReplyRef() {
-		return boardReplyRef;
-	}
-
-	public void setBoardReplyRef(int boardReplyRef) {
-		this.boardReplyRef = boardReplyRef;
-	}
-
-	public int getBoardReplySeq() {
-		return boardReplySeq;
-	}
-
-	public void setBoardReplySeq(int boardReplySeq) {
-		this.boardReplySeq = boardReplySeq;
-	}
-
-	public int getBoardReadCount() {
-		return boardReadCount;
-	}
-
-	public void setBoardReadCount(int boardReadCount) {
-		this.boardReadCount = boardReadCount;
-	}
 }

@@ -11,12 +11,62 @@
   		<result property="memberEmail" column="MEMBER_EMAIL"/>
   		<result property="memberType"  column="MEMBER_TYPE"/>
   		<result property="memberDate"  column="MEMBER_DATE"/>
-  		<result property="memberBlack" column="MEMBER_BLACK"/>  	
+  		<result property="memberBlack" column="MEMBER_BLACK"/> 
+	</resultMap>	
+	
+	<resultMap id="resultPeronal" type="Personal">
+		<id property="perId" 	   column="PER_ID" />
+  		<result property="perTalk"  column="PER_TALK"/>
+  		<result property="perAge"  column="PER_AGE"/>
+  		<result property="perAddress" column="PER_ADDRESS"/>
+  		<result property="perSex" column="PER_SEX"/>
+  		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
 	</resultMap>
 	
-	<insert id="insertMember" parameterType="Member">
+	<resultMap id="resultCom" type="Com_Info">
+		<id property="comId" 	   column="COM_ID" />   
+		<result property="comNumber"  column="COM_NUMBER"/>  
+		<result property="comName"  column="COM_NAME"/>  
+		<result property="comAddress" column="COM_ADDRESS"/> 
+		<result property="comCeo" column="COM_CEO"/> 
+		<result property="comPhone"  column="COM_PHONE"/>  
+ 	</resultMap>
+	
+	
+	<select id="checkMember" parameterType="string" resultType="_int">
+		Select count(*) from MEMBER_INFO where MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
+	</select>
+
+	<select id="selectMember" parameterType="Member" resultMap="resultMember">
+		SELECT * FROM MEMBER_INFO WHERE MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
+	</select>
+	
+	<select id="dupId" parameterType="string" resultType="_int">
+		Select NVL(COUNT(*),0) from Member_Info where member_id = #{memberId}
+	</select>
+	
+	<!-- 개인회원 -->
+	<insert id="insertMember0" parameterType="Member">
  		INSERT INTO MEMBER_INFO VALUES
  		(#{memberId}, #{memberPass}, #{memberName}, #{memberPhone},
 			#{memberEmail}, 0, SYSDATE, 0)		
   	</insert>
+  	
+  	<!-- 기업회원 -->
+  	<insert id="insertMember1" parameterType="Member">
+ 		INSERT INTO MEMBER_INFO VALUES
+ 		(#{memberId}, #{memberPass}, #{memberName}, #{memberPhone},
+			#{memberEmail}, 1, SYSDATE, 0)		
+  	</insert>
+  	
+  	<insert id="insertPerInfo" parameterType="Member">
+  		insert into personal_info
+ 		values(#{memberId}, #{perTalk}, #{perAge}, #{perAddress}, #{perSex}, #{perPhoto})  	
+  	</insert>
+  	
+  	<insert id="insertComInfo" parameterType="Member">
+  		insert into COM_INFO
+  		values(#{memberId},#{comNumber},#{comName},#{comAddress},#{comCeo},#{comPhone})
+  	</insert>
 </mapper>
+
