@@ -33,14 +33,15 @@
 	</resultMap>
 	
 	
-	<select id="pv_serach" parameterType="hashmap" resultMap="resultPer_View">		
+	<select id="pv_search" parameterType="hashmap" resultMap="resultPer_View">		
 		SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM PERSONAL_VIEW WHERE PER_ADDRESS LIKE '%' || #{address1} || '%') 
 		WHERE PER_ADDRESS LIKE '%' || #{address2} || '%') 
 		WHERE PER_SEX = #{sex} OR PER_SEX = #{sex2}) WHERE PER_AGE BETWEEN #{age1} AND #{age2}
 	</select>
 	
-	<select id="selID_rboard" parameterType="String" resultMap="resultRBoard"> 
-		SELECT * FROM RESUME_BOARD WHERE RESUME_ID = #{comID}
+	<select id="rb_search" parameterType="hashmap" resultMap="resultRBoard"> 
+		SELECT * FROM (SELECT * FROM (SELECT * FROM RESUME_BOARD WHERE RESUME_ID = #{comId}) WHERE RESUME_TYPE LIKE '%' || #{search_tob2} || '%' )
+		WHERE RESUME_STARTDAY <![CDATA[>=]]>  TO_DATE( #{job_start2} ,'YYYYMMDD') AND RESUME_ENDDAY <![CDATA[<=]]> TO_DATE( #{job_end2} ,'YYYYMMDD')
 	</select>
 	
 	

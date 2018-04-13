@@ -83,8 +83,10 @@ $(document).ready(function(){
 			
 			//시작날, 끝나는날
 			var job_start2 = $("#job_start2").val();
-			var job_end2 = $("#job_end2").val();
+			job_start2 = job_start2.replace(/-/g, "");
 			
+			var job_end2 = $("#job_end2").val();
+			job_end2 = job_end2.replace(/-/g, "");
 			
 			
 			$.ajax({

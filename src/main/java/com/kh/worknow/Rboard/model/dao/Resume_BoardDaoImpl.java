@@ -18,13 +18,13 @@ public class Resume_BoardDaoImpl implements Resume_BoardDao {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public ArrayList<Personal_View> pv_serach(HashMap pvMap) {
-		return new ArrayList<Personal_View>(sqlSession.selectList("rboard.pv_serach", pvMap));
+	public ArrayList<Personal_View> pv_search(HashMap pvMap) {
+		return new ArrayList<Personal_View>(sqlSession.selectList("rboard.pv_search", pvMap));
 		
 	}
 
 	@Override
-	public Resume_Board Id_GetResume(String comId) {
-		return sqlSession.selectOne("rboard.selID_rboard", comId);
+	public Resume_Board rb_search(HashMap pvMap2) {
+		return sqlSession.selectOne("rboard.rb_search", pvMap2);
 	}
 }

@@ -18,13 +18,13 @@ public class Resume_BoardServiceImpl implements Resume_BoardService {
 	private Resume_BoardDao rbDao;
 	
 	//주소로 구직 검색했을 시 아이디 가져오기		
-	public ArrayList<Personal_View> pv_serach(HashMap pvMap){
-		return new ArrayList<Personal_View>(rbDao.pv_serach(pvMap));
+	public ArrayList<Personal_View> pv_search(HashMap pvMap){
+		return new ArrayList<Personal_View>(rbDao.pv_search(pvMap));
 	}
 
 	@Override
-	public Resume_Board Id_GetResume(String comId) {
-		return rbDao.Id_GetResume(comId);
+	public Resume_Board rb_search(HashMap pvMap2) {
+		return rbDao.rb_search(pvMap2);
 	}
 	
 	

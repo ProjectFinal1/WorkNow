@@ -206,8 +206,8 @@
 						      				
 						      			<!-- 시간별로 구직찾기 -->					      			
 						      			<td>
-						      			시작일 &nbsp;<input type="date" id="job_start" name="userdate" value="2018-04-15"><br>
-						      			종료일 &nbsp;<input type="date" id="job_end" value="2018-08-15"><br>
+						      			시작일 &nbsp;<input type="date" id="job_start" name="userdate" value="2018-04-16"><br>
+						      			종료일 &nbsp;<input type="date" id="job_end" value="2018-05-16"><br>
 						      			<a href="#" class="testt" id="search_time"><br>
 						      			<img src="resources/images/search.png" width="10%"></a>	 							      			
 						      			</td>
@@ -334,8 +334,8 @@
 						      			</select>
 						      			<br>
 						      			근무일<br>
-						      			시작일 &nbsp;<input type="date" id="job_start2"value="2018-04-15"><br>
-						      			종료일 &nbsp;<input type="date" id="job_end2" value="2018-08-15"><br>
+						      			시작일 &nbsp;<input type="date" id="job_start2"value="2018-04-16"><br>
+						      			종료일 &nbsp;<input type="date" id="job_end2" value="2018-05-16"><br>
 						      			<br>
 						      			
 						      			<a href="#" class="testt" id="rb_search">
