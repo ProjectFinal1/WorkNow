@@ -1,5 +1,9 @@
 $(document).ready(function(){
 	
+	var result_address1;
+	var result_address2;
+	
+	
 	$('.search').click(function(){
 		$('#search_result').show();
 	});
@@ -10,36 +14,44 @@ $(document).ready(function(){
 	    $(this).next().removeClass('hidden');
 	})
 	
-	// 주소 선택 했을 시 두번째 주소 선택칸 내용 변경 메소드
-	$('#sel_address1').change(function(){
-		if($(this).val() == "경기"){
+	
+	//첫번째 주소 클릭
+	$('.select_test').click(function(){
+		result_address1 = $(this).text();
+		if($(this).text() == "경기"){
 			$(".sel_address2").hide();
 			$("#gyeonggi").show();
 		}		
-		if($(this).val() == "서울"){
+		if($(this).text() == "서울"){
 			$(".sel_address2").hide();
 			$("#seoul").show();
 		}		
-		if($(this).val() == "인천"){
+		if($(this).text() == "인천"){
 			$(".sel_address2").hide();
 			$("#incheon").show();
 		}		
-		if($(this).val() == "강원"){
+		if($(this).text() == "강원"){
 			$(".sel_address2").hide();
 			$("#gangwon").show();
 		}		
-		if($(this).val() == "대전"){
+		if($(this).text() == "대전"){
 			$(".sel_address2").hide();
 			$("#daejeon").show();
 		}		
-		if($(this).val() == "세종"){
+		if($(this).text() == "세종"){
 			$(".sel_address2").hide();
 			$("#sejong").show();
 		}		
-		if($(this).val() == "충남"){
+		if($(this).text() == "충남"){
 			$(".sel_address2").hide();
 			$("#chungcheongnam").show();
 		}		
+	});
+	
+	$(".select_test2").click(function(){
+		var result_address2 = $(this).text();
+		$("#sungtest").text(result_address1 + " " + result_address2);
+		
 	});
 	
 	// 주소로 구직찾기 클릭
@@ -200,8 +212,25 @@ $(document).ready(function(){
 	
 	
 	
+	$(".select_test").mouseover(function(){
+		$(this).css("background-color", "#edb303");
+		$(this).css("text-decoration", "none");
+		$(this).css("color", "white");
+	});
+
+	$(".select_test").mouseleave(function(){
+		$(this).css("background-color", "white");
+		$(this).css("color", "black");
+	});
 	
-	
+	$(".select_test2").mouseover(function(){
+		$(this).css("color", "#edb303");
+		$(this).css("text-decoration", "none");
+	});
+
+	$(".select_test2").mouseleave(function(){
+		$(this).css("color", "black");
+	});
 	
 	
 	

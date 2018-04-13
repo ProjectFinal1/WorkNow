@@ -81,102 +81,183 @@
 						   <dd>
 						   	  <!-- 주소 선택 부분 -->
 						      <div>
-						      	<table align="center" border="1" cellspacing="0" width="900" id="kt" >
+						      	<table align="center" border="1" cellspacing="0" width="900" id="" >
 						      		<tr height="40px"  class="kategorie1">
 						      			<th class="main_th main_tab2">지역별 알바</th>
 						      			<th class="main_th main_tab2">업종별 알바</th>
 						      			<th class="main_th main_tab2">시간별 알바</th>
 						      		</tr>
-						      		<tr height="200px"  class="kategorie2 ">
+						      		<tr height="200px" class="kategorie2 ">
 						      			<!-- 주소로 구직찾기 -->
 						      			<td>
-						      			<select id="sel_address1">
-						      				<option >서울</option> <option >경기</option>
-						      				<option >인천</option> <option >강원</option> 
-						      				<option >대전</option> <option >세종</option>
-						      				<option >충남</option> <option >충북</option><option>부산</option>
-						      				<option >울산</option> <option >경남</option>	<option>경북</option>
-						      				<option >대구</option> <option >광주</option>	<option>전남</option>
-						      				<option >전북</option> <option >제주</option>	<option>전국</option>
-						      			</select>
-						      			
-						      			<select id="seoul" class="sel_address2">
-						      				<option>서울전체</option> <option>강남구</option> <option>강동구</option>
-						      				<option>강북구</option> <option>강서구</option> <option>관악구</option>
-						      				<option>광진구</option> <option>구로구</option> <option>금천구</option>
-						      				<option>노원구</option> <option>도봉구</option> <option>동대문구</option>
-						      				<option>동작구</option> <option>마포구</option> <option>서대문구</option>
-						      				<option>서초구</option> <option>성동구</option> <option>성북구</option>
-						      				<option>송파구</option> <option>양천구</option> <option>영등포구</option>
-						      				<option>용산구</option> <option>은평구</option> <option>종로구</option>
-						      				<option>중구</option> <option>중랑구</option>
-						      			</select>
-						      			
-						      			<select id="gyeonggi" style="display:none;" class="sel_address2">
-						      				<option>경기전체</option> <option>가평군</option> <option>고양시 덕양구</option>
-						      				<option>고양시 일산동구</option> <option>고양시 일산서구</option> <option>과천시</option>
-						      				<option>광명시</option> <option>광주시</option> <option>구리시</option>
-						      				<option>군포시</option> <option>김포시</option> <option>남양주시</option>
-						      				<option>동두천시</option> <option>부천시</option> <option>성남시 분당구</option>
-						      				<option>성남시 수정구</option> <option>성남시 중원구</option> <option>수원시 권선구</option>
-						      				<option>수원시 영통구</option> <option>수원시 장안구</option> <option>수원시 팔달구</option>
-						      				<option>시흥시</option> <option>안산시 단원구</option> <option>안산시 상록구</option>
-						      				<option>안성시</option> <option>안양시 동안구</option>	<option>안양시 만안구</option> 
-						      				<option>양주시</option> <option>양평군</option> <option>여주시</option>
-						      				<option>연천군</option> <option>오산시</option> <option>용인시 기흥구</option> 
-						      				<option>용인시 수지구</option> <option>용인시 처인구</option>
-						      				<option>의왕시</option> <option>의정부시</option> <option>이천시</option>
-						      				<option>파주시</option> <option>평택시</option> <option>포천시</option>
-						      				<option>하남시</option> <option>화성시</option>						      				
-						      			</select>
-						      			
-						      			
-						      			<select id="incheon" style="display:none;" class="sel_address2">	
-						      				<option>인천전체</option>					      				
-								      		<option>계양구</option><option>남구 </option><option>남동구</option>  
-											<option>동구 </option><option>부평구</option><option>서구 </option>  
-											<option>연수구</option><option>중구 </option><option>강화군</option>  
-											<option>옹진군</option>  
-						      			</select>
-						      			
-						      			
-						      			<select id="gangwon" style="display:none;" class="sel_address2">		
-						      				<option>강원전체</option>				      				
-								      		<option>원주시</option><option>동해시</option><option>삼척시</option>
-											<option>속초시</option><option>강릉시</option><option>춘천시</option>
-											<option>태백시</option><option>양양군</option><option>철원군</option>
-											<option>횡성군</option><option>화천군</option><option>홍천군</option>
-											<option>인제군</option><option>정선군</option><option>양구군</option>
-											<option>영월군</option><option>평창군</option><option>고성군</option>
-						      			</select>
-						      			
-						      			
-						      			<select id="daejeon" style="display:none;" class="sel_address2">		
-						      				<option>대전전체</option>				      				
-								      		<option>대덕구</option>
-											<option>동구 </option>
-											<option>서구 </option>
-											<option>유성구</option>
-											<option>중구 </option>
-						      			</select>
-						      			
-						      			<select id="sejong" style="display:none;" class="sel_address2">	
-						      				<option>세종전체</option>					      				
-								      		<option>세종시</option>
-						      			</select>
-						      			
-						      			
-						      			<select id="chungcheongnam" style="display:none;" class="sel_address2">
-											<option>충남전체</option>
-						      				<option>아산시</option><option>서산시</option><option>천안시</option><option>공주시</option>	
-											<option>보령시</option><option>논산시</option><option>계룡시</option><option>당진군</option>	
-											<option>부여군</option><option>예산군</option><option>태안군</option	><option>연기군</option>	
-											<option>홍성군</option><option>금산군</option><option>서천군</option><option>청양군</option>	
-						      			</select>
-						      			
-						      			<br><br>
-						      			<a href="#" class="testt" id="search_address">
-						      			<img src="resources/images/search.png" width="10%" id="search_address"></a>	      			
+						      			<div style="width:300px">
+						      			<div style="overflow-x:hidden; width:110px; height:110px; float: left" class="sel_address1">
+						      				<a class="select_test" href="#" onclick= "return false;">서울<br></a>
+						      				<a class="select_test" href="#" onclick= "return false;">경기<br></a> 
+						      				<a class="select_test" href="#" onclick= "return false;">인천<br></a>  
+						      				<a class="select_test" href="#" onclick= "return false;">강원<br></a>
+						      				<a class="select_test" href="#" onclick= "return false;">대전<br></a>  
+						      				<a class="select_test" href="#" onclick= "return false;">세종<br></a>
+						      				<a class="select_test" href="#" onclick= "return false;">충남<br></a>  
+						      				<a class="select_test" href="#" onclick= "return false;">충북<br></a> 
+						      				<a class="select_test" href="#" onclick= "return false;">부산<br></a>
+						      				<a class="select_test" href="#" onclick= "return false;">울산<br></a>  
+						      				<a class="select_test" href="#" onclick= "return false;">경남<br></a> 
+						      				<a class="select_test" href="#" onclick= "return false;">경북<br></a>
+						      				<a class="select_test" href="#" onclick= "return false;">대구<br></a>  
+						      				<a class="select_test" href="#" onclick= "return false;">광주<br></a> 
+						      				<a class="select_test" href="#" onclick= "return false;">전남<br></a>
+						      				<a class="select_test" href="#" onclick= "return false;">전북<br></a>  
+						      				<a class="select_test" href="#" onclick= "return false;">제주<br></a> 
+						      				<a class="select_test" href="#" onclick= "return false;">전국<br></a>
+						      			</div>
+						      			<div style="overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			class="sel_address2">
+						      				시/도를 선택하시오  
+						      			</div>
+						      			<div style="display:none; overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			id="seoul" class="sel_address2">
+						      				<a class="select_test2" href="#" onclick= "return false;">강북구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">강서구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">관악구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">광진구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">구로구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">금천구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">노원구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">도봉구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">동대문구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">동작구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">마포구<br></a> 
+						      				<a class="select_test2" href="#" onclick= "return false;">서대문구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">서초구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">성동구<br></a> 
+						      				<a class="select_test2" href="#" onclick= "return false;">성북구<br></a>   
+						      				<a class="select_test2" href="#" onclick= "return false;">송파구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">양천구<br></a> 
+						      				<a class="select_test2" href="#" onclick= "return false;">영등포구<br></a> 
+						      				<a class="select_test2" href="#" onclick= "return false;">용산구<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">은평구<br></a> 
+						      				<a class="select_test2" href="#" onclick= "return false;">종로구<br></a> 
+						      			    <a class="select_test2" href="#" onclick= "return false;">중구<br></a>
+						      			    <a class="select_test2" href="#" onclick= "return false;">중랑구<br></a>  
+						      			</div>
+						      			<div style="display:none; overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			id="gyeonggi" class="sel_address2">                             
+								      		<a class="select_test2" href="#" onclick= "return false;">경기전체 <br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">가평군<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">고양시 덕양구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">고양시 일산동구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">고양시 일산서구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">광명시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">광주시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">구리<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">군포시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">김포시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">남양주시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">동두천시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">부천시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">성남시 분당구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">성남시 수정구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">성남시 중원구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">수원시 권선구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">수원시 영통구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">수원시 장안구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">수원시 팔달구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">시흥시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">안산시 단원구 <br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">안산시 상록구 <br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">안성시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">안양시 동안구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">안양시 만안구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">양주시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">양평군<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">여주시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">연천군<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">오산시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">용인시 기흥구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">용인시 수지구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">용인시 처인구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">의왕시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">의정부<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">이천시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">파주시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">평택시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">포천시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">하남시<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">화성시<br></a> 						      			
+						      			</div>
+						      			<div style="display:none; overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			id="incheon" class="sel_address2">  
+						      				<a class="select_test2" href="#" onclick= "return false;">인천전체<br></a> 					      				
+								      		<a class="select_test2" href="#" onclick= "return false;">계양구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">남구<br></a> 
+								      		<a class="select_test2" href="#" onclick= "return false;">남동구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">동구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">부평구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">서구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">연수구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">중구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">강화군<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">옹진군<br></a> 
+						      			</div>
+						      			<div style="display:none; overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			id="gangwon" class="sel_address2">  
+						      				<a class="select_test2" href="#" onclick= "return false;">강원전체<br></a>  			      				
+								      		<a class="select_test2" href="#" onclick= "return false;">원주시<br></a>  
+								      		<a class="select_test2" href="#" onclick= "return false;">동해시<br></a>  
+								      		<a class="select_test2" href="#" onclick= "return false;">삼척시<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">속초시<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">강릉시<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">춘천시<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">태백시<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">양양군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">철원군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">횡성군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">화천군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">홍천군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">인제군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">정선군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">양구군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">영월군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">평창군<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">고성군<br></a>  
+						      			</div>
+						      			<div style="display:none; overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			id="daejeon" class="sel_address2">  
+						      				<a class="select_test2" href="#" onclick= "return false;">대전전체<br></a> 			      				
+								      		<a class="select_test2" href="#" onclick= "return false;">대덕구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">동구<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">서구<br></a>  
+											<a class="select_test2" href="#" onclick= "return false;">유성구<br></a> 
+											<a class="select_test2" href="#" onclick= "return false;">중구<br></a>  
+						      			</div>
+						      			<div style="display:none; overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			id="sejong" class="sel_address2">  
+						      				<a class="select_test2" href="#" onclick= "return false;">세종전체<br></a>  			      				
+								      		<a class="select_test2" href="#" onclick= "return false;">세종시<br></a>  
+						      			</div>
+						      			<div style="display:none; overflow-x:hidden; width:150px; height:110px; float:left " 
+						      			id="chungcheongnam" class="sel_address2">
+						      				<a class="select_test2" href="#" onclick= "return false;">충남전체<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">아산시<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">서산시<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">천안시<br></a>
+						      				<a class="select_test2" href="#" onclick= "return false;">공주시<br></a>	
+											<a class="select_test2" href="#" onclick= "return false;">보령시<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">논산시<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">계룡시<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">당진군<br></a>	
+											<a class="select_test2" href="#" onclick= "return false;">부여군<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">예산군<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">태안군<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">연기군<br></a>	
+											<a class="select_test2" href="#" onclick= "return false;">홍성군<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">금산군<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">서천군<br></a>
+											<a class="select_test2" href="#" onclick= "return false;">청양군<br></a>	
+						      			</div>  
+						      		</div>
+				      					
 						      			</td>
 						      			
 						      			<!-- 직종별 알바찾기 아이콘들 -->
@@ -212,7 +293,8 @@
 						      			<img src="resources/images/search.png" width="10%"></a>	 							      			
 						      			</td>
 						      		</tr>
-						      	</table>							
+						      	</table>	
+						      	<h2 id="sungtest">asdf</h2>					
 						      </div>	
 						   </dd>
 						

@@ -31,7 +31,7 @@
   		<result property="PER_PHOTO" column="PER_PHOTO"/>
   		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
 	</resultMap>
-	
+	 
 	
 	<select id="pv_search" parameterType="hashmap" resultMap="resultPer_View">		
 		SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM PERSONAL_VIEW WHERE PER_ADDRESS LIKE '%' || #{address1} || '%') 
