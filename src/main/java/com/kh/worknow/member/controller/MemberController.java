@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.worknow.member.model.service.SignUpServiceImpl;
+import com.kh.worknow.member.model.service.idCheckServlet;
 import com.kh.worknow.member.model.vo.Com_Info;
 import com.kh.worknow.member.model.vo.Member;
 import com.kh.worknow.member.model.vo.Personal_Info;
@@ -27,6 +30,37 @@ public class MemberController {
 	
 	@Autowired
 	private SignUpServiceImpl signupService;	
+	
+	@Autowired
+	private idCheckServlet idcheck; 
+	
+	
+	// 중복체크
+	@RequestMapping(value="dupid.du", method = RequestMethod.GET)
+	public void dupIdCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	
+		String id = request.getParameter("id");
+		System.out.println("아이디 중복확인 위해 받아온, 입력된 id 값 : " + id);
+		
+		int dupId = idcheck.dupId(id);
+		System.out.println("받아온 id와 같은 id가 member_info에 몇 개 있는지 확인 : " + dupId);
+		
+		PrintWriter out = response.getWriter();
+		
+		if (id.length() < 4 ) {
+			out.print("tooShort");
+		} else if (id.length() > 14) {
+			out.print("tooLong");
+		} else if (dupId > 0) {
+			out.print("fail");
+		} else {
+			out.print("success");
+		}				
+		 
+	}	
+
+	
+	
 
 	// 로그인 체크
 	@RequestMapping(value="loginCheck.lo", method=RequestMethod.POST)
@@ -113,7 +147,7 @@ public class MemberController {
 		
 		pInfo.setPerPhoto(profileFileName);
 		}					 
-		 if (signupService.insertMember(member) > 0) {
+		 if (signupService.insertMember0(member) > 0) {
 			 if(signupService.insertPerInfo(pInfo) > 0) {
 			 // 처리 결과가 있으면 매핑된 login.lo를 통해 로그인창으로 이동		
 				 System.out.println("개인회원가입 성공");
@@ -127,11 +161,71 @@ public class MemberController {
 		return mv;
 	}	
 	
+//	@RequestMapping(value = "profile.pr")
+//	public void fileuploadtest( HttpServletRequest request, HttpServletResponse response,
+//			@RequestParam("file") MultipartFile file , @RequestParam("userid") String userid){
+//	
+//		System.out.println("파일업로드 : "+file.getOriginalFilename());
+//		String root = request.getSession().getServletContext().getRealPath("resources");
+//		String savePath = root + "\\fileupload";
+//		
+//		if (file != null && !file.isEmpty()) {
+//			if (!new File(savePath).exists()) {
+//				new File(savePath).mkdir();
+//			}
+//			
+//			//form= request.getAttribute("formData");
+//			System.out.println("userid : "+ userid);
+//			String originFileName = file.getOriginalFilename();
+//			Calendar calendar =Calendar.getInstance();
+//			
+//			String todate = ""+calendar.get(Calendar.YEAR)
+//			+"_"+(calendar.get(Calendar.MONTH)+1)
+//			+"_"+calendar.get(Calendar.DATE)
+//			+"_"+calendar.get(Calendar.HOUR_OF_DAY)
+//			+"_"+calendar.get(Calendar.MINUTE)
+//			+"_"+calendar.get(Calendar.SECOND);
+//			
+//			String renameFileName = userid
+//					+"-"+todate
+//					+"."+originFileName.substring(originFileName.lastIndexOf(".") + 1);
+//			
+//			System.out.println("savePath : "+ savePath);
+//			
+//			File renameFile = new File(savePath + "\\" + renameFileName);
+//			
+//			try {
+//				file.transferTo(renameFile);
+//				System.out.println("업로드파일명 : "+ renameFileName);
+//			} catch (IllegalStateException e) {
+//			
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//			
+//				e.printStackTrace();
+//			}
+//			
+//			 //ajax로 데이터전송을 위해  printwirter를 만들고 리스폰스의 writer를 넣어준다.
+//			PrintWriter out = null;
+//			   try {
+//				out = response.getWriter();
+//				out.append(""+renameFile.getName()); //데이터를 넣어준다.
+//			} catch (IOException e) {
+//			
+//				e.printStackTrace();
+//			}
+//			   out.flush(); //데이터를 보낸다
+//			   out.close(); //닫기
+//			
+//		}
+//		
+//	}
+	
 	@RequestMapping(value="comsignup.co", method = RequestMethod.POST)
 	public ModelAndView signUpMethod(HttpServletRequest request,			 
 			ModelAndView mv, Member member, Com_Info cInfo) throws IOException {		
 	
-		 if (signupService.insertMember(member) > 0) {
+		 if (signupService.insertMember1(member) > 0) {
 			 if (signupService.insertComInfo(cInfo)>0) {
 				 System.out.println("기업회원가입 성공");
 			 mv.setViewName("redirect:login.lo");

@@ -41,11 +41,22 @@
 		SELECT * FROM MEMBER_INFO WHERE MEMBER_ID = #{memberId} and MEMBER_PASS = #{memberPass}
 	</select>
 	
+	<select id="dupId" parameterType="string" resultType="_int">
+		Select NVL(COUNT(*),0) from Member_Info where member_id = #{memberId}
+	</select>
 	
-	<insert id="insertMember" parameterType="Member">
+	<!-- 개인회원 -->
+	<insert id="insertMember0" parameterType="Member">
  		INSERT INTO MEMBER_INFO VALUES
  		(#{memberId}, #{memberPass}, #{memberName}, #{memberPhone},
 			#{memberEmail}, 0, SYSDATE, 0)		
+  	</insert>
+  	
+  	<!-- 기업회원 -->
+  	<insert id="insertMember1" parameterType="Member">
+ 		INSERT INTO MEMBER_INFO VALUES
+ 		(#{memberId}, #{memberPass}, #{memberName}, #{memberPhone},
+			#{memberEmail}, 1, SYSDATE, 0)		
   	</insert>
   	
   	<insert id="insertPerInfo" parameterType="Member">

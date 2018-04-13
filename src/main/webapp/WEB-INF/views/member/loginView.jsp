@@ -56,6 +56,8 @@ function makeModal() {
 	$("#per, #com").css({
 		"display" : "none"
 	});
+	
+	$('body').css({'height' : '192%'});
 };
 
 function closeModal() {
@@ -78,19 +80,33 @@ function signupSelect2() {
 
 
 function idCheck() {
-	//jQuery에서 선택자역할
-	var idStr = $("#id").val();
+	// 하나 입력 시 동시에 입력되게 한다.
+	$('#id_per').keydown(function() {
+		$('#PersonalId').val($(this).val());
+	});
+
+	// 마지막에 입력 시 입력되게 한다.
+	$('#id_per').change(function() {
+		$('#PersonalId').val($(this).val());
+	});
+	
+	//jQuery에서 선택자역할	
+	var peridStr = $("#id_per").val();
 	
 	$.ajax({
-		url : "idCheckServlet?id=" + idStr,
+		url : "dupid.du?id=" + peridStr,
 		success : function(data) { 														
 			if (data == "success") {
-				$("#result").text("사용가능한 아이디입니다.").css({'color':'blue'});
+				$("#id_per").css({'background-color':'lightblue'});
+				$("#result").text("");
 			} else if (data == "fail") {
+				$("#id_per").css({'background-color':'#FFCC66'});
 				$("#result").text("중복된 아이디입니다.").css({'color':'red'});
 			} else if (data == "tooShort"){
+				$("#id_per").css({'background-color':'#FFCC66'});
 				$("#result").text("아이디가 너무 짧습니다.").css({'color':'red'});										
 			} else if (data == "tooLong"){
+				$("#id_per").css({'background-color':'#FFCC66'});
 				$("#result").text("아이디가 너무 깁니다.").css({'color':'red'});
 			}
 		}
@@ -100,21 +116,36 @@ function idCheck() {
 
 
 function idCheck2() {
+	
+	// 하나 입력 시 동시에 입력되게 한다.
+	$('#id_com').keydown(function() {
+		$('#ComId').val($(this).val());							
+	});
+
+	// 마지막에 입력 시 입력되게 한다.
+	$('#id_com').change(function() {
+		$('#ComId').val($(this).val());
+	});
+	
 var comidStr = $("#id_com").val();
-	$.ajax({
-		url : "idCheckServlet?id=" + comidStr,
-		success : function(data) { 														
-			if (data == "success") {
-				$("#resultComid").text("사용가능한 아이디입니다.").css({'color':'blue'});
-			} else if (data == "fail") {
-				$("#resultComid").text("중복된 아이디입니다.").css({'color':'red'});
-			} else if (data == "tooShort"){
-				$("#resultComid").text("아이디가 너무 짧습니다.").css({'color':'red'});										
-			} else if (data == "tooLong"){
-				$("#resultComid").text("아이디가 너무 깁니다.").css({'color':'red'});
-			}
+$.ajax({
+	url : "dupid.du?id=" + comidStr,
+	success : function(data) { 														
+		if (data == "success") {
+			$("#id_com").css({'background-color':'lightblue'});
+			$("#resultComid").text("");
+		} else if (data == "fail") {
+			$("#id_com").css({'background-color':'#FFCC66'});
+			$("#resultComid").text("중복된 아이디입니다.").css({'color':'red'});
+		} else if (data == "tooShort"){
+			$("#id_com").css({'background-color':'#FFCC66'});
+			$("#resultComid").text("아이디가 너무 짧습니다.").css({'color':'red'});										
+		} else if (data == "tooLong"){
+			$("#id_com").css({'background-color':'#FFCC66'});
+			$("#resultComid").text("아이디가 너무 깁니다.").css({'color':'red'});
 		}
-	});		
+	}
+});
 };
 
 function passCheck(){
@@ -176,30 +207,70 @@ function passCheck2(){
 					</a> 개인회원가입
 				</legend>
 				<form action="persignup.pe" method="post" class="form" enctype="multipart/form-data">
-					<label>프로필 사진</label>										
-					<input class="form-control" name="perPhoto" type="file" style="text-align:center;"/>
+					<label>프로필 사진</label>
 
+					<article>
+					<div id="holder" style="margin:auto;text-align:center;"></div>
+						<p id="status"></p>
+						<p>
+							<button class="btn btn-lg btn-primary btn-block" onclick="document.getElementById('profilePhoto').click();">
+							사진등록</button>						
+							<input id="profilePhoto" type="file" name="perPhoto" accept='image/jpeg,image/gif,image/png' style="opacity:0;height:1px" required/>
+						</p>						
+					</article>
+					
+					<!-- <input class="form-control" name="perPhoto" type="file" style="text-align:center;"/> -->
+					
+					
+					
 					<script>
-						// 하나 입력 시 동시에 입력되게 한다.
-						$('#id').keydown(function() {
-							$('PersonalId').val($(this).val());							
-						});
+						var upload = document.getElementsByTagName('input')[0], 
+						holder = document.getElementById('holder'),
+						state = document.getElementById('status');
+						var basic = new Image();
+						
+						basic.src = 'http://i65.tinypic.com/noj51z.png';
+						basic.width = 180;
+						
+						holder.appendChild(basic);
 
-						// 마지막에 입력 시 입력되게 한다.
-						$('#id').change(function() {
-							$('#PersonalId').val($(this).val());
-						});
+						if (typeof window.FileReader === 'undefined') {
+							state.className = 'fail';
+						} else {
+							state.className = 'success';							
+						}
+
+						upload.onchange = function(e) {
+							e.preventDefault();
+
+							var file = upload.files[0], reader = new FileReader();
+							reader.onload = function(event) {
+								var img = new Image();
+								img.src = event.target.result;
+								
+								img.width = 180;
+									
+								holder.innerHTML='';
+								holder.appendChild(img);
+							};
+							reader.readAsDataURL(file);
+							return false;
+						};
 					</script>
+
+
+					<input id="id_per" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:50%;display:inline" required/>
+					<span id="result" style="display:inline;margin-left:5px"></span><p/>
 					
-					<input id="id" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
-				
 					<input id="PersonalId" type="text" name="perId" style="display:none;">
+							
 					
-					<span id="result" style="display:block;"></span>
 					
-					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
-					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:22%;display:inline" required/>
-					<span id="passResult" style="display:block;"></span>
+					<input id="pass1" onKeyUp="passCheck();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:50%;display:inline;" required/>
+					<input id="pass2" onKeyUp="passCheck();" class="form-control" placeholder="패스워드 확인" type="password" style="width:49%;display:inline" required/>
+
+					<span id="passResult" style="display:inline;margin-top:10px"></span>
+					
 					<input id="name" class="form-control" name="memberName" placeholder="이름" required/> 
 					<div style="text-align:center;">
 						<label>나이 : </label>						
@@ -258,19 +329,9 @@ function passCheck2(){
 					</a> 기업회원가입
 				</legend>
 				<form action="comsignup.co" method="post" class="form">
-					<script>
-						// 하나 입력 시 동시에 입력되게 한다.
-						$('#id_com').keydown(function() {
-							$('#ComId').val($(this).val());							
-						});
-
-						// 마지막에 입력 시 입력되게 한다.
-						$('#id_com').change(function() {
-							$('#ComId').val($(this).val());
-						});
-					</script>
 					
-					<input id="id_com" onKeyUp="idCheck();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
+					
+					<input id="id_com" onKeyUp="idCheck2();" class="form-control" name="memberId" placeholder="아이디" style="width:60%;display:inline" required/>
 				
 					<input id="ComId" type="text" name="comId" style="display:none;">
 												
@@ -278,8 +339,12 @@ function passCheck2(){
 					
 					<input id="pass3" onKeyUp="passCheck2();" class="form-control" name="memberPass" placeholder="패스워드" type="password" style="width:22%;display:inline;" required/>
 					<input id="pass4" onKeyUp="passCheck2();" class="form-control" placeholder="패스워드 확인" type="password" style="width:22%;display:inline" required/>
-					<span id="passResult2"></span>
-					<input class="form-control" name="memberName" placeholder="이름" required/> 
+					<span id="passResult2"></span>					
+					<input class="form-control" name="comCeo" placeholder="대표자명" type="text" required/>
+					<input class="form-control" name="memberName" placeholder="이름" type="text" required/>
+					<input class="form-control" name="comName" placeholder="기업명" type="text" required/> 
+					<input class="form-control" name="comNumber"	placeholder="사업자등록번호" type="tel" required/>
+					
 					<div style="text-align:center;">
 					
 					
@@ -291,15 +356,13 @@ function passCheck2(){
 					<input type="button" value="우편번호 찾기"/><br>
 					</span>
 					<input class="form-control" name="comAddress" type="text" id="com_address" placeholder="한글주소" required/>					
+					<input class="form-control" name="comPhone"	placeholder="매장연락처" type="tel" required/>
+					<input class="form-control" name="memberPhone"	placeholder="연락처" type="tel" required/>
 
 					<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
 					<div id="layer2" style="display:none;position:fixed;overflow:hidden;z-index:0;-webkit-overflow-scrolling:touch;">
 						<img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode2()" alt="닫기 버튼">
-					</div>
-
-					
-					<input class="form-control" name="memberPhone"	placeholder="연락처" type="tel" required/>
-					
+					</div>			
 					<input class="form-control" name="memberEmail" placeholder="이메일" type="email" required/>
 
 					<div class="row">

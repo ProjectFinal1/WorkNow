@@ -15,7 +15,7 @@ public class Member {
 	private Date memberDate;
 	private int memberBlack;
 	
-	public Member() {}
+	public Member() {}	
 	
 	public Member(String id, String passwd) {
 		this.memberId = id;

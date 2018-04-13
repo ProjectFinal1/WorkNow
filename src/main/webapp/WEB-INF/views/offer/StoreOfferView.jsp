@@ -94,36 +94,40 @@
 							<br>
 							&nbsp;&nbsp;<h3>제목, 사진</h3>
 							<hr>
-							<input class="main_top" type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>																				
+							<input class="main_top" type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>
 
-									<table>
-									
-									<tr>
+							<table>
+
+								<tr>
 									<td><div class="shop-image">
-										
-										<a id="img_view" data-toggle="modal" data-target="#Modal-1"> <img
-											src="resources/images/demo/shop-icon.png"
-											class="img-responsive">
-										</a>
-						
-									</div></td>
+
+											<a id="img_view" data-toggle="modal" data-target="#Modal-1">
+												<img src="resources/images/demo/shop-icon.png"
+												class="img-responsive">
+											</a>
+
+										</div></td>
 									<td>
-									<!-- 파일 업로드 폼 -->
-									<div class="filebox">
-									<form name="photoprint" id="photoprint" action="/fileupload" method="post"
-									enctype="multipart/form-data">
-									<input type="hidden" name="userid" value="<%=userid%>">
-									<input type="hidden" class="isPhoto" value="false">
-									<input class="upload-name" value="파일선택" disabled="disabled">
-									
-									<label for="ex_file" class="btn btn-default btn-sm upload-button"><span class="glyphicon glyphicon-picture"></span>업로드</label> 
-									<input type="file" id="ex_file" name="file">
-									<button type="button" id="fileupload" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-picture">등록완료</span></button>
-									</form> 
-									</div> 
-									<br>									
+										<!-- 파일 업로드 폼 -->
+										<div class="filebox">
+											<form name="photoprint" id="photoprint" action="/fileupload"
+												method="post" enctype="multipart/form-data">
+												<input type="hidden" name="userid" value="<%=userid%>">
+												<input type="hidden" class="isPhoto" value="false">
+												<input class="upload-name" value="파일선택" disabled="disabled">
+
+												<label for="ex_file"
+													class="btn btn-default btn-sm upload-button"><span
+													class="glyphicon glyphicon-picture"></span>업로드</label> <input
+													type="file" id="ex_file" name="file">
+												<button type="button" id="fileupload"
+													class="btn btn-default btn-sm">
+													<span class="glyphicon glyphicon-picture">등록완료</span>
+												</button>
+											</form>
+										</div> <br>
 									</td>
-									</tr>									
+								</tr>
 							</table>
 
 							<form name="job_board" method=get action="jboardinsert.of">
@@ -344,8 +348,6 @@
 							<br>
 							</form>
 						</div>
-
-						</form>
 
 					</div>
 
