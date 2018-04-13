@@ -15,9 +15,9 @@
 	</select>
 	
 
-	<update id="updateCash">
-		UPDATE CASH_INFO SET CASH_NUMBER = #{cash_Number}
-		WHERE CASH_ID = #{cash_Id}
+	<update id="updateCash" >
+		UPDATE CASH_INFO SET CASH_NUMBER = #{cashNumber}
+		WHERE CASH_ID = #{cashId}
  	</update>
 
 

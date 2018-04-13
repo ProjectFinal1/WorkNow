@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC
 "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="jboard">
+<mapper namespace="Job_Board">
 
 	<resultMap id="resultJBoard" type="Job_Board">
 		<id property="JOB_KEY" column="JOB_KEY"/>
@@ -41,6 +41,10 @@
   		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
 	</resultMap>
 		
+	<select id="selectcountJB" parameterType="String" resultType="_int" >		
+		SELECT COUNT(*) FROM JOB_BOARD
+		WHERE 	JOB_ID = #{JOB_ID}
+	</select>
 	<select id="addserach" resultMap="resultJBoard">
 		SELECT * FROM JOB_BOARD
 	</select>
@@ -53,8 +57,8 @@
 	<insert id="insertJBoard" parameterType="Job_Board">
 	INSERT INTO JOB_BOARD VALUES(SYSDATE, #{JOB_LEVEL},#{JOB_SUBJECT},#{JOB_TYPE},
 	#{JOB_PHOTO},#{JOB_VALUE},#{JOB_VALUETYPE},
-	to_date(#{JOB_STARTTIME},'mm-dd-HH24-MI'),to_date(#{JOB_ENDTIME},'mm-dd-HH24-MI'),to_date(#{JOB_STARTDAY},'yyyy-mm-dd'),to_date(#{JOB_ENDDAY},'yyyy-mm-dd'),
-	#{JOB_CONTENT},#{JOB_ID},#{JOB_KEY},#{JOB_ENDDATE},
+	#{JOB_STARTTIME},#{JOB_ENDTIME},#{JOB_STARTDAY},#{JOB_ENDDAY},
+	#{JOB_CONTENT},#{JOB_ID},#{JOB_KEY},SYSDATE+7,
 	#{JOB_MAX_NUM},#{JOB_CURRENT_NUM},#{JOB_PUBLIC})
 	</insert>
 

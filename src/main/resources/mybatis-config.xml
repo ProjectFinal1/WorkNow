@@ -12,6 +12,11 @@
 <!-- 		<typeAlias type="org.kh.firstSpring.notice.model.vo.Notice" alias="Notice"/> -->
 		<typeAlias type="com.kh.worknow.board.model.vo.Board" alias="Board"/>
 		<typeAlias type="com.kh.worknow.offer.model.vo.Cash_Info" alias="Cash"/>
+		<typeAlias alias="Member" type="com.kh.worknow.member.model.vo.Member"/>
+		<typeAlias alias="Personal" type="com.kh.worknow.member.model.vo.Personal_Info"/>
+		<typeAlias alias="Cominfo" type="com.kh.worknow.member.model.vo.Com_Info"/>
+		<typeAlias alias="Job_Board" type="com.kh.worknow.main.model.vo.Job_Board"/>
+		<typeAlias alias="Company_View" type="com.kh.worknow.main.model.vo.Company_View"/>
 	</typeAliases>
 	
 	<!-- 마이바티스 DataSource 설정은 root-context.xml을 참조한다. -->
@@ -21,5 +26,9 @@
 <!-- 		<mapper resource="mappers/notice-mapper.xml"/> -->
 		<mapper resource="mappers/board-mapper.xml"/>
 		<mapper resource="mappers/cash-mapper.xml"/>
+		<mapper resource="mappers/jboard-mapper.xml"/>
+		<mapper resource="mappers/member-mapper.xml"/>
+		<mapper resource="mappers/personal-mapper.xml"/>
+		<mapper resource="mappers/com-mapper.xml"/>
 	</mappers>
 </configuration>

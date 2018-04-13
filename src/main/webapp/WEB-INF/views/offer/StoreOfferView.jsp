@@ -96,7 +96,7 @@
 							<br>
 							&nbsp;&nbsp;<h3>제목, 사진</h3>
 							<hr>
-							<input class="main_top" type=text value="[숙식제공]유화니의 24시간 노예구해요" max="50" size=50>
+							<input class="main_top" type=text value="" placeholder="[숙식제공]노예 구합니다." max="50" size=50 required>
 							
 														
 									<table>
@@ -134,13 +134,14 @@
 							<div class="midsec">
 							<!-- 히든데이타 -->
 							<input type="hidden" id="userid" name="userid" value="<%=userid%>">
-							<input type="hidden" id="photoname" value="none">
-							<input type="hidden" id="top_subject" value="none">
+							<input type="hidden" name="photoname" id="photoname" value="none">
+							<input type="hidden" name="top_subject" id="top_subject" value="none">
+							<input type="hidden" name="p_level" id="p_level" value="0">
 							<!-- 개인회원일경우 표시 X -->
 							<h3>구인정보</h3>
 							<hr>
-							<a href="#">기업정보와 동일</a>
-							<br><br>
+							<!--  <a href="#" id="cominfo_refresh">기업정보와 동일</a>-->
+							<br>
 							<span >직종</span>
 							<select name="job_select">
 								 <option value="service">서비스</option>
@@ -151,7 +152,9 @@
 								  <option value="agency">행사대행</option>
 								  <option value="etc">기타부업</option>
 								</select>
-							<br>                                 
+							<br>
+							<span >사업자 등록번호</span> <input name=com_number class="text_12" type=tel placeholder="123-45-67890" pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}" size=50 required>
+							<br>							                                 
 							<span >이메일</span> <input name=email class="text_12" type=email value="yunhwan@sm.com" max="50" size=50 required>
 							<br>                                 
 							<span >대표자명</span><input name="ceo" class="text_12" type=text value="유놔니" max="50" size=50 required>
@@ -159,7 +162,7 @@
 							<span >전화번호</span> 
 							<input name="telnumber" class="text_12" type="tel"  pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-0000-0000" size=50 required>
 							<br>                                 
-							<span >회사/점포명</span>  <input class="company_name text_12" type=text value="유놔니25시" max="50" size=50 required>
+							<span >회사/점포명</span>  <input class="company_name text_12"  name=company_name type=text value="유놔니25시" max="50" size=50 required>
 							<br>
 							<span>회사 우편번호</span><input type="text" name="post" class="postcodify_postcode5" value="" size="6" required/>
 							<br>
@@ -293,14 +296,14 @@
 								</select>
 								&nbsp;
 								<span>나이 : </span> 
-								<input type=number min=15 max=100 value=20 class="age_num">살
+								<input type=number min=15 max=100 value=20 class="age_num" name="age_num">살
 								&nbsp;
 								<select name="age_select">
 								 <option value="up">이상</option>
 								  <option value="down">이하</option>
 								</select>
 								<br>
-								모집인원수 : <input type=number min=1 max=50 value=0 class="max_num">명
+								모집인원수 : <input type=number min=1 max=50 value=1 class="max_num" name="max_num">명
 								
 								<br>                           					
 								</div>
@@ -309,32 +312,32 @@
 								<h3>본문</h3>
 								<hr>
 								<br>
-								<textarea class="content_text"rows=10 cols=80>유화니의 24시간 노예가 되실분을 구합니다. 가ㅈ처럼 대해드립니다.</textarea>
+								<textarea name="content_text" class="content_text"rows=10 cols=80>유화니의 24시간 노예가 되실분을 구합니다. 가ㅈ처럼 대해드립니다.</textarea>
 								
 								</div>
 								
 								<div class="premium_sec">
 								<h3>프리미엄 서비스</h3>
 								<hr>
-								<span>검색 상단 파워링크 서비스 건당 5000</span>&nbsp;<input type="checkbox" name="premiumlevel1" id="p1">
+								<span>검색 상단 파워링크 서비스 건당 5000</span>&nbsp;<input type="checkbox"  id="p1">
 								<br>
-								<span>글씨 체 볼드 처리 서비스 건당  2000</span>&nbsp;<input type="checkbox" name="premiumlevel2" id="p2">
+								<span>글씨 체 볼드 처리 서비스 건당  1000</span>&nbsp;<input type="checkbox"  id="p2">
 								<br>
-								<span>글씨 색 파란색 변경 서비스 건당 2000</span>&nbsp;<input type="checkbox" name="premiumlevel3" id="p3">
+								<span>글씨 색 파란색 변경 서비스 건당 2000</span>&nbsp;<input type="checkbox"  id="p3">
 								</div>
 								<div class="payment_sec">
 								<h3>결제금액 </h3>
 								<hr>
 								<div class="text-right">
 								<button type="button" class="btn btn-default" id="cash_refresh" ><span class="glyphicon glyphicon-refresh"></span></button>&nbsp; 현재 캐쉬 :  <span class="text_15 cashvalue" >0</span>원
-								
+								<input type="hidden" name="currentcash" id="p_level" value="">
 								<br> 
 								최종 결제금액 : <span class="text_15 payvalue" >1000</span>원
 								</div>
 								<hr>
 								<div class="text-center">
 								<input type="button" value="미리보기" id="preview_btn" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Modal-2">
-								<input type="submit" value="결제하기"  class="btn btn-default btn-sm">
+								<input type="submit" value="결제하기"  class="btn btn-default btn-sm fm_submit">
 								
 								</div>
 								
@@ -399,6 +402,8 @@
 						<td><div class="preview_icon text-center sex"></div></td>	
 						<td><div class="preview_icon text-center age"></div></td></tr>	
 						</table>
+						<br>
+						<span class="text_12">현재 모집인원 </span><span class="preview_max text_12"></span><span class="text_12 preiview_num">/ 0 명</span>
 						<hr>
 						<br>
 						</div>
@@ -428,8 +433,6 @@
 						<tr><td><span>도로명주소 : </span><span class="preview_road_address">집으로</span></td></tr>
 						<tr><td><span>상세주소 : </span><span class="preview_address1">가고싶다</span></tr>
 						<tr><td><span>세부사항 : </span><span class="preview_address2">리얼리</span></td></tr>
-						
-						
 						
 						</table>
 							
