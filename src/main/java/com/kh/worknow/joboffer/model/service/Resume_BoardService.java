@@ -9,6 +9,12 @@ public interface Resume_BoardService {
 	public int getListCount();
 
 	public ArrayList<Resume_Board> selectList(int currentPage, int limit);
+
+	public int deleteReceive(String id);
+
+	public ArrayList<Resume_Board> receiveList(int currentPage, int limit);
+
+	public int getSearchListCount();
 	
 	
 }

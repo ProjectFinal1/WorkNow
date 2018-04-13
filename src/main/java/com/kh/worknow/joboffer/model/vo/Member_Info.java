@@ -1,6 +1,6 @@
 package com.kh.worknow.joboffer.model.vo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Member_Info {
 	private String memberId;

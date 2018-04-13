@@ -5,8 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
-<style>
-</style>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,23 +27,48 @@
 <style>
 #label-1 {
 	position: absolute;
-	top: 50%;
-	left: 32%;	
-	color:black;
+	top: 40%;
+	left: 22%;
+	opacity: 0.8;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.65);
+	margin-bottom: 25px;
+	padding: 4px 20px;
+	font-size: 19px;
+	color: #3E3E3E;
+	font-weight: 300;
+	line-height: 40px;
+	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
-
 #label-2 {
 	position: absolute;
-	top: 50%;
-	left: 35%;
-	color:black;
+	top: 40%;
+	left: 25%;
+	opacity: 0.8;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.65);
+	margin-bottom: 25px;
+	padding: 4px 20px;
+	font-size: 19px;
+	color: #3E3E3E;
+	font-weight: 300;
+	line-height: 40px;
+	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
-
 #label-3 {
 	position: absolute;
-	top: 50%;
-	left: 30%;
-	color:black;	
+	top: 40%;
+	left: 20%;
+	opacity: 0.8;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.65);
+	margin-bottom: 25px;
+	padding: 4px 20px;
+	font-size: 19px;
+	color: #3E3E3E;
+	font-weight: 300;
+	line-height: 40px;
+	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
 </style>
 
