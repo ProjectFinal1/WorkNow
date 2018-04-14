@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <!DOCTYPE mapper PUBLIC
 "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Job_Board">
-
-	<resultMap id="resultJBoard" type="Job_Board">
+  <resultMap id="resultJBoard" type="Job_Board">
 		<id property="JOB_KEY" column="JOB_KEY"/>
 		<result property="JOB_DATE" column="JOB_DATE"/>
   		<result property="JOB_LEVEL" column="JOB_LEVEL"/>
@@ -19,12 +19,10 @@
   		<result property="JOB_ENDDAY" column="JOB_ENDDAY"/>
   		<result property="JOB_CONTENT" column="JOB_CONTENT"/>
   		<result property="JOB_ID" column="JOB_ID"/>
-  		
   		<result property="JOB_ENDDATE" column="JOB_ENDDATE"/>
   		<result property="JOB_MAX_NUM" column="JOB_MAX_NUM"/>
   		<result property="JOB_CURRENT_NUM" column="JOB_CURRENT_NUM"/>
   		<result property="JOB_PUBLIC" column="JOB_PUBLIC"/>
-  		
 	</resultMap>
 
 	<resultMap id="resultCompany" type="Company_View">
@@ -41,7 +39,7 @@
   		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
 	</resultMap>
 		
-	<select id="selectcountJB" parameterType="String" resultType="_int" >		
+  <select id="selectcountJB" parameterType="String" resultType="_int" >		
 		SELECT COUNT(*) FROM JOB_BOARD
 		WHERE 	JOB_ID = #{JOB_ID}
 	</select>
@@ -53,7 +51,7 @@
 		SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE COM_ADDRESS LIKE '%' || #{ADDRESS1} || '%') 
 		WHERE COM_ADDRESS LIKE '%' || #{ADDRESS2} || '%'
 	</select>
-	
+
 	<insert id="insertJBoard" parameterType="Job_Board">
 	INSERT INTO JOB_BOARD VALUES(SYSDATE, #{JOB_LEVEL},#{JOB_SUBJECT},#{JOB_TYPE},
 	#{JOB_PHOTO},#{JOB_VALUE},#{JOB_VALUETYPE},
@@ -61,5 +59,27 @@
 	#{JOB_CONTENT},#{JOB_ID},#{JOB_KEY},SYSDATE+7,
 	#{JOB_MAX_NUM},#{JOB_CURRENT_NUM},#{JOB_PUBLIC})
 	</insert>
+	
+	<select id="addserach" parameterType="String" resultMap="resultJBoard">
+		SELECT * FROM JOB_BOARD WHERE JOB_ID = #{comId}
+	</select>
+	
+	<select id="addr_getCompanyId" parameterType="hashmap" resultMap="resultCompany"> 
+		SELECT * FROM (SELECT * FROM COMPANY_VIEW WHERE COM_ADDRESS LIKE '%' || #{address1} || '%') 
+		WHERE COM_ADDRESS LIKE '%' || #{address2} || '%'
+	</select>
+	
+	<select id="tobsearch" parameterType="String" resultMap="resultJBoard"> 
+		SELECT * FROM JOB_BOARD WHERE JOB_TYPE = #{tob}
+	</select>
+	
+	<select id="tob_getCompanyId" parameterType="String" resultMap="resultCompany"> 
+		SELECT * FROM COMPANY_VIEW WHERE MEMBER_ID = #{comID}
+	</select>
+	
+	<select id="timesearch" parameterType="hashmap" resultMap="resultJBoard"> 
+		SELECT * FROM JOB_BOARD WHERE JOB_STARTDAY <![CDATA[>=]]>  TO_DATE( #{startDate} ,'YYYYMMDD') 
+		AND JOB_ENDDAY <![CDATA[<=]]> TO_DATE( #{endDate} ,'YYYYMMDD')
+	</select>
 
 </mapper>

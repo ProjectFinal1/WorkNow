@@ -17,9 +17,8 @@
 	<select id="selectCominfo" resultMap="resultCominfo">
 		Select * from Member_info m join Com_Info c
 		on m.member_id = c.com_id		 
-	</select>
-	
-	
+  </select>
+		
 	<!-- 회원가입시 COM_INFO에 추가되는 정보 -->
 	<insert id="insertCominfo" parameterType="ComInfo">
 		insert into com_info

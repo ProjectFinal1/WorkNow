@@ -7,6 +7,8 @@ import com.kh.worknow.main.model.vo.Company_View;
 
 import com.kh.worknow.main.model.vo.Job_Board;
 import com.kh.worknow.member.model.vo.Com_Info;
+import com.kh.worknow.board.model.vo.Board;
+
 public interface Job_BoardDao {
 	
 		//최대 글수 가져오기
@@ -40,4 +42,22 @@ public interface Job_BoardDao {
 		//구직 검색했을 시 아이디 가져오기
 		public Company_View getCompanyId(HashMap address);
 
+		//신규매칭 (구직게시판 게시물의 키와 이력서의 id필요)
+		public int insert_matching(String Job_BoardKey ,String resume_id);
+		
+		//주소로 구직 검색했을 시 아이디 가져오기		
+		public ArrayList<Company_View> getCompanyId(HashMap address);
+		
+		//주소로 구직 검색
+		public Job_Board jboard_addrserach(String comId);	
+				
+		//type of business = tob 업종별 검색시 사용될 메소드
+		public ArrayList<Job_Board> jboard_tobsearch(String tob);
+
+		//업종별로 검색시 회사 아이디로 정보 가져오기
+		public Company_View getCompanyId(String tob);
+		
+		//시간으로 검색시 사용될 메소드
+		public ArrayList<Job_Board> jboard_timesearch(HashMap time);  
 }
+

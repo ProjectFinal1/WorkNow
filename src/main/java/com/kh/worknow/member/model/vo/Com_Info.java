@@ -9,21 +9,23 @@ public class Com_Info {
 	private String comPhone;
 	private String comType;
 	
-	public String getCOM_TYPE() {
-		return comType;
-	}
+	private String memberId;
+	
+	// 기본 생성자
+		public Com_Info() {};	
+		
+	
+	public String getMemberId() {
+			return memberId;
+		}
 
-	public void setCOM_TYPE(String cOM_TYPE) {
-		comType = cOM_TYPE;
-	}
+	public void setMemberId(String memberId) {
+			this.memberId = memberId;
+		}
 
 	public String getComId() {
 		return comId;
-	}
-	
-	// 기본 생성자
-	public Com_Info() {};
-	
+  }
 	
 	public void setComId(String comId) {
 		this.comId = comId;

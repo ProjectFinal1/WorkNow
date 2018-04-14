@@ -3,6 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="listCount" value="${requestScope.listCount}" />
+<c:set var="currentPage" value="${requestScope.currentPage}" />
+<c:set var="startPage" value="${requestScope.startPage}" />
+<c:set var="endPage" value="${requestScope.endPage}" />
+<c:set var="maxPage" value="${requestScope.maxPage}" />
+<c:set var="list" value="${requestScope.list}" />
+<c:set var="member" value="${sessionScope.member}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -13,8 +22,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Sanza - Onepage Multipurpose Bootstrap HTML by
-	MOOZThemes.com</title>
+<title>WorkNow - 구인하기</title>
 <!-- Bootstrap core CSS -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -25,47 +33,63 @@
 <link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/main.css" rel="stylesheet">
 <link href="resources/css/joboffer.css" rel="stylesheet">
+
+
+<style>
+#label-1 {
+	position: absolute;
+	top: 40%;
+	left: 22%;
+	opacity: 0.8;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.65);
+	margin-bottom: 25px;
+	padding: 4px 20px;
+	font-size: 19px;
+	color: #3E3E3E;
+	font-weight: 300;
+	line-height: 40px;
+	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+}
+#label-2 {
+	position: absolute;
+	top: 40%;
+	left: 25%;
+	opacity: 0.8;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.65);
+	margin-bottom: 25px;
+	padding: 4px 20px;
+	font-size: 19px;
+	color: #3E3E3E;
+	font-weight: 300;
+	line-height: 40px;
+	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+}
+#label-3 {
+	position: absolute;
+	top: 40%;
+	left: 20%;
+	opacity: 0.8;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.65);
+	margin-bottom: 25px;
+	padding: 4px 20px;
+	font-size: 19px;
+	color: #3E3E3E;
+	font-weight: 300;
+	line-height: 40px;
+	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+}
+</style>
 </head>
 <body id="page-top">
 	<div class="bodymargin">
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<!-- Navigation -->
-		<nav class="navbar navbar-default header_main sujung">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand page-scroll" href="#page-top"><img
-						src="resources/images/logo.png" alt="Sanza theme logo"></a>
-				</div>
+		<jsp:include page="/WEB-INF/views/header/header.jsp" />
 
 
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="hidden"><a href="#page-top"></a></li>
-						<li><a class="page-scroll" href="#about">소개</a></li>
-						<li><a class="page-scroll" href="">로그인</a></li>
-						<li><a class="page-scroll" href="joboffer.of">구인</a></li>
-						<li><a class="page-scroll" href="">구직</a></li>
-						<li><a class="page-scroll" href="blist.do">커뮤니티</a></li>
-						<li><a class="page-scroll" href="">고객센터</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
-
-		<br> <br> <br> <br> <br>
-
-		<section id="team" class="light-bg">
+		<section id="team">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
@@ -75,35 +99,41 @@
 					</div>
 				</div>
 				<div class="row">
+					<!-- 1 -->
 					<!-- team member item -->
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-2.jpg"
-									class="img-responsive" alt="author">
+								<a href="jobofferView.jo"> <span id="label-1">구직자 검색</span>
+									<img src="resources/images/demo/job-offer.png"
+									class="img-responsive" alt="author" width="75%">
 								</a>
 							</div>
 						</div>
 					</div>
+					<!-- 2 -->
 					<!-- end team member item -->
 					<!-- team member item -->
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-6.jpg"
-									class="img-responsive" alt="author">
+								<a href="receive.re"> <span id="label-2">받은신청</span> <img
+									src="resources/images/demo/orderlist.png"
+									class="img-responsive" alt="author" width="75%">
 								</a>
 							</div>
 
 						</div>
 					</div>
+					<!-- 3 -->
 					<!-- end team member item -->
 					<!-- team member item -->
 					<div class="jobofferbtn1">
 						<div class="team-item">
-							<div class="team-image">
-								<a href="#"> <img src="resources/images/demo/author-4.jpg"
-									class="img-responsive" alt="author">
+							<div class="team-image3">
+								<a href="announcement.an"> <span id="label-3">공고등록</span> <img
+									src="resources/images/demo/notepad.png" class="img-responsive"
+									alt="author" width="75%">
 								</a>
 							</div>
 						</div>
@@ -114,10 +144,7 @@
 
 		<div>
 
-
-			<table align="center" width="71%" border="1">
-
-			
+			<table align="center" width="71%" border="1" cellspacing="0">
 
 				<tr height="40px" class="kategorie1">
 					<th class="main_th main_tab2">근무 기간</th>
@@ -125,10 +152,8 @@
 					<th class="main_th main_tab2">근무 시간</th>
 				</tr>
 
-
 				<tr height="100px" class="kategorie2">
-					<td>
-					<select id="sel_adress1">
+					<td><select id="sel_adress1">
 							<option value="seoul">서울</option>
 							<option value="gyeonggi">경기</option>
 							<option value="incheon">인천</option>
@@ -147,8 +172,7 @@
 							<option value="">전북</option>
 							<option value="">제주</option>
 							<option value="">전국</option>
-					</select> 
-					<select id="seoul" class="sel_adress2">
+					</select> <select id="seoul" class="sel_adress2">
 							<option value="">서울전체</option>
 							<option value="">강남구</option>
 							<option value="">강동구</option>
@@ -175,8 +199,7 @@
 							<option value="">종로구</option>
 							<option value="">중구</option>
 							<option value="">중랑구</option>
-					</select>
-					 <select id="gyeonggi" style="display: none;" class="sel_adress2">
+					</select> <select id="gyeonggi" style="display: none;" class="sel_adress2">
 							<option value="">경기전체</option>
 							<option value="">가평군</option>
 							<option value="">고양시 덕양구</option>
@@ -220,8 +243,7 @@
 							<option value="">포천시</option>
 							<option value="">하남시</option>
 							<option value="">화성시</option>
-					</select> 
-					<select id="incheon" style="display: none;" class="sel_adress2">
+					</select> <select id="incheon" style="display: none;" class="sel_adress2">
 							<option>인천전체</option>
 							<option value="">계양구</option>
 							<option value="">남구</option>
@@ -233,8 +255,7 @@
 							<option value="">중구</option>
 							<option value="">강화군</option>
 							<option value="">옹진군</option>
-					</select>
-					 <select id="gangwon" style="display: none;" class="sel_adress2">
+					</select> <select id="gangwon" style="display: none;" class="sel_adress2">
 							<option>강원전체</option>
 							<option value="">원주시</option>
 							<option value="">동해시</option>
@@ -254,20 +275,17 @@
 							<option value="">영월군</option>
 							<option value="">평창군</option>
 							<option value="">고성군</option>
-					</select>
-					 <select id="daejeon" style="display: none;" class="sel_adress2">
+					</select> <select id="daejeon" style="display: none;" class="sel_adress2">
 							<option>대전전체</option>
 							<option value="">대덕구</option>
 							<option value="">동구</option>
 							<option value="">서구</option>
 							<option value="">유성구</option>
 							<option value="">중구</option>
-					</select> 
-					<select id="sejong" style="display: none;" class="sel_adress2">
+					</select> <select id="sejong" style="display: none;" class="sel_adress2">
 							<option>세종전체</option>
 							<option>세종시</option>
-					</select> 
-					<select id="chungcheongnam" style="display: none;"
+					</select> <select id="chungcheongnam" style="display: none;"
 						class="sel_adress2">
 							<option>충남전체</option>
 							<option>아산시</option>
@@ -286,31 +304,38 @@
 							<option>금산군</option>
 							<option>서천군</option>
 							<option>청양군</option>
-					</select> <br>
-					<br> <a href="#" class="testt" id="search_adress"> <img
-							src="resources/images/search.png" width="10%"></a>
+					</select> <br> <br> 
+            
+					<a href="jobseekersearch.jo" class="testt" id="search_adress">
+						<img src="resources/images/search.png" width="10%">
+					</a>
 							</td>
 
 
 					<td>
-					<a href="#" data-toggle="modal"
-
-						data-target="#show_kategorie" class="main_tab2">월~금</a> <a
-						href="#" data-toggle="modal" data-target="#show_kategorie"
-						class="main_tab2">토일</a> <a href="#" data-toggle="modal"
-						data-target="#show_kategorie" class="main_tab2">오전</a> <a href="#"
-						data-toggle="modal" data-target="#show_kategorie"
-
-						class="main_tab2">오후</a>
+						<div class="day">
+							<input type="checkbox" name="day1" value="day1">월~금 <input
+								type="checkbox" name="day2" value="day2">월~토 <input
+								type="checkbox" name="day3" value="day3">월~일<br> <input
+								type="checkbox" name="day4" value="day4">월~토(격주) <input
+								type="checkbox" name="day5" value="day5">주말<br> <input
+								type="checkbox" name="day6" value="day6">요일협의
+						</div>
 					</td>
 					<td>
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">00시 ~ 06시</a><br>
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">6시 ~ 12시</a><br>	
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">12시 ~ 18시</a><br>
-						<a href="#" data-toggle="modal" data-target="#show_kategorie" class="main_tab2">18시 ~ 24시</a>				
+						<div class="time">
+							<input type="checkbox" name="time1" value="time1">오전 <input
+								type="checkbox" name="time2" value="time2">오전~오후 <input
+								type="checkbox" name="time3" value="time3">종일 <br>
+							<input type="checkbox" name="time4" value="time4">오후 <input
+								type="checkbox" name="time5" value="time5">오후~저녁 <input
+								type="checkbox" name="time6" value="time6">시간협의 <br>
+							<input type="checkbox" name="time7" value="time7">저녁 <input
+								type="checkbox" name="time8" value="time8">저녁~새벽 <br>
+							<input type="checkbox" name="time9" value="time9">새벽 <input
+								type="checkbox" name="time10" value="time10">새벽~오전
+						</div>
 					</td>
-
-
 				</tr>
 			</table>
 		</div>
@@ -321,31 +346,118 @@
 			<select class="selectlist">
 				<option>정렬선택</option>
 				<option>이름</option>
-				<option>정렬선택</option>
+				<option>나이</option>
 			</select>
 		</div>
 
-		
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<c:forEach var="resume" items="${list}">
+			<!-- 반복문 시작 -->
+
+			<div style="margin: 0 20% 0 0">
+
+				<table style="width: 100%; table-layout: fixed">
+					<tr>
+						<td>
+							<%--회원사진 --%>
+							<p>
+								<a href="#" data-toggle="modal" data-target="#view-1"><img
+									src="resources/images/demo/다운로드.jpg" style="width: 80px;"></a>
+							</p>
+							<%--
+								-내용-
+								나이 성별 이름 폰번호
+						--%> 
+						
+						${resume.resumeContent}
+						</td>
+
+			
+
+			
+						<td style="width: 70%; align:center; float:left;">
+
+						</td>
+
+					</tr>
+
+				</table>
+			</div>
+		</c:forEach>
+		<!-- 반복문 종료 -->
+
+
 	</div>
+
+	<table align="center" height="20">
+		<tr>
+			<td colspan="6"><c:if test="${currentPage <= 1}">
+		[이전] &nbsp;
+	</c:if> <c:if test="${currentPage > 1}">
+					<c:url var="viewlist_ST" value="/jobofferView.jo">
+						<c:param name="page" value="${currentPage-1}" />
+					</c:url>
+					<a href="${viewlist_ST}">[이전]</a> &nbsp;
+	</c:if> <!-- 페이지 숫자 보여주기 --> <c:forEach var="p" begin="${startPage}"
+					end="${endPage}">
+					<c:if test="${p eq currentPage}">
+						<font color="red" size="4"><b>[${p}]</b></font>
+					</c:if>
+					<c:if test="${p ne currentPage}">
+						<c:url var="viewlist_chk" value="/jobofferView.jo">
+							<c:param name="page" value="${p}" />
+						</c:url>
+						<a href="${viewlist_chk}">${p}</a>
+					</c:if>
+				</c:forEach> <c:if test="${currentPage >= maxPage}">
+		[다음]
+	</c:if> <c:if test="${currentPage < maxPage}">
+					<c:url var="viewlist_END" value="/jobofferView.jo">
+						<c:param name="page" value="${currentPage+1}" />
+					</c:url>
+					<a href="${viewlist_END}">[다음]</a>
+				</c:if></td>
+		</tr>
+	</table>
+
+
+	<div class="modal fade" id="view-1" tabindex="-1" role="dialog"
+		aria-labelledby="Modal-label-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="Modal-label-1">CU 수원역점</h4>
+				</div>
+				<div class="modal-body">
+					<div class="modal-works">
+						<img src="resources/images/demo/다운로드.jpg" alt="매장 아이콘."
+							class="img_content" /> <span>테스트트트트틑</span><span>내용</span> <span>근무조건</span><span>주소</span>
+
+					</div>
+					<p>성실한 사람을 원합니다!!! 이성우 같이 성실한 사람만 지원하세요</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Select</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="resources/js/joboffer.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/owl.carousel.min.js"></script>
+	<script src="resources/js/cbpAnimatedHeader.js"></script>
+	<script src="resources/js/jquery.appear.js"></script>
+	<script src="resources/js/SmoothScroll.min.js"></script>
+	<script src="resources/js/mooz.themes.scripts.js"></script>
 </body>
 </html>

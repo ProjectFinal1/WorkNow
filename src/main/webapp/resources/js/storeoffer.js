@@ -1,9 +1,6 @@
 
 $(document).ready(function() {
-	
-	
-	//파일업로드 ajax처리
-	
+	//파일업로드 ajax처리	
 	$("#fileupload").click(function(){
 		
 		if($(".isPhoto").val()=="true")
@@ -34,6 +31,7 @@ $(document).ready(function() {
 		}
 		
 	});
+
 	
 	//회원정보 불러오기 ajax처리
 	$("#cominfo_refresh").click(function(){
@@ -62,12 +60,29 @@ $(document).ready(function() {
 
 		return false;
 	});
-	
+  
+  /*
+  일단 주석 해둠
+  
+	// var fileTarget = $('.upload-hidden');
+	//파일 이름 처리
+	$('#ex_file').change(function() { // 값이변경되면
 
 
+		if (window.FileReader) {// modern browser
+			var filename = $(this)[0].files[0].name;
 
-// //왼쪽 박스 이미지 체인지
+		} else { // old IE
+			var filename = $(this).val().split('/').pop().split('\\').pop();
+			// 파일명만 추출
+		}
+		// 추출한파일명 삽입
+		$('.upload-name').val(filename);
 
+			});
+  */
+  
+  //왼쪽 박스 이미지 체인지
 	$('#ex_file').change(function() {
 					var parent = $(this).parent();
 					parent.children('.upload-display').remove();
@@ -185,8 +200,7 @@ $.ajax({
 
 //프리뷰 쿼리 처리
 $("#preview_btn").click(function(){
-	
-	
+
 	//제목
 	$(".preview_title").text($(".main_top").val());
 	//회사/점포명
@@ -271,7 +285,6 @@ $("#preview_btn").click(function(){
 	$('.preview_address1').text($("input[name=address2]").val());
 	$('.preview_address2').text($("input[name=address3]").val());
 	
-	
 	//네이버 지도 api입니다.
 	var map = new naver.maps.Map('map');
     var myaddress = $(".postcodify_address").val();// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
@@ -307,7 +320,7 @@ $("#preview_btn").click(function(){
         });
     });
     /////////////////////////////////////////////////////////////////////////////////////////
-		
+	
 });
 
 //제목넣긔
@@ -330,5 +343,3 @@ $( ".job_board" ).submit(function( event ) {
 
 
 });
-
-
