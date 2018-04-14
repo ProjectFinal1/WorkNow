@@ -59,6 +59,7 @@ public class Job_BoardDaoImpl implements Job_BoardDao {
 
 	//선택된 직종,시간 조건으로 구직검색
 	public ArrayList<Job_Board> search_job(HashMap jobMap) {
+		System.out.println("다오");
 		return new ArrayList<Job_Board>(sqlSession.selectList("jboard.serach_job", jobMap));
 	}
 

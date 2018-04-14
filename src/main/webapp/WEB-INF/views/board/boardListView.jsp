@@ -61,6 +61,9 @@
 <c:if test="${!empty member}">
 &nbsp; &nbsp; &nbsp; <button onclick="showInsertForm();">글쓰기</button>
 </c:if></h3>
+
+
+
 <table align="center" border="1" cellspacing="0" width="700" id="tb">
 <tr><th>번호</th><th>제목</th><th>작성자</th><th>날짜</th>
 <th>조회수</th><th>첨부파일</th></tr>
@@ -97,6 +100,8 @@
 	</c:if>
 </td></tr>
 </c:forEach>
+
+
 <!-- 페이지 번호 처리 -->
 <tr align="center" height="20">
 <td colspan="6">
@@ -129,7 +134,11 @@
 	</c:if>
 </td>
 </tr>
+
 </table>
+
+
+
 <br><br>
 </body>
 </html>

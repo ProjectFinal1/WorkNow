@@ -9,16 +9,23 @@
 
 	<typeAliases>		
 		<typeAlias type="com.kh.worknow.main.model.vo.Job_Board" alias="Job_Board"/>
-		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>
-		<typeAlias type="com.kh.worknow.Rboard.model.vo.Resume_Board" alias="Resume_Board"/>
-		<typeAlias type="com.kh.worknow.Rboard.model.vo.Personal_View" alias="Personal_View"/>
 		<typeAlias type="com.kh.worknow.board.model.vo.Board" alias="Board"/>
+		<typeAlias type="com.kh.worknow.main.model.vo.Company_View" alias="Company_View"/>		
+		<typeAlias type="com.kh.worknow.joboffer.model.vo.Resume_Board" alias="Resume"/>
+		<typeAlias type="com.kh.worknow.joboffer.model.vo.Member_Info" alias="Member"/>
+		<typeAlias type="com.kh.worknow.joboffer.model.vo.Personal_Info" alias="Personal"/>
+<!-- 		<typeAlias type="com.kh.worknow.joboffer.model.vo.Resume_Request" alias="Resume_Request"/> -->
+		<typeAlias type="com.kh.worknow.joboffer.model.vo.Personal_Resume" alias="Personal_Resume"/>
+		<typeAlias type="com.kh.worknow.Rboard.model.vo.Resume_Board" alias="Resume_Board"/>
+		<typeAlias type="com.kh.worknow.Rboard.model.vo.Personal_View" alias="Personal_View"/> 
 	</typeAliases>
 	
-	<!-- 마이바티스 DataSource 설정은 root-context.xml을 참조한다. -->
 	
 	<mappers>
 		<mapper resource="mappers/jboard-mapper.xml"/>
 		<mapper resource="mappers/rboard-mapper.xml"/>
+<!-- 		<mapper resource="mappers/resume-mapper.xml"/> -->
+		<mapper resource="mappers/member-mapper.xml"/>
+		<mapper resource="mappers/personal-mapper.xml"/>
 	</mappers>
 </configuration>

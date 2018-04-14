@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Resume">
+	<resultMap id="resultResume" type="Resume">
+		<id 	property="resumeId" 	   column="RESUME_ID" />
+  		<result property="resumeLevel"  column="RESUME_LEVEL"/>
+  		<result property="resumeType"  column="RESUME_TYPE"/>
+  		<result property="resumeStarttime" column="RESUME_STARTTIME"/>
+  		<result property="resumeEndtime" column="RESUME_ENDTIME"/>
+  		<result property="resumeStartDay"  column="RESUME_STARTDAY"/>
+  		<result property="resumeEndday"  column="RESUME_ENDDAY"/>
+  		<result property="resumeContent" column="RESUME_CONTENT"/> 
+  		<result property="resumeEnddate" column="RESUME_ENDDATE"/> 
+  		<result property="resumePublic" column="RESUME_PUBLIC"/>  		
+	</resultMap>
+	
+	<resultMap id="resultPersonal" type="Personal">
+		<id property="perId" 	   column="PER_ID" />
+  		<result property="perTalk"  column="PER_TALK"/>
+  		<result property="perAge"  column="PER_AGE"/>
+  		<result property="perAddress" column="PER_ADDRESS"/>
+  		<result property="perSex" column="PER_SEX"/>
+  		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
+	</resultMap>
+	
+	<resultMap id="resultResume_request" type="Resume_Request">
+	<id property="resumeId" 	   column="RESUME_ID" />
+  		<result property="resumeLevel"  column="RESUME_LEVEL"/>
+  		<result property="resumeType"  column="RESUME_TYPE"/>
+  		<result property="resumeStarttime" column="RESUME_STARTTIME"/>
+  		<result property="resumeEndtime" column="RESUME_ENDTIME"/>
+  		<result property="resumeStartDay"  column="RESUME_STARTDAY"/>
+  		<result property="resumeEndday"  column="RESUME_ENDDAY"/>
+  		<result property="resumeContent" column="RESUME_CONTENT"/> 
+  		<result property="resumeEnddate" column="RESUME_ENDDATE"/> 
+  		<result property="resumePublic" column="RESUME_PUBLIC"/> 
+  		<result property="requestDate"  column="REQUEST_DATE"/>
+  		<result property="requestKey"		column="REQUEST_KEY"/>
+  		<result property="requestStatus"	column="REQUEST_STATUS"/>
+  		<result property="requestType"		column="REQUEST_TYPE"/>   	
+	</resultMap>	
+	
+	
+	<resultMap id="resultMember" type="Member">
+		<id property="memberId" 	   column="MEMBER_ID" />
+  		<result property="memberPass"  column="MEMBER_PASS"/>
+  		<result property="memberName"  column="MEMBER_NAME"/>
+  		<result property="memberPhone" column="MEMBER_PHONE"/>
+  		<result property="memberEmail" column="MEMBER_EMAIL"/>
+  		<result property="memberType"  column="MEMBER_TYPE"/>
+  		<result property="memberDate"  column="MEMBER_DATE"/>
+  		<result property="memberBlack" column="MEMBER_BLACK"/>  	
+	</resultMap>
+	
+	<resultMap id="resultPersonalResume" type="Personal_Resume">
+	<id property="memberId" 	   column="MEMBER_ID" />
+  		<result property="memberPass"  column="MEMBER_PASS"/>
+  		<result property="memberName"  column="MEMBER_NAME"/>
+  		<result property="memberPhone" column="MEMBER_PHONE"/>
+  		<result property="memberEmail" column="MEMBER_EMAIL"/>
+  		<result property="memberType"  column="MEMBER_TYPE"/>
+  		<result property="memberDate"  column="MEMBER_DATE"/>
+  		<result property="memberBlack" column="MEMBER_BLACK"/>
+  		<result property="perTalk"  column="PER_TALK"/>
+  		<result property="perAge"  column="PER_AGE"/>
+  		<result property="perAddress" column="PER_ADDRESS"/>
+  		<result property="perSex" column="PER_SEX"/>
+  		<result property="perPhoto"  column="PER_PHOTO"/>  	
+  		<result property="resumeLevel"  column="RESUME_LEVEL"/>
+  		<result property="resumeType"  column="RESUME_TYPE"/>
+  		<result property="resumeStarttime" column="RESUME_STARTTIME"/>
+  		<result property="resumeEndtime" column="RESUME_ENDTIME"/>
+  		<result property="resumeStartDay"  column="RESUME_STARTDAY"/>
+  		<result property="resumeEndday"  column="RESUME_ENDDAY"/>
+  		<result property="resumeContent" column="RESUME_CONTENT"/> 
+  		<result property="resumeEnddate" column="RESUME_ENDDATE"/> 
+  		<result property="resumePublic" column="RESUME_PUBLIC"/>  	  			
+	</resultMap>	
+	
+	<!-- 검색하면 나오는 목록 페이징 처리 -->
+	<select id="getSearchListCount" resultType="_int">
+ 		SELECT COUNT(*) FROM Personal_Resume where resume_public = '1'
+  	</select>
+  	
+  	<!-- 검색하면 나오는 목록을 받아오는 쿼리 -->
+  	<select id="selectList" resultMap="resultPersonalResume">		
+		SELECT * FROM Personal_Resume where resume_public = '1'
+	</select>
+	
+	
+	
+	
+	<!-- 구직자로부터 받은신청리스트를 페이징 처리 -->
+<!-- 	<select id="getListCount" resultType="_int"> -->
+<!--  		SELECT COUNT(*) FROM RESUME_REQUEST where REQUEST_TYPE = '0' -->
+<!--   	</select> -->
+	
+	<!-- 받은신청 목록을 불러오는 쿼리 -->
+	<select id="receiveList" resultMap="resultResume_Request">
+		select * from Resume_Request where REQUEST_TYPE = '0'
+	</select>
+	
+	<delete id="deleteReceive" parameterType="string">
+		DELETE REQUEST_BOARD where REQUEST_ID = ${resumeId} and REQUEST_TYPE = '0'
+	</delete>
+</mapper>

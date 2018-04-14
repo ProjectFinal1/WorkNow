@@ -38,7 +38,6 @@ public class HomeController {
 	}
 	
 
-	
 	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
 	public String jobofferView(Locale locale, Model model) {
 	

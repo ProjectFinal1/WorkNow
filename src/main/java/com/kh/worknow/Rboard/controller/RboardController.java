@@ -31,8 +31,8 @@ public class RboardController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_address.rb")
 	public void rboard_addrserach(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		String address1 = request.getParameter("address1");	// 주소선택 첫번째 select 값을 가져옴
-		String address2 = request.getParameter("address2"); // 주소선택 두번째 select 값을 가져옴		
+		String address1 = request.getParameter("result_address1");	// 주소선택 첫번째 select 값을 가져옴
+		String address2 = request.getParameter("result_address2"); // 주소선택 두번째 select 값을 가져옴		
 		
 		String sex = request.getParameter("sex"); // 성별
 		String sex2 = "";	//성별 무관을 선택했을 경우
@@ -65,13 +65,18 @@ public class RboardController {
 		
 		
 		
-		String search_tob2 = request.getParameter("search_tob2"); // 업종
+		String search_tob2 = request.getParameter("tob"); // 업종
 		if(search_tob2.equals("무관")) { //업종을 무관으로 선택했을 때 
 			search_tob2 = "";
 		}
 		
 		String job_start2 = request.getParameter("job_start2"); // 시작날짜
 		String job_end2 = request.getParameter("job_end2"); // 끝날짜
+		
+		System.out.println("주소1 = " + address1 + ", " + "주소2 = " + address2);
+		System.out.println("성별1 = " + sex + ", " + "성별2 = " + sex2);
+		System.out.println("나이1 = " + age1 + ", " + "나이2 = " + age2);
+		System.out.println("시작날 = " + job_start2 + ", 끝나는날 = " + job_end2);
 		
 		HashMap pvMap = new HashMap();
 		pvMap.put("address1", address1);
