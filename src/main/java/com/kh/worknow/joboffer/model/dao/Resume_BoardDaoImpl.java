@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.worknow.joboffer.model.vo.Resume_Board;
 import com.kh.worknow.joboffer.model.vo.Resume_Request;
 
-@Repository("Resume_BoardDao")
+@Repository("Resume_BoardDao2")
 public class Resume_BoardDaoImpl implements Resume_BoardDao {
 	
 	@Autowired

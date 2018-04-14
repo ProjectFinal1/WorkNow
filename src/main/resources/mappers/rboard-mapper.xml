@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rboard">
+
+	<resultMap id="resultRBoard" type="Resume_Board">
+		<id property="RESUME_ID" column="RESUME_ID" />
+  		<result property="RESUME_DATE" column="RESUME_DATE"/>
+  		<result property="RESUME_LEVEL" column="RESUME_LEVEL"/>
+  		<result property="RESUME_TYPE" column="RESUME_TYPE"/>
+  		<result property="RESUME_STARTTIME" column="RESUME_STARTTIME"/>
+  		<result property="RESUME_ENDTIME" column="RESUME_ENDTIME"/>
+  		<result property="RESUME_STARTDAY" column="RESUME_STARTDAY"/>
+  		<result property="RESUME_ENDDAY" column="RESUME_ENDDAY"/>
+  		<result property="RESUME_CONTENT" column="RESUME_CONTENT"/>
+  		<result property="RESUME_ENDDATE" column="RESUME_ENDDATE"/>
+  		<result property="RESUME_PUBLIC" column="RESUME_PUBLIC"/>
+	</resultMap>
+	
+	<resultMap id="resultPer_View" type="Personal_View">
+		<id property="MEMBER_ID" column="MEMBER_ID" />
+  		<result property="MEMBER_TYPE" column="MEMBER_TYPE"/>
+  		<result property="MEMBER_NAME" column="MEMBER_NAME"/>
+  		<result property="MEMBER_PHONE" column="MEMBER_PHONE"/>
+  		<result property="MEMBER_EMAIL" column="MEMBER_EMAIL"/>
+  		<result property="PER_TALK" column="PER_TALK"/>
+  		<result property="PER_AGE" column="PER_AGE"/>
+  		<result property="PER_ADDRESS" column="PER_ADDRESS"/>
+  		<result property="PER_SEX" column="PER_SEX"/>
+  		<result property="PER_PHOTO" column="PER_PHOTO"/>
+  		<result property="CASH_NUMBER" column="CASH_NUMBER"/>
+	</resultMap>
+	 
+	
+	<select id="pv_search" parameterType="hashmap" resultMap="resultPer_View">		
+		SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM PERSONAL_VIEW WHERE PER_ADDRESS LIKE '%' || #{address1} || '%') 
+		WHERE PER_ADDRESS LIKE '%' || #{address2} || '%') 
+		WHERE PER_SEX = #{sex} OR PER_SEX = #{sex2}) WHERE PER_AGE BETWEEN #{age1} AND #{age2}
+	</select>
+	
+	<select id="rb_search" parameterType="hashmap" resultMap="resultRBoard"> 
+		SELECT * FROM (SELECT * FROM (SELECT * FROM RESUME_BOARD WHERE RESUME_ID = #{comId}) WHERE RESUME_TYPE LIKE '%' || #{search_tob2} || '%' )
+		WHERE RESUME_STARTDAY <![CDATA[>=]]>  TO_DATE( #{job_start2} ,'YYYYMMDD') AND RESUME_ENDDAY <![CDATA[<=]]> TO_DATE( #{job_end2} ,'YYYYMMDD')
+	</select>
+	
+</mapper>

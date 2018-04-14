@@ -104,7 +104,7 @@
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image">
-								<a href="jobofferView.jo"> <span id="label-1">구직자 검색</span>
+								<a href="jobofferView.jo"> <span id="label-1" >구직자 검색</span>
 									<img src="resources/images/demo/job-offer.png"
 									class="img-responsive" alt="author" width="75%">
 								</a>
@@ -349,6 +349,42 @@
 				<option>나이</option>
 			</select>
 		</div>
+		
+		<script>
+			function div1show(){
+				$("#1").show();
+			}
+			function div2show(){				
+				$("#2").show();
+			}
+			function div2hide(){				
+				$("#2").hide();
+			}
+		</script>
+		<hr>
+		<a onclick="div1show();">검색버튼 -> joboffersearch.jo -> 리스트 노출</a>
+		<hr>
+		<div id="1" style="display: none">
+		<hr>
+			<label>사진, 이름, 경력, 나이, 성별 정도를 표시</label> <p>
+			<a>정렬하기 - 선택구현(빼도 될 듯)</a> <p>
+			<a onclick="div2show();">노출된 리스트 -> 상세보기 -> workerdetail.wo</a> <p>
+		<hr>
+		</div>
+		<div id="2" style="display: none">
+		<hr>
+			<h3><font color="red">modal창으로 표시(로그인페이지에서 회원가입버튼 누르면 나오는것 처럼)</font></h3>			
+			<label>1. 신청안한 상대</label>
+			<a>신청하기 -> workask.wo </a> <p>
+			<label>2. 이미 신청한 상대</label>		
+			<a>취소하기 -> workcancel.wo </a> <p>
+			<a onclick="div2hide();">닫기</a>
+		<hr>
+		</div>
+
+
+
+
 
 		<c:forEach var="resume" items="${list}">
 			<!-- 반복문 시작 -->
@@ -445,19 +481,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="resources/js/joboffer.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/cbpAnimatedHeader.js"></script>
-	<script src="resources/js/jquery.appear.js"></script>
-	<script src="resources/js/SmoothScroll.min.js"></script>
-	<script src="resources/js/mooz.themes.scripts.js"></script>
+	</div>	
 </body>
 </html>

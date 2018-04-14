@@ -143,7 +143,7 @@
 	</div>
 
 
-	<div class="receivelist">
+	<div class="receivelist" style="display:inline;">
 		<h2>받은 신청 목록</h2>
 		<hr>
 
@@ -192,10 +192,8 @@
 		</c:forEach>
 		<!-- 반복문 종료 -->
   </div>
-
-
-
-	<table align="center" height="20">
+<div style="margin:auto;height:500px;display:inline">
+	<table align="center" height="20" style="display:inline;margin:auto;">
 		<tr>
 			<td colspan="6"><c:if test="${currentPage <= 1}">
 		[이전] &nbsp;
@@ -225,6 +223,42 @@
 				</c:if></td>
 		</tr>
 	</table>
+	
+	<script>
+		function receivedetail(){
+			$("#2").show();			
+		}
+		
+		function deleterequest(){
+			$("#2").hide();			
+		}
+	</script>
+	</div>
+	<div id="1">
+	<hr>
+		<label>받은 신청 리스트 노출</label> <p>
+		<a>수락 -> 받아온 상세보기용 리스트의 id를 넘겨서 request의 delete 진행 -> 필요한
+				상태(매칭상태컬럼...) update</a>
+		<p>
+			<a>거절 -> 수락과 비슷하지만 update는 다르게 진행</a> <p>
+		<a onclick="receivedetail();"> 받은 리스트 목록 중 1개 클릭 ->
+			receivedetail.re </a>
+		<p>		
+			<hr>
+	</div>
+	<div id="2" style="display: none;">
+	<hr>
+		<h3>
+			<font color="red">modal창으로 구현</font>
+		</h3>
+		<label>구직자에 대한 상세보기 노출</label>
+		<p>
+			<a onclick="deleterequest();">수락</a>
+		<p>
+			<a onclick="deleterequest();">거절</a> <p>
+			<a onclick="deleterequest();">닫기</a>
+			<hr>
+	</div>
 
 	<div class="modal fade" id="receive-1" tabindex="-1" role="dialog"
 		aria-labelledby="Modal-label-1">

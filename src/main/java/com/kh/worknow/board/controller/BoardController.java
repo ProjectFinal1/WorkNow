@@ -58,18 +58,41 @@ public class BoardController {
 		if (maxPage < endPage)
 			endPage = maxPage;
 
-		if (list != null && list.size() > 0) {
+//		if (list != null && list.size() > 0) {
 
 			mv.addObject("list", list).addObject("currentPage", currentPage).addObject("maxPage", maxPage)
 					.addObject("startPage", startPage).addObject("endPage", endPage).addObject("listCount", listCount)
 					.setViewName("board/boardListView");
-		} else {
-			mv.addObject("error", "게시글 전체 조회 실패");
-			mv.setViewName("board/boardError");
-		}
+//		} else {
+//			mv.addObject("error", "게시글 전체 조회 실패");
+//			mv.setViewName("board/boardError");
+//		}
 		System.out.println("자유게시판 접속");
 		return mv; // board/boardListView.jsp로 이동
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@RequestMapping("bdetail.do")
 	public ModelAndView boardDetail(ModelAndView mv, @RequestParam("bnum") int bnum,

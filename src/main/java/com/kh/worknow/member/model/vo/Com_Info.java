@@ -8,13 +8,12 @@ public class Com_Info {
 	private String comCeo; 
 	private String comPhone;
 	
+	private String comType;
 	
 	private String memberId;
 	
 	// 기본 생성자
-		public Com_Info() {};
-		
-	
+		public Com_Info() {};	
 		
 	
 	public String getMemberId() {
@@ -27,7 +26,7 @@ public class Com_Info {
 
 	public String getComId() {
 		return comId;
-	}
+  }
 	
 	public void setComId(String comId) {
 		this.comId = comId;
@@ -63,7 +62,16 @@ public class Com_Info {
 		this.comPhone = comPhone;
 	}
 
-	
+
+	public String getComType() {
+		return comType;
+	}
+
+
+	public void setComType(String comType) {
+		this.comType = comType;
+	}
+
 	
 	
 }

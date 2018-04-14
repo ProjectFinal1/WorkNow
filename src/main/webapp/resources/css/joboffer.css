@@ -45,11 +45,89 @@ hr {
 	text-align: center;
 	padding-left: 150px;
 	padding-right: 80px;
-  
-td {
-	text-align: center;
 }
 
 .pattern {
 	align: center;
 }
+
+.search_tob{width:5%;display:inline; margin: 0 0 3% 3%;}
+
+
+
+.sel_address1{margin-left:20px;}
+			 
+.select_test{display:block; width:80%; text-align:left; font-size:14px; color:black; margin-left:10px;
+			 padding: 3px 3px 3px 3px}
+.select_test2{display:block; width:80%; text-align:left; font-size:14px; color:black; margin-left:10px;
+			 padding: 3px 3px 3px 3px}
+.select_tob{display:block; width:80%; text-align:left; font-size:14px; color:black; margin-left:10px;
+			 padding: 3px 3px 3px 3px}
+
+.sel_address2{
+	margin-left:15px;	
+}
+
+/* 선택한 값 아래에 표시 */
+#result_select1,#result_select2,#result_select3,#result_select4,#result_select5{
+	width:140px;
+	height:35px;
+	line-height:35px;
+	background-color:#ffffff;
+	text-align:center;
+	border: 1px solid #dadada;
+	float: left;
+	margin-left:10px;
+}
+
+.select_time{
+	width:100px;
+	height:35px;
+	line-height:35px;
+	color:black;
+	background-color:#d5ffff;
+	border: 1px solid #f0f0f0;
+	border-radius: 3px;
+	text-align:center;
+}
+
+/* 밑줄길이용 */
+#KategorieList1{
+	width:90%; 
+	border-bottom: 1px solid #dadada;
+}
+/* 밑줄길이용 */
+#KategorieList{
+	width:130px; 
+	border-bottom: 1px solid #dadada;
+}
+
+#search_go{
+	width:100px;
+	height:35px;
+	line-height:35px;
+	color:white;
+	background-color:#636363;
+	border: 1px solid #777777;
+	border-radius: 3px;
+	text-align:center;
+}
+
+/* .tettt{ */
+/* 	width:500px; */
+/* 	height:300px; */
+/* } */
+.img-responsive{
+	width:160px;
+	height:160px;
+	display: inline;
+}
+
+figure.effect-bubba h2{
+	padding-top:7%;
+}
+
+.figure.effect-bubba p{
+	padding:0px;
+}
+

@@ -1,6 +1,5 @@
 package com.kh.worknow.main.controller;
  
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -19,7 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.kh.worknow.main.model.service.Job_BoardServiceImpl;
+import com.kh.worknow.main.model.service.Job_BoardService;
 import com.kh.worknow.main.model.vo.Company_View;
 import com.kh.worknow.main.model.vo.Job_Board;
 
@@ -28,189 +27,105 @@ import com.kh.worknow.main.model.vo.Job_Board;
 public class HomeController {
 	
 	@Autowired
-	private Job_BoardServiceImpl jbService;
-
+	private Job_BoardService jbService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-
 	public String home(Locale locale, Model model) {	
 
-		System.out.println("메인 접속");
+		System.out.println("메인들어가기");
 
 		return "Main";
-	}  
-  
-
-	@RequestMapping(value = "joboffer.of", method = RequestMethod.GET)
-	public String joboffer(Locale locale, Model model) {
-	
-		System.out.println("오리지널");
-		
-		
-		return "/joboffer/jobofferView";
 	}
-	
-	//주소별로 알바 찾기
+
+			
+	//구직 조건 검색
 	@SuppressWarnings("unchecked")
-	@RequestMapping("search_address.ma")
-	public void jboard_addrserach(HttpServletRequest request, HttpServletResponse response) throws IOException{
-    
-		String address1 = request.getParameter("address1");	// 주소선택 첫번째 select 값을 가져옴
-		String address2 = request.getParameter("address2"); // 주소선택 두번째 select 값을 가져옴
-    
-  
-    System.out.println(address1 + "  " + address2);
+	@RequestMapping("search_job.ma")
+	public void jboard_serach(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	   						
+		String result_address1 = request.getParameter("result_address1");	// 주소선택 첫번째 select 값을 가져옴
+		String result_address2 = request.getParameter("result_address2"); // 주소선택 두번째 select 값을 가져옴		
 		
-		
-		HashMap<String, String> addressMap = new HashMap<String, String>();
-		addressMap.put("address1", address1);
-		addressMap.put("address2", address2);
-		
-		
-		//주소로 검색했을 때 그 주소에 해당하는 회사 정보 Arraylist로 가져오기
-		ArrayList<Company_View> cvlist = jbService.getCompanyId(addressMap);
-		
-		JSONArray jarr = new JSONArray();
-		String comId = ""; // view 데이터를 가져오기 위해 검색한 회사의 member_id 값을 담을 변수
-		
-		for(Company_View cv : cvlist) {
-			JSONObject list = new JSONObject();		
-			
-			
-			list.put("COM_ADDRESS", cv.getCOM_ADDRESS());
-			list.put("COM_EMAIL", cv.getMEMBER_EMAIL());
-			
-			comId = cv.getMEMBER_ID();
-			Job_Board db = jbService.jboard_addrserach(comId);			
-			
-			list.put("JOB_SUBJECT", db.getJOB_SUBJECT());
-			list.put("JOB_CONTENT", db.getJOB_CONTENT());
-			list.put("JOB_VALUE", db.getJOB_VALUE());
-			
-			String startday = new SimpleDateFormat("yyyy-MM-dd").format(db.getJOB_STARTDAY());
-			String endday = new SimpleDateFormat("yyyy-MM-dd").format(db.getJOB_ENDDAY());
-			
-			list.put("JOB_STARTDAY", startday);	//알바 시작 날
-			list.put("JOB_ENDDAY", endday);		//알바 끝나는 날
-			
-			jarr.add(list);			
+		String tob = request.getParameter("tob"); //직종
+		if(tob.equals("무관")) {
+			tob = "";
 		}
 		
-		System.out.println(jarr.toJSONString());
-		
-
-		response.setContentType("application/json; charset=UTF-8");
-		
-		//생성한 객체를 PrintWriter에 담아 결과 전송
-		PrintWriter out = response.getWriter();
-		out.print(jarr.toJSONString());
-		
-		out.flush();
-		out.close();
-	}
-	
-	//직종별로 알바 찾기
-	@SuppressWarnings("unchecked")
-	@RequestMapping("search_tob.ma")
-	public void jboard_tobserach(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		String tob = request.getParameter("tob");	// 주소선택 첫번째 select 값을 가져옴
-		System.out.println("tob = " + tob);
-		
-		//업종별로 검색했을 때 그 직종에 해당하는 회사 정보 Arraylist로 가져오기
-		ArrayList<Job_Board> tolist = jbService.jboard_tobsearch(tob);
-		
-		JSONArray jarr = new JSONArray();
-		String comId = ""; // job_board 데이터를 가져오기 위해 검색한 회사의 job_id 값을 담을 변수
-		for(Job_Board to : tolist) {
-			JSONObject list = new JSONObject();		
-			
-			list.put("JOB_SUBJECT", to.getJOB_SUBJECT());
-			list.put("JOB_CONTENT", to.getJOB_CONTENT());
-			list.put("JOB_VALUE", to.getJOB_VALUE());
-			
-			String startday = new SimpleDateFormat("yyyy-MM-dd").format(to.getJOB_STARTDAY());
-			String endday = new SimpleDateFormat("yyyy-MM-dd").format(to.getJOB_ENDDAY());
-			
-			list.put("JOB_STARTDAY", startday);	//알바 시작 날
-			list.put("JOB_ENDDAY", endday);		//알바 끝나는 날
-			
-			System.out.println(to.getJOB_SUBJECT());
-			
-			comId = to.getJOB_ID();
-			System.out.println("comID = " + comId);
-			Company_View db = jbService.getCompanyId(comId);	
-			
-			list.put("COM_ADDRESS", db.getCOM_ADDRESS());
-			list.put("COM_EMAIL", db.getMEMBER_EMAIL());
-			
-			jarr.add(list);			
-		}
-		
-		//보내는 값을 UTF-8로 지정
-		response.setContentType("application/json; charset=UTF-8");
-				
-		//생성한 객체를 PrintWriter에 담아 결과 전송
-		PrintWriter out = response.getWriter();
-		out.print(jarr.toJSONString());
-				
-		out.flush();
-		out.close();		
-	}
-	
-	//시간별로 알바찾기
-	@SuppressWarnings("unchecked")
-	@RequestMapping("search_time.ma")
-	public void jboard_timesearch(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String startDate = request.getParameter("startDate");
 		String endDate = request.getParameter("endDate");
-		System.out.println(startDate + "   " + endDate);
-		
-		HashMap<String, String> time = new HashMap<String, String>();
-		time.put("startDate", startDate);
-		time.put("endDate", endDate);
 		
 		
-		//시간으로 검색했을 때 그 시간에 해당하는 Jboard 리스트 가져오기
-		ArrayList<Job_Board> timelist = jbService.jboard_timesearch(time);
+		System.out.println("result_address1 = " + result_address1);
+		System.out.println("result_address2 = " + result_address2);
+		System.out.println("tob = " + tob);
+		System.out.println("startDate = " + startDate);
+		System.out.println("endDate = " + endDate);
+		
+		HashMap<String, String> jobMap = new HashMap<String, String>();
+		jobMap.put("tob", tob);
+		jobMap.put("startDate", startDate);
+		jobMap.put("endDate", endDate);
+		
+		HashMap<String, String> jobMap2 = new HashMap<String, String>();
+		jobMap2.put("result_address1", result_address1);
+		jobMap2.put("result_address2", result_address2);
 		
 		
+		//직종, 시작시간, 끝시간으로 구직검색
+		ArrayList<Job_Board> jblist = jbService.search_job(jobMap);
 		JSONArray jarr = new JSONArray();
-		String comId = ""; // job_board 데이터를 가져오기 위해 검색한 회사의 job_id 값을 담을 변수
-		for(Job_Board tilist : timelist) {
-			JSONObject list = new JSONObject();		
-			
-			list.put("JOB_SUBJECT", tilist.getJOB_SUBJECT());
-			list.put("JOB_CONTENT", tilist.getJOB_CONTENT());
-			list.put("JOB_VALUE", tilist.getJOB_VALUE());
-			
-			String startday = new SimpleDateFormat("yyyy-MM-dd").format(tilist.getJOB_STARTDAY());
-			String endday = new SimpleDateFormat("yyyy-MM-dd").format(tilist.getJOB_ENDDAY());
-			
-			list.put("JOB_STARTDAY", startday);	//알바 시작 날
-			list.put("JOB_ENDDAY", endday);		//알바 끝나는 날
 		
+		if(jblist.isEmpty()) {
+			System.out.println("--------------결과값 없음---------------");
+		}else {
+			System.out.println("jbtest = " + jblist.get(0).getJOB_CONTENT());
 			
-			comId = tilist.getJOB_ID();
-			System.out.println("comID = " + comId);
-			Company_View db = jbService.getCompanyId(comId);	
+			for(Job_Board jb : jblist) {
+				JSONObject list = new JSONObject();		
+				
+				list.put("JOB_SUBJECT", jb.getJOB_SUBJECT());
+				list.put("JOB_CONTENT", jb.getJOB_CONTENT());
+				list.put("JOB_VALUE", jb.getJOB_VALUE());
+				
+				String start = new SimpleDateFormat("yyyy-MM-dd").format(jb.getJOB_STARTDAY());
+				String end = new SimpleDateFormat("yyyy-MM-dd").format(jb.getJOB_ENDDAY());
+				
+				list.put("JOB_STARTDAY", start);	//알바 시작 날
+				list.put("JOB_ENDDAY", end);		//알바 끝나는 날
+				
+				jobMap2.put("comId", jb.getJOB_ID());
+				Company_View cvlist = jbService.search_job2(jobMap2);
+				
+				if(cvlist == null) {
+					System.out.println("----------------------- 해당지역 없음 --------------------------");
+				}else {
+					System.out.println("cvTest = " + cvlist.getCOM_NAME());
+
+					list.put("MEMBER_NAME", cvlist.getMEMBER_NAME());
+					list.put("COM_ADDRESS", cvlist.getCOM_ADDRESS());
+					list.put("COM_EMAIL", cvlist.getMEMBER_EMAIL());
+					
+					
+					jarr.add(list);			
+				}// if(cvlist==null) 끝
+			}// for(Job_Board jb : jblist) 끝			
 			
-			list.put("COM_ADDRESS", db.getCOM_ADDRESS());
-			list.put("COM_EMAIL", db.getMEMBER_EMAIL());
-			
-			jarr.add(list);			
-		}
+		}//if(jblist.isEmpty()) 끝
 		
+		System.out.println(jarr.toJSONString());
 		//보내는 값을 UTF-8로 지정
 		response.setContentType("application/json; charset=UTF-8");
-						
-				//생성한 객체를 PrintWriter에 담아 결과 전송
+		
+		//생성한 객체를 PrintWriter에 담아 결과 전송
 		PrintWriter out = response.getWriter();
 		out.print(jarr.toJSONString());
-						
+		
 		out.flush();
-		out.close();		
-
+		out.close(); 
 	}
+	
+	
+
 	
 		
 }

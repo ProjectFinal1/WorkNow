@@ -23,7 +23,7 @@
   		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
 	</resultMap>
 	
-	<resultMap id="resultCom" type="Com_Info">
+	<resultMap id="resultCom" type="ComInfo">
 		<id property="comId" 	   column="COM_ID" />   
 		<result property="comNumber"  column="COM_NUMBER"/>  
 		<result property="comName"  column="COM_NAME"/>  

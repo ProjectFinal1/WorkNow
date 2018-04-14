@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.kh.worknow.joboffer.model.dao.Resume_BoardDao;
 import com.kh.worknow.joboffer.model.vo.Resume_Board;
 
-@Service("Resume_BoardService")
+@Service("Resume_BoardService2")
 public class Resume_BoardServiceImpl implements Resume_BoardService {
 	
 	@Autowired

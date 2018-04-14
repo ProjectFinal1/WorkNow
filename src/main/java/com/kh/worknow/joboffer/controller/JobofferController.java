@@ -55,15 +55,15 @@ public class JobofferController {
 		if (maxPage < endPage)
 			endPage = maxPage;
 
-		if (list != null && list.size() > 0) {
+//		if (list != null && list.size() > 0) {
 			System.out.println("담겨 오는 값들 : " + list);
 			mv.addObject("list", list).addObject("currentPage", currentPage).addObject("maxPage", maxPage)
 					.addObject("startPage", startPage).addObject("endPage", endPage).addObject("listCount", listCount)
 					.setViewName("joboffer/joboffer_receive");
-		} else {
-			mv.addObject("error", "게시글 전체 조회 실패");
-			mv.setViewName("board/boardError");
-		}
+//		} else {
+//			mv.addObject("error", "게시글 전체 조회 실패");
+//			mv.setViewName("board/boardError");
+//		}
 		return mv;
 	}
 	
@@ -124,7 +124,7 @@ public class JobofferController {
 					if (maxPage < endPage)
 						endPage = maxPage;
 
-					if (list != null && list.size() > 0) {
+//					if (list != null && list.size() > 0) {
 						System.out.println("담겨 오는 값들 : "+list);
 						mv.addObject("list", list)
 						.addObject("currentPage", currentPage)
@@ -133,10 +133,10 @@ public class JobofferController {
 						.addObject("endPage", endPage)
 						.addObject("listCount", listCount)
 						.setViewName("joboffer/jobofferView");
-					} else {
-						mv.addObject("error", "게시글 전체 조회 실패");
-						mv.setViewName("board/boardError");
-					}
+//					} else {
+//						mv.addObject("error", "게시글 전체 조회 실패");
+//						mv.setViewName("board/boardError");
+//					}
 		return mv;
 	}
 	

@@ -1,5 +1,13 @@
 $(document).ready(function(){
 	
+	var result_address1;	//첫번째 주소 선택값
+	var result_address2;	//두번째 주소 선택값
+	
+	var tob	//업종 선택값
+	
+	var startDate;	//시작 시간
+	var endDate;	//끝 시간
+	
 	$('.search').click(function(){
 		$('#search_result').show();
 	});
@@ -10,164 +18,103 @@ $(document).ready(function(){
 	    $(this).next().removeClass('hidden');
 	})
 	
-	// 주소 선택 했을 시 두번째 주소 선택칸 내용 변경 메소드
-	$('#sel_address1').change(function(){
-		if($(this).val() == "경기"){
+	
+	//첫번째 주소 클릭
+	$('.select_test').click(function(){
+		result_address1 = $(this).text();
+		if($(this).text() == "경기"){
 			$(".sel_address2").hide();
 			$("#gyeonggi").show();
-
 		}		
-		if($(this).val() == "서울"){
+		if($(this).text() == "서울"){
 			$(".sel_address2").hide();
 			$("#seoul").show();
 		}		
-		if($(this).val() == "인천"){
+		if($(this).text() == "인천"){
 			$(".sel_address2").hide();
 			$("#incheon").show();
 		}		
-		if($(this).val() == "강원"){
+		if($(this).text() == "강원"){
 			$(".sel_address2").hide();
 			$("#gangwon").show();
 		}		
-		if($(this).val() == "대전"){
+		if($(this).text() == "대전"){
 			$(".sel_address2").hide();
 			$("#daejeon").show();
 		}		
-		if($(this).val() == "세종"){
+		if($(this).text() == "세종"){
 			$(".sel_address2").hide();
 			$("#sejong").show();
 		}		
-
-		if($(this).val() == "충남"){
+		if($(this).text() == "충남"){
 			$(".sel_address2").hide();
 			$("#chungcheongnam").show();
 		}		
 	});
 	
-	// 주소로 구직찾기 클릭
-	$("#search_address").click(function(){		
-			var address1 = $('#sel_address1').val();
-
-			var adrees2 = "";
-			
-
-			if(address1 == "경기")
-				address2 = $('#gyeonggi').val();			
-			if(address1 == "서울")
-				address2 = $('#seoul').val();			
-			if(address1 == "인천")
-				address2 = $('#incheon').val();			
-			if(address1 == "강원")
-				address2 = $('#gangwon').val();			
-			if(address1 == "대전")
-				address2 = $('#daejeon').val();			
-			if(address1 == "세종")
-				address2 = $('#sejong').val();			
-			if(address1 == "충남")
-				address2 = $('#chungcheongnam').val();			
-			
-			$.ajax({
-			    url : "search_address.ma",
-			    type : "GET",
-			    dataType : "json",
-			    data : {address1 : address1,
-			    		address2 : address2},
-			    success : function(jboard) {      
-			    		if(jboard[0] == null){
-				    		alert("결과값이 없습니다");
-				    		$(".search_result").css("visibility", "hidden"); 
-				    		$(".search_all").show();
-				    	}else{
-				    		$(".search_all").hide();
-							$(".search_result").css("visibility", "visible"); 
-				    		for(var n=0; n<jboard.length; n++){
-					    		$('.subject_result' + n).html(jboard[n].JOB_SUBJECT + "<br><br>");
-						    	$('.subject_result' + n).css("color","white").css("font-size","15px");
-						    	$('.contents_result' + n).html(jboard[n].JOB_STARTDAY + " ~ " + jboard[n].JOB_ENDDAY
-						    			+ "<br>시급: " + jboard[n].JOB_VALUE+"원<br>" + "위치 : " + jboard[n].COM_ADDRESS);
-						        $('.contents_result' + n).css("color","white").css("font-size","12px");
-						        
-						        $('#detail_sub'+ n).html(jboard[n].JOB_SUBJECT);
-						        $('#detail_content'+ n).html(jboard[n].JOB_CONTENT);
-						        $('#detail_value'+ n).html(jboard[n].JOB_VALUE + "원");
-					    	}	  
-				    	}			    	
-			    },
-			    error : function(jqXHR, textStatus, errorThrown) {
-			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
-			    }
-			});
-			
-	});
-	
-	
-	// 업종별로 구직찾기 클릭
-	$(".search_tob").click(function(){	
-			var tob = $(this).attr('id');		
-			if(tob == "search_it")
-				tob = "IT관련";
-			if(tob == "search_work")
-				tob = "단순노무";
-			if(tob == "search_etc")        
-				tob = "기타부업";
-			if(tob == "search_Acting")
-				tob = "대행";
-			if(tob == "search_restaurant")    
-				tob = "음식점,카페";
-			if(tob == "search_delivery")
-				tob = "배달";			
-			if(tob == "search_service")   
-				tob = "서비스";
-			
-			$.ajax({
-			    url : "search_tob.ma",
-			    type : "GET",
-			    dataType : "json",
-			    data : {tob : tob },
-			    success : function(jboard) {
-			    	if(jboard[0] == null){
-			    		alert("결과값이 없습니다");
-			    		$(".search_result").css("visibility", "hidden"); 
-			    		$(".search_all").show();
-			    	}else{
-			    		$(".search_all").hide();
-						$(".search_result").css("visibility", "visible"); 
-			    		for(var n=0; n<jboard.length; n++){
-				    		$('.subject_result' + n).html(jboard[n].JOB_SUBJECT + "<br><br>");
-					    	$('.subject_result' + n).css("color","white").css("font-size","15px");
-					    	$('.contents_result' + n).html(jboard[n].JOB_STARTDAY + " ~ " + jboard[n].JOB_ENDDAY
-					    			+ "<br>시급: " + jboard[n].JOB_VALUE+"원<br>" + "위치 : " + jboard[n].COM_ADDRESS);
-					        $('.contents_result' + n).css("color","white").css("font-size","12px");
-					        
-					        $('#detail_sub'+ n).html(jboard[n].JOB_SUBJECT);
-					        $('#detail_content'+ n).html(jboard[n].JOB_CONTENT);
-					        $('#detail_value'+ n).html(jboard[n].JOB_VALUE + "원");
-				    	}	  
-			    	}		    	
-			    },
-			    error : function(jqXHR, textStatus, errorThrown) {
-			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
-			    }
-			});
-	});
-	
-	
-	//시간검색으로 구직 찾기	
-	$('#search_time').click(function(){
+	//두번째 주소 클릭
+	$(".select_test2").click(function(){
+		result_address2 = $(this).text();
+		$("#result_select1").text(result_address1 + " " + result_address2);
 		
+	});
+	
+	//직종 클릭
+	$(".search_tob").click(function(){
+		tob = $(this).attr('id');
+		if(tob == "search_all")
+			tob = "무관";
+		if(tob == "search_it")
+			tob = "IT관련";
+		if(tob == "search_work")
+			tob = "단순노무";
+		if(tob == "search_etc")        
+			tob = "기타부업";
+		if(tob == "search_Acting")
+			tob = "대행";
+		if(tob == "search_restaurant")    
+			tob = "음식점,카페";
+		if(tob == "search_delivery")
+			tob = "배달";			
+		if(tob == "search_service")   
+			tob = "서비스";
+		
+		$("#result_select2").text(tob);
+	});
+	
+	//시간
+	$("#search_time1").click(function(){
 		//시작시간
-		var startDate = $("#job_start").val();
+		startDate = $("#job_start").val();
 		startDate = startDate.replace(/-/g, "");
 		
 		//끝 시간
-		var endDate = $("#job_end").val();
+		endDate = $("#job_end").val();
+		endDate = endDate.replace(/-/g, "");
+		
+		$("#result_select3").text(startDate + "  " + endDate);
+		
+	});
+	
+	
+	//구직 검색하기
+	$('#search_time').click(function(){
+		//시작시간
+		startDate = $("#job_start").val();
+		startDate = startDate.replace(/-/g, "");
+		
+		//끝 시간
+		endDate = $("#job_end").val();
 		endDate = endDate.replace(/-/g, "");
 		
 		$.ajax({
-		    url : "search_time.ma",
+		    url : "search_job.ma",
 		    type : "GET",
 		    dataType : "json",
-		    data : {startDate : startDate,
+		    data : {result_address1 : result_address1,
+		    		result_address2 : result_address2,
+		    		tob : tob,
+		    		startDate : startDate,
 		    		endDate : endDate},
 		    success : function(jboard) {
 		    	if(jboard[0] == null){
@@ -194,8 +141,44 @@ $(document).ready(function(){
 		        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
 		    }
 		});
+	                 
+		 
+		
+		
 		
 	});
+	
+	
+	
+	
+	
+	
+	$(".select_test").mouseover(function(){
+		$(this).css("background-color", "#edb303");
+		$(this).css("text-decoration", "none");
+		$(this).css("color", "white");
+	});
+
+	$(".select_test").mouseleave(function(){
+		$(this).css("background-color", "white");
+		$(this).css("color", "black");
+	});
+	
+	$(".select_test2").mouseover(function(){
+		$(this).css("color", "#edb303");
+		$(this).css("text-decoration", "none");
+	});
+
+	$(".select_test2").mouseleave(function(){
+		$(this).css("color", "black");
+	});
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

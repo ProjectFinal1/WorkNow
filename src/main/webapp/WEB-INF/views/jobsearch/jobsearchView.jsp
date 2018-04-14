@@ -26,7 +26,26 @@
 	
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header/header.jsp" />
-<br><br><br><br><br><br>구직페이지
+	<jsp:include page="/WEB-INF/views/header/header.jsp" />
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>구직페이지
+	<p>
+		<label>구인 페이지의 메뉴 2개(검색과 받은신청 리스트)가 매우 유사하게 동작할 예정임</label>
+	<p>
+		<label>페이지 디자인도 비슷하므로</label> <p>
+		<label>광고를 양 옆에 두고 동작할 수 있도록 연습</label>
+	<div
+		style="width: 200px; height: 150px; border: 1px solid red; float: left; margin-left:10px;">
+		첫번째 영역: 왼쪽에 위치시킴 => float:left 여기에 그림이나 글자 또는 광고 등을 넣음</div>		
+		<div>
+			작업영역
+		</div>
+	<div
+		style="width: 200px; height: 150px; border: 1px solid green; float: right; margin-right:10px;">
+		두번째 영역: 첫번째 영역 옆에 나란히 붙임 => float:left 여기에 그림이나 글자 또는 광고 등을 넣음</div>
 </body>
 </html>

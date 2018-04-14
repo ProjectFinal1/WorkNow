@@ -342,8 +342,8 @@ function passCheck2(){
 					<input class="form-control" name="comCeo" placeholder="대표자명" type="text" required/>
 					<input class="form-control" name="memberName" placeholder="이름" type="text" required/>
 					<input class="form-control" name="comName" placeholder="기업명" type="text" required/> 
-					<input class="form-control" name="comNumber"	placeholder="사업자등록번호" type="tel" required/>
-					
+					<input class="form-control" name="comNumber" placeholder="사업자등록번호" type="tel" required/>
+					<input class="form-control" name="comPhone" placeholder="매장번호" type="text" required/>
 					<div style="text-align:center;">
 					
 					
