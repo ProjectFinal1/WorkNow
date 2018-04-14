@@ -44,4 +44,6 @@
 		WHERE RESUME_STARTDAY <![CDATA[>=]]>  TO_DATE( #{job_start2} ,'YYYYMMDD') AND RESUME_ENDDAY <![CDATA[<=]]> TO_DATE( #{job_end2} ,'YYYYMMDD')
 	</select>
 	
+	
+	
 </mapper>
