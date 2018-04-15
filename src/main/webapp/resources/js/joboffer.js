@@ -298,7 +298,7 @@ $(document).ready(function(){
 																"<figcaption>" +
 																	"<h2>상세히 보고 싶으시면 클릭해주세요</h2>" +	
 																	"<p>상세히 보기</p>" +
-																	"<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a>" +
+																	"<a href='#' data-toggle='modal' data-target='#Modal" + n +  "'>View more</a>" +
 																"</figcaption>" +
 															"</figure>" +
 														"</div>" +
@@ -310,41 +310,13 @@ $(document).ready(function(){
 							     "</tr>" +
 							     "</table>";
 							      
-//							      str = "<table class='table twotable'>" +				    				
-//				    				"<tr>" +
-//							      "<td>" +
-//								      "<div class=''>" +
-//										"<div class=''>" +
-//											"<div class=''>" +
-//													"<div class=''>" +
-//														"<div class='ot-portfolio-item' >" +
-//															"<figure class='effect-bubba' id='resultall'>" +
-//																"<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' />" +
-//																"<div class='contents_all'>"
-//																"<a class='subject_result''>" + rboard[n].MEMBER_NAME + "</a> <a class='contents_agesex'>(" + rboard[n].PER_SEX + "자 " + rboard[n].PER_AGE +  "세)</a><br>" +
-//																
-//																"<a class='contents_contents'>"+	rboard[n].PER_TALK + "<br>" +															
-//																"</a>" +
-//																"<a class='contents_address'>"+	rboard[n].PER_ADDRESS +"<br>" + 																	
-//																"</a>" +
-//																"<a class='contents_type'>"+	rboard[n].RESUME_TYPE +"<br>" + 																	
-//																"</a>" +
-//																"</div>"
-//																"<figcaption>" +
-//																	"<h2>상세히 보고 싶으시면 클릭해주세요</h2>" +	
-//																	"<p>상세히 보기</p>" +
-//																	"<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a>" +
-//																"</figcaption>" +
-//															"</figure>" +
-//														"</div>" +
-//													"</div>" +
-//											"</div>" +
-//										"</div>" +
-//										"</div>";
-//							      "</td>" +
-//							     "</tr>" +
-//							     "</table>";
-							      
+							      	$('#detail_PER_TALK' + n).html(rboard[n].PER_TALK);
+							      	$('#detail_MEMBER_NAME' + n).html(rboard[n].MEMBER_NAME);
+							      	$('#detail_MEMBER_PHONE' + n).html(rboard[n].MEMBER_PHONE);
+							      	$('#detail_RESUME_TYPE' + n).html(rboard[n].RESUME_TYPE);
+							      	$('#detail_RESUME_ENDDAY' + n).html(rboard[n].RESUME_ENDDAY);
+							      	$('#detail_RESUME_CONTENT' + n).html(rboard[n].RESUME_CONTENT);
+							      	
 					    			$("#tbody2").append(str); 
 					    			if(rboard[n+1].PER_TALK == null){
 					    				break;

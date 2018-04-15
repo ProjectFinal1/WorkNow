@@ -37,27 +37,6 @@ public class HomeController {
 		return "Main";
 	}
 	
-
-	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
-	public String jobofferView(Locale locale, Model model) {
-	
-		System.out.println("구인 페이지");
-		
-		
-		return "/joboffer/jobofferView";
-	}
-	
-	
-	@RequestMapping(value = "joboffer.of", method = RequestMethod.GET)
-	public String joboffer(Locale locale, Model model) {
-	
-		System.out.println("오리지널");
-		
-		
-		return "/joboffer/jobofferView";
-	}
-	
-	
 	//구직 조건 검색
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_job.ma")

@@ -19,6 +19,7 @@
 		<link href="resources/css/main.css" rel="stylesheet">
 	</head>
 	<body id="page-top">
+	<jsp:include page="/WEB-INF/views/header/header.jsp" />
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<!-- Navigation -->
 		<nav class="navbar navbar-default header_main sujung"> 
