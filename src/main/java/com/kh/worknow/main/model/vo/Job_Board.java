@@ -3,7 +3,7 @@ package com.kh.worknow.main.model.vo;
 import java.util.Date;
 
 public class Job_Board {
-
+	private Date	JOB_DATE;	//등록날짜	DATE
 	private int	JOB_LEVEL;	//게시레벨	NUMBER
 	private String	JOB_SUBJECT;	//제목	VARCHAR2(300)
 	private String	JOB_TYPE;	//직종분류	VARCHAR2(60)
@@ -21,8 +21,7 @@ public class Job_Board {
 	private int	JOB_MAX_NUM;	//최대구인수	NUMBER
 	private int	JOB_CURRENT_NUM;//	현재구인수	NUMBER
 	private int	JOB_PUBLIC;	//공개여부	NUMBER	
-	private Date	JOB_DATE;	//등록날짜	DATE
-	
+
 	public Job_Board() {}
 	
 	

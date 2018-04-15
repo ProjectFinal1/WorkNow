@@ -350,6 +350,7 @@
 		  				<div class="select_time2">
 		  					<a class="select_time"  href="#" onclick= "return false;">근무일 선택</a>
 		  				</div>
+
 						</div>				
 				      </td>
 				    </tr>
@@ -363,6 +364,7 @@
 				      </th>
 				      <th> <div id="search_go">
 				      <a href="#" class="rb_search" id="100">		
+
 				      <span class="glyphicon glyphicon-search" aria-hidden="true" style="color:white">검색</span>
 					  </a></div></th>
 				      <th>
@@ -504,6 +506,7 @@
 		
 		
 	</div>
+
 	
 </body>
 </html>
