@@ -221,7 +221,7 @@ $(document).ready(function(){
 			job_end2 = job_end2.replace(/-/g, "");
 			
 			
-			
+
 			$.ajax({
 			    url : "search_address.rb",
 			    type : "GET",
@@ -350,11 +350,7 @@ $(document).ready(function(){
 					    				break;
 					    			}
 					    	}
-				    		
-			    			
-				    	}
-				    			
-				    				    	
+	
 			    },
 			    error : function(jqXHR, textStatus, errorThrown) {
 			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
@@ -362,8 +358,4 @@ $(document).ready(function(){
 			});
 			
 	});
-	
-	
-	
-	
 });

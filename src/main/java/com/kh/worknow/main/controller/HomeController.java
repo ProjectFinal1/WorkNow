@@ -36,23 +36,23 @@ public class HomeController {
 
 		return "Main";
 	}
-	
 
-	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
-	public String jobofferView(Locale locale, Model model) {
-	
-		System.out.println("구인 페이지");
+
+	//구직 조건 검색
+	@SuppressWarnings("unchecked")
+	@RequestMapping("search_job.ma")
+	public void jboard_serach(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	   						
+		String result_address1 = request.getParameter("result_address1");	// 주소선택 첫번째 select 값을 가져옴
+		String result_address2 = request.getParameter("result_address2"); // 주소선택 두번째 select 값을 가져옴		
 		
+		String tob = request.getParameter("tob"); //직종
+		if(tob.equals("무관")) {
+			tob = "";
+		}
 		
-		return "/joboffer/jobofferView";
-	}
-	
-	
-	@RequestMapping(value = "joboffer.of", method = RequestMethod.GET)
-	public String joboffer(Locale locale, Model model) {
-	
-		System.out.println("오리지널");
-		
+		String startDate = request.getParameter("startDate");
+		String endDate = request.getParameter("endDate");
 		
 		return "/joboffer/jobofferView";
 	}
@@ -89,8 +89,8 @@ public class HomeController {
 		HashMap<String, String> jobMap2 = new HashMap<String, String>();
 		jobMap2.put("result_address1", result_address1);
 		jobMap2.put("result_address2", result_address2);
-		
-		
+
+    
 		//직종, 시작시간, 끝시간으로 구직검색
 		ArrayList<Job_Board> jblist = jbService.search_job(jobMap);
 		JSONArray jarr = new JSONArray();
@@ -142,12 +142,7 @@ public class HomeController {
 		
 		out.flush();
 		out.close(); 
-	}
-	
-	
-
-	
-		
+	}	
 }
 
 

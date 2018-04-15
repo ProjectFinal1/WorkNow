@@ -102,6 +102,7 @@ hr {
 .select_time:hover{
 	text-decoration:none;
 	color:white;
+
 }
 
 /* 밑줄길이용 */
@@ -139,6 +140,7 @@ hr {
 
 figure.effect-bubba h2{
 	color:black;
+
 	padding-top:7%;
 }
 
@@ -226,5 +228,6 @@ figure.effect-bubba{
 .contents_type{
 	color:#aaaaaa;
 	font-size:13px;
+
 }
 
