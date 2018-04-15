@@ -4,14 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<c:set var="listCount" value="${requestScope.listCount}" />
-<c:set var="currentPage" value="${requestScope.currentPage}" />
-<c:set var="startPage" value="${requestScope.startPage}" />
-<c:set var="endPage" value="${requestScope.endPage}" />
-<c:set var="maxPage" value="${requestScope.maxPage}" />
-<c:set var="list" value="${requestScope.list}" />
-<c:set var="member" value="${sessionScope.member}" />
-
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -31,7 +23,7 @@
 <link href="resources/css/owl.carousel.css" rel="stylesheet">
 <link href="resources/css/owl.theme.default.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<link href="resources/css/joboffer.css" rel="stylesheet">
+
 
 <style>
 #label-1 {
@@ -85,7 +77,7 @@
 	<div class="bodymargin">
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<jsp:include page="/WEB-INF/views/header/header.jsp" />
-
+		<link href="resources/css/joboffer.css" rel="stylesheet">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
@@ -454,54 +446,67 @@
 		
 		<div class='pagelist'>
 		</div>
-	
-		<!-- 상세히 보기 -->
 		<c:forEach var="i" begin="0" end="9" step="1">
 			<div class="modal fade" id="Modal${i}" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="Modal-label-1 detail_sub${i}"></h4>
+						<h4 class="modal-title preview_title" id="Modal-label-1">인재 정보</h4>
 					</div>
+					<!-- 여기서 부터 미리보기 본체 -->
 					<div class="modal-body">						
-						<div class="modal-works">
-						<img src="resources/images/demo/shop-icon.png" alt="매장 아이콘." class="img_content" />
-						<pre>		
-						<span>매장명</span><b id="balckblack">view연결 해야함 <br></b><span>내용</span>
-						<span>근무조건</span><span>주소</span>
-						</pre>				
+						<div class="modal-works2">
+						<div class="images">
+						<hr>
+						<h3><span class="preview_name">이력서 </span><span id="detail_PER_TALK${i}">PER_TALK</span></h3>
+						<table>
+						<tr><td style="width:300px"><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_img" /></td>				
+						<td><div id="detail_MEMBER_NAME${i}">MEMBER_NAME(PER_SEX PER_AGE)</div></td>
+						<td><div id="detail_MEMBER_PHONE${i}">MEMBER_PHONE   MEMBER_EMAIL</div></td>	
+						<td><div id="detail_RESUME_TYPE${i}">RESUME_TYPE PER_ADDRESS</div></td></tr>	
+						</table>
+						<hr>
+						<br> 
+						</div>
+						
+						<div class="preview_content">
+						<h3>시간</h3>
+						<hr>
+						<div id="detail_RESUME_ENDDAY${i}">RESUME_DATE  RESUME_ENDDAY</div>
+						</div>
+						<div class="preview_maps">
+						<h3>자기소개</h3>
+						<hr>
+						<table class="preview_maptable">
+						<!-- 네이버 지도 api 공간  id=map 으로 줄것-->
+						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
+						<td><span>자기소개 : </span><span class="preview_tel" id="detail_RESUME_CONTENT${i}">RESUME_CONTENT</span></td></tr>
+						
+						
+						
+						</table>
+							
+						</div>
+						
+						<hr>
+						<div class="text-center">
+						<button class="btn btn-default btn-sm"><i class="fas fa-exchange-alt">신청하기</i></button>
+						</div>
 						
 						</div>
-						<p id="detail_sub${i}"></p>
-						<p id="detail_content${i}"></p>
-						<p id="detail_value${i}"></p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
-		</div>					
-		</c:forEach> 		
-	
-
+		</div>
+	</c:forEach>
 		
 		
 	</div>
 
 	
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="resources/js/joboffer.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/cbpAnimatedHeader.js"></script>
-	<script src="resources/js/jquery.appear.js"></script>
-	<script src="resources/js/SmoothScroll.min.js"></script>
-	<script src="resources/js/mooz.themes.scripts.js"></script>
 </body>
 </html>

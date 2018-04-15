@@ -37,27 +37,6 @@ public class HomeController {
 		return "Main";
 	}
 
-
-	//구직 조건 검색
-	@SuppressWarnings("unchecked")
-	@RequestMapping("search_job.ma")
-	public void jboard_serach(HttpServletRequest request, HttpServletResponse response) throws IOException{
-	   						
-		String result_address1 = request.getParameter("result_address1");	// 주소선택 첫번째 select 값을 가져옴
-		String result_address2 = request.getParameter("result_address2"); // 주소선택 두번째 select 값을 가져옴		
-		
-		String tob = request.getParameter("tob"); //직종
-		if(tob.equals("무관")) {
-			tob = "";
-		}
-		
-		String startDate = request.getParameter("startDate");
-		String endDate = request.getParameter("endDate");
-		
-		return "/joboffer/jobofferView";
-	}
-	
-	
 	//구직 조건 검색
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_job.ma")

@@ -25,18 +25,54 @@
 	</head>
 	<body id="page-top">
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
-	
-		<video autoplay loop poster="resources/movies/mainback2.mp4" muted="muted" style="opacity:0.7;width:100%;">
-			<source src = "resources/movies/mainback2.mp4" type = "video/mp4">
-		</video>
-		
-<!-- 		<video src="resources/movies/mainback2.mp4">		</video> -->
-	
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<!-- Navigation -->
+		<nav class="navbar navbar-default header_main sujung"> 
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand page-scroll" href="#page-top"><img src="resources/images/logo.png" alt="Sanza theme logo"></a>
+				</div>
+				
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li>
+							<a class="page-scroll" href="#about">소개</a>
+						</li>						
+						<li>
+							<a class="page-scroll" href="jobofferView.jo">구인</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="">구직</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="blist.do">커뮤니티</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="">고객센터</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="">로그인</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!-- Header -->
+		<header> 
 
-		<c:set var="member" value="${sessionScope.member}" />
-
-    <!-- Header -->
-		<header style="height:850px"> 
 			<div class="container">
 				<div class="slider-container">
 					<div class="intro-text">

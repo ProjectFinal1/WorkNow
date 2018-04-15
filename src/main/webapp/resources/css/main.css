@@ -67,8 +67,14 @@ dd.hidden {display: none;}
 	
 	
 	
-.glyphicon-search{color:black; font-size:25px;}
-.icon_c{background-color:gray;}
+/* .glyphicon-search{color:black; font-size:25px;} */
+/* .icon_c{background-color:gray;} */
+
+/* .search_tob{width:7%;display:inline; margin: 0 0 5% 5%;} */
+
+
+/* /* 구인찾기 돋보기 */ */
+/* #search_address2{width:5%} */
 
 
 
@@ -90,8 +96,6 @@ dd.hidden {display: none;}
 .img_content{width:30%; vertical-align:top;}
 #balckblack{color:black}
 
-/* 구인찾기 돋보기 */
-#search_address2{width:5%}
 
 
 .sel_address1{margin-left:20px;}
