@@ -41,7 +41,7 @@ public class HomeController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_job.ma")
 	public void jboard_serach(HttpServletRequest request, HttpServletResponse response) throws IOException{
-	   						
+	   						System.out.println("홈접속");
 		String result_address1 = request.getParameter("result_address1");	// 주소선택 첫번째 select 값을 가져옴
 		String result_address2 = request.getParameter("result_address2"); // 주소선택 두번째 select 값을 가져옴		
 		

@@ -77,12 +77,12 @@
 	<div class="bodymargin">
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<jsp:include page="/WEB-INF/views/header/header.jsp" />
-		<link href="resources/css/joboffer.css" rel="stylesheet">
+		<link href="resources/css/jobsearch.css" rel="stylesheet">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div class="section-title">
-							<h2>구인 페이지</h2>
+							<h2>구직 페이지</h2>
 						</div>
 					</div>
 				</div>
@@ -119,7 +119,7 @@
 					<div class="jobofferbtn1">
 						<div class="team-item">
 							<div class="team-image3">
-								<a href="announcement.an"> <span id="label-3">공고등록</span> <img
+								<a href="announcement.an"> <span id="label-3">구직등록</span> <img
 									src="resources/images/demo/notepad.png" class="img-responsive"
 									alt="author" width="75%">
 								</a>
@@ -131,7 +131,7 @@
 				<table class="table">
 				  <thead>
 				    <tr>
-				      <th scope="col">인재찾기</th>
+				      <th scope="col">일자리찾기</th>
 				      <th scope="col"></th>
 				    </tr>
 				  </thead>
@@ -308,25 +308,7 @@
 					 	</div>				      	
 				      </td>
 				      <td width="400px">
-				      	<div class="search2"  style="float: left; width: 50%;">
-					      	<div><p id="KategorieList">성별</p>
-						      	<input type="radio" name="sex" value="무관" checked="checked">무관&nbsp;
-								<input type="radio" name="sex" value="남">남자 &nbsp;
-								<input type="radio" name="sex" value="여">여자
-					      	</div><br>			    		
-							<div><p id="KategorieList">연령</p>
-								<select id="search_age" class="search_age">
-								<option>무관</option>
-								<c:forEach var="i" begin="15" end="70" step="1">
-									<option>${i} 세</option>
-								</c:forEach>
-								</select>
-								- <select id="search_age2" class="search_age2">
-									<option>선택</option>
-								</select>
-							</div>
-							
-						</div>
+				      	
 						<div style="float: left; width:50%;">
 						<p id="KategorieList">업ㆍ직종</p>
 							<div style=" overflow-x:hidden; width:150px; height:110px; float:left " 
@@ -340,6 +322,9 @@
 									<a class="select_tob" href="#" onclick= "return false;">음식점/카페<br></a> 
 									<a class="select_tob" href="#" onclick= "return false;">기타부업/카페<br></a> 
 						   	</div>
+						</div>
+						<div  style="float: left; width:50%;">
+							<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_all" />
 						</div>
 			  			
 				      </td>
@@ -361,8 +346,8 @@
 				      	<div style="display:none;" id="result_select4"></div>
 				      	<div style="display:none;" id="result_select5"></div>
 				      </th>
-				      <th> <div id="search_go">
-				      <a href="#" class="rb_search" id="100">		
+				      <th> <div id="gggo">
+				      <a href="#" class="" id="100">		
 				      <span class="glyphicon glyphicon-search" aria-hidden="true" style="color:white">검색</span>
 					  </a></div></th>
 				      <th>
@@ -381,123 +366,390 @@
 		
 		<!-- 목록 나오는 부분 -->	
 		<table class="table table22 searchTitle">
-		  <thead>
-		    <tr>
- 		      <th scope="col" style="visibility: hidden;" id="searchTitle">인재정보</th>
-		      <th scope="col" style="visibility: hidden;" id="searchTitle"></th>
-		    </tr>
-		  </thead>		  	
 			  <tbody id="tbody2">
-						
-<!-- 						<table class='table twotable'> 				    				 -->
-<!-- 				    				<tr>  -->
-<!-- 							      <td>  -->
-<!-- 								      <div class=''>  -->
-<!-- 										<div class=''>  -->
-<!-- 											<div class=''>  -->
-<!-- 													<div class=''>  -->
-<!-- 														<div class='ot-portfolio-item' >  -->
-<!-- 															<figure class='effect-bubba' id='resultall'>  -->
-<!-- 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' />  -->
-<!-- 																<div class="contents_all"> -->
-<!-- 																	<a class='subject_result'> 이성우</a> <a class="contents_agesex"> (남자 27세)</a><br> -->
+				    			<tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
 																	
-<!-- 																	<a class='contents_contents'> 열심히 성실히 일하도록 하겠습니다.  <br> 														 -->
-<!-- 																	</a>  -->
-<!-- 																	<a class='contents_address'>	경기도 수원시 권선구 <br> 																	 -->
-<!-- 																	</a>  -->
-<!-- 																	<a class='contents_type'>	서비스,it관련 <br>  																	 -->
-<!-- 																	</a>  -->
-<!-- 																</div> -->
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
 																
-<!-- 																<figcaption>  -->
-<!-- 																	<h2>상세히 보고 싶으시면 클릭해주세요</h2>  -->
-<!-- 																	<p>상세히 보기</p>  -->
-<!-- 																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a>  -->
-<!-- 																</figcaption>  -->
-<!-- 															</figure>  -->
-<!-- 														</div>  -->
-<!-- 													</div>  -->
-<!-- 											</div>  -->
-<!-- 										</div>  -->
-<!-- 										</div> -->
-<!-- 							      </td>  -->
-<!-- 							     </tr>  -->
-<!-- 							   </table> -->
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal2'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr>
+							     
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_contents'>판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_type'>서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     
+							     
+							</table>
 						
-						
-			 </tbody>	
-		</table>
-				
-<!-- 		<table class="table table22 searchTitle"> -->
-<!-- 		  <thead> -->
-<!-- 		    <tr> -->
-<!--  		      <th scope="col" style="visibility: hidden;" id="searchTitle">인재정보</th> -->
-<!-- 		      <th scope="col" style="visibility: hidden;" id="searchTitle"></th> -->
-<!-- 		    </tr> -->
-<!-- 		  </thead>		  	 -->
-<!-- 			  <tbody id="tbody2"> -->
-	
-<!-- 			 </tbody>	 -->
-<!-- 		</table> -->
 		
 		
-		<div class='pagelist'>
+		
+		<div class='pagelist' style="display:none;">
+			[이전] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; <a href="#">2</a>&nbsp;&nbsp;&nbsp; <a href="#">3</a>
+			&nbsp;&nbsp; <a href="#">4</a>&nbsp;&nbsp;&nbsp; <a href="#">5</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">[다음]</a>
 		</div>
-		<c:forEach var="i" begin="0" end="9" step="1">
-			<div class="modal fade" id="Modal${i}" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+		
+		<!-- 여기서 부터 미리보기 모달창 -->
+		<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title preview_title" id="Modal-label-1">인재 정보</h4>
+						<h4 class="modal-title preview_title" id="Modal-label-1"></h4>
 					</div>
 					<!-- 여기서 부터 미리보기 본체 -->
 					<div class="modal-body">						
 						<div class="modal-works2">
 						<div class="images">
 						<hr>
-						<h3><span class="detail_PER_TALK">&nbsp;&nbsp;&nbsp;</span><span id="detail_PER_TALK${i}">PER_TALK</span></h3>
+						<h3><span class="preview_name">회사/점포명  </span><span> 지원자격</span></h3>
 						<table>
 						<tr><td style="width:300px"><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_img" /></td>				
-						<td><p id="detail_MEMBER_NAME${i}" class="kekeke1">MEMBER_NAME(PER_SEX PER_AGE)</p>
-						<p><span class="kekeke">핸드폰 번호 : </span><span id="detail_MEMBER_PHONE${i}"></span></p>
-						<p><span class="kekeke">이메일 : </span><span id="detail_MEMBER_EMAIL${i}""></span></p>
-						<p><span class="kekeke">가능한 업종 : </span><span id="detail_RESUME_TYPE${i}"></span></p>
+						<td><div class="preview_icon text-center service">서비스</div></td>
+						<td><div class="preview_icon text-center sex">남</div></td>	
+						<td><div class="preview_icon text-center age">24세</div></td></tr>	
 						</table>
+						<br>
+						<span class="text_12">현재 모집인원 </span><span class="preview_max text_12"></span><span class="text_12 preiview_num">/ 1 명</span>
 						<hr>
+						<br>
 						</div>
 						
+						<div class="preview_payment">
+						<h3>근무조건</h3>
+						<hr>
+						근무날짜  : <div class="preview_day">2018년 04월 16일 ~ 2018년 05월 16일</div><br>
+						근무시간 : <div class="preview_hour">09:00 ~ 18:00</div><br>
+						급여분류 : <div class="preview_pay">시급 7000원</div>
+						</div>
+						
+						<div class="preview_content">
+						<h3>소개글</h3>
+						<hr>
+						<div class="preview_content_text">미리보기 본문입니다.</div>
+						</div>
 						<div class="preview_maps">
-						<h3>자기소개</h3>
+						<h3>찾아오시는길</h3>
 						<hr>
 						<table class="preview_maptable">
 						<!-- 네이버 지도 api 공간  id=map 으로 줄것-->
-						<tr><td rowspan=5><div id="map" style="width:250px;height:250px;"></div></td>
-						<td><span>자기소개 : </span><span class="preview_tel" id="detail_RESUME_CONTENT${i}">RESUME_CONTENT</span></td></tr>
-						
-						
+						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
+						<td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
+						<tr><td><span>이메일 : </span><span class="preview_email">ikqwe31@naver.com</span></td></tr>
+						<tr><td><span>회사주소 : </span><span class="preview_road_address">경기 수원시 권선구 100-2번지 토마토빌딩</span></td></tr>
 						
 						</table>
 							
 						</div>
 						
-						<div class="preview_content">
-						<h3>시간</h3>
-						<hr>
-						<div id="detail_RESUME_ENDDAY${i}">RESUME_DATE  RESUME_ENDDAY</div>
-						</div>
-						
-						<br><br>
-						<div class="preview_content">
-						<h3>근무 가능 지역</h3>
-						<hr>
-						<div id="detail_PER_ADDRESS${i}">PER_ADDRESS</div>	
-						</div>
-						
 						<hr>
 						<div class="text-center">
-						<button class="btn btn-default btn-sm" id="click_gogogo">신청하기</button>
+						<button class="btn btn-default btn-sm" id="select00">매칭등록</button>
 						</div>
 						
 						</div>
@@ -508,10 +760,76 @@
 				</div>
 			</div>
 		</div>
-	</c:forEach>
+		
+		<!-- 여기서 부터 미리보기 모달창 -->
+		<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title preview_title" id="Modal-label-1"></h4>
+					</div>
+					<!-- 여기서 부터 미리보기 본체 -->
+					<div class="modal-body">						
+						<div class="modal-works2">
+						<div class="images">
+						<hr>
+						<h3><span class="preview_name">배스킨라빈스  </span><span> 지원자격</span></h3>
+						<table>
+						<tr><td style="width:300px"><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_img" /></td>				
+						<td><div class="preview_icon text-center service">서비스</div></td>
+						<td><div class="preview_icon text-center sex">남</div></td>	
+						<td><div class="preview_icon text-center age">24세</div></td></tr>	
+						</table>
+						<br>
+						<span class="text_12">현재 모집인원 </span><span class="preview_max text_12"></span><span class="text_12 preiview_num">/ 1 명</span>
+						<hr>
+						<br>
+						</div>
+						
+						<div class="preview_payment">
+						<h3>근무조건</h3>
+						<hr>
+						근무날짜  : <div class="preview_day">2018년 04월 16일 ~ 2018년 05월 16일</div><br>
+						근무시간 : <div class="preview_hour">09:00 ~ 18:00</div><br>
+						급여분류 : <div class="preview_pay">시급 7000원</div>
+						</div>
+						<br>
+						<div class="preview_content">
+						<h3>소개글</h3>
+						<hr>
+						<div class="preview_content_text">판매 및 매장관리 아르바이트 구합니다.</div>
+						</div>
+						<div class="preview_maps">
+						<h3>찾아오시는길</h3>
+						<hr>
+						<table class="preview_maptable">
+						<!-- 네이버 지도 api 공간  id=map 으로 줄것-->
+						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
+						<td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
+						<tr><td><span>이메일 : </span><span class="preview_email">ikqwe31@naver.com</span></td></tr>
+						<tr><td><span>회사주소 : </span><span class="preview_road_address">경기 수원시 권선구 100-2번지 토마토빌딩</span></td></tr>
+						
+						</table>
+							
+						</div>
+						
+						<hr>
+						<div class="text-center">
+						<button class="btn btn-default btn-sm"><i class="fas fa-exchange-alt"> 매칭등록</i></button>
+						</div>
+						
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		
 	</div>
-	
+	<script src="resources/js/jobsearch.js"></script>
 </body>
 </html>

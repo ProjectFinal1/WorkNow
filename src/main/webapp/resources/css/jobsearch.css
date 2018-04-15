@@ -131,8 +131,8 @@ hr {
 /* 	height:300px; */
 /* } */
 .img-responsive{
-	width:160px;
-	height:160px;
+	width:120px;
+	height:120px;
 	display: inline;
 	 float:left;
 }
@@ -458,10 +458,7 @@ header{
 	
 	background-color:#009640;
 }
-.preview_content_text
-{
-	width:90%;
-}
+
 .preview_maptable tr td:first-child
 {
 	width:40%;
@@ -487,6 +484,62 @@ header{
 .popo1111{
 	margin-left:350px;
 }
+
+
+#gggo{
+	width:100px;
+	height:35px;
+	line-height:35px;
+	color:white;
+	background-color:#636363;
+	border: 1px solid #777777;
+	border-radius: 3px;
+	text-align:center;
+}
+
+.lala1{
+	width:1000px;
+}
+
+.contents_sub{
+	font-size:17px;
+	margin-right:350px;
+	line-height:35px;
+}
+
+.contents_type{
+	margin-left:200px;
+}
+
+.contents_address{
+	font-size:18px;
+	margin-left:100px;
+	color:black;
+}
+
+.ikqwe{
+	margin-left:550px; 
+	margin-top:0px;
+}
+
+
+.preview_content_text{
+	width:500px;
+	height:200px;
+	text-align:center;
+	line-height:200px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
