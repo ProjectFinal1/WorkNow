@@ -19,14 +19,14 @@
 		<link href="resources/css/owl.carousel.css" rel="stylesheet">
 		<link href="resources/css/owl.theme.default.min.css"  rel="stylesheet">
 		<link href="resources/css/style.css" rel="stylesheet">
-		<link href="resources/css/main.css" rel="stylesheet">
+<!-- 		<link href="resources/css/main.css" rel="stylesheet"> -->
 
 		
 	</head>
 	<body id="page-top">
 	<jsp:include page="/WEB-INF/views/header/header.jsp" />
 	
-		<video autoplay loop poster="resources/movies/mainback2.mp4" muted="muted" style="opacity:0.7;width:100%;height:1000px">
+		<video autoplay loop poster="resources/movies/mainback2.mp4" muted="muted" style="opacity:0.7;width:100%;">
 			<source src = "resources/movies/mainback2.mp4" type = "video/mp4">
 		</video>
 		
@@ -41,7 +41,7 @@
 				<div class="slider-container">
 					<div class="intro-text">
 						<div class="intro-lead-in">Welcome To WorkNow</div>
-						<div class="intro-heading">원하는 알바 선택해				
+						<div class="intro-heading" style="font-size:40pt;">원하는 아르바이트 or 직원을 검색하세요!			
 						
 						</div>
 						
@@ -274,8 +274,8 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div class="section-title">
-							<h2>우리 사이트를 소개합니다</h2>
-							<p>A creative agency based on Candy Land, ready to boost your business with some beautifull templates. MOOZ Agency is one of the best in town see more you will be amazed.</p>
+							<h2>What We Got</h2>
+							<p>WorkNow에서는 아래와 같은 서비스를 제공해 드립니다.</p>
 						</div>
 					</div>
 				</div>
@@ -283,36 +283,36 @@
 					<!-- about module -->
 					<div class="col-md-3 text-center">
 						<div class="mz-module-about">
-							<i class="fa fa-briefcase ot-circle"></i>
-							<h3>이런식으로 구성되어 있습니다.</h3>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+							<i class="fa ot-circle"><img src="resources/images/WN/advertising.png" style="margin-top:25%;width:50%;"></i>
+							<h3>Job Offering</h3>
+							<p>구인공고를 등록해 구직자 모집을 보다 간편하게 할 수 있습니다.</p>
 						</div>
 					</div>
 					<!-- end about module -->
 					<!-- about module -->
 					<div class="col-md-3 text-center">
 						<div class="mz-module-about">
-							<i class="fa fa-photo ot-circle"></i>
-							<h3>이런 기능이 있습니다.</h3>
-							<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+							<i class="fa ot-circle"><img src="resources/images/WN/advertising.png" style="margin-top:25%;width:50%;"></i>
+							<h3>Job Searching</h3>
+							<p>모든 회원님들에게 당일부터 예약까지 다양한 조건의 아르바이트 검색서비스를 제공합니다.</p>
 						</div>
 					</div>
 					<!-- end about module -->
 					<!-- about module -->
 					<div class="col-md-3 text-center">
 						<div class="mz-module-about">
-							<i class="fa fa-camera-retro ot-circle"></i>
-							<h3>이빨 개 아프다</h3>
-							<p>Accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+							<i class="fa ot-circle"><img src="resources/images/WN/advertising.png" style="margin-top:25%;width:50%;"></i>
+							<h3>Matching</h3>
+							<p>검색부터 계약성사까지 몇번의 클릭만으로 제공 받을 수 있습니다.</p>
 						</div>
 					</div>
 					<!-- end about module -->
 					<!-- about module -->
 					<div class="col-md-3 text-center">
 						<div class="mz-module-about">
-							<i class="fa fa-cube ot-circle"></i>
-							<h3>이렇게 구성되어있습니다.</h3>
-							<p> Itaque earum rerum hic tenetur a sapiente, ut aut reiciendis maiores</p>
+							<i class="fa ot-circle"><img src="resources/images/WN/advertising.png" style="margin-top:25%;width:50%;"></i>
+							<h3>커뮤니티</h3>
+							<p>유저-유저, 유저-관리자와의 소통을 통해 자유로운 활동을 보조합니다.</p>
 						</div>
 					</div>
 					<!-- end about module -->
@@ -327,77 +327,64 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div class="section-title">
-							<h2>만든 사람들</h2>
-							<p>A creative agency based on Candy Land, ready to boost your business with some beautifull templates. MOOZ Agency is one of the best in town see more you will be amazed.</p>
+							<h2>Creaters</h2>
+							<p>열정을 가진 WorkNow 개발진입니다!</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<!-- team member item -->
-					<div class="col-md-4">
+					<div class="col-md-4" style="wideh:25%">
 						<div class="team-item">
 							<div class="team-image">
 								<img src="resources/images/demo/author-2.jpg" class="img-responsive" alt="author">
 							</div>
 							<div class="team-text">
 								<h3>김윤환</h3>
-								<div class="team-position">팀장</div>
-								<p>Mida sit una namet, cons uectetur adipiscing adon elit. Aliquam vitae barasa droma.</p>
+								<div class="team-position">Team-leader</div>
+								<p>저희가 만든 홈페이지를 통해 예고치 않은 일정 조율로 인한 부득이한 인력모집에 효율성을 부여하고자 했습니다.</p>
 							</div>
 						</div>
 					</div>
 					<!-- end team member item -->
 					<!-- team member item -->
-					<div class="col-md-4">
+					<div class="col-md-4" style="wideh:25%">
 						<div class="team-item">
 							<div class="team-image">
 								<img src="resources/images/demo/author-6.jpg" class="img-responsive" alt="author">
 							</div>
 							<div class="team-text">
-								<h3>김태용</h3>
-								<div class="team-position">팀원</div>
+								<h3>박용준</h3>
+								<div class="team-position">Developer</div>
 								<p>Worsa dona namet, cons uectetur dipiscing adon elit. Aliquam vitae fringilla unda mir.</p>
 							</div>
 						</div>
 					</div>
 					<!-- end team member item -->
+					
 					<!-- team member item -->
-					<div class="col-md-4">
+					<div class="col-md-4" style="wideh:25%">
 						<div class="team-item">
 							<div class="team-image">
 								<img src="resources/images/demo/author-4.jpg" class="img-responsive" alt="author">
 							</div>
 							<div class="team-text">
-								<h3>황철호</h3>
-								<div class="team-position">팀원</div>
+								<h3>김태용</h3>
+								<div class="team-position">Pro-Tester</div>
 								<p>Dolor sit don namet, cons uectetur beriscing adon elit. Aliquam vitae fringilla unda.</p>
 							</div>
 						</div>
 					</div>
 					<!-- end team member item -->
 					<!-- team member item -->
-					<div class="col-md-4">
-						<div class="team-item">
-							<div class="team-image">
-								<img src="resources/images/demo/author-4.jpg" class="img-responsive" alt="author">
-							</div>
-							<div class="team-text">
-								<h3>박용준</h3>
-								<div class="team-position">팀원</div>
-								<p>Dolor sit don namet, cons uectetur beriscing adon elit. Aliquam vitae fringilla unda.</p>
-							</div>
-						</div>
-					</div>
-					<!-- end team member item -->
-					<!-- team member item -->
-					<div class="col-md-4">
+					<div class="col-md-4" style="wideh:25%">
 						<div class="team-item">
 							<div class="team-image">
 								<img src="resources/images/demo/author-4.jpg" class="img-responsive" alt="author">
 							</div>
 							<div class="team-text">
 								<h3>이성우</h3>
-								<div class="team-position">변태</div>
+								<div class="team-position">Developer</div>
 								<p>Dolor sit don namet, cons uectetur beriscing adon elit. Aliquam vitae fringilla unda.</p>
 							</div>
 						</div>
@@ -489,6 +476,6 @@
 		-->
 		
 
-
+<link href="resources/css/main.css" rel="stylesheet">
 	</body>
 </html>

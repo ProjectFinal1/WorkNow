@@ -43,7 +43,7 @@ body {
 
 video {
 	position : fixed;
-	top : 0; 
+	top : -200; 
 	left : 0;
 	min-width : 100 %;
 	min-height : 100 %;
@@ -350,8 +350,8 @@ header .intro-text .intro-heading {
 }
 
 .ot-circle {
-	height: 95px;
-	width: 95px;
+	height: 170px;
+	width: 170px;
 	text-align: center;
 	line-height: 98px;
 	color: #FFFFFF;

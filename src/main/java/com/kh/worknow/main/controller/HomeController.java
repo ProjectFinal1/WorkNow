@@ -36,10 +36,8 @@ public class HomeController {
 
 		return "Main";
 	}
-	
 
-		
-	
+
 	//구직 조건 검색
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_job.ma")
