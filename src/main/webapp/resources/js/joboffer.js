@@ -325,7 +325,7 @@ $(document).ready(function(){
 					    				break;
 					    			}
 					    	}
-	
+				    	}
 			    },
 			    error : function(jqXHR, textStatus, errorThrown) {
 			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);

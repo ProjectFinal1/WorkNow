@@ -206,8 +206,50 @@ function passCheck2(){
 					<i class="glyphicon glyphicon-globe"></i>
 					</a> 개인회원가입
 				</legend>
+				
+				<script>
+				function agreeopen1(){					
+					$("#agreeclose1").show();
+					$("#agreeopen1").hide();
+					$("#agree1").fadeIn(700);
+				}
+				
+				function agreeclose1(){
+					$("#agreeclose1").hide();
+					$("#agreeopen1").hide();
+					$("#agree1").fadeIn(700);					
+				}
+				function agreeopen2(){				
+					
+				}
+				
+				function agreeclose2(){
+					
+				}
+				</script>
+				
 				<form action="persignup.pe" method="post" class="form" enctype="multipart/form-data">
-					<label>프로필 사진</label>
+				<label>이용약관</label><p>
+				<label><font color="red">[필수]</font>개인정보 이용 약관 동의</label>
+					<input type="checkbox" required> 
+					<label id="agreeopen1" onclick="agreeopen1();" style="float:right;">펼치기</label>
+					<label id="agreeclose1" onclick="agreeclose1();" style="display:none;float:right;">숨기기</label>
+					<textarea id="agree1" style="display:none;resize:none;width:100%;">개정일자 : 2017년 9월 25일
+제1조 (목적)
+본 약관은 잡코리아 유한회사 (이하 "회사")가 운영하는 "서비스"를 이용함에 있어 "회사"와 회원간의 이용 조건 및 제반 절차, 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 한다.
+제2조 (용어의 정의)
+이 약관에서 사용하는 용어의 정의는 아래와 같다.
+① "사이트"라 함은 회사가 서비스를 "회원"에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 설정한 가상의 영업장 또는 회사가 운영하는 웹사이트, 모바일웹, 앱 등의 서비스를 제공하는 모든 매체를 통칭하며, 통합된 하나의 회원 계정(아이디 및 비밀번호)을 이용하여 서비스를 제공받을 수 있는 아래의 사이트를 말한다.
+- www.jobkorea.co.kr
+- www.albamon.com
+- www.campusmon.com
+- m.jobkorea.co.kr
+- m.albamon.com
+② "서비스"라 함은 회사가 운영하는 사이트를 통해 개인이 구직, 교육 등의 목적으로 등록하는 자료를 DB화하여 각각의 목적에 맞게 분류 가공, 집계하여 정보를 제공하는 서비스와 사이트에서 제공하는 모든 부대 서비스를 말한다.
+③ "회원"이라 함은 "회사"가 제공하는 서비스를 이용하거나 이용하려는 자로, 페이스북 등 외부 서비스 연동을 통해 "회사"와 이용계약을 체결한자 또는 체결하려는 자를 포함하며, 아이디와 비밀번호의 설정 등 회원가입 절차를 거쳐 회원가입확인 이메일 등을 통해 회사로부터 회원으로 인정받은 "개인회원"을 말한다. </textarea>
+				
+				
+					<label>프로필 사진</label>					
 
 					
 					<article>
