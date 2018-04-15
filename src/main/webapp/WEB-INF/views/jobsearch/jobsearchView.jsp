@@ -831,5 +831,6 @@
 		
 	</div>
 	<script src="resources/js/jobsearch.js"></script>
+
 </body>
 </html>

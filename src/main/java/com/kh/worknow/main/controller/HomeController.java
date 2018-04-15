@@ -36,7 +36,7 @@ public class HomeController {
 
 		return "Main";
 	}
-	
+
 	//구직 조건 검색
 	@SuppressWarnings("unchecked")
 	@RequestMapping("search_job.ma")
@@ -68,8 +68,8 @@ public class HomeController {
 		HashMap<String, String> jobMap2 = new HashMap<String, String>();
 		jobMap2.put("result_address1", result_address1);
 		jobMap2.put("result_address2", result_address2);
-		
-		
+
+    
 		//직종, 시작시간, 끝시간으로 구직검색
 		ArrayList<Job_Board> jblist = jbService.search_job(jobMap);
 		JSONArray jarr = new JSONArray();
@@ -121,12 +121,7 @@ public class HomeController {
 		
 		out.flush();
 		out.close(); 
-	}
-	
-	
-
-	
-		
+	}	
 }
 
 

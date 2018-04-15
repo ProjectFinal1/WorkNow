@@ -93,9 +93,7 @@ public class RboardController {
 		
 		//주소를 통해 personal_view 정보를 얻어온다.
 		ArrayList<Personal_View> pvlist = rbService.pv_search(pvMap);
-		
-		
-		
+
 		JSONArray jarr = new JSONArray();
 		
 		if(pvlist.isEmpty()) {
@@ -187,7 +185,7 @@ public class RboardController {
 		list.put("endrow", endrow);
 		
 		jarr.add(list);
-		
+
 		System.out.println("size = " + jarr.size());
 		System.out.println(jarr.toJSONString());
 		
@@ -202,10 +200,5 @@ public class RboardController {
 		out.close();	
 						
 	}
-		
-	
-	
-	
-	
 	
 }
