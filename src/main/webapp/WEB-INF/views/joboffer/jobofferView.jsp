@@ -25,14 +25,13 @@
 <title>WorkNow - 구인하기</title>
 <!-- Bootstrap core CSS -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet"
+<link rel="stylesheet" 
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- Custom styles for this template -->
 <link href="resources/css/owl.carousel.css" rel="stylesheet">
 <link href="resources/css/owl.theme.default.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/joboffer.css" rel="stylesheet">
-
 
 <style>
 #label-1 {
@@ -356,7 +355,10 @@
 				   	   	<div><p id="KategorieList">근무일</p>
 			  			시작일 &nbsp;<input type="date" id="job_start2"value="2018-04-16"><br><br>
 		  				종료일 &nbsp;<input type="date" id="job_end2" value="2018-05-16"><br><br>
-		  				<a class="select_time"  href="#" onclick= "return false;">근무일 선택</a>
+		  				<div class="select_time2">
+		  					<a class="select_time"  href="#" onclick= "return false;">근무일 선택</a>
+		  				</div>
+
 						</div>				
 				      </td>
 				    </tr>
@@ -369,7 +371,8 @@
 				      	<div style="display:none;" id="result_select5"></div>
 				      </th>
 				      <th> <div id="search_go">
-				      <a href="#" class="testt" id="rb_search">		
+				      <a href="#" class="rb_search" id="100">		
+
 				      <span class="glyphicon glyphicon-search" aria-hidden="true" style="color:white">검색</span>
 					  </a></div></th>
 				      <th>
@@ -379,11 +382,6 @@
 				  </tbody>
 				</table>
 				
-		
-		
-		
-		
-
 		</div>
 
 		<p id="back-top">
@@ -392,115 +390,106 @@
 		
 		
 		<!-- 목록 나오는 부분 -->	
-		
-		<table class="table">
+		<table class="table table22 searchTitle">
 		  <thead>
 		    <tr>
- 		      <th scope="col">인재정보</th>
-		      <th scope="col"></th>
+ 		      <th scope="col" style="visibility: hidden;" id="searchTitle">인재정보</th>
+		      <th scope="col" style="visibility: hidden;" id="searchTitle"></th>
 		    </tr>
-		  </thead>
-		  <tbody>
-		  	<c:forEach var="i" begin="0" end="5" step="1">
-			    <tr>
-			      <td>
-			      	<div class="tettt">
-						<div class="" >
-							<figure class="effect-bubba" id="result_1">
-								<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-								<a class="subject_result${i}">검색결과없음
-								</a>
-								<a class="contents_result${i}">																			
-								</a>
-								<figcaption>
-									<h2>상세히 보고싶으면 클릭해주세요</h2>
-									<p>상세히 보기</p>
-									<a href="#" data-toggle="modal" data-target="#Modal${i}">View more</a>
-								</figcaption>
-							</figure>
-						</div> 
-					</div>
-			      </td>
-			      <td>
-			      	<div class="tettt">
-						<div class="" >
-							<figure class="effect-bubba" id="result_1">
-								<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" />
-								<a class="subject_result${i}">검색결과없음
-								</a>
-								<a class="contents_result${i}">																			
-								</a>
-								<figcaption>
-									<h2>상세히 보고싶으면 클릭해주세요</h2>
-									<p>상세히 보기</p>
-									<a href="#" data-toggle="modal" data-target="#Modal${i}">View more</a>
-								</figcaption>
-							</figure>
-						</div> 
-					</div>
-			      </td>				       
-			    </tr> 
-		    </c:forEach>
-		  </tbody>
+		  </thead>		  	
+			  <tbody id="tbody2">
+						
+<!-- 						<table class='table twotable'> 				    				 -->
+<!-- 				    				<tr>  -->
+<!-- 							      <td>  -->
+<!-- 								      <div class=''>  -->
+<!-- 										<div class=''>  -->
+<!-- 											<div class=''>  -->
+<!-- 													<div class=''>  -->
+<!-- 														<div class='ot-portfolio-item' >  -->
+<!-- 															<figure class='effect-bubba' id='resultall'>  -->
+<!-- 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' />  -->
+<!-- 																<div class="contents_all"> -->
+<!-- 																	<a class='subject_result'> 이성우</a> <a class="contents_agesex"> (남자 27세)</a><br> -->
+																	
+<!-- 																	<a class='contents_contents'> 열심히 성실히 일하도록 하겠습니다.  <br> 														 -->
+<!-- 																	</a>  -->
+<!-- 																	<a class='contents_address'>	경기도 수원시 권선구 <br> 																	 -->
+<!-- 																	</a>  -->
+<!-- 																	<a class='contents_type'>	서비스,it관련 <br>  																	 -->
+<!-- 																	</a>  -->
+<!-- 																</div> -->
+																
+<!-- 																<figcaption>  -->
+<!-- 																	<h2>상세히 보고 싶으시면 클릭해주세요</h2>  -->
+<!-- 																	<p>상세히 보기</p>  -->
+<!-- 																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a>  -->
+<!-- 																</figcaption>  -->
+<!-- 															</figure>  -->
+<!-- 														</div>  -->
+<!-- 													</div>  -->
+<!-- 											</div>  -->
+<!-- 										</div>  -->
+<!-- 										</div> -->
+<!-- 							      </td>  -->
+<!-- 							     </tr>  -->
+<!-- 							   </table> -->
+						
+						
+			 </tbody>	
 		</table>
-		
-		
-		
-		
-			
-<!-- 		<div class="search_result_background search_result"> -->
-<!-- 			<div class="search_result"> -->
-<%-- 					<c:forEach var="i" begin="0" end="9" step="1"> --%>
-<!-- 						<div class="tettt"> -->
-<!-- 							<div class="" > -->
-<!-- 								<figure class="effect-bubba" id="result_1"> -->
-<!-- 									<img src="resources/images/demo/shop-icon.png" alt="img02" class="img-responsive" /> -->
-<%-- 									<a class="subject_result${i}">검색결과없음 --%>
-<!-- 									</a> -->
-<%-- 									<a class="contents_result${i}">																			 --%>
-<!-- 									</a> -->
-<!-- 									<figcaption> -->
-<!-- 										<h2>상세히 보고싶으면 클릭해주세요</h2> -->
-<!-- 										<p>상세히 보기</p> -->
-<%-- 										<a href="#" data-toggle="modal" data-target="#Modal${i}">View more</a> --%>
-<!-- 									</figcaption> -->
-<!-- 								</figure> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<%-- 					</c:forEach> 							 --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
+				
+<!-- 		<table class="table table22 searchTitle"> -->
+<!-- 		  <thead> -->
+<!-- 		    <tr> -->
+<!--  		      <th scope="col" style="visibility: hidden;" id="searchTitle">인재정보</th> -->
+<!-- 		      <th scope="col" style="visibility: hidden;" id="searchTitle"></th> -->
+<!-- 		    </tr> -->
+<!-- 		  </thead>		  	 -->
+<!-- 			  <tbody id="tbody2"> -->
 	
+<!-- 			 </tbody>	 -->
+<!-- 		</table> -->
+		
+		
+		<div class='pagelist'>
+		</div>
 	
-	
-
-	<div class="modal fade" id="view-1" tabindex="-1" role="dialog"
-		aria-labelledby="Modal-label-1">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="Modal-label-1">CU 수원역점</h4>
-				</div>
-				<div class="modal-body">
-					<div class="modal-works">
-						<img src="resources/images/demo/다운로드.jpg" alt="매장 아이콘."
-							class="img_content" /> <span>테스트트트트틑</span><span>내용</span> <span>근무조건</span><span>주소</span>
-
+		<!-- 상세히 보기 -->
+		<c:forEach var="i" begin="0" end="9" step="1">
+			<div class="modal fade" id="Modal${i}" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="Modal-label-1 detail_sub${i}"></h4>
 					</div>
-					<p>성실한 사람을 원합니다!!! 이성우 같이 성실한 사람만 지원하세요</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Select</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<div class="modal-body">						
+						<div class="modal-works">
+						<img src="resources/images/demo/shop-icon.png" alt="매장 아이콘." class="img_content" />
+						<pre>		
+						<span>매장명</span><b id="balckblack">view연결 해야함 <br></b><span>내용</span>
+						<span>근무조건</span><span>주소</span>
+						</pre>				
+						
+						</div>
+						<p id="detail_sub${i}"></p>
+						<p id="detail_content${i}"></p>
+						<p id="detail_value${i}"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div>					
+		</c:forEach> 		
+	
+
+		
+		
 	</div>
-	</div>
+
 	
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="resources/js/joboffer.js"></script>

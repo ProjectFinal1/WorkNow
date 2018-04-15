@@ -69,4 +69,3 @@
   		values(#{memberId},#{comNumber},#{comName},#{comAddress},#{comCeo},#{comPhone})
   	</insert>
 </mapper>
-

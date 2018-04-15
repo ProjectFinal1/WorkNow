@@ -24,6 +24,7 @@
 <title>WorkNow - boardListView</title>
 <!-- Bootstrap core CSS -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- Custom styles for this template -->
@@ -87,6 +88,7 @@
 	</c:url>
 	<a href="${bdetail}">${b.boardSubject}</a>
 	</c:if><c:if test="${empty member}">
+
 	${b.boardSubject}
 	</c:if> <c:url var="bdetail" value="/bdetail.do">
 						<c:param name="bnum" value="${b.boardNum}" />
@@ -123,6 +125,7 @@
 					</c:if>
 				</c:forEach> <c:if test="${currentPage >= maxPage}">
 		[다음]
+
 	</c:if> <c:if test="${currentPage < maxPage}">
 					<c:url var="blistEND" value="/fboard.bo">
 						<c:param name="page" value="${currentPage+1}" />

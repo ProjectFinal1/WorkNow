@@ -143,17 +143,18 @@
 	</div>
 
 
+
 	<div class="receivelist" style="display:inline;">
 		<h2>받은 신청 목록</h2>
 		<hr>
 
 		<c:forEach var="resume" items="${list}">
-
 			<!-- 반복문 시작 -->
 
 			<div style="margin: 0 20% 0 0">
 			
 			<input id="${resume.resumeId}" type="text" value="${resume.resumeId}" style="display:none;">
+
 				<table style="width: 100%; table-layout: fixed">
 					<tr>
 						<td rowspan="2"  class="member_Id">
@@ -166,7 +167,6 @@
 						</td>
 
 						<td style="width: 70%; display: inline; float: left;"  class="title">
-
 							<%-- 제목 --%>
 							<h5>제목 쓰는곳</h5>
 						</td>
@@ -191,6 +191,7 @@
 			
 		</c:forEach>
 		<!-- 반복문 종료 -->
+
   </div>
 <div style="margin:auto;height:500px;display:inline">
 	<table align="center" height="20" style="display:inline;margin:auto;">
@@ -223,6 +224,7 @@
 				</c:if></td>
 		</tr>
 	</table>
+
 	
 	<script>
 		function receivedetail(){

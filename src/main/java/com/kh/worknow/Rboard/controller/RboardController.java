@@ -93,7 +93,7 @@ public class RboardController {
 		
 		//주소를 통해 personal_view 정보를 얻어온다.
 		ArrayList<Personal_View> pvlist = rbService.pv_search(pvMap);
-		
+
 		JSONArray jarr = new JSONArray();
 		
 		if(pvlist.isEmpty()) {
@@ -136,6 +136,7 @@ public class RboardController {
 					System.out.println("time = " + new SimpleDateFormat("HHmm").format(rb.getRESUME_ENDTIME()));
 					System.out.println(startday + "   " + endday);
 					
+					list.put("RESUME_TYPE", rb.getRESUME_TYPE());
 					list.put("RESUME_STARTDAY", startday);	//시작 날
 					list.put("RESUME_ENDDAY", endday);		//끝나는 날
 					list.put("RESUME_CONTENT", rb.getRESUME_CONTENT());
@@ -143,11 +144,48 @@ public class RboardController {
 					jarr.add(list);	
 				}
 			}//for(Personal_View pv : pvlist) 끝
-			
-			
-			
 		}//pvlist.isEmpty() 끝
 		
+		int page = 1;
+		
+		int limit = 10;
+		
+		
+		
+		System.out.println("넘어온 페이지 = " + page);
+		
+		int listcount = jarr.size();
+		System.out.println("총 리스트 수 = " + listcount);
+		
+		int maxpage = (listcount + limit-1)/limit;
+		System.out.println("총 페이지 수 = " + maxpage);
+		
+		int startpage = ((page-1)/10) * 10 + 1;
+		System.out.println("현재 페이지에 보여줄 시작 페이지 수 = " + startpage);
+		
+		//endpage 현재 페이지 그룹에서 보여줄 마지막 페이지 수 ([10],[20],[30])
+		int endpage = startpage + 10 -1;
+		System.out.println("현제 페이지에 보여줄 마지막 페이지 수 = " + endpage);
+		
+		if(endpage>maxpage) endpage = maxpage;
+		
+		//한 페이지 당 10개씩 목록인 경우		1페이지	2페이지	3페이지	4페이지
+		int startrow=(page-1) * limit + 1;	//읽기 시작할 row 번호(	1		11		21		31
+		int endrow = startrow + limit - 1;  //읽을 마지막 row 번호(	10		20		30		40
+		
+		
+		JSONObject list = new JSONObject();	
+		list.put("page", page); //현재 페이지 수
+		list.put("maxpage", maxpage); //최대 페이지 수
+		list.put("startpage", startpage);//현재 페이지에 표시할 첫 페이지 수
+		list.put("endpage", endpage);//현재 페이지에 표시할 끝 페이지 수
+		list.put("listcount", listcount); //총 글의 수
+		
+		list.put("startrow", startrow);
+		list.put("endrow", endrow);
+		
+		jarr.add(list);
+
 		System.out.println("size = " + jarr.size());
 		System.out.println(jarr.toJSONString());
 		
@@ -162,10 +200,5 @@ public class RboardController {
 		out.close();	
 						
 	}
-		
-	
-	
-	
-	
 	
 }

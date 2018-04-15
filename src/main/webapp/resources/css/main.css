@@ -3,6 +3,7 @@
 
 .kategorie{width:500px;background:gray; color:white;}
 .search{color:black}
+
 .header_main{ padding-right: 0;
   	 		 padding-left: 0;
   	 		 max-height: 340px;
@@ -91,6 +92,7 @@ dd.hidden {display: none;}
 
 /* 구인찾기 돋보기 */
 #search_address2{width:5%}
+
 
 .sel_address1{margin-left:20px;}
 .select_test{display:block; width:80%; text-align:left; font-size:14px; color:black; margin-left:10px;

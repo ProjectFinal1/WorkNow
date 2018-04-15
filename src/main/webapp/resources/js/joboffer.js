@@ -8,6 +8,7 @@ $(document).ready(function(){
 	var startDate;	//시작 시간
 	var endDate;	//끝 시간
 	
+	var str;
 	
 	//첫번째 주소 클릭
 	$('.select_test').click(function(){
@@ -204,7 +205,7 @@ $(document).ready(function(){
 	
 	
 	// 구인찾기 검색 클릭
-	$("#rb_search").click(function(){		
+	$(".rb_search").click(function(){		
 			//성별
 			var sex = $("input:radio[name=sex]:checked").val();
 			
@@ -220,6 +221,7 @@ $(document).ready(function(){
 			job_end2 = job_end2.replace(/-/g, "");
 			
 			
+
 			$.ajax({
 			    url : "search_address.rb",
 			    type : "GET",
@@ -235,23 +237,120 @@ $(document).ready(function(){
 			    success : function(rboard) {
 			    		if(rboard[0] == null){
 				    		alert("결과값이 없습니다");
-				    		$(".search_result").css("visibility", "hidden"); 
-				    		$(".search_all").show();
 				    	}else{
-				    		$(".search_all").hide();
-							$(".search_result").css("visibility", "visible"); 
-				    		for(var n=0; n<rboard.length; n++){
-					    		$('.subject_result' + n).html(rboard[n].JOB_SUBJECT + "<br><br>");
-						    	$('.subject_result' + n).css("color","white").css("font-size","15px");
-						    	$('.contents_result' + n).html(rboard[n].JOB_STARTDAY + " ~ " + rboard[n].JOB_ENDDAY
-						    			+ "<br>시급: " + rboard[n].JOB_VALUE+"원<br>" + "위치 : " + rboard[n].COM_ADDRESS);
-						        $('.contents_result' + n).css("color","white").css("font-size","12px");
-						        
-						        $('#detail_sub'+ n).html(rboard[n].JOB_SUBJECT);
-						        $('#detail_content'+ n).html(rboard[n].JOB_CONTENT);
-						        $('#detail_value'+ n).html(rboard[n].JOB_VALUE + "원");
-					    	}	  
-				    	}			    	
+				    		$("#tbody2").empty();
+				    		$(".pagelist").empty();
+				    		$("#searchTitle").fadeIn();
+				    		
+				    		var startrow = rboard[rboard.length-1].startrow;
+				    		var endrow = rboard[rboard.length-1].endrow;
+				    		
+				    		var listcount = rboard[rboard.length-1].listcount;
+				    		var nowpage = rboard[rboard.length-1].page;
+				    		var maxpage = rboard[rboard.length-1].maxpage;
+				    		var startpage = rboard[rboard.length-1].startpage;
+				    		var endpage = rboard[rboard.length-1].endpage;
+				    		
+				    		if(nowpage<=1){ //1페이지 이하인 경우 %>
+			    				$(".pagelist").append("[이전] "); 
+			    			}else{  //2페이지 이상인 경우 - 한 페이지 적은 페이지로 이동 %>
+			    				$(".pagelist").append("<a class='asd' href='#'>");
+			    				$(".pagelist").append("[이전]</a> ");
+			    			} 
+			    				
+			    			for(var a=startpage; a<= endpage; a++){
+			    				if(a==nowpage){  // 현재 페이지 - 링크 걸지 않습니다.
+			    					$(".pagelist").append("<span id='nowwordlist' class='asd'>" + a + "</span>");
+			    				}else{ //현재 페이지 아닌 경우 링크 겁니다.
+			    					$(".pagelist").append("<a href='#' id='1' class='asd'>" + a + "</a>");
+			    				}
+			    			}
+			    			
+			    			//현재 페이지가 가장 큰 페이지보다 크거나 같은 경우 [다음]링크에 걸지 않습니다
+			    			if(nowpage >= maxpage){
+			    				$(".pagelist").append("[다음]");
+			    			}else{
+			    				$(".pagelist").append("<a class='asd'>[다음]</a>");
+			    			}	
+				    		
+				    		for(var n=startrow-1; n<endrow-1; n++){
+				    			str = "<table class='table twotable'>" +				    				
+				    				"<tr>" +
+							      "<td>" +
+								      "<div class=''>" +
+										"<div class=''>" +
+											"<div class=''>" +
+													"<div class=''>" +
+														"<div class='ot-portfolio-item' >" +
+															"<figure class='effect-bubba' id='resultall'>" +
+																"<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' />" +
+																"<div class='contents_all'>" + 
+																"<a class='subject_result''>" + rboard[n].MEMBER_NAME + "</a> <a class='contents_agesex'>(" + rboard[n].PER_SEX + "자 " + rboard[n].PER_AGE +  "세)</a><br>" +
+																"</a>" +
+																"<a class='contents_contents'>"+	rboard[n].PER_TALK + "<br>" +															
+																"</a>" +
+																"<a class='contents_address'>"+	rboard[n].RESUME_TYPE +"<br>" + 																	
+																"</a>" +
+																"<a class='contents_type'>"+	rboard[n].PER_ADDRESS +"<br>" + 																	
+																"</a>" +
+																"</div>" + 
+																
+																"<figcaption>" +
+																	"<h2>상세히 보고 싶으시면 클릭해주세요</h2>" +	
+																	"<p>상세히 보기</p>" +
+																	"<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a>" +
+																"</figcaption>" +
+															"</figure>" +
+														"</div>" +
+													"</div>" +
+											"</div>" +
+										"</div>" +
+										"</div>";
+							      "</td>" +
+							     "</tr>" +
+							     "</table>";
+							      
+//							      str = "<table class='table twotable'>" +				    				
+//				    				"<tr>" +
+//							      "<td>" +
+//								      "<div class=''>" +
+//										"<div class=''>" +
+//											"<div class=''>" +
+//													"<div class=''>" +
+//														"<div class='ot-portfolio-item' >" +
+//															"<figure class='effect-bubba' id='resultall'>" +
+//																"<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' />" +
+//																"<div class='contents_all'>"
+//																"<a class='subject_result''>" + rboard[n].MEMBER_NAME + "</a> <a class='contents_agesex'>(" + rboard[n].PER_SEX + "자 " + rboard[n].PER_AGE +  "세)</a><br>" +
+//																
+//																"<a class='contents_contents'>"+	rboard[n].PER_TALK + "<br>" +															
+//																"</a>" +
+//																"<a class='contents_address'>"+	rboard[n].PER_ADDRESS +"<br>" + 																	
+//																"</a>" +
+//																"<a class='contents_type'>"+	rboard[n].RESUME_TYPE +"<br>" + 																	
+//																"</a>" +
+//																"</div>"
+//																"<figcaption>" +
+//																	"<h2>상세히 보고 싶으시면 클릭해주세요</h2>" +	
+//																	"<p>상세히 보기</p>" +
+//																	"<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a>" +
+//																"</figcaption>" +
+//															"</figure>" +
+//														"</div>" +
+//													"</div>" +
+//											"</div>" +
+//										"</div>" +
+//										"</div>";
+//							      "</td>" +
+//							     "</tr>" +
+//							     "</table>";
+							      
+					    			$("#tbody2").append(str); 
+					    			if(rboard[n+1].PER_TALK == null){
+					    				break;
+					    			}
+					    	}
+	
 			    },
 			    error : function(jqXHR, textStatus, errorThrown) {
 			        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
@@ -259,5 +358,4 @@ $(document).ready(function(){
 			});
 			
 	});
-	
 });

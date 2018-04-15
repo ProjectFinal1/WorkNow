@@ -25,6 +25,7 @@
   		<result property="perPhoto"  column="PER_PHOTO"/>  		  	
 	</resultMap>
 	
+
 	<resultMap id="resultResume_Request" type="Resume_Request">
 	<id property="resumeId" 	   column="RESUME_ID" />
 		<result property="resumeDate" 		column="RESUME_DATE"/>
@@ -83,13 +84,14 @@
 	<!-- 검색하면 나오는 목록 페이징 처리 -->
 	<select id="getSearchListCount" resultType="_int">
  		SELECT NVL(count(*), 0) FROM Personal_Resume where resume_public = '1'
-  	</select>
+ 	</select>
   	
   	<!-- 검색하면 나오는 목록을 받아오는 쿼리 -->
   	<select id="selectList" resultMap="resultPersonalResume">		
 		SELECT * FROM Personal_Resume where resume_public = '1'
 	</select>
 	
+
 	<!-- 구직자로부터 받은신청리스트를 페이징 처리 -->
 	<select id="getListCount" resultType="_int">
  		SELECT NVL(count(*), 0) FROM RESUME_REQUEST where REQUEST_TYPE = '0'

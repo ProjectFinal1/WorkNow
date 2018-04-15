@@ -47,6 +47,7 @@
 						<li class="hidden">
 							<a href="#page-top"></a>
 						</li>
+
 						<li>
 						
 						
@@ -135,6 +136,7 @@
 			</div>
 			<!-- /.container-fluid -->
 		</nav>
+
 		<!-- 
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
 		
