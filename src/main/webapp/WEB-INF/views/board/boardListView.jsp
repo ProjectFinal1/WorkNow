@@ -64,6 +64,11 @@
 
 
 
+
+
+
+
+
 <table align="center" border="1" cellspacing="0" width="700" id="tb">
 <tr><th>번호</th><th>제목</th><th>작성자</th><th>날짜</th>
 <th>조회수</th><th>첨부파일</th></tr>

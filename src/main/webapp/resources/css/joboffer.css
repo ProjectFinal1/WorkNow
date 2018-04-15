@@ -80,15 +80,28 @@ hr {
 	margin-left:10px;
 }
 
-.select_time{
-	width:100px;
-	height:35px;
-	line-height:35px;
-	color:black;
-	background-color:#d5ffff;
-	border: 1px solid #f0f0f0;
+.select_time2{
+	width:90px;
+	height:30px;
+	line-height:28px;
+	background-color:#dadada;
+	border: 1px solid #c0c0c0;
 	border-radius: 3px;
 	text-align:center;
+	margin-left:120px;
+}
+
+.select_time{
+	color:#400040;
+}
+
+.select_time2:hover{
+	background-color:#edb303;
+}
+
+.select_time:hover{
+	text-decoration:none;
+	color:white;
 }
 
 /* 밑줄길이용 */
@@ -121,13 +134,97 @@ hr {
 	width:160px;
 	height:160px;
 	display: inline;
+	 float:left;
 }
 
 figure.effect-bubba h2{
+	color:black;
 	padding-top:7%;
 }
 
 .figure.effect-bubba p{
+	color:black;
 	padding:0px;
+}
+
+.table22{
+	width:80%;
+	margin:auto;
+}
+
+.content_div{
+	margin-top:20px;
+	float:left;
+}
+ 
+/* 결과 목록 배경색 */
+figure.effect-bubba{
+	background-color:#f9f9f9;
+	border: 1px solid #d6d6d6;
+}
+
+.tettt{
+	border: 1px solid #d6d6d6;
+}
+
+
+/* 리스트 목록 */
+.pagelist{
+	margin-top: 25px;
+    width: 1000px;
+    height: 100px;
+    text-align: center;
+    margin-left:120px;
+}
+
+
+.asd{
+	margin: 0 0 10px 10px;
+}
+
+
+.twotable{
+	width:50%;
+	float:left;
+}
+
+
+/* 결과값 목록 내용들  */
+.contents_all{
+	margin-top:30px;
+	margin-left:170px;
+}
+
+/* 결과값 목록 내용들  */
+#resultall{
+	text-align: start;
+}
+
+/* 결과값 목록 내용들  */
+.subject_result{
+	color:black;
+	font-size:14px;
+}
+/* 결과값 목록 내용들  */
+.contents_agesex{
+	margin-top:10px;
+	color:#a5a5a5;
+	font-size:13px;
+}
+/* 결과값 목록 내용들  */
+.contents_contents{
+	margin-top:10px;
+	color:black;
+	font-size:14px;
+}
+/* 결과값 목록 내용들  */
+.contents_address{
+	color:#53a9ff;
+	font-size:13px;
+}
+/* 결과값 목록 내용들  */
+.contents_type{
+	color:#aaaaaa;
+	font-size:13px;
 }
 

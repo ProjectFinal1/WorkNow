@@ -450,7 +450,7 @@
 											<a class="contents_result${i}">																			
 											</a>
 											<figcaption>
-												<h2>가게 이름</h2>
+												<h2>가게 이름</h2>	
 												<p>상세히 보기</p>
 												<a href="#" data-toggle="modal" data-target="#Modal${i}">View more</a>
 											</figcaption>
