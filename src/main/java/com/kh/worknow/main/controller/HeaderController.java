@@ -28,88 +28,89 @@ import com.kh.worknow.main.model.service.SearchService;
 @Controller
 public class HeaderController {
 
-	@Autowired
-	private SearchService sService;
+   @Autowired
+   private SearchService sService;
 
-	// 구인페이지
-	@Autowired
-	private Resume_BoardService Resume_BoardService;
-	
-	@RequestMapping(value = "admin.ad", method = RequestMethod.GET)
-	public String adminpage(Locale locale, Model model) {
+   // 구인페이지
+   @Autowired
+   private Resume_BoardService Resume_BoardService;
+   
+   @RequestMapping(value = "admin.ad", method = RequestMethod.GET)
+   public String adminpage(Locale locale, Model model) {
 
-		System.out.println("관리자 페이지");
+      System.out.println("관리자 페이지");
 
-		return "/admin/adminMain";
-	}
+      return "/admin/adminMain";
+   }
 
-	@RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
-	public String gotoJoboffer(Locale locale, Model model) {
+   @RequestMapping(value = "jobofferView.jo", method = RequestMethod.GET)
+   public String gotoJoboffer(Locale locale, Model model) {
 
-		System.out.println("구인자 이용 페이지");
+      System.out.println("구인자 이용 페이지");
 
-		return "/joboffer/jobofferView";
-	}
+      return "/joboffer/jobofferView";
+   }
 
-	@RequestMapping(value = "home.ma", method = RequestMethod.GET)
-	public String home2(Locale locale, Model model) {
-		System.out.println("로고를 통한 메인 접속");
+   @RequestMapping(value = "home.ma", method = RequestMethod.GET)
+   public String home2(Locale locale, Model model) {
+      System.out.println("로고를 통한 메인 접속");
 
-		return "Main";
-	}
+      return "Main";
+   }
 
-	@RequestMapping(value = "login.lo", method = RequestMethod.GET)
-	public String loginView(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+   @RequestMapping(value = "login.lo", method = RequestMethod.GET)
+   public String loginView(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 
-		HttpSession session = request.getSession();
+      HttpSession session = request.getSession();
 
-		if (session.getAttribute("member") != null) {
-			PrintWriter out;
-			try {
-				response.setContentType("text/html; charset=UTF-8");
-				out = response.getWriter();
-				out.println("<script>alert('이미 로그인되어 있습니다.'); history.go(-1);</script>");
-				out.flush();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+      if (session.getAttribute("member") != null) {
+         PrintWriter out;
+         try {
+            response.setContentType("text/html; charset=UTF-8");
+            out = response.getWriter();
+            out.println("<script>alert('이미 로그인되어 있습니다.'); history.go(-1);</script>");
+            out.flush();
+         } catch (IOException e) {
+            e.printStackTrace();
+         }
 
-		}
-		System.out.println("로그인 페이지");
+      }
+      System.out.println("로그인 페이지");
 
-		return "/member/loginView";
-	}
+      return "/member/loginView";
+   }
 
-	@RequestMapping(value = "jobsearchView.jo", method = RequestMethod.GET)
-	public String jobsearchView(Locale locale, Model model) {
+   @RequestMapping(value = "jobsearchView.jo", method = RequestMethod.GET)
+   public String jobsearchView(Locale locale, Model model) {
 
-		System.out.println("구직 페이지");
+      System.out.println("구직 페이지");
 
-		return "/jobsearch/jobsearchView";
-	}
+      return "/jobsearch/jobsearchView";
+   }
 
-	@RequestMapping(value = "blist.bl", method = RequestMethod.GET)
-	public String communityView(Locale locale, Model model) {
+   @RequestMapping(value = "blist.bl", method = RequestMethod.GET)
+   public String communityView(Locale locale, Model model) {
 
-		System.out.println("게시판 페이지");
+      System.out.println("게시판 페이지");
 
-		return "/community/communityView";
-	}
+      return "/community/communityView";
+   }
 
-	@RequestMapping(value = "servicecenter.se", method = RequestMethod.GET)
-	public String servicecenterView(Locale locale, Model model) {
+   @RequestMapping(value = "servicecenter.se", method = RequestMethod.GET)
+   public String servicecenterView(Locale locale, Model model) {
 
-		System.out.println("고객센터 페이지");
+      System.out.println("고객센터 페이지");
 
-		return "/servicecenter/servicecenterView";
-	}
+      return "/servicecenter/servicecenterView";
+   }
 
-	@RequestMapping(value = "mypage.my", method = RequestMethod.GET)
-	public String mypage(Locale locale, Model model) {
-		
-		System.out.println("마이 페이지");
-		
-		return "/mypage/mypage";
-	}
+   @RequestMapping(value = "mypage.my", method = RequestMethod.GET)
+   public String mypage(Locale locale, Model model) {
+      
+      System.out.println("마이 페이지");
+      
+      return "/mypage/mypage";
+   }
+   
 
 }

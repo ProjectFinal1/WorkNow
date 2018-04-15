@@ -10,6 +10,8 @@ $(document).ready(function(){
 	
 	var str;
 	
+	var buttonclick = 0;
+	
 	//첫번째 주소 클릭
 	$('.select_test').click(function(){
 		result_address1 = $(this).text();
@@ -273,7 +275,7 @@ $(document).ready(function(){
 			    				$(".pagelist").append("<a class='asd'>[다음]</a>");
 			    			}	
 				    		
-				    		for(var n=startrow-1; n<endrow-1; n++){
+				    		for(var n=startrow-1; n<=endrow-1; n++){
 				    			str = "<table class='table twotable'>" +				    				
 				    				"<tr>" +
 							      "<td>" +
@@ -296,8 +298,7 @@ $(document).ready(function(){
 																"</div>" + 
 																
 																"<figcaption>" +
-																	"<h2>상세히 보고 싶으시면 클릭해주세요</h2>" +	
-																	"<p>상세히 보기</p>" +
+																	"<h2 class='popo1111'>자세히보기</h2>" +	
 																	"<a href='#' data-toggle='modal' data-target='#Modal" + n +  "'>View more</a>" +
 																"</figcaption>" +
 															"</figure>" +
@@ -311,10 +312,12 @@ $(document).ready(function(){
 							     "</table>";
 							      
 							      	$('#detail_PER_TALK' + n).html(rboard[n].PER_TALK);
-							      	$('#detail_MEMBER_NAME' + n).html(rboard[n].MEMBER_NAME);
+							      	$('#detail_MEMBER_NAME' + n).html(rboard[n].MEMBER_NAME + " (" + rboard[n].PER_SEX +"자 " + rboard[n].PER_AGE + "세 )<br>");
 							      	$('#detail_MEMBER_PHONE' + n).html(rboard[n].MEMBER_PHONE);
+							      	$('#detail_MEMBER_EMAIL' + n).html(rboard[n].MEMBER_EMAIL);
 							      	$('#detail_RESUME_TYPE' + n).html(rboard[n].RESUME_TYPE);
-							      	$('#detail_RESUME_ENDDAY' + n).html(rboard[n].RESUME_ENDDAY);
+							      	$('#detail_PER_ADDRESS' + n).html("근무가능 지역 : " + rboard[n].PER_ADDRESS);
+							      	$('#detail_RESUME_ENDDAY' + n).html("근무 가능 날짜 : " + rboard[n].RESUME_STARTDAY + " ~ " + rboard[n].RESUME_ENDDAY);
 							      	$('#detail_RESUME_CONTENT' + n).html(rboard[n].RESUME_CONTENT);
 							      	
 					    			$("#tbody2").append(str); 
@@ -330,4 +333,26 @@ $(document).ready(function(){
 			});
 			
 	});
+	
+	$("#click_gogogo").click(function() {
+		if(buttonclick == 0 ){
+			if (confirm('신청하시겠습니까?')) {
+                alert("신청되었습니다");
+                $("#click_gogogo").text("신청취소");
+    			buttonclick = 1;
+           } else {
+               
+           }
+			
+		}else{
+			if (confirm('취소하시겠습니까??')) {
+                alert("취소되었습니다");
+                $("#click_gogogo").text("신청하기");
+    			buttonclick = 0;
+           } else {
+               
+           }
+		}
+	});
+	
 });

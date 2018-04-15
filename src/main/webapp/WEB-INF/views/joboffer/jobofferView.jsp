@@ -459,28 +459,23 @@
 						<div class="modal-works2">
 						<div class="images">
 						<hr>
-						<h3><span class="preview_name">이력서 </span><span id="detail_PER_TALK${i}">PER_TALK</span></h3>
+						<h3><span class="detail_PER_TALK">&nbsp;&nbsp;&nbsp;</span><span id="detail_PER_TALK${i}">PER_TALK</span></h3>
 						<table>
 						<tr><td style="width:300px"><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_img" /></td>				
-						<td><div id="detail_MEMBER_NAME${i}">MEMBER_NAME(PER_SEX PER_AGE)</div></td>
-						<td><div id="detail_MEMBER_PHONE${i}">MEMBER_PHONE   MEMBER_EMAIL</div></td>	
-						<td><div id="detail_RESUME_TYPE${i}">RESUME_TYPE PER_ADDRESS</div></td></tr>	
+						<td><p id="detail_MEMBER_NAME${i}" class="kekeke1">MEMBER_NAME(PER_SEX PER_AGE)</p>
+						<p><span class="kekeke">핸드폰 번호 : </span><span id="detail_MEMBER_PHONE${i}"></span></p>
+						<p><span class="kekeke">이메일 : </span><span id="detail_MEMBER_EMAIL${i}""></span></p>
+						<p><span class="kekeke">가능한 업종 : </span><span id="detail_RESUME_TYPE${i}"></span></p>
 						</table>
 						<hr>
-						<br> 
 						</div>
 						
-						<div class="preview_content">
-						<h3>시간</h3>
-						<hr>
-						<div id="detail_RESUME_ENDDAY${i}">RESUME_DATE  RESUME_ENDDAY</div>
-						</div>
 						<div class="preview_maps">
 						<h3>자기소개</h3>
 						<hr>
 						<table class="preview_maptable">
 						<!-- 네이버 지도 api 공간  id=map 으로 줄것-->
-						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
+						<tr><td rowspan=5><div id="map" style="width:250px;height:250px;"></div></td>
 						<td><span>자기소개 : </span><span class="preview_tel" id="detail_RESUME_CONTENT${i}">RESUME_CONTENT</span></td></tr>
 						
 						
@@ -489,9 +484,22 @@
 							
 						</div>
 						
+						<div class="preview_content">
+						<h3>시간</h3>
+						<hr>
+						<div id="detail_RESUME_ENDDAY${i}">RESUME_DATE  RESUME_ENDDAY</div>
+						</div>
+						
+						<br><br>
+						<div class="preview_content">
+						<h3>근무 가능 지역</h3>
+						<hr>
+						<div id="detail_PER_ADDRESS${i}">PER_ADDRESS</div>	
+						</div>
+						
 						<hr>
 						<div class="text-center">
-						<button class="btn btn-default btn-sm"><i class="fas fa-exchange-alt">신청하기</i></button>
+						<button class="btn btn-default btn-sm" id="click_gogogo">신청하기</button>
 						</div>
 						
 						</div>
