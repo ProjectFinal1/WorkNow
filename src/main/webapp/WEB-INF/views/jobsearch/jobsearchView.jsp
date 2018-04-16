@@ -826,8 +826,10 @@
 		
 	</div>
 	<script src="resources/js/jobsearch.js"></script>
+
 	<!-- 네이버지도 api -->
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=zlXwIca6xGMLNnnR5Qcd&submodules=geocoder"></script>
 		
+
 </body>
 </html>

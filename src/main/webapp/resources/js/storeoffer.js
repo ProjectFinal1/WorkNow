@@ -1,9 +1,6 @@
 
-$(document).ready(function() {
-	
-	
+$(document).ready(function() {	
 	//파일업로드 ajax처리
-	
 	$("#fileupload").click(function(){
 		
 		if($(".isPhoto").val()=="true")
@@ -33,8 +30,7 @@ $(document).ready(function() {
 			alert("이미지파일만 업로드가능합니다.");
 		}
 		
-	});
-	
+	});	
 	//회원정보 불러오기 ajax처리
 	$("#cominfo_refresh").click(function(){
 		
@@ -67,6 +63,7 @@ $(document).ready(function() {
 
 
 // //왼쪽 박스 이미지 체인지
+
 
 	$('#ex_file').change(function() {
 					var parent = $(this).parent();
@@ -117,13 +114,18 @@ $(document).ready(function() {
 		if($('input:checkbox[id="p1"]').is(":checked") == true)
 		{
 			payment+=5000;
+
 			
 			$("#p_level").val(Number($("#p_level").val())+5);
+
+
 		}
 		else
 		{
 			payment-=5000;
+
 			$("#p_level").val(Number($("#p_level").val())-5);
+
 		}
 		$(".payvalue").text(payment);
 	});
@@ -140,6 +142,7 @@ $("#p2").change(function(){
 		{
 			payment-=1000;
 			$("#p_level").val(Number($("#p_level").val())-1);
+
 		}
 		$(".payvalue").text(payment);
 	});
@@ -150,7 +153,9 @@ $("#p3").change(function(){
 	if($('input:checkbox[id="p3"]').is(":checked") == true)
 	{
 		payment+=2000;
+
 		$("#p_level").val(Number($("#p_level").val())+2);
+
 	}
 	else
 	{
@@ -185,16 +190,12 @@ $.ajax({
 
 //프리뷰 쿼리 처리
 $("#preview_btn").click(function(){
-	
-	
 	//제목
 	$(".preview_title").text($(".main_top").val());
 	//회사/점포명
 	$(".preview_name").text($(".company_name").val());
 	//사진
 	$(".preview_img").attr("src",$(".img-responsive").attr("src"));
-	
-	
 	
 	//직종 아이콘 처리 7가지
 	if($("select[name=job_select]").val()=="service")
@@ -247,7 +248,7 @@ $("#preview_btn").click(function(){
 		AgeIconText="<i class='fas fa-angle-double-down' ></i>";
 	$(".age").html("<span>"+$(".age_num").val()+"</span>"+AgeIconText);
 	
-	//근무인원수 처리
+  //근무인원수 처리
 	$(".preview_max").text($(".max_num").val());
 	
 	//근무날짜처리
@@ -270,7 +271,6 @@ $("#preview_btn").click(function(){
 	$('.preview_road_address').text($("input[name=address1]").val());
 	$('.preview_address1').text($("input[name=address2]").val());
 	$('.preview_address2').text($("input[name=address3]").val());
-	
 	
 	//네이버 지도 api입니다.
 	var map = new naver.maps.Map('map');
@@ -307,7 +307,7 @@ $("#preview_btn").click(function(){
         });
     });
     /////////////////////////////////////////////////////////////////////////////////////////
-		
+	
 });
 
 //제목넣긔
@@ -330,5 +330,4 @@ $( ".job_board" ).submit(function( event ) {
 
 
 });
-
 

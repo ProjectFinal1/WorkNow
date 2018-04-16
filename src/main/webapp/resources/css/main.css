@@ -86,7 +86,25 @@ dd.hidden {display: none;}
 .content2{ color: #fff; font-size:12px; }
 
 
+/*  상세보기 화면 기업 아이콘 크기 */
+.img_content{width:30%; vertical-align:top;}
+#balckblack{color:black}
+
+.search_tob{width:7%;display:inline; margin: 0 0 5% 5%;}
+
+/*  상세보기 화면 기업 아이콘 크기 */
+.img_content{width:30%; vertical-align:top;}
+#balckblack{color:black}
 
 
 
+.sel_address1{margin-left:20px;}
+.select_test{display:block; width:80%; text-align:left; font-size:14px; color:black; margin-left:10px;
+			 padding: 3px 3px 3px 3px}
+.select_test2{display:block; width:80%; text-align:left; font-size:14px; color:black; margin-left:10px;
+			 padding: 3px 3px 3px 3px}
+			 
+			 
+#result_select1{display:block;}
+#result_select2{display:block;}
 
