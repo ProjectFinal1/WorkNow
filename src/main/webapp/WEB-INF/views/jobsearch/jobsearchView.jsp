@@ -26,50 +26,48 @@
 
 
 <style>
-#label-1 {
-	position: absolute;
-	top: 40%;
-	left: 22%;
-	opacity: 0.8;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.65);
-	margin-bottom: 25px;
-	padding: 4px 20px;
-	font-size: 19px;
-	color: #3E3E3E;
-	font-weight: 300;
-	line-height: 40px;
-	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+#label-1 {	
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 25px;
+    padding: 4px 10px;
+    font-size: 19px;
+    color: #3E3E3E;
+    font-weight: 200;
+    line-height: 40px;
+    font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
-#label-2 {
-	position: absolute;
-	top: 40%;
-	left: 25%;
-	opacity: 0.8;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.65);
-	margin-bottom: 25px;
-	padding: 4px 20px;
-	font-size: 19px;
-	color: #3E3E3E;
-	font-weight: 300;
-	line-height: 40px;
-	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+#label-2 {	
+    position: absolute;
+    top: 100%;
+    left: 8%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 25px;
+    padding: 4px 10px;
+    font-size: 19px;
+    color: #3E3E3E;
+    font-weight: 300;
+    line-height: 40px;
+    font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
 #label-3 {
-	position: absolute;
-	top: 40%;
-	left: 20%;
-	opacity: 0.8;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.65);
-	margin-bottom: 25px;
-	padding: 4px 20px;
-	font-size: 19px;
-	color: #3E3E3E;
-	font-weight: 300;
-	line-height: 40px;
-	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+	
+    position: absolute;
+    top: 100%;
+    left: 8%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 25px;
+    padding: 4px 10px;
+    font-size: 19px;
+    color: #3E3E3E;
+    font-weight: 300;
+    line-height: 40px;
+    font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
 </style>
 </head>
@@ -79,10 +77,10 @@
 		<jsp:include page="/WEB-INF/views/header/header.jsp" />
 		<link href="resources/css/jobsearch.css" rel="stylesheet">
 			<div class="container">
+				<div class="kdkdk3">
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div class="section-title">
-							<h2>구직 페이지</h2>
 						</div>
 					</div>
 				</div>
@@ -127,7 +125,7 @@
 						</div>
 					</div>
 				</div>
-				
+				</div>
 				<table class="table">
 				  <thead>
 				    <tr>
@@ -323,9 +321,6 @@
 									<a class="select_tob" href="#" onclick= "return false;">기타부업/카페<br></a> 
 						   	</div>
 						</div>
-						<div  style="float: left; width:50%;">
-							<img src="resources/images/main/desktop.png" alt="img01" class="search_tob" id="search_all" />
-						</div>
 			  			
 				      </td>
 				      <td>
@@ -378,10 +373,10 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
-																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
+																	<a class='contents_sub'> KH카페</a> <a class='contents_value'>시급 : 10000원</a>
+																	<a class='contents_address'>근무지 : 서울특별시 강남구</a><br>	
 																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
-																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	<a class='contents_type'>음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
 																	
 																	<hr>
 																</div>
@@ -410,7 +405,7 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_sub'> KH카페</a> <a class='contents_value'>시급 : 10000원</a>
 																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
 																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
 																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
@@ -442,10 +437,10 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
-																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
-																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	<a class='contents_sub'> 몽노래방</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_address'>근무지 : 경기 안양시</a><br>	
+																	<a class='contents_contents'> 노래방 관리할 사람 구합니다. 성실한분</a> 
+																	<a class='contents_type'>	서비스 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
 																	
 																	<hr>
 																</div>
@@ -474,10 +469,10 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
-																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
-																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	<a class='contents_sub'> 헤어프리</a> <a class='contents_value'>시급 : 9000원</a>
+																	<a class='contents_address'>근무지 : 서울 역삼동</a><br>	
+																	<a class='contents_contents'> 미용실 매니저 알바 구합니다. 단기알바</a> 
+																	<a class='contents_type'>	서비스</a> <a class='contents_type'> 2018.04.22 ~ 2018.05.11</a> 
 																	
 																	<hr>
 																</div>
@@ -506,9 +501,9 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
-																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_sub'> KH술집</a> <a class='contents_value'>시급 : 9000원</a>
+																	<a class='contents_address'>근무지 : 경기 화성시</a><br>	
+																	<a class='contents_contents'> 서빙알바 구합니다. 재밌게 일하실분!!</a> 
 																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
 																	
 																	<hr>
@@ -538,9 +533,9 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_sub'> 성우편의점</a> <a class='contents_value'>시급 : 10000원</a>
 																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_contents'> 꿀알바생 구합니다 ^_^ 어여오세요</a> 
 																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
 																	
 																	<hr>
@@ -569,9 +564,40 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_sub'> 영화관알바</a> <a class='contents_value'>시급 : 8800원</a>
 																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
+																	<a class='contents_contents'> 카운터 하실 미소지기 구합니다! 단기</a> 
+																	<a class='contents_type'>	서비스 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	
+																	<hr>
+																</div>
+																
+																<figcaption> 
+																	<h2 class="ikqwe">자세히 보기</h2> 
+																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
+																</figcaption> 
+															</figure> 
+														</div> 
+													</div> 
+											</div> 
+										</div> 
+										</div><br>
+							      </td> 
+							     </tr> 
+							     <tr class='lala1' style="display:none;">  
+							      <td> 
+								      <div class=''> 
+										<div class=''> 
+											<div class=''> 
+													<div> 
+														<div class='ot-portfolio-item' > 
+															<figure class='effect-bubba' id='resultall'> 
+																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
+																<div class="contents_all">
+																	
+																	<a class='contents_sub'> 초밥뷔페</a> <a class='contents_value'>시급 : 6700원</a>
+																	<a class='contents_address'>근무지 : 경기 화성시</a><br>	
+																	<a class='contents_contents'> 열정적인 뷔페알바생 구합니다 성실한분</a> 
 																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
 																	
 																	<hr>
@@ -600,10 +626,10 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
+																	<a class='contents_sub'> 짜장면배달</a> <a class='contents_value'>시급 : 15000원</a>
 																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
-																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	<a class='contents_contents'> 배달 알바생 구합니다. 날쌘돌이 환영</a> 
+																	<a class='contents_type'>	배달</a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
 																	
 																	<hr>
 																</div>
@@ -617,7 +643,7 @@
 													</div> 
 											</div> 
 										</div> 
-										</div><br>
+										</div><br> 
 							      </td> 
 							     </tr> 
 							     <tr class='lala1' style="display:none;">  
@@ -631,41 +657,10 @@
 																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
 																<div class="contents_all">
 																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
-																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'> 판매 및 매장관리 아르바이트 구합니다</a> 
-																	<a class='contents_type'>	서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
-																	
-																	<hr>
-																</div>
-																
-																<figcaption> 
-																	<h2 class="ikqwe">자세히 보기</h2> 
-																	<a href='#' data-toggle='modal' data-target='#Modal1'>View more</a> 
-																</figcaption> 
-															</figure> 
-														</div> 
-													</div> 
-											</div> 
-										</div> 
-										</div><br>
-							      </td> 
-							     </tr> 
-							     <tr class='lala1' style="display:none;">  
-							      <td> 
-								      <div class=''> 
-										<div class=''> 
-											<div class=''> 
-													<div> 
-														<div class='ot-portfolio-item' > 
-															<figure class='effect-bubba' id='resultall'> 
-																<img src='resources/images/demo/shop-icon.png' alt='img02' class='img-responsive' /> 
-																<div class="contents_all">
-																	
-																	<a class='contents_sub'> 배스킨라빈스</a> <a class='contents_value'>시급 : 7000원</a>
-																	<a class='contents_address'>근무지 : 경기 수원시</a><br>	
-																	<a class='contents_contents'>판매 및 매장관리 아르바이트 구합니다</a> 
-																	<a class='contents_type'>서비스,음식점/카페 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
+																	<a class='contents_sub'> 할인마트 직원</a> <a class='contents_value'>시급 : 7700원</a>
+																	<a class='contents_address'>근무지 : 서울시 강남구</a><br>	
+																	<a class='contents_contents'>할인마트 단기알바 구합니다 오래하실분</a> 
+																	<a class='contents_type'>서비스 </a> <a class='contents_type'> 2018.04.16 ~ 2018.05.16</a> 
 																	
 																	<hr>
 																</div>
@@ -707,12 +702,12 @@
 						<div class="modal-works2">
 						<div class="images">
 						<hr>
-						<h3><span class="preview_name">회사/점포명  </span><span> 지원자격</span></h3>
+						<h3><span class="preview_name">KH카페  </span><span> 지원자격</span></h3>
 						<table>
 						<tr><td style="width:300px"><img src="resources/images/demo/shop-icon.png" alt="매장 이미지" class="preview_img" /></td>				
-						<td><div class="preview_icon text-center service">서비스</div></td>
+						<td><div class="preview_icon text-center service">시급</div></td>
 						<td><div class="preview_icon text-center sex">남</div></td>	
-						<td><div class="preview_icon text-center age">24세</div></td></tr>	
+						<td><div class="preview_icon text-center age">00세</div></td></tr>	
 						</table>
 						<br>
 						<span class="text_12">현재 모집인원 </span><span class="preview_max text_12"></span><span class="text_12 preiview_num">/ 1 명</span>
@@ -725,13 +720,13 @@
 						<hr>
 						근무날짜  : <div class="preview_day">2018년 04월 16일 ~ 2018년 05월 16일</div><br>
 						근무시간 : <div class="preview_hour">09:00 ~ 18:00</div><br>
-						급여분류 : <div class="preview_pay">시급 7000원</div>
-						</div>
+						급여분류 : <div class="preview_pay">시급 10000원</div>
+						</div><br>
 						
 						<div class="preview_content">
 						<h3>소개글</h3>
 						<hr>
-						<div class="preview_content_text">미리보기 본문입니다.</div>
+						<div class="preview_content_text">KH카페 성실한 알바생 구합니다.</div>
 						</div>
 						<div class="preview_maps">
 						<h3>찾아오시는길</h3>
@@ -741,7 +736,7 @@
 						<tr><td rowspan=6><div id="map" style="width:250px;height:250px;"></div></td>
 						<td><span>연락처 : </span><span class="preview_tel">010-000-0000</span></td></tr>
 						<tr><td><span>이메일 : </span><span class="preview_email">ikqwe31@naver.com</span></td></tr>
-						<tr><td><span>회사주소 : </span><span class="preview_road_address">경기 수원시 권선구 100-2번지 토마토빌딩</span></td></tr>
+						<tr><td><span>회사주소 : </span><span class="preview_road_address">서울특별시 강남구 테헤란로 14길 6</span></td></tr>
 						
 						</table>
 							
@@ -831,6 +826,10 @@
 		
 	</div>
 	<script src="resources/js/jobsearch.js"></script>
+
+	<!-- 네이버지도 api -->
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=zlXwIca6xGMLNnnR5Qcd&submodules=geocoder"></script>
+		
 
 </body>
 </html>

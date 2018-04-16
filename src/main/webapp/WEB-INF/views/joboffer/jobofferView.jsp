@@ -27,49 +27,46 @@
 
 <style>
 #label-1 {
-	position: absolute;
-	top: 40%;
-	left: 22%;
-	opacity: 0.8;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.65);
-	margin-bottom: 25px;
-	padding: 4px 20px;
-	font-size: 19px;
-	color: #3E3E3E;
-	font-weight: 300;
-	line-height: 40px;
-	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+	 position: absolute;
+    top: 100%;
+    left: 5%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 25px;
+    padding: 4px 10px;
+    font-size: 19px;
+    color: #3E3E3E;
+    font-weight: 200;
+    line-height: 40px;
+    font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
 #label-2 {
 	position: absolute;
-	top: 40%;
-	left: 25%;
-	opacity: 0.8;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.65);
-	margin-bottom: 25px;
-	padding: 4px 20px;
-	font-size: 19px;
-	color: #3E3E3E;
-	font-weight: 300;
-	line-height: 40px;
-	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+    top: 100%;
+    left: 8%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 25px;
+    padding: 4px 10px;
+    font-size: 19px;
+    color: #3E3E3E;
+    font-weight: 300;
+    line-height: 40px;
+    font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
 #label-3 {
-	position: absolute;
-	top: 40%;
-	left: 20%;
-	opacity: 0.8;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.65);
-	margin-bottom: 25px;
-	padding: 4px 20px;
-	font-size: 19px;
-	color: #3E3E3E;
-	font-weight: 300;
-	line-height: 40px;
-	font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+	 position: absolute;
+    top: 100%;
+    left: 8%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 25px;
+    padding: 4px 10px;
+    font-size: 19px;
+    color: #3E3E3E;
+    font-weight: 300;
+    line-height: 40px;
+    font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
 }
 </style>
 </head>
@@ -79,11 +76,12 @@
 		<jsp:include page="/WEB-INF/views/header/header.jsp" />
 		<link href="resources/css/joboffer.css" rel="stylesheet">
 			<div class="container">
+				<div class="kdkdk2">
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<div class="section-title">
-							<h2>구인 페이지</h2>
-						</div>
+<!-- 						<div class="section-title"> -->
+<!-- 							<h2>구인 페이지</h2> -->
+<!-- 						</div> -->
 					</div>
 				</div>
 				<div class="row">
@@ -127,7 +125,7 @@
 						</div>
 					</div>
 				</div>
-				
+				</div>
 				<table class="table">
 				  <thead>
 				    <tr>

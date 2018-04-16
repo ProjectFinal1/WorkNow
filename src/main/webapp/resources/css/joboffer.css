@@ -132,10 +132,10 @@ hr {
 /* 	height:300px; */
 /* } */
 .img-responsive{
-	width:160px;
-	height:160px;
-	display: inline;
-	 float:left;
+    width: 90px;
+    height: 90px;
+    display: inline;
+    float: left;
 }
 
 figure.effect-bubba h2{
@@ -235,7 +235,7 @@ figure.effect-bubba{
 
 
 .jobofferbtn1 {
-	width: 33%;
+	width: 25%;
 	position: relative;
 	min-height: 1px;
 	padding-right: 15px;
@@ -493,7 +493,11 @@ header{
 
 
 
-
+.kdkdk2{
+	height:150px;
+	margin-top:130px;
+	margin-left:260px; 
+}
 
 
 

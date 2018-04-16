@@ -1,6 +1,6 @@
 
-$(document).ready(function() {
-	//파일업로드 ajax처리	
+$(document).ready(function() {	
+	//파일업로드 ajax처리
 	$("#fileupload").click(function(){
 		
 		if($(".isPhoto").val()=="true")
@@ -30,28 +30,41 @@ $(document).ready(function() {
 			alert("이미지파일만 업로드가능합니다.");
 		}
 		
+	});	
+	//회원정보 불러오기 ajax처리
+	$("#cominfo_refresh").click(function(){
+		
+		var id=$("#userid").val(); 
+		
+		//에이젝스를 통한 캐쉬값을 받아와 처리하기
+	$.ajax({
+	    url : "cominfo_refresh.of", // 호출할 페이지 or 서블릿 을 적어준다.
+	    type : "GET", //보낼방식 겟or post
+	    data : {id : id}, //데이타 타입 여러개 전송가능
+	    success : function(data) {
+	        //alert("성공!! cash = "+data);
+	    	$("input[name=email]").val();
+	    	$("input[name=ceo]").val();
+	    	$("input[name=telnumber]").val();
+	    	$("input[name=company_name]").val();
+	    	$("input[name=address1]").val();
+	    	$("input[name=company_name]").val();
+	        $(".cashvalue").text(data);
+	    },
+	    error : function(jqXHR, textStatus, errorThrown) {
+	        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+	    }
+		});
+
+		return false;
 	});
-  /*
-  일단 주석 해둠
-  
-	// var fileTarget = $('.upload-hidden');
-	//파일 이름 처리
-	$('#ex_file').change(function() { // 값이변경되면
+	
 
-		if (window.FileReader) {// modern browser
-			var filename = $(this)[0].files[0].name;
 
-		} else { // old IE
-			var filename = $(this).val().split('/').pop().split('\\').pop();
-			// 파일명만 추출
-		}
-		// 추출한파일명 삽입
-		$('.upload-name').val(filename);
 
-			});
-  */
-  
-  //왼쪽 박스 이미지 체인지
+// //왼쪽 박스 이미지 체인지
+
+
 	$('#ex_file').change(function() {
 					var parent = $(this).parent();
 					parent.children('.upload-display').remove();
@@ -101,10 +114,18 @@ $(document).ready(function() {
 		if($('input:checkbox[id="p1"]').is(":checked") == true)
 		{
 			payment+=5000;
+
+			
+			$("#p_level").val(Number($("#p_level").val())+5);
+
+
 		}
 		else
 		{
 			payment-=5000;
+
+			$("#p_level").val(Number($("#p_level").val())-5);
+
 		}
 		$(".payvalue").text(payment);
 	});
@@ -114,11 +135,14 @@ $("#p2").change(function(){
 		var payment=Number($(".payvalue").text());
 		if($('input:checkbox[id="p2"]').is(":checked") == true)
 		{
-			payment+=2000;
+			payment+=1000;
+			$("#p_level").val(Number($("#p_level").val())+1);
 		}
 		else
 		{
-			payment-=2000;
+			payment-=1000;
+			$("#p_level").val(Number($("#p_level").val())-1);
+
 		}
 		$(".payvalue").text(payment);
 	});
@@ -129,10 +153,14 @@ $("#p3").change(function(){
 	if($('input:checkbox[id="p3"]').is(":checked") == true)
 	{
 		payment+=2000;
+
+		$("#p_level").val(Number($("#p_level").val())+2);
+
 	}
 	else
 	{
 		payment-=2000;
+		$("#p_level").val(Number($("#p_level").val())-2);
 	}
 	$(".payvalue").text(payment);
 });
@@ -145,7 +173,7 @@ $("#cash_refresh").click(function(){
 	
 	//에이젝스를 통한 캐쉬값을 받아와 처리하기
 $.ajax({
-    url : "cash_refresh.ma", // 호출할 페이지 or 서블릿 을 적어준다.
+    url : "cash_refresh.of", // 호출할 페이지 or 서블릿 을 적어준다.
     type : "GET", //보낼방식 겟or post
     data : {id : id}, //데이타 타입 여러개 전송가능
     success : function(data) {
@@ -162,14 +190,12 @@ $.ajax({
 
 //프리뷰 쿼리 처리
 $("#preview_btn").click(function(){
-
 	//제목
 	$(".preview_title").text($(".main_top").val());
 	//회사/점포명
 	$(".preview_name").text($(".company_name").val());
 	//사진
 	$(".preview_img").attr("src",$(".img-responsive").attr("src"));
-	
 	
 	//직종 아이콘 처리 7가지
 	if($("select[name=job_select]").val()=="service")
@@ -221,6 +247,9 @@ $("#preview_btn").click(function(){
 	else
 		AgeIconText="<i class='fas fa-angle-double-down' ></i>";
 	$(".age").html("<span>"+$(".age_num").val()+"</span>"+AgeIconText);
+	
+  //근무인원수 처리
+	$(".preview_max").text($(".max_num").val());
 	
 	//근무날짜처리
 	$(".preview_day").html("<input type='date' value="+$(".start_day").val() +" disabled='disabled'>&nbsp; ~ &nbsp;<input type='date' value="+$(".end_day").val()+" disabled='disabled'>");
@@ -280,6 +309,25 @@ $("#preview_btn").click(function(){
     /////////////////////////////////////////////////////////////////////////////////////////
 	
 });
-//submit 유효성 검사 처리
+
+//제목넣긔
+$(".main_top").keydown(function(){
+	$("#top_subject").val($(".main_top").val());	
 
 });
+
+
+//submit 처리 수정중 15%
+$( ".job_board" ).submit(function( event ) {
+	if($(".currentcash").val()=="")
+	{
+		
+	}
+	  event.preventDefault();
+});
+
+
+
+
+});
+
